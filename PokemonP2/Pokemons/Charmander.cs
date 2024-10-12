@@ -20,7 +20,7 @@ public class Charmander: IPokemon
     public int VidaTotal
     {
         get { return this.vidaTotal;}
-        set { this.VidaTotal = value; }
+        set { this.vidaTotal = value; }
     }
     public int Dano
     {

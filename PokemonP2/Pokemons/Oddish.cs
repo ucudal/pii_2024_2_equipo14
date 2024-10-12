@@ -1,11 +1,11 @@
 namespace PokemonP2;
 
-public class Bulbasaur: IPokemon
+public class Oddish: IPokemon
 {
     private int vidaTotal = 80;
     public string Nombre
     {
-        get { return "Bulbasaur"; }
+        get { return "Oddish"; }
     }
 
     public ITipo Tipo

@@ -5,7 +5,7 @@ public class Ataque
     public static int CalcularAtaque(IPokemon pokemon1, IPokemon pokemon2)
     {
         int ataque = 0;
-        if (pokemon1.Tipo == pokemon2.Tipo)
+        if (pokemon1.Tipo.Nombre == pokemon2.Tipo.Nombre)
         {
             ataque = pokemon1.Dano;
         }
@@ -18,7 +18,8 @@ public class Ataque
         }
 
         if ((pokemon1.Tipo.Nombre == "Planta" && pokemon2.Tipo.Nombre == "Agua") || 
-            (pokemon1.Tipo.Nombre == "Fuego" && pokemon2.Tipo.Nombre == "Agua"))
+            (pokemon1.Tipo.Nombre == "Fuego" && pokemon2.Tipo.Nombre == "Agua") ||
+            pokemon1.Tipo.Nombre == "Planta" && pokemon2.Tipo.Nombre == "Fuego")
         {
            ataque = pokemon1.Dano / 2;
         }

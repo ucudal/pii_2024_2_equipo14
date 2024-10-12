@@ -1,21 +1,21 @@
 namespace PokemonP2;
 
-public class Bulbasaur: IPokemon
+public class Vulpix: IPokemon
 {
-    private int vidaTotal = 80;
+    private int vidaTotal = 60;
     public string Nombre
     {
-        get { return "Bulbasaur"; }
+        get { return "Charmander"; }
     }
 
     public ITipo Tipo
     {
-        get { return new Planta(); }
+        get { return new Fuego(); }
 
     }
     public int VidaInicial 
     {
-        get { return 80; }
+        get { return 60; }
     }
     public int VidaTotal
     {
@@ -24,6 +24,6 @@ public class Bulbasaur: IPokemon
     }
     public int Dano
     {
-        get { return 30; }
+        get { return 40; }
     }
 }

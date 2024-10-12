@@ -1,0 +1,12 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestProjectMapping/=A7161BBB_002D96EF_002D4070_002DAA85_002D13DF28A38D7B/@EntryIndexedValue">386472CF-87EA-4146-9BE4-A8751FEC1BF9</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=MSTest/@EntryIndexedValue">d6790ab7-33c2-4425-b2c9-51480cd1a852</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/CreateUnitTestDialog/TestTemplateMapping/=NUnit3x/@EntryIndexedValue">db4927dd-2e12-48a7-9a84-2b7e3e31b9c8</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1e4e0b0b_002D1da6_002D4248_002D843f_002D6aa48e8fe202/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestIniciarCombate" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::386472CF-87EA-4146-9BE4-A8751FEC1BF9::net8.0::PokemonP2Tests.Otros.CombateTests.TestIniciarCombate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::386472CF-87EA-4146-9BE4-A8751FEC1BF9::net8.0::PokemonP2Tests.Otros.JugadorTests.TestCrearJugador&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::386472CF-87EA-4146-9BE4-A8751FEC1BF9::net8.0::PokemonP2Tests.Otros.JugadorTests.TestAtacar&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::386472CF-87EA-4146-9BE4-A8751FEC1BF9::net8.0::PokemonP2Tests.Otros.JugadorTests.TestAtacarEspecial&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
