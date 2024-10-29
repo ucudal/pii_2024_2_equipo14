@@ -1,11 +1,11 @@
 using NUnit.Framework;
-using PokemonP2;
+using Library;
 
-namespace PokemonP2Tests.Otros;
+namespace LibraryTests.Otros;
 
 [TestFixture]
-[TestOf(typeof(Jugador))]
-public class JugadorTests
+[TestOf(typeof(Entrenador))]
+public class EntrenadorTests
 {
     [Test]
     public void METHOD()
@@ -15,7 +15,7 @@ public class JugadorTests
     [Test]
     public void TestCrearJugador()
     {
-        Jugador jugador1 = new Jugador("Jugador1");
+        Entrenador jugador1 = new Entrenador("Jugador1");
 
         string nombreEsperado = "Jugador1";
         int elementosListaPokemonEsperados = 0;
@@ -30,8 +30,8 @@ public class JugadorTests
     [Test]
     public void TestAtacar()
     {
-        Jugador jugador1 = new Jugador("Jugador1");
-        Jugador jugador2 = new Jugador("Jugador2");
+        Entrenador jugador1 = new Entrenador("Jugador1");
+        Entrenador jugador2 = new Entrenador("Jugador2");
         jugador1.AgregarPokemon(new Bulbasaur());
         jugador2.AgregarPokemon(new Oddish());
         jugador1.PokemonActual = jugador1.GetMisPokemons()[0];
@@ -53,8 +53,8 @@ public class JugadorTests
     [Test]
     public void TestAtacarEspecial()
     {
-        Jugador jugador1 = new Jugador("Jugador1");
-        Jugador jugador2 = new Jugador("Jugador2");
+        Entrenador jugador1 = new Entrenador("Jugador1");
+        Entrenador jugador2 = new Entrenador("Jugador2");
         jugador1.AgregarPokemon(new Bulbasaur());
         jugador2.AgregarPokemon(new Oddish());
         jugador1.PokemonActual = jugador1.GetMisPokemons()[0];

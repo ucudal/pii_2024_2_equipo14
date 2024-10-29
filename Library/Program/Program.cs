@@ -1,10 +1,10 @@
-﻿using PokemonP2;
+﻿using Library;
 
 public class Program
 {
     public static void Main()
     {
-        Jugador isabela = new Jugador("Isabela");
+        Entrenador isabela = new Entrenador("Isabela");
         isabela.AgregarPokemon(new Bulbasaur());
         isabela.AgregarPokemon(new Squirtle());
         isabela.AgregarPokemon(new Oddish());
@@ -12,7 +12,7 @@ public class Program
         isabela.AgregarPokemon(new Vulpix());
         isabela.AgregarPokemon(new Psyduck());
         
-        Jugador vanesa = new Jugador("Vanesa");
+        Entrenador vanesa = new Entrenador("Vanesa");
         vanesa.AgregarPokemon(new Charmander());
         vanesa.AgregarPokemon(new Psyduck());
         vanesa.AgregarPokemon(new Oddish());

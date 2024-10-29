@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonP2", "PokemonP2\PokemonP2.csproj", "{A7161BBB-96EF-4070-AA85-13DF28A38D7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library", "Library\Library.csproj", "{A7161BBB-96EF-4070-AA85-13DF28A38D7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonP2Tests", "PokemonP2Tests\PokemonP2Tests.csproj", "{386472CF-87EA-4146-9BE4-A8751FEC1BF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "LibraryTests\LibraryTests.csproj", "{386472CF-87EA-4146-9BE4-A8751FEC1BF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

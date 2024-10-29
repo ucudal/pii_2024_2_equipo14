@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using PokemonP2;
+using Library;
 
-namespace PokemonP2Tests.Otros;
+namespace LibraryTests.Otros;
 
 [TestFixture]
 [TestOf(typeof(Combate))]
@@ -17,8 +17,8 @@ public class CombateTests
     [Test]
     public void TestIniciarCombate()
     {
-        Jugador jugador1 = new Jugador("Jugador1");
-        Jugador jugador2 = new Jugador("Jugador2");
+        Entrenador jugador1 = new Entrenador("Jugador1");
+        Entrenador jugador2 = new Entrenador("Jugador2");
         Combate.IniciarCombate(jugador1,jugador2);
         
         bool jugador1TurnoEsperado = true;
