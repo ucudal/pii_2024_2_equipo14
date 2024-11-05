@@ -1,4 +1,4 @@
-namespace Library.Otros;
+namespace Library;
 
 public class Iceberg: Ataque
 {

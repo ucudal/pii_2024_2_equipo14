@@ -1,4 +1,4 @@
-namespace Library.Otros;
+namespace Library;
 
 public static class Pokedex
 {
@@ -11,9 +11,14 @@ public static class Pokedex
         new Vanillite(), new Voltorb(), new Vullaby(), new Vulpix(), new Wurmple()
     };
 
-    public Pokemon BuscarPokemon(string nombre)
+    public static Pokemon BuscarPokemon(string nombre)
     {
-        
+        Pokemon pokemon = listaPokemons.Find(pokemon => pokemon.Nombre == nombre);
+        if (pokemon != null)
+        {
+            return pokemon;
+        }
+        return null;
     }
     
 }
