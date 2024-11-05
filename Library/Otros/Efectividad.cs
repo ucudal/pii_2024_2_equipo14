@@ -2,19 +2,17 @@ namespace Library;
 
 public class Efectividad
 {
-    public void CalcularEfectividad(Ataque ataque, Pokemon pokemon)
+    public int CalcularEfectividad(Ataque ataque, Pokemon pokemon)
     {
+        int danoFinal = 0;
         if (pokemon.GetDebilContra().Contains(ataque.Tipo))
         {
-            pokemon.RecibirDano(ataque.Dano*2);
+            danoFinal = ataque.Dano*2;
         }
         if (pokemon.GetResistenteContra().Contains(ataque.Tipo))
         {
-            pokemon.RecibirDano(ataque.Dano/2);
+            danoFinal = ataque.Dano / 2;
         }
-        if (pokemon.GetInmuneContra().Contains(ataque.Tipo))
-        { 
-            pokemon.RecibirDano(0);  
-        }
+        return danoFinal;
     }
 }

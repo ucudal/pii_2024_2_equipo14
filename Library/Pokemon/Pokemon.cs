@@ -27,7 +27,6 @@ public abstract class Pokemon
     {
         return this.Tipo.resistenteContra;
     }
-
     public List<Tipo> GetInmuneContra()
     {
         return this.Tipo.inmuneContra;
