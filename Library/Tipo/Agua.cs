@@ -5,10 +5,10 @@ public class Agua: Tipo
     public Agua()
     {
         this.Nombre = "Agua";
-        this.debilContra.Add(new Electrico());
-        this.debilContra.Add(new Planta());
-        this.resistenteContra.Add(new Agua());
-        this.resistenteContra.Add(new Fuego());
-        this.resistenteContra.Add(new Hielo());
+        this.debilContra.Add("Eléctrico");
+        this.debilContra.Add("Planta");
+        this.resistenteContra.Add("Agua");
+        this.resistenteContra.Add("Fuego");
+        this.resistenteContra.Add("Hielo");
     }
 }

@@ -5,11 +5,11 @@ public class Efectividad
     public int CalcularEfectividad(Ataque ataque, Pokemon pokemon)
     {
         int danoFinal = 0;
-        if (pokemon.GetDebilContra().Contains(ataque.Tipo))
+        if (pokemon.GetDebilContra().Contains(ataque.GetNombreTipo()))
         {
             danoFinal = ataque.Dano*2;
         }
-        if (pokemon.GetResistenteContra().Contains(ataque.Tipo))
+        if (pokemon.GetResistenteContra().Contains(ataque.GetNombreTipo()))
         {
             danoFinal = ataque.Dano / 2;
         }

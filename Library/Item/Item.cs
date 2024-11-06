@@ -1,6 +1,6 @@
 namespace Library;
 
-public class Item
+public abstract class Item
 {
    
 }

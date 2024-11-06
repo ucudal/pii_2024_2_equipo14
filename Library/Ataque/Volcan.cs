@@ -7,5 +7,6 @@ public class Volcan: Ataque
         this.Nombre = "Volcan";
         this.Tipo = new Dragon();
         this.Dano = 30;
+        this.Precision = 0.4;
     }
 }

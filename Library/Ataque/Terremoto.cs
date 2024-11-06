@@ -7,5 +7,6 @@ public class Terremoto: Ataque
         this.Nombre = "Terremoto";
         this.Tipo = new Tierra();
         this.Dano = 40;
+        this.Precision = 0.3;
     }
 }

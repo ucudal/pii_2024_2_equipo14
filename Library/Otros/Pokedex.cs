@@ -1,8 +1,10 @@
+using System.Runtime.CompilerServices;
+
 namespace Library;
 
 public static class Pokedex
 {
-    private static List<Pokemon> listaPokemons = new List<Pokemon>
+    public static List<Pokemon> listaPokemons = new List<Pokemon>
     {
         new Bulbasaur(), new Caterpie(), new Charmander(),
         new Cranidos(), new Darumaka(), new Diglett(), new Dratini(), new Duskull(), new Eevee(), new Goomy(),
@@ -13,10 +15,12 @@ public static class Pokedex
 
     public static Pokemon BuscarPokemon(string nombre)
     {
-        Pokemon pokemon = listaPokemons.Find(pokemon => pokemon.Nombre == nombre);
-        if (pokemon != null)
+        foreach (Pokemon pokemon in listaPokemons)
         {
-            return pokemon;
+            if (pokemon.Nombre == nombre)
+            {
+                return pokemon;
+            }
         }
         return null;
     }

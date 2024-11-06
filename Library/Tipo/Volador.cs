@@ -5,12 +5,12 @@ public class Volador: Tipo
     public Volador()
     {
         this.Nombre = "Volador";
-        this.debilContra.Add(new Electrico());
-        this.debilContra.Add(new Hielo());
-        this.debilContra.Add(new Roca());
-        this.resistenteContra.Add(new Bicho());
-        this.resistenteContra.Add(new Lucha());
-        this.resistenteContra.Add(new Planta());
-        this.resistenteContra.Add(new Tierra());
+        this.debilContra.Add("Eléctrico");
+        this.debilContra.Add("Hielo");
+        this.debilContra.Add("Roca");
+        this.resistenteContra.Add("Bicho");
+        this.resistenteContra.Add("Lucha");
+        this.resistenteContra.Add("Planta");
+        this.resistenteContra.Add("Tierra");
     }
 }

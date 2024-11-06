@@ -7,5 +7,6 @@ public class Florecer: Ataque
         this.Nombre = "Florecer";
         this.Tipo = new Planta();
         this.Dano = 10;
+        this.Precision = 0.7;
     }
 }

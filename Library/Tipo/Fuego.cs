@@ -5,11 +5,11 @@ public class Fuego: Tipo
     public Fuego()
     {
         this.Nombre = "Fuego";
-        this.debilContra.Add(new Agua());
-        this.debilContra.Add(new Roca());
-        this.debilContra.Add(new Tierra());
-        this.resistenteContra.Add(new Bicho());
-        this.resistenteContra.Add(new Fuego());
-        this.resistenteContra.Add(new Planta());
+        this.debilContra.Add("Agua");
+        this.debilContra.Add("Roca");
+        this.debilContra.Add("Tierra");
+        this.resistenteContra.Add("Bicho");
+        this.resistenteContra.Add("Fuego");
+        this.resistenteContra.Add("Planta");
     }
 }

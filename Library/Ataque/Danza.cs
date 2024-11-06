@@ -7,5 +7,6 @@ public class Danza: Ataque
         this.Nombre = "Danza";
         this.Tipo = new Fantasma();
         this.Dano = 10;
+        this.Precision = 0.3;
     }
 }

@@ -3,7 +3,7 @@ namespace Library;
 public abstract class Tipo
 {
     public string Nombre { get; protected set; }
-    public List<Tipo> debilContra = new List<Tipo>();
-    public List<Tipo> resistenteContra = new List<Tipo>();
-    public List<Tipo> inmuneContra = new List<Tipo>();
+    public List<string> debilContra = new List<string>();
+    public List<string> resistenteContra = new List<string>();
+    public List<string> inmuneContra = new List<string>();
 }

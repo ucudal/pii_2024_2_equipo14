@@ -5,8 +5,8 @@ public class Electrico: Tipo
     public Electrico()
     {
         this.Nombre = "Eléctrico";
-        this.debilContra.Add(new Tierra());
-        this.resistenteContra.Add(new Volador());
-        this.inmuneContra.Add(new Electrico());
+        this.debilContra.Add("Tierra");
+        this.resistenteContra.Add("Volador");
+        this.inmuneContra.Add("Electrico");
     }
 }

@@ -5,9 +5,9 @@ public class Fantasma: Tipo
     public Fantasma()
     {
         this.Nombre = "Fantasma";
-        this.debilContra.Add(new Fantasma());
-        this.resistenteContra.Add(new Veneno());
-        this.resistenteContra.Add(new Lucha());
-        this.resistenteContra.Add(new Normal());
+        this.debilContra.Add("Fantasma");
+        this.resistenteContra.Add("Veneno");
+        this.resistenteContra.Add("Lucha");
+        this.resistenteContra.Add("Normal");
     }
 }

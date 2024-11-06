@@ -4,6 +4,12 @@ public abstract class Pokemon
 {
     public string Nombre { get; protected set; }
     public Tipo Tipo { get; protected set; }
+
+    public string GetNombreTipo()
+    {
+        return this.Tipo.Nombre;
+    }
+    
     public int VidaInicial {get { return 80; }}
     public int VidaTotal
     {
@@ -19,16 +25,17 @@ public abstract class Pokemon
     {
         this.VidaTotal -= dano;
     }
-    public List<Tipo> GetDebilContra()
+    public List<string> GetDebilContra()
     {
         return this.Tipo.debilContra;
     }
-    public List<Tipo> GetResistenteContra()
+    public List<string> GetResistenteContra()
     {
         return this.Tipo.resistenteContra;
     }
-    public List<Tipo> GetInmuneContra()
+    public List<string> GetInmuneContra()
     {
         return this.Tipo.inmuneContra;
     }
+    
 }
