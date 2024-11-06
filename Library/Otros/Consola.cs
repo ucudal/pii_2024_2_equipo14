@@ -10,6 +10,7 @@ public static class Consola
         {
             Pokemon pokemon = entrenador.miCatalogo[i];
             Console.WriteLine($"{i} - ¨{pokemon.Nombre}¨ de tipo: {pokemon.GetNombreTipo()}");
+            
         }
     }
 
@@ -27,5 +28,32 @@ public static class Consola
             }
             Console.WriteLine(mensaje);
         }
+    }
+
+    public static void AccionesDeTurno()
+    {
+        Console.WriteLine("Seleccione una acción por su número");
+        Console.WriteLine("LISTA DE ACCIONES:");
+        for (int i = 0; i < Turno.GetAcciones().Count; i++)
+        {
+            string accion = Turno.GetAcciones()[i];
+            Console.WriteLine($"{i} - {accion}");
+        }
+    }
+
+    public static void ElegirItem(Entrenador entrenador)
+    {
+        Console.WriteLine("Seleccione un item");
+        Console.WriteLine($"LISTA DE ITEMS DE {entrenador.MisItems}");
+        for (int i = 0; i < entrenador.MisItems.Count; i++)
+        {
+            Item item = entrenador.MisItems[i];
+            Console.WriteLine($"{i} - {item.Nombre}");
+        }
+    }
+
+    public static void ElegirRevivir(Pokemon pokemon)
+    {
+        Console.WriteLine($"¿Quieres revivir a {pokemon.Nombre}? Ingrese 0 para SI o 1 para NO");
     }
 }

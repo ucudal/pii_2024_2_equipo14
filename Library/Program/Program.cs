@@ -7,7 +7,6 @@ public class Program
         Entrenador entrenador = new Entrenador("ash");
         entrenador.AgregarPokemon("Pikachu");
         entrenador.AgregarPokemon("Mew");
-        Consola.ElegirPokemon(entrenador);
-        Consola.ElegirAtaque(entrenador.miCatalogo[0]);
+        
     }
 }

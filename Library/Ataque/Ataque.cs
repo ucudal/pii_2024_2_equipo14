@@ -10,5 +10,5 @@ public abstract class Ataque
         return Tipo.Nombre;
     }
     public int Dano { get; protected set; }
-    public double Precision { get; protected set; }
+    public int Precision { get; protected set; }
 }

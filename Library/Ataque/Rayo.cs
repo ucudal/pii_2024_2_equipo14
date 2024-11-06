@@ -7,6 +7,6 @@ public class Rayo: Ataque
         this.Nombre = "Rayo";
         this.Tipo = new Electrico();
         this.Dano = 40;
-        this.Precision = 0.2;
+        this.Precision = 20;
     }
 }

@@ -3,15 +3,14 @@ namespace Library;
 
 public class Batalla
 {
-    public Entrenador Jugador1 { get; private set; }
-    public Entrenador Jugador2 { get; private set; }
+    public static Entrenador Jugador1 { get; private set; }
+    public static Entrenador Jugador2 { get; private set; }
     public static bool EnBatalla { get; private set; }
-    public static bool TurnoJ1 { get; private set; }
-    public static bool TurnoJ2 { get; private set; }
+   
     public Batalla(Entrenador jugador1, Entrenador jugador2)
     {
-        this.Jugador1 = jugador1;
-        this.Jugador2 = jugador2;
+        Jugador1 = jugador1;
+        Jugador2 = jugador2;
     }
     public void ComenzarBatalla()
     {
@@ -22,7 +21,8 @@ public class Batalla
         else
         {
             EnBatalla = true;
-            TurnoJ1 = true;
+            Jugador1.MiTurno = true;
+            Jugador1.Turnos += 1;
             Jugador1.MisItems = new List<Item>
             {
                 new SuperPocion(), new SuperPocion(), new SuperPocion(), new SuperPocion(),
@@ -33,15 +33,21 @@ public class Batalla
                 new SuperPocion(), new SuperPocion(), new SuperPocion(), new SuperPocion(),
                 new Revivir(), new CuraTotal(), new CuraTotal()
             };
+            
+            Random pokemonAleatorio = new Random();
+            int random1 = pokemonAleatorio.Next(0,6);
+            int random2 = pokemonAleatorio.Next(0,6);
+            Jugador1.PokemonActual = Jugador1.miCatalogo[random1];
+            Jugador2.PokemonActual = Jugador2.miCatalogo[random2];
+            
             while (Jugador1.miCatalogo.Count > 0 && Jugador2.miCatalogo.Count > 0)
             {
-                Consola.ElegirPokemon(Jugador1);
-                string nPokemon = Console.ReadLine();
-                int numeroPokemon = int.Parse(nPokemon);
-                Consola.ElegirAtaque(Jugador1.miCatalogo[numeroPokemon]);
-                string nAtaque = Console.ReadLine();
+                Turno.MiTurno(Jugador1);
                 
                 
+
+
+
             }
         }
 

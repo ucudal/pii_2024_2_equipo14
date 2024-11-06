@@ -7,6 +7,6 @@ public class Derrumbe: Ataque
         this.Nombre = "Derrumbe";
         this.Tipo = new Roca();
         this.Dano = 35;
-        this.Precision = 0.5;
+        this.Precision = 50;
     }
 }

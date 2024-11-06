@@ -1,8 +1,8 @@
 namespace Library;
 
-public class Efectividad
+public static class Efectividad
 {
-    public int CalcularEfectividad(Ataque ataque, Pokemon pokemon)
+    public static int CalcularEfectividad(Ataque ataque, Pokemon pokemon)
     {
         int danoFinal = 0;
         if (pokemon.GetDebilContra().Contains(ataque.GetNombreTipo()))

@@ -7,8 +7,15 @@ public class Incendio: AtaqueEspecial
         this.Nombre = "Incendio";
         this.Tipo = new Fuego();
         this.Dano = 45;
-        this.Precision = 0.7;
+        this.Precision = 70;
         this.Efecto = "Quemar";
-        //agregar efecto quemar
+    }
+
+    public static void Quemar(Pokemon pokemon)
+    {
+        if (pokemon.Quemado == false)
+        {
+            pokemon.Quemado = true;
+        }
     }
 }

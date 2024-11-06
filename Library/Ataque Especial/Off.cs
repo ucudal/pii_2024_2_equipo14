@@ -7,8 +7,15 @@ public class Off: AtaqueEspecial
         this.Nombre = "Off";
         this.Tipo = new Veneno();
         this.Dano = 30;
-        this.Precision = 0.9;
+        this.Precision = 90;
         this.Efecto = "Envenenar";
-        //agregar efecto envenenar
+    }
+    public static void Envenenar(Pokemon pokemon)
+    {
+        if (pokemon.Envenenado == false)
+        {
+            pokemon.Envenenado = true;
+            pokemon.RecibirDano(pokemon.VidaTotal*5/100);
+        }
     }
 }

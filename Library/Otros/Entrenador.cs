@@ -4,6 +4,8 @@ public class Entrenador
 {
     public string Nombre { get; private set; }
     public List<Pokemon> miCatalogo = new List<Pokemon>();
+    public bool MiTurno { get; set; }
+    public int Turnos { get; set; }
     public List<Item> MisItems
     {
         get
@@ -36,16 +38,22 @@ public class Entrenador
         }
         
     }
-    public void QuitarPokemon(string nombre)
+    public void QuitarPokemon(Pokemon pokemon)
     {
-        foreach (Pokemon pokemon in this.miCatalogo)
+        if (this.miCatalogo.Contains(pokemon))
         {
-            if (pokemon.Nombre == nombre && Batalla.EnBatalla == false)
-            {
-                this.miCatalogo.Remove(pokemon);
-            }
+            this.miCatalogo.Remove(pokemon);
         }
     }
+    public void QuitarItem(Item item)
+    {
+        if (this.MisItems.Contains(item))
+        {
+            this.MisItems.Remove(item);
+        }
+    }
+
+    public Pokemon PokemonActual { get; set; }
     public Entrenador(string nombre)
     {
         this.Nombre = nombre;

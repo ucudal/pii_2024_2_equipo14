@@ -7,6 +7,6 @@ public class Tsunami: Ataque
         this.Nombre = "Tsunami";
         this.Tipo = new Agua();
         this.Dano = 30;
-        this.Precision = 0.4;
+        this.Precision = 40;
     }
 }

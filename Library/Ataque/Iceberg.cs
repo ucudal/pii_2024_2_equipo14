@@ -7,6 +7,6 @@ public class Iceberg: Ataque
         this.Nombre = "Iceberg";
         this.Tipo = new Hielo();
         this.Dano = 20;
-        this.Precision = 0.6;
+        this.Precision = 60;
     }
 }

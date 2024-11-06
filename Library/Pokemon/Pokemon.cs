@@ -1,9 +1,25 @@
 namespace Library;
 
-public abstract class Pokemon
+public class Pokemon
 {
+    public Pokemon(string nombre, Tipo tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
+    {
+        Nombre = nombre;
+        Tipo = tipo;
+        Ataque = ataque;
+        AtaqueEspecial = ataqueEspecial;
+        
+    }
     public string Nombre { get; protected set; }
     public Tipo Tipo { get; protected set; }
+    public Ataque Ataque { get; protected set; }
+    public AtaqueEspecial AtaqueEspecial { get; protected set; }
+    
+    public bool Dormido { get; set; }
+    public bool Paralizado { get; set; }
+    public bool Envenenado { get; set; }
+    public bool Quemado { get; set; }
+    public int TurnosDormido { get; set; }
 
     public string GetNombreTipo()
     {
@@ -16,7 +32,6 @@ public abstract class Pokemon
         get { return 80;}
         protected set { this.VidaTotal = value < 0 ? 0 : value; }
     }
-    public List<Ataque> misAtaques = new List<Ataque>();
     public void Curar(int puntos)
     {
         this.VidaTotal += puntos;
@@ -36,6 +51,12 @@ public abstract class Pokemon
     public List<string> GetInmuneContra()
     {
         return this.Tipo.inmuneContra;
+    }
+    public int PuedeAtacar()
+    {
+        Random puedeAtacar = new Random();
+        int puede = puedeAtacar.Next(0, 2);
+        return puede;
     }
     
 }
