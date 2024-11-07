@@ -26,6 +26,7 @@ public class Facade
         entrenador1.AgregarPokemon("Goomy");
         
         
+        
         entrenador2.AgregarPokemon("Skarmory");
         entrenador2.AgregarPokemon("Squirtle");
         entrenador2.AgregarPokemon("Vulpix");
