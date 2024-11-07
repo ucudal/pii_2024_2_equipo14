@@ -12,7 +12,6 @@ public class Facade
         entrenador2 = new Entrenador(nombrentrenador2);
         
         InicializarEntrenadores();
-
         batalla = new Batalla(entrenador1, entrenador2);
     }
 
