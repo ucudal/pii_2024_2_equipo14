@@ -2,28 +2,25 @@ namespace Library;
 
 public class Pokemon
 {
-    public Pokemon(string nombre, Tipo tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
+    public Pokemon(string nombre, Tipo tipo)
     {
         Nombre = nombre;
         Tipo = tipo;
-        Ataque = ataque;
-        AtaqueEspecial = ataqueEspecial;
-        
+        this.ataques.Add(tipo.Ataque);
+        this.ataques.Add(tipo.AtaqueEspecial);
     }
     public string Nombre { get; protected set; }
     public Tipo Tipo { get; protected set; }
-    public Ataque Ataque { get; protected set; }
-    public AtaqueEspecial AtaqueEspecial { get; protected set; }
-    
     public bool Dormido { get; set; }
     public bool Paralizado { get; set; }
     public bool Envenenado { get; set; }
     public bool Quemado { get; set; }
     public int TurnosDormido { get; set; }
+    public List<Ataque> ataques = new List<Ataque>();
 
-    public string GetNombreTipo()
+    public List<Ataque> GetAtaques()
     {
-        return this.Tipo.Nombre;
+        return this.ataques;
     }
     
     public int VidaInicial {get { return 80; }}
@@ -52,11 +49,6 @@ public class Pokemon
     {
         return this.Tipo.inmuneContra;
     }
-    public int PuedeAtacar()
-    {
-        Random puedeAtacar = new Random();
-        int puede = puedeAtacar.Next(0, 2);
-        return puede;
-    }
+
     
 }
