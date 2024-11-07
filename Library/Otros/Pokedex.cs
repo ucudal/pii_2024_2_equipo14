@@ -1,4 +1,3 @@
-
 namespace Library;
 
 public static class Pokedex
@@ -31,6 +30,7 @@ public static class Pokedex
                 
                 Pokemon nuevoPokemon = new Pokemon(pokemon.Nombre, pokemon.Tipo);
                 return nuevoPokemon;
+                //hacer clone
             }
         }
         return null;

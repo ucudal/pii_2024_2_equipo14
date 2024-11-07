@@ -11,6 +11,7 @@ public class Pokemon
     }
     public string Nombre { get; protected set; }
     public Tipo Tipo { get; protected set; }
+    private int vidaTotal = 80;
     public bool Dormido { get; set; }
     public bool Paralizado { get; set; }
     public bool Envenenado { get; set; }
@@ -26,8 +27,8 @@ public class Pokemon
     public int VidaInicial {get { return 80; }}
     public int VidaTotal
     {
-        get { return 80;}
-        protected set { this.VidaTotal = value < 0 ? 0 : value; }
+        get { return this.vidaTotal;}
+        protected set { this.vidaTotal = value < 0 ? 0 : value; }
     }
     public void Curar(int puntos)
     {
@@ -48,6 +49,11 @@ public class Pokemon
     public List<string> GetInmuneContra()
     {
         return this.Tipo.inmuneContra;
+    }
+
+    public string GetTipo()
+    {
+        return this.Tipo.Nombre;
     }
 
     

@@ -16,7 +16,7 @@ public class Program
         entrenador2.AgregarPokemon("Skarmory");
         entrenador2.AgregarPokemon("Squirtle");
         entrenador2.AgregarPokemon("Vulpix");
-        entrenador2.AgregarPokemon("Vanilliite");
+        entrenador2.AgregarPokemon("Vanillite");
         entrenador2.AgregarPokemon("Ponyta");
         entrenador2.AgregarPokemon("Eevee");
 

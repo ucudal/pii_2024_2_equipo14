@@ -5,38 +5,36 @@ public class Entrenador
     public string Nombre { get; private set; }
     public List<Pokemon> miCatalogo = new List<Pokemon>();
     public List<Pokemon> misMuertos = new List<Pokemon>();
+    public List<Item> misItems = new List<Item>();
     public bool MiTurno { get; set; }
     public int Turnos { get; set; }
-    public List<Item> MisItems
-    {
-        get
-        {
-            return MisItems;
-        }
-        set
-        {
-            if (Batalla.EnBatalla)
-            {
-                MisItems = value;
-            }
-        }
-        
-    }
+    
     public void AgregarPokemon(string nombre)
     {
-        bool encontrado = false;
-        foreach (Pokemon pokemon in this.miCatalogo)
+        if (this.miCatalogo.Count > 0)
         {
-            if (pokemon.Nombre == nombre)
+            bool encontrado = false;
+            for (int i = 0; i < this.miCatalogo.Count; i++)
             {
-                encontrado = true;
+                Pokemon pokemon = this.miCatalogo[i];
+                if (pokemon.Nombre == nombre)
+                {
+                    encontrado = true;
+                }
+            }
+            if (encontrado == false && miCatalogo.Count <= 6 && Batalla.EnBatalla == false)
+            {
+                Pokemon pokemonNuevo = Pokedex.BuscarPokemon(nombre);
+                miCatalogo.Add(pokemonNuevo);
             }
         }
-        if (encontrado == false && miCatalogo.Count <= 6 && Batalla.EnBatalla == false)
+        else
         {
+            
             Pokemon pokemonNuevo = Pokedex.BuscarPokemon(nombre);
             miCatalogo.Add(pokemonNuevo);
         }
+       
         
     }
     public void QuitarPokemon(Pokemon pokemon)
@@ -46,11 +44,20 @@ public class Entrenador
             this.miCatalogo.Remove(pokemon);
         }
     }
+
+    public void AgregarItem(Item item)
+    {
+        if (Batalla.EnBatalla)
+        {
+            this.misItems.Add(item);
+        }
+    }
+    
     public void QuitarItem(Item item)
     {
-        if (this.MisItems.Contains(item))
+        if (this.misItems.Contains(item))
         {
-            this.MisItems.Remove(item);
+            this.misItems.Remove(item);
         }
     }
 
