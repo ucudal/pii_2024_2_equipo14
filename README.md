@@ -4,7 +4,6 @@
 
 ## *Primera Entrega:*
 Se nos hizo difícil poder comenzar, había mucho para hacer y muchas cosas nuevas para implementar. Pudimos entre todos llegar a una resolución con lo visto hasta el momento en la clase y quedamos muy conformes con el resultado, sabemos que más adelante en el curso podremos reducir significativamente el código reutilizándolo y utilizando lo aprendido en clase.
-[Uploading descarga.htm…]()
 
 
 ![icegif-503](https://github.com/user-attachments/assets/526a6103-db59-4884-9d5a-938390156f67)
