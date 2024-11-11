@@ -17,4 +17,4 @@ Estamos muy conformes con los resultados, creemos que reutilizamos la mayor cant
 ## *Tercera Entrega:*
 ...
 
-![bannerchatbot](https://github.com/user-attachments/assets/f94b4403-112c-41b1-b67d-87a7a712253f)
+![200e8d139737079 6234b0487404d](https://github.com/user-attachments/assets/96cdfa75-0fa2-4970-9e61-3caf8a723f7a)
