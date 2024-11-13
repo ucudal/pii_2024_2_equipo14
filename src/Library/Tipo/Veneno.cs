@@ -5,7 +5,7 @@ public class Veneno: Tipo
     public Veneno()
     {
         this.Nombre = "Veneno";
-        this.Ataque = new Ataque("Cicuta", 30, 90,"Veneno");
+        this.Ataque = new Ataque("Cicuta", 30, 90);
         this.AtaqueEspecial = new Incendio();
         this.debilContra.Add("Bicho");
         this.debilContra.Add("Psíquico");

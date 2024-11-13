@@ -5,7 +5,7 @@ public class Dragon: Tipo
     public Dragon()
     {
         this.Nombre = "Dragón";
-        this.Ataque = new Ataque("Dragón", 30, 40,"Dragón");
+        this.Ataque = new Ataque("Dragón", 30, 40);
         this.AtaqueEspecial = new Maniqui();
         this.debilContra.Add("Dragón");
         this.debilContra.Add("Hielo");

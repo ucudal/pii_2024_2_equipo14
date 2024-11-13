@@ -13,12 +13,11 @@ public abstract class AtaqueEspecial: Ataque
     /// <param name="Precision">La precisión del ataque.</param>
     /// <param name="Tipo">El nombre del tipo de ataque.</param>
     /// <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-    public AtaqueEspecial(string nombre, int dano, int precision, string tipo, string efecto): base(nombre,dano,precision,tipo)
+    public AtaqueEspecial(string nombre, int dano, int precision, string tipo, string efecto): base(nombre,dano,precision)
     {
         this.Nombre = nombre;
         this.Dano = dano;
         this.Precision = precision;
-        this.Tipo = tipo;
         this.Efecto = efecto;
     }
     /// <summary>

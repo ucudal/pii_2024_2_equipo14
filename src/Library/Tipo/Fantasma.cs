@@ -5,7 +5,7 @@ public class Fantasma: Tipo
     public Fantasma()
     {
         this.Nombre = "Fantasma";
-        this.Ataque = new Ataque("Danza", 10, 30,"Fantasma");
+        this.Ataque = new Ataque("Danza", 10, 30);
         this.AtaqueEspecial = new Incendio();
         this.debilContra.Add("Fantasma");
         this.resistenteContra.Add("Veneno");

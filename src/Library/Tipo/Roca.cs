@@ -5,7 +5,7 @@ public class Roca: Tipo
     public Roca()
     {
         this.Nombre = "Roca";
-        this.Ataque = new Ataque("Derrumbe", 35, 50,"Roca");
+        this.Ataque = new Ataque("Derrumbe", 35, 50);
         this.AtaqueEspecial = new Zzz();
         this.debilContra.Add("Agua");
         this.debilContra.Add("Lucha");

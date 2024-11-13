@@ -9,12 +9,12 @@ public class Pokemon
     /// </summary>
     /// <param name="nombre">El nombre del Pokémon.</param>
     /// <param name="tipo">El tipo del Pokémon.</param>
-    public Pokemon(string nombre, Tipo tipo)
+    public Pokemon(string nombre, Tipo tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
     {
         Nombre = nombre;
         Tipo = tipo;
-        this.ataques.Add(tipo.Ataque);
-        this.ataques.Add(tipo.AtaqueEspecial);
+        Ataque = ataque;
+        AtaqueEspecial = ataqueEspecial;
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del Pokémon.
@@ -27,6 +27,9 @@ public class Pokemon
     /// <summary>
     /// Atributo que indica la vida total del Pokémon
     /// </summary>
+    public AtaqueEspecial AtaqueEspecial { get; set; }
+    public Ataque Ataque { get; set; }
+   
     private int vidaTotal = 80;
     /// <summary>
     /// Obtiene o establece un bool que indica si el Pokémon está dormido.

@@ -168,7 +168,7 @@ namespace Library
             for (int i = 0; i < pokemon.ataques.Count; i++)
             {
                 Ataque ataque = pokemon.ataques[i];
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {ataque.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.GetTipo()} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 if (ataque is AtaqueEspecial ataqueEspecial)
                 {
                     mensaje += $" / (Especial) Efecto: {ataqueEspecial.Efecto}";
@@ -191,7 +191,7 @@ namespace Library
             {
                 Ataque ataque = pokemon.ataques[i];
                 // Aquí puedes filtrar si el ataque es simple, si tienes una propiedad que lo indique
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {ataque.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.GetTipo()} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 Console.WriteLine(mensaje);
             }
     

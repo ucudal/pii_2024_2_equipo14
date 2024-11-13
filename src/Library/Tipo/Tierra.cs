@@ -5,7 +5,7 @@ public class Tierra: Tipo
     public Tierra()
     {
         this.Nombre = "Tierra";
-        this.Ataque = new Ataque("Terremoto", 40, 30,"Tierra");
+        this.Ataque = new Ataque("Terremoto", 40, 30);
         this.AtaqueEspecial = new Incendio();
         this.debilContra.Add("Agua");
         this.debilContra.Add("Hielo");

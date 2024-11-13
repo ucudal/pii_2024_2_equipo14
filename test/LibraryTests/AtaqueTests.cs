@@ -14,7 +14,7 @@ public class AtaqueTests
     [SetUp]
     public void SetUp()
     {
-        ataque = new Ataque("Ataque",10,80,"Fuego");
+        ataque = new Ataque("Ataque",10,80);
     }
 
     [Test]
@@ -27,7 +27,6 @@ public class AtaqueTests
         Assert.That(esperado,Is.EqualTo(ataque.Nombre));
         Assert.That(esperado1,Is.EqualTo(ataque.Dano));
         Assert.That(esperado2,Is.EqualTo(ataque.Precision));
-        Assert.That(esperado3,Is.EqualTo(ataque.Tipo));
     }
     
 }

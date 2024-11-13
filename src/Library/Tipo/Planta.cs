@@ -5,7 +5,7 @@ public class Planta: Tipo
     public Planta()
     {
         this.Nombre = "Planta";
-        this.Ataque = new Ataque("Florecer", 10, 70,"Planta");
+        this.Ataque = new Ataque("Florecer", 10, 70);
         this.AtaqueEspecial = new Off();
         this.debilContra.Add("Bicho");
         this.debilContra.Add("Fuego");
