@@ -11,11 +11,12 @@ public class Ataque
     /// <param name="Dano">El daño que influye el ataque.</param>
     /// <param name="Precision">La precisión del ataque.</param>
     /// <param name="Tipo">El nombre del tipo de ataque.</param>
-    public Ataque(string nombre, int Dano, int Precision)
+    public Ataque(string nombre, int dano, int precision,string tipo)
     {
         this.Nombre = nombre;
-        this.Dano = Dano;
-        this.Precision = Precision;
+        this.Dano = dano;
+        this.Precision = precision;
+        this.Tipo = tipo;
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del ataque.
@@ -32,6 +33,7 @@ public class Ataque
     /// Obtiene o establece un valor (int) que indica la precisión del ataque.
     /// </summary>
     public int Precision { get; protected set; }
+    public string Tipo { get; protected set; }
     /// <summary>
     /// Calcula si el ataque es preciso, es decir, si hace o no daño/causa un efecto en la víctima.
     /// </summary>

@@ -9,36 +9,36 @@ public static class Pokedex
     /// </summary>
     public static List<Pokemon> listaPokemons = new List<Pokemon>
     {
-        new Pokemon("Bulbasaur", new Planta(), new Ataque("Florecer", 10,70), new Off()),
-        new Pokemon("Oddish", new Planta(), new Ataque("Florecer", 10,70), new Off()),
-        new Pokemon("Wurmple", new Bicho(), new Ataque("Mordisco", 15,70), new Off()),
-        new Pokemon("Caterpie", new Bicho(), new Ataque("Mordisco", 15,70), new Off()),
-        new Pokemon("Charmander", new Fuego(), new Ataque("Fogata",45,70), new Incendio()),
-        new Pokemon("Vulpix", new Fuego(), new Ataque("Fogata",45,70), new Incendio()),
-        new Pokemon("Cranidos", new Roca(), new Ataque("Fogata",45,70), new Off()),
-        new Pokemon("Rockruff", new Roca(), new Ataque("Fogata",45,70), new Off()),
-        new Pokemon("Cubone", new Tierra(), new Ataque("Terremoto",40,30), new Incendio()),
-        new Pokemon("Diglett", new Tierra(),new Ataque("Terremoto",40,30), new Incendio()),
-        new Pokemon("Darumaka", new Hielo(),new Ataque("Iceberg",20,60), new Maniqui()),
-        new Pokemon("Vanillite", new Hielo(),new Ataque("Iceberg",20,60), new Maniqui()),
-        new Pokemon("Dratini", new Dragon(),new Ataque("Dragón",30,40),new Maniqui()),
-        new Pokemon("Goomy", new Dragon(),new Ataque("Dragón",30,40),new Maniqui()), 
-        new Pokemon("Duskull", new Fantasma(),new Ataque("Danza",10,30),new Incendio()), 
-        new Pokemon("Greavard", new Fantasma(),new Ataque("Danza",10,30),new Incendio()),
-        new Pokemon("Eevee", new Normal(),new Ataque("Patada",30,50),new Maniqui()),
-        new Pokemon("Snorlax", new Normal(),new Ataque("Patada",30,50),new Maniqui()), 
-        new Pokemon("Nidoran", new Veneno(),new Ataque("Cicuta",30,90), new Incendio()),
-        new Pokemon("Koffing", new Veneno(),new Ataque("Cicuta",30,90), new Incendio()),
-        new Pokemon("Machop", new Lucha(), new Ataque("Golpe",40,40), new Off()),
-        new Pokemon("Timburr", new Lucha(), new Ataque("Golpe",40,40), new Off()), 
-        new Pokemon("Mew", new Psiquico(), new Ataque("Hipnosis",30,80), new Zzz()), 
-        new Pokemon("Ponyta", new Psiquico(), new Ataque("Hipnosis",30,80), new Zzz()),
-        new Pokemon("Voltorb", new Electrico(),new Ataque("Rayo",40,20),new Zzz()),
-        new Pokemon("Pikachu", new Electrico(),new Ataque("Rayo",40,20),new Zzz() ),
-        new Pokemon("Psyduck", new Agua(),new Ataque("Tsunami",30,40),new Maniqui()),
-        new Pokemon("Squirtle", new Agua(), new Ataque("Tsunami",30,40),new Maniqui()),
-        new Pokemon("Skarmory", new Volador(),new Ataque("Viento",25,50),new Incendio()),
-        new Pokemon("Vullaby", new Volador(),new Ataque("Viento",25,50),new Incendio())
+        new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10,70,"Planta"), new Incendio()),
+        new Pokemon("Oddish", "Planta", new Ataque("Florecer", 20,80,"Planta"), new Maniqui()),
+        new Pokemon("Wurmple", "Bicho", new Ataque("Mordisco", 10,70,"Bicho"), new Off()),
+        new Pokemon("Caterpie", "Bicho", new Ataque("Mordisco", 10,90,"Bicho"), new Zzz()),
+        new Pokemon("Charmander", "Fuego", new Ataque("Fogata",40,60,"Fuego"), new Incendio()),
+        new Pokemon("Vulpix", "Fuego", new Ataque("Fogata",20,70,"Fuego"), new Maniqui()),
+        new Pokemon("Cranidos", "Roca", new Ataque("Derrumne",40,70,"Roca"), new Off()),
+        new Pokemon("Rockruff", "Roca", new Ataque("Derrumbe",30,80,"Roca"), new Zzz()),
+        new Pokemon("Cubone", "Tierra", new Ataque("Terremoto",40,50,"Tierra"), new Incendio()),
+        new Pokemon("Diglett", "Tierra",new Ataque("Terremoto",30,60,"Tierra"), new Maniqui()),
+        new Pokemon("Darumaka", "Hielo",new Ataque("Iceberg",20,60,"Hielo"), new Off()),
+        new Pokemon("Vanillite", "Hielo",new Ataque("Iceberg",10,70,"Hielo"), new Zzz()),
+        new Pokemon("Dratini", "Dragón",new Ataque("Volcán",30,60,"Dragón"),new Incendio()),
+        new Pokemon("Goomy", "Dragón",new Ataque("Volcán",20,70,"Dragón"),new Maniqui()), 
+        new Pokemon("Duskull", "Fantasma",new Ataque("Danza",10,90,"Fantasma"),new Off()), 
+        new Pokemon("Greavard", "Fantasma",new Ataque("Danza",30,80,"Fantasma"),new Zzz()),
+        new Pokemon("Eevee", "Normal",new Ataque("Patada",30,50,"Normal"),new Incendio()),
+        new Pokemon("Snorlax", "Normal",new Ataque("Patada",20,70,"Normal"),new Maniqui()), 
+        new Pokemon("Nidoran", "Veneno",new Ataque("Cicuta",30,90,"Veneno"), new Off()),
+        new Pokemon("Koffing", "Veneno",new Ataque("Cicuta",20,80,"Veneno"), new Zzz()),
+        new Pokemon("Machop", "Lucha", new Ataque("Golpe",40,50,"Lucha"), new Incendio()),
+        new Pokemon("Timburr", "Lucha", new Ataque("Golpe",30,60,"Lucha"), new Maniqui()), 
+        new Pokemon("Mew", "Psíquico", new Ataque("Hipnosis",30,80,"Psíquico"), new Off()), 
+        new Pokemon("Ponyta", "Psíquico", new Ataque("Hipnosis",20,90,"Psíquico"), new Zzz()),
+        new Pokemon("Voltorb", "Eléctrico",new Ataque("Rayo",30,60,"Eléctrico"),new Incendio()),
+        new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,70,"Eléctrico"),new Maniqui() ),
+        new Pokemon("Psyduck", "Agua",new Ataque("Tsunami",30,50,"Agua"),new Off()),
+        new Pokemon("Squirtle", "Agua", new Ataque("Tsunami",20,60,"Agua"),new Zzz()),
+        new Pokemon("Skarmory", "Volador",new Ataque("Viento",20,90,"Volador"),new Incendio()),
+        new Pokemon("Vullaby", "Volador",new Ataque("Viento",30,80,"Volador"),new Maniqui())
     };
     /// <summary>
     /// Se encarga de buscar un Pokémon en la Pokédex por su nombre.
@@ -50,50 +50,28 @@ public static class Pokedex
         {
             if (pokemon.Nombre == nombre)
             {
-                return Pokedex.CrearCopia(pokemon);
-             
+                Ataque ataqueBase = pokemon.Ataque;
+                Ataque ataqueCopia = new Ataque(ataqueBase.Nombre, ataqueBase.Dano, ataqueBase.Precision,ataqueBase.Tipo);
+                AtaqueEspecial ataqueEspecialBase = pokemon.AtaqueEspecial;
+                if (ataqueEspecialBase is Incendio)
+                {
+                    return new Pokemon(pokemon.Nombre, pokemon.Tipo, ataqueCopia, new Incendio());
+                }
+                if (ataqueEspecialBase is Maniqui)
+                {
+                    return new Pokemon(pokemon.Nombre, pokemon.Tipo, ataqueCopia, new Maniqui());
+                }
+                if (ataqueEspecialBase is Off)
+                {
+                    return new Pokemon(pokemon.Nombre, pokemon.Tipo, ataqueCopia, new Off());
+                }
+                if (ataqueEspecialBase is Zzz)
+                {
+                    return new Pokemon(pokemon.Nombre, pokemon.Tipo, ataqueCopia, new Zzz());
+                }
+
             }
         }
-        return null;
-    }
-    /// <summary>
-    /// Se encarga de crear una copia profunda del Pokémon que recibe.
-    /// </summary>
-    /// <param name="pokemon">El Pokémon que se copia.</param>
-    public static Pokemon CrearCopia(Pokemon pokemon)
-    {
-        string nombreCopia = pokemon.Nombre;
-        
-        if (pokemon.Tipo is Agua)
-            return new Pokemon(nombreCopia, new Agua(),new Ataque("Tsunami",30,40),new Maniqui());
-        if (pokemon.Tipo is Bicho)
-            return new Pokemon(nombreCopia, new Bicho(), new Ataque("Mordisco", 15,70), new Off());
-        if (pokemon.Tipo is Dragon)
-            return new Pokemon(nombreCopia, new Dragon(),new Ataque("Dragón",30,40),new Maniqui());
-        if (pokemon.Tipo is Electrico)
-            return new Pokemon(nombreCopia, new Electrico(),new Ataque("Rayo",40,20),new Zzz());
-        if (pokemon.Tipo is Fantasma)
-            return new Pokemon(nombreCopia, new Fantasma(),new Ataque("Danza",10,30),new Incendio());
-        if (pokemon.Tipo is Fuego)
-            return new Pokemon(nombreCopia, new Fuego(), new Ataque("Fogata",45,70), new Incendio());
-        if (pokemon.Tipo is Hielo)
-            return new Pokemon(nombreCopia, new Hielo(),new Ataque("Iceberg",20,60), new Maniqui());
-        if (pokemon.Tipo is Lucha)
-            return new Pokemon(nombreCopia, new Lucha(), new Ataque("Golpe",40,40), new Off());
-        if (pokemon.Tipo is Normal)
-            return new Pokemon(nombreCopia, new Normal(),new Ataque("Patada",30,50),new Maniqui());
-        if (pokemon.Tipo is Planta)
-            return new Pokemon(nombreCopia, new Planta(), new Ataque("Florecer", 10,70), new Off());
-        if (pokemon.Tipo is Psiquico)
-            return new Pokemon(nombreCopia, new Psiquico(), new Ataque("Hipnosis",30,80), new Zzz());
-        if (pokemon.Tipo is Roca)
-            return new Pokemon(nombreCopia, new Roca(), new Ataque("Fogata",45,70), new Off());
-        if (pokemon.Tipo is Tierra)
-            return new Pokemon(nombreCopia, new Tierra(), new Ataque("Terremoto",40,30), new Incendio());
-        if (pokemon.Tipo is Veneno)
-            return new Pokemon(nombreCopia, new Veneno(),new Ataque("Cicuta",30,90), new Incendio());
-        if (pokemon.Tipo is Volador)
-            return new Pokemon(nombreCopia, new Volador(),new Ataque("Viento",25,50),new Incendio());
         return null;
     }
     

@@ -9,7 +9,7 @@ public class Pokemon
     /// </summary>
     /// <param name="nombre">El nombre del Pokémon.</param>
     /// <param name="tipo">El tipo del Pokémon.</param>
-    public Pokemon(string nombre, Tipo tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
+    public Pokemon(string nombre, string tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
     {
         Nombre = nombre;
         Tipo = tipo;
@@ -23,7 +23,7 @@ public class Pokemon
     /// <summary>
     /// Obtiene o establece un Tipo que indica tipo del Pokémon.
     /// </summary>
-    public Tipo Tipo { get; protected set; }
+    public string Tipo { get; protected set; }
     /// <summary>
     /// Atributo que indica la vida total del Pokémon
     /// </summary>
@@ -91,35 +91,5 @@ public class Pokemon
     {
         this.VidaTotal -= dano;
     }
-    /// <summary>
-    /// Retorna la lista de los tipos que son fuertes contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetDebilContra()
-    {
-        return this.Tipo.debilContra;
-    }
-    /// <summary>
-    /// Retorna la lista de los tipos que son débiles contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetResistenteContra()
-    {
-        return this.Tipo.resistenteContra;
-    }
-    /// <summary>
-    /// Retorna la lista de los tipos que no generan daño contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetInmuneContra()
-    {
-        return this.Tipo.inmuneContra;
-    }
-
-    /// <summary>
-    /// Retorna el nombre del tipo del Pokémon.
-    /// </summary>
-    public string GetTipo()
-    {
-        return this.Tipo.Nombre;
-    }
-
     
 }
