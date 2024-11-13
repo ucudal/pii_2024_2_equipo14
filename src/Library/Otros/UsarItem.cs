@@ -56,7 +56,7 @@ public static class UsarItem
             string pokemonMuerto = Console.ReadLine();
             int pokemonElegido = int.Parse(pokemonMuerto);
             Pokemon pokemonARevivir = entrenador.misMuertos[pokemonElegido];
-            revivir.RevivirPokemon(entrenador, pokemonARevivir);
+            revivir.Accion(entrenador, pokemonARevivir);
         }
         else
         {
@@ -66,10 +66,10 @@ public static class UsarItem
             Pokemon pokemon = entrenador.miCatalogo[pokemonElegido];
             if (entrenador.misItems[itemElegido] is CuraTotal curaTotal)
             {
-                curaTotal.CurarTotalmente(entrenador, pokemon);
+                curaTotal.Accion(entrenador, pokemon);
                 if (entrenador.misItems[itemElegido] is SuperPocion superPocion)
                 {
-                    superPocion.SuperPocionar(entrenador, pokemon);
+                    superPocion.Accion(entrenador, pokemon);
                 }
             }
         }

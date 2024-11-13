@@ -12,5 +12,7 @@ public abstract class Item
     /// Obtiene o establece un string que indica la descripción del funcionamiento del item.
     /// </summary>
     public string Descripcion { get; protected set; }
-   
+
+    public abstract void Accion(Entrenador entrenador, Pokemon pokemon);
+
 }
