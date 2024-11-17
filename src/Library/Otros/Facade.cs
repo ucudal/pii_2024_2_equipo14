@@ -118,9 +118,6 @@ namespace Library
                     case 2: // Usar ítem
                         UsarItem.UsoDeItem(jugador, 1, 1, 1); // Aquí puedes ajustar la lógica para los ítems
                         break;
-                    case 3: // Ver datos del jugador
-                        MostrarDatosJugador(jugador);
-                        break;
                     default:
                         Console.WriteLine("Acción no válida. Intenta de nuevo.");
                         break;
@@ -165,9 +162,9 @@ namespace Library
         {
             Console.WriteLine($"\n==================================");
             Console.WriteLine($"LISTA DE ATAQUES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):");
-            for (int i = 0; i < pokemon.ataques.Count; i++)
+            for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
-                Ataque ataque = pokemon.ataques[i];
+                Ataque ataque = pokemon.GetAtaques()[i];
                 string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 if (ataque is AtaqueEspecial ataqueEspecial)
                 {
@@ -185,16 +182,16 @@ namespace Library
         {
             Console.WriteLine($"\n==================================");
             Console.WriteLine($"LISTA DE ATAQUES SIMPLES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):");
-
-            // Suponiendo que los ataques simples están en una lista separada o que todos los ataques son simples
-            for (int i = 0; i < pokemon.ataques.Count; i++)
+            
+            for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
-                Ataque ataque = pokemon.ataques[i];
-                // Aquí puedes filtrar si el ataque es simple, si tienes una propiedad que lo indique
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
-                Console.WriteLine(mensaje);
+                Ataque ataque = pokemon.GetAtaques()[i];
+                if (ataque is not AtaqueEspecial)
+                {
+                    Console.WriteLine(
+                        $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}");
+                }
             }
-    
             Console.WriteLine("==================================");
         }
         /// <summary>

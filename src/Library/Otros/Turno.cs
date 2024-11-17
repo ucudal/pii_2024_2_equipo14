@@ -13,6 +13,8 @@ public static class Turno
     public static void HacerAccion(Entrenador entrenador, string numero, Entrenador entrenadorAtacado, 
         int usarRevivir, int usarSuperPocion, int usarCuraTotal, Facade facade)
     {
+        facade.ImprimirDatos(entrenador);
+        facade.ImprimirDatos(entrenadorAtacado);
         Pokemon pokemonActual = entrenador.PokemonActual;
         Pokemon pokemonAtacado = entrenadorAtacado.PokemonActual;
         if (pokemonActual.VidaTotal == 0)
