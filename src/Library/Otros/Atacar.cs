@@ -17,13 +17,13 @@ public static class Atacar
         if (pokemonAtacado.Dormido || pokemonAtacado.Paralizado || pokemonAtacado.Envenenado ||
                 pokemonAtacado.Quemado) 
         { 
-            Facade.ElegirAtaqueSimple(pokemonActual);
+            FacadeJuego.ElegirAtaqueSimple(pokemonActual);
             string ataque = Console.ReadLine(); //CAMBIAR A BOT
             indiceAtaque = int.Parse(ataque);
         }
         else 
         { 
-            Facade.ElegirAtaque(pokemonActual); 
+            FacadeJuego.ElegirAtaque(pokemonActual); 
             string ataque = Console.ReadLine(); //BOT
             indiceAtaque = int.Parse(ataque);
         } 

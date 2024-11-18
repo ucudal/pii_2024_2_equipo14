@@ -13,15 +13,15 @@ public static class UsarItem
     /// <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
     public static void UsoDeItem(Entrenador entrenador, int usarRevivir, int usarSuperPocion, int usarCuraTotal)
     {
-        Facade.ElegirItem(entrenador);
+        FacadeJuego.ElegirItem(entrenador);
         string item = Console.ReadLine();//CAMBIAR A BOT
         int itemElegido = int.Parse(item);
         if (entrenador.misItems[itemElegido] is Revivir && usarRevivir == 1)
         {
             while (entrenador.misItems[itemElegido] is Revivir)
             {
-                Facade.ItemInvalido();
-                Facade.ElegirItem(entrenador);
+                FacadeJuego.ItemInvalido();
+                FacadeJuego.ElegirItem(entrenador);
                 item = Console.ReadLine();//CAMBIAR A BOT
                 itemElegido = int.Parse(item);
             }
@@ -31,8 +31,8 @@ public static class UsarItem
         {
             while (entrenador.misItems[itemElegido] is SuperPocion)
             {
-                Facade.ItemInvalido();
-                Facade.ElegirItem(entrenador);
+                FacadeJuego.ItemInvalido();
+                FacadeJuego.ElegirItem(entrenador);
                 item = Console.ReadLine();//CAMBIAR A BOT
                 itemElegido = int.Parse(item);
 
@@ -43,8 +43,8 @@ public static class UsarItem
         {
             while (entrenador.misItems[itemElegido] is CuraTotal)
             {
-                Facade.ItemInvalido();
-                Facade.ElegirItem(entrenador);
+                FacadeJuego.ItemInvalido();
+                FacadeJuego.ElegirItem(entrenador);
                 item = Console.ReadLine();//CAMBIAR A BOT
                 itemElegido = int.Parse(item);
             }
@@ -52,7 +52,7 @@ public static class UsarItem
 
         if (entrenador.misItems[itemElegido] is Revivir revivir)
         {
-            Facade.ElegirPokemonMuerto(entrenador);
+            FacadeJuego.ElegirPokemonMuerto(entrenador);
             string pokemonMuerto = Console.ReadLine();//CAMBIAR A BOT
             int pokemonElegido = int.Parse(pokemonMuerto);
             Pokemon pokemonARevivir = entrenador.misMuertos[pokemonElegido];
@@ -60,7 +60,7 @@ public static class UsarItem
         }
         else
         {
-            Facade.ElegirPokemonHerido(entrenador, itemElegido);
+            FacadeJuego.ElegirPokemonHerido(entrenador, itemElegido);
             string _pokemon = Console.ReadLine(); //CAMBIAR A BOT
             int pokemonElegido = int.Parse(_pokemon);
             Pokemon pokemon = entrenador.miCatalogo[pokemonElegido];

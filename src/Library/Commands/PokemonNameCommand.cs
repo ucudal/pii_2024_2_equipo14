@@ -50,7 +50,7 @@ public class PokemonNameCommand : ModuleBase<SocketCommandContext>
         try
         {
             var response = await httpClient.GetStringAsync($"https://pokeapi.co/api/v2/pokemon/{id}");  
-                                            
+                                            // cambiar para que en vez de la API use las listas de pokemon que tenemos en la clase Pokedex
             
             if (string.IsNullOrEmpty(response))
             {
@@ -89,16 +89,3 @@ public class PokemonNameCommand : ModuleBase<SocketCommandContext>
     }
 }
 */
-
-
-public class AgregarPokemonCommand : ModuleBase<SocketCommandContext>
-{
-    [Command("AgregarPokemon")]
-    [Summary("Permite agregar Pokemon al jugador")]
-    public async Task ExecuteAsync(string InicializarPokemon)
-    {
-        string playerDisplayName = CommandHelper.GetDisplayName(Context);
-        //  string result = Facade.Instance.Inicializar(playerDisplayName, movimiento);
-        // await ReplyAsync(result);
-    }
-}

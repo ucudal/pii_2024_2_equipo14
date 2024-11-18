@@ -125,6 +125,7 @@ public class Facade
     /// <returns>Un mensaje con el resultado.</returns>
     public string StartBattle(string playerDisplayName, string? opponentDisplayName)
     {
+        
         Trainer? opponent;
 
         if (!OpponentProvided() && !SomebodyIsWaiting())
@@ -159,9 +160,9 @@ public class Facade
         this.WaitingList.RemoveTrainer(playerDisplayName);
         this.WaitingList.RemoveTrainer(opponentDisplayName);
         
-        // Iniciar la batalla usando la clase FacadeJuego
-       // FacadeJuego facadeJuego = new FacadeJuego(playerDisplayName, opponentDisplayName);
-      //  facadeJuego.ComenzarBatalla();
+        // Iniciar la batalla usando la clase Facade
+        //Facade facadeJuego = new Facade(playerDisplayName, opponentDisplayName);
+        // facadeJuego.ComenzarBatalla();
         
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }

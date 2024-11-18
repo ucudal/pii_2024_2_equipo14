@@ -1,4 +1,4 @@
-/*using Discord.Commands;
+using Discord.Commands;
 using Ucu.Poo.DiscordBot.Domain;
 
 namespace Ucu.Poo.DiscordBot.Commands;
@@ -12,11 +12,11 @@ public class TerminarCommand : ModuleBase<SocketCommandContext>
     /// <summary>
     /// Implementa el comando 'terminar'. Este comando termina la batalla y muestra el resultado.
     /// </summary>
-    [Command("terminar")]
-    [Summary("Termina la batalla y muestra el resultado")]
+    [Command("Rendirse")]
+    [Summary("El jugador se rinde")]
     public async Task ExecuteAsync()
     {
-        string result = Facade.Instance.EndBattle();
-        await ReplyAsync(result);
+     //   string result = Facade.Instance.EndBattle();
+     // await ReplyAsync(result);
     }
-}*/
+}

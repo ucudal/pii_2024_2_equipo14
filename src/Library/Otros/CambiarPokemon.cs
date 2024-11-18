@@ -10,7 +10,7 @@ public static class CambiarPokemon
     /// <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
     public static void CambioDePokemon(Entrenador entrenador)
     {
-        Facade.ElegirPokemon(entrenador);
+        FacadeJuego.ElegirPokemon(entrenador);
         string pokemon = Console.ReadLine(); //CAMBIAR A BOT
         int pokemonElegido = int.Parse(pokemon);
         entrenador.PokemonActual = entrenador.miCatalogo[pokemonElegido];

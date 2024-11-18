@@ -17,7 +17,8 @@ public class CambiarCommand : ModuleBase<SocketCommandContext>
     public async Task ExecuteAsync(string nuevoPokemon)
     {
         string playerDisplayName = CommandHelper.GetDisplayName(Context);
-      //  string result = Facade.Instance.CambiarPokemon(playerDisplayName, nuevoPokemon);
+       // string result = Facade.Instance.ChangePokemon(playerDisplayName, nuevoPokemon);
      //   await ReplyAsync(result);
+     await ReplyAsync($"{playerDisplayName} ha cambiado su Pokémon.");
     }
 }

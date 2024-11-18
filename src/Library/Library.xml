@@ -201,7 +201,7 @@
             Obtiene o establece un Entrenador que indica el Jugador 2.
             </summary>
         </member>
-        <member name="F:Library.Batalla.facade">
+        <member name="F:Library.Batalla._facadeJuego">
             <summary>
             Atributo Facade que indica la instancia de fachada.
             </summary>
@@ -212,7 +212,7 @@
             </summary>
             <param name="jugador1">El usuario que será el Jugador 1.</param>
             <param name="jugador2">El usuario que será el Jugador 2.</param>
-            <param name="facade">La instancia de fachada.</param>
+            <param name="facadeJuego">La instancia de fachada.</param>
         </member>
         <member name="M:Library.Batalla.InicializarItems(Library.Entrenador)">
             <summary>

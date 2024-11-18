@@ -19,5 +19,6 @@ public class AtacarCommand : ModuleBase<SocketCommandContext>
         string playerDisplayName = CommandHelper.GetDisplayName(Context);
       //  string result = Facade.Instance.PerformAttack(playerDisplayName, movimiento);
        // await ReplyAsync(result);
+       await ReplyAsync($"{playerDisplayName} ataca con {movimiento}!");
     }
 }

@@ -19,5 +19,7 @@ public class EstadoCommand : ModuleBase<SocketCommandContext>
         string playerDisplayName = CommandHelper.GetDisplayName(Context);
       //  string result = Facade.Instance.GetPokemonStatus(playerDisplayName);
       //  await ReplyAsync(result);
+      await ReplyAsync($"{playerDisplayName}, aquí está el estado de tu Pokémon.");
+
     }
 }

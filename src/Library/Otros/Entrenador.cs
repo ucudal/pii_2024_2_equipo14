@@ -54,7 +54,7 @@ namespace Library
             }
             else
             {
-                Facade.PokemonInvalido();
+                FacadeJuego.PokemonInvalido();
             }
         }
         /// <summary>

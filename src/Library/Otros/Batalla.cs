@@ -20,20 +20,20 @@ namespace Library
         /// <summary>
         /// Atributo Facade que indica la instancia de fachada.
         /// </summary>
-        private Facade facade;
+        private FacadeJuego _facadeJuego;
         
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
         /// <param name="jugador1">El usuario que será el Jugador 1.</param>
         /// <param name="jugador2">El usuario que será el Jugador 2.</param>
-        /// <param name="facade">La instancia de fachada.</param>
-        public Batalla(Entrenador jugador1, Entrenador jugador2, Facade facade)
+        /// <param name="facadeJuego">La instancia de fachada.</param>
+        public Batalla(Entrenador jugador1, Entrenador jugador2, FacadeJuego facadeJuego)
         {
             EnBatalla = true;
             this.Jugador1 = jugador1;
             this.Jugador2 = jugador2;
-            this.facade = facade;
+            this._facadeJuego = facadeJuego;
 
             InicializarItems(Jugador1);
             InicializarItems(Jugador2);
@@ -89,9 +89,9 @@ namespace Library
         {
             jugadorActual.MiTurno = true;
             jugadorActual.Turnos += 1;
-            facade.ImprimirDatos(jugadorActual);
-            facade.ImprimirDatos(oponente);
-            facade.ElegirAccion();
+            _facadeJuego.ImprimirDatos(jugadorActual);
+            _facadeJuego.ImprimirDatos(oponente);
+            _facadeJuego.ElegirAccion();
             string accion = Console.ReadLine(); //CAMBIAR A BOT
             ValidarAcciones(jugadorActual, accion, oponente);
         }
@@ -117,12 +117,12 @@ namespace Library
 
             if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
             {
-                facade.UsarItemInvalido();
-                facade.ElegirAccion();
+                _facadeJuego.UsarItemInvalido();
+                _facadeJuego.ElegirAccion();
                 accion = Console.ReadLine();//CAMBIAR A BOT
             }
 
-            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, facade);
+            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, _facadeJuego);
 
             if (oponente.miCatalogo.Count == 0 && !oponente.misItems.OfType<Revivir>().Any())
             {

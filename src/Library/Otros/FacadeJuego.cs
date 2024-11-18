@@ -6,7 +6,7 @@ namespace Library
     /// <summary>
     /// Esta es la clase Facade. Se encarga de crear instancias de Facade y gestionar sus responsabilidades.
     /// </summary>
-    public class Facade
+    public class FacadeJuego
     {
         /*
         User Stories:
@@ -34,11 +34,11 @@ namespace Library
         private Entrenador jugador2;
 
         /// <summary>
-        /// Inicializa una nueva instancia de la clase <see cref="Facade"/>.
+        /// Inicializa una nueva instancia de la clase <see cref="FacadeJuego"/>.
         /// </summary>
         /// <param name="nombreJugador1">El nombre del Jugador 1.</param>
         /// <param name="nombreJugador2">El nombre del Jugador 2.</param>
-        public Facade(string nombreJugador1, string nombreJugador2)
+        public FacadeJuego(string nombreJugador1, string nombreJugador2)
         {
             jugador1 = new Entrenador(nombreJugador1);
             jugador2 = new Entrenador(nombreJugador2);
