@@ -16,7 +16,7 @@ public class EntrenadorTests
     public void SetUp()
     {
         entrenador = new Entrenador("Entrenador");
-        pokemon = new Pokemon("Pikachu", new Electrico(),new Ataque("Rayo",40,20),new Zzz());
+        pokemon = new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
 
     [Test]

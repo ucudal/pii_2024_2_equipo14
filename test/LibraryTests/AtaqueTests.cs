@@ -14,7 +14,7 @@ public class AtaqueTests
     [SetUp]
     public void SetUp()
     {
-        ataque = new Ataque("Ataque",10,80);
+        ataque = new Ataque("Ataque",10,80,"Fuego");
     }
 
     [Test]

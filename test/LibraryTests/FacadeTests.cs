@@ -21,14 +21,14 @@ namespace Library.Tests
             // Simular Pokémon en el Pokedex
             Pokedex.listaPokemons = new List<Pokemon>
             {
-                new Pokemon("Pikachu", new Electrico(),new Ataque("Rayo",40,20),new Zzz()),
-                new Pokemon("Charmander", new Fuego(), new Ataque("Fogata",45,70), new Incendio()),
-                new Pokemon("Bulbasaur", new Planta(), new Ataque("Florecer", 10,70), new Off()),
-                new Pokemon("Squirtle", new Agua(),new Ataque("Tsunami",30,40),new Maniqui()),
-                new Pokemon("Jigglypuff", new Normal(),new Ataque("Patada",30,50),new Maniqui()),
-                new Pokemon("Meowth", new Normal(),new Ataque("Patada",30,50),new Maniqui()),
-                new Pokemon("Pidgey", new Normal(),new Ataque("Patada",30,50),new Maniqui()),
-                new Pokemon("Rattata", new Normal(),new Ataque("Patada",30,50),new Maniqui())
+                new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz()),
+                new Pokemon("Charmander", "Fuego", new Ataque("Fogata",45,70, "Fuego"), new Incendio()),
+                new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10,70, "Planta"), new Off()),
+                new Pokemon("Squirtle", "Agua",new Ataque("Tsunami",30,40,"Agua"),new Maniqui()),
+                new Pokemon("Jigglypuff", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Meowth", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Pidgey",  "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Rattata", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui())
             };
         }
 
