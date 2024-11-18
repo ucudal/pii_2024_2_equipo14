@@ -16,7 +16,7 @@ public class Zzz: AtaqueEspecial
     {
         
     }
-    public override void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico)
+    public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon, int? critico)
     {
         pokemon.Dormido = true;
         Random turnosDormido = new Random();

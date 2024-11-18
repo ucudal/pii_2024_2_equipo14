@@ -28,5 +28,13 @@ public class AtaqueTests
         Assert.That(esperado1,Is.EqualTo(ataque.Dano));
         Assert.That(esperado2,Is.EqualTo(ataque.Precision));
     }
+
+    [Test]
+    public void TestCalcularPrecision()
+    {
+        int preciso = ataque.CalcularPrecision();
+        Assert.That(preciso,Is.LessThan(2));
+    }
     
 }
+    

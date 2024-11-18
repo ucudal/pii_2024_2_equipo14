@@ -25,7 +25,5 @@ public abstract class AtaqueEspecial: Ataque
     /// </summary>
     public string Efecto { get; protected set; }
 
-    public abstract void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico);
-    
-
+    public abstract void CausarEfecto(Entrenador? entrenador, Pokemon pokemon, int? critico);
 }

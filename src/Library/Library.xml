@@ -390,17 +390,12 @@
             </summary>
             <param name="jugador">El entrenador que elige los Pokémons.</param>
         </member>
-        <member name="M:Library.Facade.RealizarAccion(Library.Entrenador,Library.Entrenador)">
+        <member name="M:Library.Facade.ElegirAccion">
             <summary>
             Se encarga de dar inicio a la acción que elige el entrenador
             </summary>
             <param name="jugador">El entrenador que realiza la acción.</param>
             <param name="oponente">El entrenador que no está en su turno.</param>
-        </member>
-        <member name="M:Library.Facade.ElegirAccion">
-            <summary>
-            Se encarga de mostrar las acciones disponibles para el turno.
-            </summary>
         </member>
         <member name="M:Library.Facade.ElegirPokemon(Library.Entrenador)">
             <summary>
@@ -443,22 +438,6 @@
             Se encarga de mostrar los Pokémons heridos del jugador.
             </summary>
             <param name="usuario">El entrenador cuyos Pokémons heridos se muestran.</param>
-        </member>
-        <member name="M:Library.Facade.MostrarMetodosBatalla">
-            <summary>
-            Se encarga de mostrar los métodos disponibles de la batalla.
-            </summary>
-        </member>
-        <member name="M:Library.Facade.MostrarMetodosTurno">
-            <summary>
-            Se encarga de mostrar métodos disponibles para el turno.
-            </summary>
-        </member>
-        <member name="M:Library.Facade.MostrarDatosJugador(Library.Entrenador)">
-            <summary>
-            Se encarga de mostrar los datos del jugador.
-            </summary>
-            <param name="jugador">El entrenador al que se le muestran los datos.</param>
         </member>
         <member name="T:Library.Pokedex">
             <summary>
@@ -586,33 +565,6 @@
             <param name="usarRevivir">El número que indica si se puede usar Revivir.</param>
             <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
             <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
-        </member>
-        <member name="T:ClassLibrary.Train">
-            <summary>
-            Esta clase representa un tren muy básico.
-            </summary>
-        </member>
-        <member name="P:ClassLibrary.Train.IsEngineStarted">
-            <summary>
-            Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
-            </summary>
-            <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
-        </member>
-        <member name="M:ClassLibrary.Train.StartEngines">
-            <summary>
-            Enciende las máquinas del tren.
-            </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser encendidas, <c>false</c> en caso contrario.
-            </returns>
-        </member>
-        <member name="M:ClassLibrary.Train.StopEngines">
-            <summary>
-            Detiene las máquinas del tren.
-            </summary>
-            <returns>
-            <c>true</c> si las máquinas pueden ser detenidas, <c>false</c> en caso contrario.
-            </returns>
         </member>
     </members>
 </doc>
