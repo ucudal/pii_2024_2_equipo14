@@ -7,12 +7,6 @@ public static class Pokedex
     /// <summary>
     /// Atributo estático tipo Lista que contiene todos los Pokémons disponibles.
     /// </summary>
-    ///
-    ///
-    /// 
-    /// eliminar listaPokemons
-    /// cambiarlo para que agregue los ataques segun el tipo
-    /// 
     public static List<Pokemon> listaPokemons = new List<Pokemon>
     {
         new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10,70,"Planta"), new Incendio()),

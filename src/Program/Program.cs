@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 
 namespace Library
 {
@@ -38,9 +38,9 @@ namespace Library
     }
 }
 
+*/
 
-/*
- *using Ucu.Poo.DiscordBot.Domain;
+using Ucu.Poo.DiscordBot.Domain;
 using Ucu.Poo.DiscordBot.Services;
 
 namespace Program;
@@ -59,7 +59,7 @@ internal static class Program
          DemoBot();
     }
 
-    private static void DemoFacade()
+ /*   private static void DemoFacade()
     {
         Console.WriteLine(Facade.Instance.AddTrainerToWaitingList("player"));
         Console.WriteLine(Facade.Instance.AddTrainerToWaitingList("opponent"));
@@ -67,10 +67,10 @@ internal static class Program
         Console.WriteLine(Facade.Instance.StartBattle("player", "opponent"));
         Console.WriteLine(Facade.Instance.GetAllTrainersWaiting());
     }
-
+*/
     private static void DemoBot()
     {
         BotLoader.LoadAsync().GetAwaiter().GetResult();
     }
 } 
- */
+ 

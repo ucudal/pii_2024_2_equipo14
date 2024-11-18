@@ -27,6 +27,7 @@ namespace Library
         /// Atributo tipo Entrenador que indica el Jugador 1.
         /// </summary>
         private Entrenador jugador1;
+
         /// <summary>
         /// Atributo tipo Entrenador que indica el Jugador 1.
         /// </summary>
@@ -42,6 +43,7 @@ namespace Library
             jugador1 = new Entrenador(nombreJugador1);
             jugador2 = new Entrenador(nombreJugador2);
         }
+
         /// <summary>
         /// Se encarga de crear una instancia de batalla y darle comienzo.
         /// </summary>
@@ -52,26 +54,27 @@ namespace Library
             Batalla batalla = new Batalla(jugador1, jugador2, this);
             batalla.Comenzar();
         }
+
         /// <summary>
         /// Se encarga de mostrar los Pokémons disponibles para elegir.
         /// </summary>
         /// <param name="jugador">El entrenador que elige los Pokémons.</param>
-        private void InicializarPokemon(Entrenador jugador)
+        public string InicializarPokemon(Entrenador jugador)
         {
-            Console.WriteLine($"Selecciona 6 Pokémon para {jugador.Nombre}:");
+            string mensaje=$"Selecciona 6 Pokémon para {jugador.Nombre}:";
             List<Pokemon> pokemonsDisponibles = Pokedex.listaPokemons;
 
             for (int i = 0; i < pokemonsDisponibles.Count; i++)
             {
-                Console.WriteLine($"{i + 1} - {pokemonsDisponibles[i].Nombre}");
+               mensaje+= $"{i + 1} - {pokemonsDisponibles[i].Nombre}";
             }
 
             HashSet<string> seleccionados = new HashSet<string>();
 
             for (int i = 0; i < 6; i++)
             {
-                Console.WriteLine($"Selecciona el Pokémon {i + 1} (1-{pokemonsDisponibles.Count}):");
-                int seleccion = int.Parse(Console.ReadLine()) - 1;
+                mensaje+=$"Selecciona el Pokémon {i + 1} (1-{pokemonsDisponibles.Count}):";
+                int seleccion = int.Parse(Console.ReadLine()) - 1; //CAMBIAR A BOT 
 
                 if (seleccion >= 0 && seleccion < pokemonsDisponibles.Count)
                 {
@@ -79,225 +82,208 @@ namespace Library
 
                     if (!seleccionados.Contains(nombrePokemon))
                     {
-                        jugador.AgregarPokemon(pokemonsDisponibles[seleccion]);
+                        jugador.AgregarPokemon(Pokedex.BuscarPokemon(nombrePokemon));
                         seleccionados.Add(nombrePokemon);
                     }
                     else
                     {
-                        Console.WriteLine("Ya has seleccionado este Pokémon. Intenta de nuevo.");
+                        mensaje+="Ya has seleccionado este Pokémon. Intenta de nuevo.";
                         i--;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Selección no válida. Intenta de nuevo.");
+                    mensaje+="Selección no válida. Intenta de nuevo.";
                     i--;
                 }
+                
             }
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de dar inicio a la acción que elige el entrenador
         /// </summary>
         /// <param name="jugador">El entrenador que realiza la acción.</param>
         /// <param name="oponente">El entrenador que no está en su turno.</param>
-        public void RealizarAccion(Entrenador jugador, Entrenador oponente)
+
+        public string ElegirAccion()
         {
-            while (true)
-            {
-                ElegirAccion();
-                int accion = int.Parse(Console.ReadLine());
-
-                switch (accion)
-                {
-                    case 0: // Atacar
-                        Atacar.Encuentro(jugador, oponente);
-                        break;
-                    case 1: // Cambiar Pokémon
-                        CambiarPokemon.CambioDePokemon(jugador);
-                        break;
-                    case 2: // Usar ítem
-                        UsarItem.UsoDeItem(jugador, 1, 1, 1); // Aquí puedes ajustar la lógica para los ítems
-                        break;
-                    case 3: // Ver datos del jugador
-                        MostrarDatosJugador(jugador);
-                        break;
-                    default:
-                        Console.WriteLine("Acción no válida. Intenta de nuevo.");
-                        break;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Se encarga de mostrar las acciones disponibles para el turno.
-        /// </summary>
-
-        public void ElegirAccion()
-        {
-            Console.WriteLine("\n==================================");
-            Console.WriteLine("LISTA DE ACCIONES (Seleccione según el número):");
-            Console.WriteLine("\t0 - Atacar");
-            Console.WriteLine("\t1 - Cambiar Pokémon");
-            Console.WriteLine("\t2 - Usar ítem");
-            Console.WriteLine("==================================");
+            string mensaje="\n==================================";
+            mensaje+="LISTA DE ACCIONES (Seleccione según el número):";
+            mensaje+="\t0 - Atacar";
+            mensaje+="\t1 - Cambiar Pokémon";
+            mensaje+="\t2 - Usar ítem";
+            mensaje+="==================================";
+            return mensaje;
         }
 
         /// <summary>
         /// Se encarga de mostrar los Pokémons disponibles para cambiar.
         /// </summary>
         /// <param name="usuario">El entrenador que debe elegir.</param>
-        public static void ElegirPokemon(Entrenador usuario)
+        public static string ElegirPokemon(Entrenador usuario)
         {
-            Console.WriteLine("\n==================================");
-            Console.WriteLine("LISTA DE POKEMONES DISPONIBLES (Seleccione según el número):");
+           string mensaje="\n==================================";
+           mensaje+="LISTA DE POKEMONES DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.miCatalogo.Count; i++)
             {
                 Pokemon pokemon = usuario.miCatalogo[i];
-                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
+                mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
             }
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
+
         }
+
         /// <summary>
         /// Se encarga de mostrar los ataques (todos) del Pokémon.
         /// </summary>
         /// <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
-        public static void ElegirAtaque(Pokemon pokemon)
+        public static string ElegirAtaque(Pokemon pokemon)
         {
-            Console.WriteLine($"\n==================================");
-            Console.WriteLine($"LISTA DE ATAQUES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):");
-            for (int i = 0; i < pokemon.ataques.Count; i++)
+           string mensaje=$"\n==================================";
+           mensaje+=$"LISTA DE ATAQUES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
+            for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
-                Ataque ataque = pokemon.ataques[i];
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                Ataque ataque = pokemon.GetAtaques()[i];
+                mensaje+=$"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 if (ataque is AtaqueEspecial ataqueEspecial)
                 {
                     mensaje += $" / (Especial) Efecto: {ataqueEspecial.Efecto}";
                 }
-                Console.WriteLine(mensaje);
             }
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de mostrar los ataques simples del Pokémon.
         /// </summary>
         /// <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
-        public static void ElegirAtaqueSimple(Pokemon pokemon)
+        public static string ElegirAtaqueSimple(Pokemon pokemon)
         {
-            Console.WriteLine($"\n==================================");
-            Console.WriteLine($"LISTA DE ATAQUES SIMPLES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):");
+            string mensaje=$"\n==================================";
+            mensaje+= $"LISTA DE ATAQUES SIMPLES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
 
-            // Suponiendo que los ataques simples están en una lista separada o que todos los ataques son simples
-            for (int i = 0; i < pokemon.ataques.Count; i++)
+            for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
-                Ataque ataque = pokemon.ataques[i];
-                // Aquí puedes filtrar si el ataque es simple, si tienes una propiedad que lo indique
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
-                Console.WriteLine(mensaje);
+                Ataque ataque = pokemon.GetAtaques()[i];
+                if (ataque is not AtaqueEspecial)
+                {
+                    mensaje+=$"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                }
             }
-    
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de mostrar los items disponibles para elegir para usar.
         /// </summary>
         /// <param name="usuario">El entrenador que debe elegir.</param>
-        public static void ElegirItem(Entrenador usuario)
+        public static string ElegirItem(Entrenador usuario)
         {
-            Console.WriteLine($"\n==================================");
-            Console.WriteLine($"LISTA DE ÍTEMS DISPONIBLES DE {usuario.Nombre} (Seleccione según el número):");
+            string mensaje=$"\n==================================";
+            mensaje+=$"LISTA DE ÍTEMS DISPONIBLES DE {usuario.Nombre} (Seleccione según el número):";
             for (int i = 0; i < usuario.misItems.Count; i++)
             {
                 Item item = usuario.misItems[i];
-                Console.WriteLine($"\t{i} - \"{item.Nombre}\" ({item.Descripcion})");
+                mensaje+=$"\t{i} - \"{item.Nombre}\" ({item.Descripcion})";
             }
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de mostrar los datos del jugador (estado de sus Pokémons).
         /// </summary>
         /// <param name="usuario">El entrenador cuyos datos se muestran.</param>
-        public void ImprimirDatos(Entrenador usuario)
+        public string ImprimirDatos(Entrenador usuario) //ponerle string
         {
-            Console.WriteLine($"\n==================================");
-            Console.WriteLine($"DATOS DE POKEMONES DE JUGADOR {usuario.Nombre}:");
+            string mensaje=$"\n==================================";
+            mensaje+=$"DATOS DE POKEMONES DE JUGADOR {usuario.Nombre}:";
             foreach (Pokemon pokemon in usuario.miCatalogo)
             {
-                string mensaje = $"\t\"{pokemon.Nombre}\" / Vida: {pokemon.VidaTotal}";
+                mensaje+= $"\t\"{pokemon.Nombre}\" / Vida: {pokemon.VidaTotal}";
                 if (pokemon.Dormido) mensaje += " / Efecto: dormido";
                 if (pokemon.Paralizado) mensaje += " / Efecto: paralizado";
                 if (pokemon.Envenenado) mensaje += " / Efecto: envenenado";
                 if (pokemon.Quemado) mensaje += " / Efecto: quemado";
                 if (pokemon == usuario.PokemonActual) mensaje += " (Pokémon actual)";
-                Console.WriteLine(mensaje);
             }
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de mostrar los Pokémons muertos del jugador.
         /// </summary>
         /// <param name="usuario">El entrenador cuyos Pokémons muertos se muestran.</param>
-        public static void ElegirPokemonMuerto(Entrenador usuario)
+        public static string ElegirPokemonMuerto(Entrenador usuario)
         {
-            Console.WriteLine("\n==================================");
-            Console.WriteLine("LISTA DE POKEMONES MUERTOS DISPONIBLES (Seleccione según el número):");
+           string mensaje="\n==================================";
+           mensaje+="LISTA DE POKEMONES MUERTOS DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.misMuertos.Count; i++)
             {
                 Pokemon pokemon = usuario.misMuertos[i];
-                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
+                mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
             }
-            Console.WriteLine("==================================");
+
+            mensaje+="==================================";
+            return mensaje;
         }
+
         /// <summary>
         /// Se encarga de mostrar los Pokémons heridos del jugador.
         /// </summary>
         /// <param name="usuario">El entrenador cuyos Pokémons heridos se muestran.</param>
-        public static void ElegirPokemonHerido(Entrenador usuario, int itemElegido)
+        public static string ElegirPokemonHerido(Entrenador usuario, int itemElegido)
         {
-            Console.WriteLine("\n==================================");
-            Console.WriteLine("LISTA DE POKEMONES HERIDOS DISPONIBLES (Seleccione según el número):");
+            string mensaje="\n==================================";
+            mensaje+="LISTA DE POKEMONES HERIDOS DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.miCatalogo.Count; i++)
             {
                 Pokemon pokemon = usuario.miCatalogo[i];
                 if (pokemon.VidaTotal < pokemon.VidaInicial)
                 {
-                    Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
+                    mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
                 }
             }
-            Console.WriteLine("==================================");
-        }
-        /// <summary>
-        /// Se encarga de mostrar los métodos disponibles de la batalla.
-        /// </summary>
-        public static void MostrarMetodosBatalla()
-        {
-            Console.WriteLine("\nMétodos disponibles en la clase Batalla:");
-            Console.WriteLine("1. Comenzar: Comienza la batalla entre dos entrenadores.");
+
+            mensaje+="==================================";
+            return mensaje;
         }
         
-        /// <summary>
-        /// Se encarga de mostrar métodos disponibles para el turno.
-        /// </summary>
-        public static void MostrarMetodosTurno()
+        public string UsarItemInvalido()
         {
-            Console.WriteLine("\nMétodos disponibles en la clase Turno:");
-            Console.WriteLine("1. HacerAccion: Realiza una acción en el turno del entrenador.");
+            return "No puedes usar un ítem. Elige otra acción.";
         }
-        /// <summary>
-        /// Se encarga de mostrar los datos del jugador.
-        /// </summary>
-        /// <param name="jugador">El entrenador al que se le muestran los datos.</param>
-        private static void MostrarDatosJugador(Entrenador jugador)
+
+        public static string PokemonInvalido()
         {
-            Console.WriteLine("\n==================================");
-            Console.WriteLine($"Datos de {jugador.Nombre}:");
-            Console.WriteLine("Pokémon seleccionados:");
+            return
+                "No se puede agregar el Pokémon. Verifica que no esté ya en el catálogo o que no hayas alcanzado el límite.";
+        }
 
-            foreach (var pokemon in jugador.miCatalogo)
-            {
-                Console.WriteLine($"- {pokemon.Nombre} (Tipo: {pokemon.Tipo})");
-            }
+        public string PokemonMuerto(Pokemon pokemon)
+        {
+            return $"\nTu pokemon {pokemon.Nombre} ha muerto. Puede cambiarlo o usar un item";
+        }
 
-            Console.WriteLine("==================================\n");
+        public string AtacarInvalido()
+        {
+            return "Elija una opción válida";
+        }
+
+        public static string ItemInvalido()
+        {
+            return "\nDebes elegir otra opción.";
         }
     }
 }

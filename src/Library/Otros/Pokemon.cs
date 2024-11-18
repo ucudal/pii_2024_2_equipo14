@@ -15,9 +15,8 @@ public class Pokemon
         Tipo = tipo;
         Ataque = ataque;
         AtaqueEspecial = ataqueEspecial;
-        
-        ataques.Add(ataque);
-        ataques.Add(ataqueEspecial);
+        this.ataques.Add(ataque);
+        this.ataques.Add(ataqueEspecial);
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del Pokémon.
@@ -57,7 +56,7 @@ public class Pokemon
     /// <summary>
     /// Atributo que indica la lista de ataques del Pokémon.
     /// </summary>
-    public List<Ataque> ataques = new List<Ataque>();
+    private List<Ataque> ataques = new List<Ataque>();
     /// <summary>
     /// Se encarga de retornar los ataques del Pokémon
     /// </summary>

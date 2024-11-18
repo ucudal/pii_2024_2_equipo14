@@ -54,7 +54,7 @@ namespace Library
             }
             else
             {
-                Console.WriteLine("No se puede agregar el Pokémon. Verifica que no esté ya en el catálogo o que no hayas alcanzado el límite.");
+                Facade.PokemonInvalido();
             }
         }
         /// <summary>

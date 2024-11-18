@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Discord.Commands;
 
 namespace Ucu.Poo.DiscordBot.Commands;
-
+/*
 /// <summary>
 /// Esta clase implementa el comando 'name' del bot. Este comando retorna el
 /// nombre de un Pokémon dado su identificador.
@@ -86,5 +86,19 @@ public class PokemonNameCommand : ModuleBase<SocketCommandContext>
         {
             logger.LogError("Exception: {Message}", exception.Message);    
         }
+    }
+}
+*/
+
+
+public class AgregarPokemonCommand : ModuleBase<SocketCommandContext>
+{
+    [Command("AgregarPokemon")]
+    [Summary("Permite agregar Pokemon al jugador")]
+    public async Task ExecuteAsync(string InicializarPokemon)
+    {
+        string playerDisplayName = CommandHelper.GetDisplayName(Context);
+        //  string result = Facade.Instance.Inicializar(playerDisplayName, movimiento);
+        // await ReplyAsync(result);
     }
 }

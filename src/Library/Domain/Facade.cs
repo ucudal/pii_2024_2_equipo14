@@ -160,8 +160,8 @@ public class Facade
         this.WaitingList.RemoveTrainer(opponentDisplayName);
         
         // Iniciar la batalla usando la clase FacadeJuego
-        FacadeJuego facadeJuego = new FacadeJuego(playerDisplayName, opponentDisplayName);
-        facadeJuego.ComenzarBatalla();
+       // FacadeJuego facadeJuego = new FacadeJuego(playerDisplayName, opponentDisplayName);
+      //  facadeJuego.ComenzarBatalla();
         
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
