@@ -91,10 +91,8 @@ namespace Library
             jugadorActual.Turnos += 1;
             facade.ImprimirDatos(jugadorActual);
             facade.ImprimirDatos(oponente);
-            Console.WriteLine($"\nTURNO {jugadorActual.Nombre}:");
             facade.ElegirAccion();
-
-            string accion = Console.ReadLine();
+            string accion = Console.ReadLine(); //CAMBIAR A BOT
             ValidarAcciones(jugadorActual, accion, oponente);
         }
         /// <summary>
@@ -119,9 +117,9 @@ namespace Library
 
             if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
             {
-                Console.WriteLine("No puedes usar un ítem. Elige otra acción.");
+                facade.UsarItemInvalido();
                 facade.ElegirAccion();
-                accion = Console.ReadLine();
+                accion = Console.ReadLine();//CAMBIAR A BOT
             }
 
             Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, facade);

@@ -11,7 +11,7 @@ public static class CambiarPokemon
     public static void CambioDePokemon(Entrenador entrenador)
     {
         Facade.ElegirPokemon(entrenador);
-        string pokemon = Console.ReadLine();
+        string pokemon = Console.ReadLine(); //CAMBIAR A BOT
         int pokemonElegido = int.Parse(pokemon);
         entrenador.PokemonActual = entrenador.miCatalogo[pokemonElegido];
     }

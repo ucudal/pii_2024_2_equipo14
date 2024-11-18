@@ -18,13 +18,13 @@ public static class Atacar
                 pokemonAtacado.Quemado) 
         { 
             Facade.ElegirAtaqueSimple(pokemonActual);
-            string ataque = Console.ReadLine();
+            string ataque = Console.ReadLine(); //CAMBIAR A BOT
             indiceAtaque = int.Parse(ataque);
         }
         else 
         { 
             Facade.ElegirAtaque(pokemonActual); 
-            string ataque = Console.ReadLine();
+            string ataque = Console.ReadLine(); //BOT
             indiceAtaque = int.Parse(ataque);
         } 
         Random golpeCritico = new Random();

@@ -21,14 +21,13 @@ public static class Turno
         {
             entrenador.QuitarPokemon(pokemonActual);
             entrenador.AgregarMuerto(pokemonActual);
-            Console.WriteLine($"\nTu pokemon {pokemonActual.Nombre} ha muerto");
-            Console.WriteLine($"Puede cambiarlo o usar un item");
+            facade.PokemonMuerto(pokemonActual);
             facade.ElegirAccion();
-            numero = Console.ReadLine();
+            numero = Console.ReadLine();  //CAMBIAR A BOT
             while (numero == "0")
             {
-                Console.WriteLine("Elija una opción válida");
-                numero = Console.ReadLine();
+                facade.AtacarInvalido();
+                numero = Console.ReadLine(); //CAMBIAR  A BOT
             }
         }
         foreach (Pokemon pokemon in entrenador.miCatalogo)
@@ -41,9 +40,9 @@ public static class Turno
         {
             while (numero == "0")
             {
-                Console.WriteLine("\nNo se puede elegir atacar, su pokemon está dormido. Elija otra opción");
+                facade.AtacarInvalido();
                 facade.ElegirAccion();
-                numero = Console.ReadLine();
+                numero = Console.ReadLine(); //CAMBIAR A BOT
             }
         }
 
@@ -55,9 +54,9 @@ public static class Turno
             {
                 while (numero == "0")
                 {
-                    Console.WriteLine("\nNo se puede elegir atacar, su pokemon esta paralizado. Elija otra opción");
+                    facade.AtacarInvalido(); 
                     facade.ElegirAccion();
-                    numero = Console.ReadLine();
+                    numero = Console.ReadLine(); //CAMBIAR A BOT
                 }
             }
         }
