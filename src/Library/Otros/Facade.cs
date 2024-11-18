@@ -153,7 +153,7 @@ namespace Library
             for (int i = 0; i < usuario.miCatalogo.Count; i++)
             {
                 Pokemon pokemon = usuario.miCatalogo[i];
-                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.GetTipo()}");
+                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
             }
             Console.WriteLine("==================================");
         }
@@ -168,7 +168,7 @@ namespace Library
             for (int i = 0; i < pokemon.ataques.Count; i++)
             {
                 Ataque ataque = pokemon.ataques[i];
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {ataque.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 if (ataque is AtaqueEspecial ataqueEspecial)
                 {
                     mensaje += $" / (Especial) Efecto: {ataqueEspecial.Efecto}";
@@ -191,7 +191,7 @@ namespace Library
             {
                 Ataque ataque = pokemon.ataques[i];
                 // Aquí puedes filtrar si el ataque es simple, si tienes una propiedad que lo indique
-                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {ataque.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                string mensaje = $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 Console.WriteLine(mensaje);
             }
     
@@ -243,7 +243,7 @@ namespace Library
             for (int i = 0; i < usuario.misMuertos.Count; i++)
             {
                 Pokemon pokemon = usuario.misMuertos[i];
-                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.GetTipo()}");
+                Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
             }
             Console.WriteLine("==================================");
         }
@@ -260,7 +260,7 @@ namespace Library
                 Pokemon pokemon = usuario.miCatalogo[i];
                 if (pokemon.VidaTotal < pokemon.VidaInicial)
                 {
-                    Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.GetTipo()}");
+                    Console.WriteLine($"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}");
                 }
             }
             Console.WriteLine("==================================");

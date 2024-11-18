@@ -1,18 +1,18 @@
 namespace Library;
 /// <summary>
-/// Esta es la clase Zzz. Hereda <see cref="AtaqueEspecial"/> y agrega el método Dormir.
+/// Esta es la clase Dormir. Hereda <see cref="AtaqueEspecial"/> y agrega el método Dormir.
 /// </summary>
-public class Zzz: AtaqueEspecial
+public class Dormir: AtaqueEspecial
 {
     /// <summary>
-    /// Inicializa una nueva instancia de la clase <see cref="Zzz"/>.
+    /// Inicializa una nueva instancia de la clase <see cref="Dormir"/>.
     /// </summary>
     /// <param name="nombre">El nombre del ataque.</param>
     /// <param name="Dano">El daño que influye el ataque.</param>
     /// <param name="Precision">La precisión del ataque.</param>
     /// <param name="Tipo">El nombre del tipo de ataque.</param>
     /// <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-    public Zzz() : base("Zzz", 0, 50, "Normal","Dormir")
+    public Dormir() : base("Dormir", 0, 50, "Normal","Dormir")
     {
         
     }

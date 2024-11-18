@@ -23,12 +23,10 @@
             Obtiene o establece un string que indica el nombre del ataque.
             </summary>
         </member>
-        <member name="P:Library.Ataque.Tipo">
+        <member name="P:Library.Ataque.Dano">
             <summary>
             Obtiene o establece un string que indica el tipo del ataque.
             </summary>
-        </member>
-        <member name="P:Library.Ataque.Dano">
             <summary>
             Obtiene o establece un valor (int) que indica el daño del ataque.
             </summary>
@@ -66,6 +64,36 @@
             Obtiene o establece un string que indica el nombre del Efecto
             </summary>
         </member>
+        <member name="T:Library.Dormir">
+            <summary>
+            Esta es la clase Dormir. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Dormir.
+            </summary>
+        </member>
+        <member name="M:Library.Dormir.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Dormir"/>.
+            </summary>
+            <param name="nombre">El nombre del ataque.</param>
+            <param name="Dano">El daño que influye el ataque.</param>
+            <param name="Precision">La precisión del ataque.</param>
+            <param name="Tipo">El nombre del tipo de ataque.</param>
+            <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
+        </member>
+        <member name="T:Library.Envenenar">
+            <summary>
+            Esta es la clase Envenenar. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Envenenar.
+            </summary>
+        </member>
+        <member name="M:Library.Envenenar.#ctor">
+            <summary>
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Envenenar"/>.
+            </summary>
+            <param name="nombre">El nombre del ataque.</param>
+            <param name="Dano">El daño que influye el ataque.</param>
+            <param name="Precision">La precisión del ataque.</param>
+            <param name="Tipo">El nombre del tipo de ataque.</param>
+            <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
+        </member>
         <member name="T:Library.Incendio">
             <summary>
             Esta es la clase Incendio. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Quemar.
@@ -81,86 +109,20 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
-        <member name="M:Library.Incendio.Quemar(Library.Pokemon,System.Int32)">
+        <member name="T:Library.Paralizar">
             <summary>
-            Le aplica el efecto "quemado" al pokemon que recibe.
-            </summary>
-            <param name="pokemon">El Pokémon afectado.</param>
-            <param name="critico">El número que indica si el ataque es crítico.</param>
-            <remarks>
-            El Pokémon recibe cierto daño según la efectividad del ataque y si es crítico
-            </remarks>
-        </member>
-        <member name="T:Library.Maniqui">
-            <summary>
-            Esta es la clase Maniqui. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Paralizar.
+            Esta es la clase Paralizar. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Paralizar.
             </summary>
         </member>
-        <member name="M:Library.Maniqui.#ctor">
+        <member name="M:Library.Paralizar.#ctor">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Maniqui"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Paralizar"/>.
             </summary>
             <param name="nombre">El nombre del ataque.</param>
             <param name="Dano">El daño que influye el ataque.</param>
             <param name="Precision">La precisión del ataque.</param>
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-        </member>
-        <member name="M:Library.Maniqui.Paralizar(Library.Pokemon)">
-            <summary>
-            Le aplica el efecto "paralizado" al Pokémon que recibe.
-            </summary>
-            <param name="pokemon">El Pokémon afectado.</param>
-        </member>
-        <member name="T:Library.Off">
-            <summary>
-            Esta es la clase Off. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Envenenar.
-            </summary>
-        </member>
-        <member name="M:Library.Off.#ctor">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Off"/>.
-            </summary>
-            <param name="nombre">El nombre del ataque.</param>
-            <param name="Dano">El daño que influye el ataque.</param>
-            <param name="Precision">La precisión del ataque.</param>
-            <param name="Tipo">El nombre del tipo de ataque.</param>
-            <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-        </member>
-        <member name="M:Library.Off.Envenenar(Library.Pokemon,System.Int32)">
-            <summary>
-            Le aplica el efecto "envenenado" al Pokémon que recibe.
-            </summary>
-            <param name="pokemon">El Pokémon afectado.</param>
-            <param name="critico">El número que indica si el ataque es crítico.</param>
-            <remarks>
-            El Pokémon recibe cierto daño según la efectividad del ataque y si es crítico
-            </remarks>
-        </member>
-        <member name="T:Library.Zzz">
-            <summary>
-            Esta es la clase Zzz. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Dormir.
-            </summary>
-        </member>
-        <member name="M:Library.Zzz.#ctor">
-            <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Zzz"/>.
-            </summary>
-            <param name="nombre">El nombre del ataque.</param>
-            <param name="Dano">El daño que influye el ataque.</param>
-            <param name="Precision">La precisión del ataque.</param>
-            <param name="Tipo">El nombre del tipo de ataque.</param>
-            <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-        </member>
-        <member name="M:Library.Zzz.Dormir(Library.Entrenador,Library.Pokemon)">
-            <summary>
-            Le aplica el efecto "dormido" al pokemon que recibe.
-            </summary>
-            <param name="usuario">El entrenador que posee al Pokémon afectado.</param>
-            <param name="pokemon">El Pokémon afectado.</param>
-            <remarks>
-            Se determina que el Pokémon permanezca dormido de 1 a 4 turnos aleatoriamente.
-            </remarks>
         </member>
         <member name="T:Library.CuraTotal">
             <summary>
@@ -171,13 +133,6 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.CuraTotal"/>.
             </summary>
-        </member>
-        <member name="M:Library.CuraTotal.CurarTotalmente(Library.Entrenador,Library.Pokemon)">
-            <summary>
-            Cura a un Pokémon de los efectos de ataques especiales.
-            </summary>
-            <param name="entrenador">El entrenador que posee al Pokémon a curar.</param>
-            <param name="pokemon">El Pokémon a curar.</param>
         </member>
         <member name="T:Library.Item">
             <summary>
@@ -204,13 +159,6 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.Revivir"/>.
             </summary>
         </member>
-        <member name="M:Library.Revivir.RevivirPokemon(Library.Entrenador,Library.Pokemon)">
-            <summary>
-            Revive a un Pokémon muerto.
-            </summary>
-            <param name="entrenador">El entrenador que posee al Pokémon a revivir.</param>
-            <param name="pokemon">El Pokémon a revivir.</param>
-        </member>
         <member name="T:Library.SuperPocion">
             <summary>
             Esta es la clase SuperPocion. Hereda <see cref="T:Library.Item"/> y agrega el método SuperPocionar
@@ -220,13 +168,6 @@
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.SuperPocion"/>.
             </summary>
-        </member>
-        <member name="M:Library.SuperPocion.SuperPocionar(Library.Entrenador,Library.Pokemon)">
-            <summary>
-            Le suma 70 puntos de vida a un Pokémon o la vida que le falta para volver a tener la vida inicial.
-            </summary>
-            <param name="entrenador">El entrenador que posee al Pokémon a curar.</param>
-            <param name="pokemon">El Pokémon a curar.</param>
         </member>
         <member name="T:Library.Atacar">
             <summary>
@@ -535,18 +476,12 @@
             </summary>
             <param name="nombre">El nombre del Pokémon a buscar.</param>
         </member>
-        <member name="M:Library.Pokedex.CrearCopia(Library.Pokemon)">
-            <summary>
-            Se encarga de crear una copia profunda del Pokémon que recibe.
-            </summary>
-            <param name="pokemon">El Pokémon que se copia.</param>
-        </member>
         <member name="T:Library.Pokemon">
             <summary>
             Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades.
             </summary>
         </member>
-        <member name="M:Library.Pokemon.#ctor(System.String,Library.Tipo)">
+        <member name="M:Library.Pokemon.#ctor(System.String,System.String,Library.Ataque,Library.AtaqueEspecial)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Pokemon"/>.
             </summary>
@@ -563,7 +498,7 @@
             Obtiene o establece un Tipo que indica tipo del Pokémon.
             </summary>
         </member>
-        <member name="F:Library.Pokemon.vidaTotal">
+        <member name="P:Library.Pokemon.AtaqueEspecial">
             <summary>
             Atributo que indica la vida total del Pokémon
             </summary>
@@ -625,26 +560,6 @@
             </summary>
             <param name="dano">Los puntos de vida que se le quitan al Pokémon.</param>
         </member>
-        <member name="M:Library.Pokemon.GetDebilContra">
-            <summary>
-            Retorna la lista de los tipos que son fuertes contra el tipo del Pokémon.
-            </summary>
-        </member>
-        <member name="M:Library.Pokemon.GetResistenteContra">
-            <summary>
-            Retorna la lista de los tipos que son débiles contra el tipo del Pokémon.
-            </summary>
-        </member>
-        <member name="M:Library.Pokemon.GetInmuneContra">
-            <summary>
-            Retorna la lista de los tipos que no generan daño contra el tipo del Pokémon.
-            </summary>
-        </member>
-        <member name="M:Library.Pokemon.GetTipo">
-            <summary>
-            Retorna el nombre del tipo del Pokémon.
-            </summary>
-        </member>
         <member name="T:Library.Turno">
             <summary>
             Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.
@@ -672,40 +587,32 @@
             <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
             <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
         </member>
-        <member name="T:Library.Tipo">
+        <member name="T:ClassLibrary.Train">
             <summary>
-            Esta es la clase abstracta Tipo. Se encarga de determinar las propiedades que tendrán los tipos que la hereden.
+            Esta clase representa un tren muy básico.
             </summary>
         </member>
-        <member name="P:Library.Tipo.Nombre">
+        <member name="P:ClassLibrary.Train.IsEngineStarted">
             <summary>
-            Obtiene o establece un string que indica el nombre del Tipo.
+            Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
             </summary>
+            <value><c>true</c> si las máquinas fueron encendidas, <c>false</c> en caso contrario.</value>
         </member>
-        <member name="P:Library.Tipo.Ataque">
+        <member name="M:ClassLibrary.Train.StartEngines">
             <summary>
-            Obtiene o establece un string que indica el ataque que tiene este Tipo.
+            Enciende las máquinas del tren.
             </summary>
+            <returns>
+            <c>true</c> si las máquinas pueden ser encendidas, <c>false</c> en caso contrario.
+            </returns>
         </member>
-        <member name="P:Library.Tipo.AtaqueEspecial">
+        <member name="M:ClassLibrary.Train.StopEngines">
             <summary>
-            Obtiene o establece un string que indica el ataque especial que tiene este Tipo.
+            Detiene las máquinas del tren.
             </summary>
-        </member>
-        <member name="F:Library.Tipo.debilContra">
-            <summary>
-            Atributo que indica la lista de tipos que son fuertes ante este tipo.
-            </summary>
-        </member>
-        <member name="F:Library.Tipo.resistenteContra">
-            <summary>
-            Atributo que indica la lista de tipos que son débiles ante este tipo.
-            </summary>
-        </member>
-        <member name="F:Library.Tipo.inmuneContra">
-            <summary>
-            Atributo que indica la lista de tipos que no generan daño ante este tipo.
-            </summary>
+            <returns>
+            <c>true</c> si las máquinas pueden ser detenidas, <c>false</c> en caso contrario.
+            </returns>
         </member>
     </members>
 </doc>

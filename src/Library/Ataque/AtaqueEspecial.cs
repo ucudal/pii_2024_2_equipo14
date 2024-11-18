@@ -18,7 +18,6 @@ public abstract class AtaqueEspecial: Ataque
         this.Nombre = nombre;
         this.Dano = dano;
         this.Precision = precision;
-        this.Tipo = tipo;
         this.Efecto = efecto;
     }
     /// <summary>

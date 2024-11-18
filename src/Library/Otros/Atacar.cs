@@ -49,7 +49,7 @@ public static class Atacar
         else 
         { 
             Ataque ataque = pokemonActual.ataques[indiceAtaque];
-            if (ataque.CalcularPrecision() == 0) ;
+            if (ataque.CalcularPrecision() == 0) 
             {
                 int dano = Efectividad.CalcularEfectividad(ataque, pokemonAtacado);
                 if (critico == 0)
