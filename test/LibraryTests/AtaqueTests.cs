@@ -34,7 +34,7 @@ public class AtaqueTests
     public void TestCalcularPrecision()
     {
         int preciso = ataque.CalcularPrecision();
-        Assert.That(preciso,Is.LessThan(2));
+        Assert.That(preciso,Is.LessThanOrEqualTo(1));
     }
     
 }

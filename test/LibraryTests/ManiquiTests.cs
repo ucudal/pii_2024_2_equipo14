@@ -7,14 +7,12 @@ namespace LibraryTests;
 [TestOf(typeof(Maniqui))]
 public class ManiquiTests
 {
-    private Entrenador entrenador;
     private Pokemon pokemon;
     private AtaqueEspecial maniqui;
     
     [SetUp]
     public void SetUp()
     {
-        entrenador = new Entrenador("Entrenador");
         pokemon = new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
         maniqui = new Maniqui();
     }
