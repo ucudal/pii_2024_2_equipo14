@@ -26,6 +26,7 @@ namespace Library
         /// <summary>
         /// Atributo tipo Entrenador que indica el Jugador 1.
         /// </summary>
+
         private Entrenador jugador1;
 
         /// <summary>
@@ -61,19 +62,19 @@ namespace Library
         /// <param name="jugador">El entrenador que elige los Pokémons.</param>
         public string InicializarPokemon(Entrenador jugador)
         {
-            string mensaje=$"Selecciona 6 Pokémon para {jugador.Nombre}:";
+            string mensaje = $"Selecciona 6 Pokémon para {jugador.Nombre}:";
             List<Pokemon> pokemonsDisponibles = Pokedex.listaPokemons;
 
             for (int i = 0; i < pokemonsDisponibles.Count; i++)
             {
-               mensaje+= $"{i + 1} - {pokemonsDisponibles[i].Nombre}";
+                mensaje += $"{i + 1} - {pokemonsDisponibles[i].Nombre}";
             }
 
             HashSet<string> seleccionados = new HashSet<string>();
 
             for (int i = 0; i < 6; i++)
             {
-                mensaje+=$"Selecciona el Pokémon {i + 1} (1-{pokemonsDisponibles.Count}):";
+                mensaje += $"Selecciona el Pokémon {i + 1} (1-{pokemonsDisponibles.Count}):";
                 int seleccion = int.Parse(Console.ReadLine()) - 1; //CAMBIAR A BOT 
 
                 if (seleccion >= 0 && seleccion < pokemonsDisponibles.Count)
@@ -87,17 +88,18 @@ namespace Library
                     }
                     else
                     {
-                        mensaje+="Ya has seleccionado este Pokémon. Intenta de nuevo.";
+                        mensaje += "Ya has seleccionado este Pokémon. Intenta de nuevo.";
                         i--;
                     }
                 }
                 else
                 {
-                    mensaje+="Selección no válida. Intenta de nuevo.";
+                    mensaje += "Selección no válida. Intenta de nuevo.";
                     i--;
                 }
-                
+
             }
+
             return mensaje;
         }
 
@@ -109,12 +111,12 @@ namespace Library
 
         public string ElegirAccion()
         {
-            string mensaje="\n==================================";
-            mensaje+="LISTA DE ACCIONES (Seleccione según el número):";
-            mensaje+="\t0 - Atacar";
-            mensaje+="\t1 - Cambiar Pokémon";
-            mensaje+="\t2 - Usar ítem";
-            mensaje+="==================================";
+            string mensaje = "\n==================================";
+            mensaje += "LISTA DE ACCIONES (Seleccione según el número):";
+            mensaje += "\t0 - Atacar";
+            mensaje += "\t1 - Cambiar Pokémon";
+            mensaje += "\t2 - Usar ítem";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -124,15 +126,15 @@ namespace Library
         /// <param name="usuario">El entrenador que debe elegir.</param>
         public static string ElegirPokemon(Entrenador usuario)
         {
-           string mensaje="\n==================================";
-           mensaje+="LISTA DE POKEMONES DISPONIBLES (Seleccione según el número):";
+            string mensaje = "\n==================================";
+            mensaje += "LISTA DE POKEMONES DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.miCatalogo.Count; i++)
             {
                 Pokemon pokemon = usuario.miCatalogo[i];
-                mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
+                mensaje += $"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
 
         }
@@ -143,19 +145,20 @@ namespace Library
         /// <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         public static string ElegirAtaque(Pokemon pokemon)
         {
-           string mensaje=$"\n==================================";
-           mensaje+=$"LISTA DE ATAQUES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
+            string mensaje = $"\n==================================";
+            mensaje += $"LISTA DE ATAQUES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
             for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
                 Ataque ataque = pokemon.GetAtaques()[i];
-                mensaje+=$"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                mensaje +=
+                    $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 if (ataque is AtaqueEspecial ataqueEspecial)
                 {
                     mensaje += $" / (Especial) Efecto: {ataqueEspecial.Efecto}";
                 }
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -165,19 +168,20 @@ namespace Library
         /// <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         public static string ElegirAtaqueSimple(Pokemon pokemon)
         {
-            string mensaje=$"\n==================================";
-            mensaje+= $"LISTA DE ATAQUES SIMPLES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
+            string mensaje = $"\n==================================";
+            mensaje += $"LISTA DE ATAQUES SIMPLES DISPONIBLES DE {pokemon.Nombre} (Seleccione según el número):";
 
             for (int i = 0; i < pokemon.GetAtaques().Count; i++)
             {
                 Ataque ataque = pokemon.GetAtaques()[i];
                 if (ataque is not AtaqueEspecial)
                 {
-                    mensaje+=$"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
+                    mensaje +=
+                        $"\t{i} - \"{ataque.Nombre}\" / Tipo: {pokemon.Tipo} / Daño: {ataque.Dano} / Precisión: {ataque.Precision}";
                 }
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -187,15 +191,15 @@ namespace Library
         /// <param name="usuario">El entrenador que debe elegir.</param>
         public static string ElegirItem(Entrenador usuario)
         {
-            string mensaje=$"\n==================================";
-            mensaje+=$"LISTA DE ÍTEMS DISPONIBLES DE {usuario.Nombre} (Seleccione según el número):";
+            string mensaje = $"\n==================================";
+            mensaje += $"LISTA DE ÍTEMS DISPONIBLES DE {usuario.Nombre} (Seleccione según el número):";
             for (int i = 0; i < usuario.misItems.Count; i++)
             {
                 Item item = usuario.misItems[i];
-                mensaje+=$"\t{i} - \"{item.Nombre}\" ({item.Descripcion})";
+                mensaje += $"\t{i} - \"{item.Nombre}\" ({item.Descripcion})";
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -205,11 +209,11 @@ namespace Library
         /// <param name="usuario">El entrenador cuyos datos se muestran.</param>
         public string ImprimirDatos(Entrenador usuario) //ponerle string
         {
-            string mensaje=$"\n==================================";
-            mensaje+=$"DATOS DE POKEMONES DE JUGADOR {usuario.Nombre}:";
+            string mensaje = $"\n==================================";
+            mensaje += $"DATOS DE POKEMONES DE JUGADOR {usuario.Nombre}:";
             foreach (Pokemon pokemon in usuario.miCatalogo)
             {
-                mensaje+= $"\t\"{pokemon.Nombre}\" / Vida: {pokemon.VidaTotal}";
+                mensaje += $"\t\"{pokemon.Nombre}\" / Vida: {pokemon.VidaTotal}";
                 if (pokemon.Dormido) mensaje += " / Efecto: dormido";
                 if (pokemon.Paralizado) mensaje += " / Efecto: paralizado";
                 if (pokemon.Envenenado) mensaje += " / Efecto: envenenado";
@@ -217,7 +221,7 @@ namespace Library
                 if (pokemon == usuario.PokemonActual) mensaje += " (Pokémon actual)";
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -227,15 +231,15 @@ namespace Library
         /// <param name="usuario">El entrenador cuyos Pokémons muertos se muestran.</param>
         public static string ElegirPokemonMuerto(Entrenador usuario)
         {
-           string mensaje="\n==================================";
-           mensaje+="LISTA DE POKEMONES MUERTOS DISPONIBLES (Seleccione según el número):";
+            string mensaje = "\n==================================";
+            mensaje += "LISTA DE POKEMONES MUERTOS DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.misMuertos.Count; i++)
             {
                 Pokemon pokemon = usuario.misMuertos[i];
-                mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
+                mensaje += $"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
 
@@ -245,21 +249,22 @@ namespace Library
         /// <param name="usuario">El entrenador cuyos Pokémons heridos se muestran.</param>
         public static string ElegirPokemonHerido(Entrenador usuario, int itemElegido)
         {
-            string mensaje="\n==================================";
-            mensaje+="LISTA DE POKEMONES HERIDOS DISPONIBLES (Seleccione según el número):";
+            string mensaje = "\n==================================";
+            mensaje += "LISTA DE POKEMONES HERIDOS DISPONIBLES (Seleccione según el número):";
             for (int i = 0; i < usuario.miCatalogo.Count; i++)
             {
                 Pokemon pokemon = usuario.miCatalogo[i];
                 if (pokemon.VidaTotal < pokemon.VidaInicial)
                 {
-                    mensaje+=$"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
+                    mensaje += $"\t{i} - \"{pokemon.Nombre}\" de Tipo: {pokemon.Tipo}";
                 }
             }
 
-            mensaje+="==================================";
+            mensaje += "==================================";
             return mensaje;
         }
-        
+
+
         public string UsarItemInvalido()
         {
             return "No puedes usar un ítem. Elige otra acción.";
@@ -285,5 +290,43 @@ namespace Library
         {
             return "\nDebes elegir otra opción.";
         }
-    }
+        public string AgregarPokemon(Entrenador jugador, string nombrePokemon)
+        {
+            Pokemon pokemon = Pokedex.BuscarPokemon(nombrePokemon);
+            if (pokemon == null)
+            {
+                return $"Pokémon {nombrePokemon} no encontrado.";
+            }
+
+            if (jugador.miCatalogo.Count < 6 && !jugador.miCatalogo.Contains(pokemon))
+            {
+                jugador.AgregarPokemon(pokemon);
+                return $"{nombrePokemon} ha sido agregado a tu catálogo.";
+            }
+            else
+            {
+                return "No puedes agregar más Pokémon o ya tienes este Pokémon en tu catálogo.";
+            }
+        }
+        public Entrenador ObtenerEntrenador(string displayName)
+        {
+            // Implementación para obtener el entrenador basado en el nombre de visualización
+            return jugador1.Nombre == displayName ? jugador1 : jugador2;
+        }
+
+        public Entrenador ObtenerOponente(Entrenador entrenador)
+        {
+            return entrenador == jugador1 ? jugador2 : jugador1;
+        }
+        public string TerminarBatalla()
+        {
+            // Aquí puedes implementar la lógica para terminar la batalla
+            // Por ejemplo, verificar si uno de los jugadores no tiene Pokémon vivos
+            if (jugador1.miCatalogo.Count == 0 || jugador2.miCatalogo.Count == 0)
+            {
+                return "La batalla ha terminado. Uno de los jugadores no tiene Pokémon vivos.";
+            }
+            return "La batalla continúa.";
+        }
+}
 }
