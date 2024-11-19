@@ -9,19 +9,22 @@ namespace Library
         /// Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
         /// </summary>
         public static bool EnBatalla;
+
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 1.
         /// </summary>
         public Entrenador Jugador1 { get; private set; }
+
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 2.
         /// </summary>
         public Entrenador Jugador2 { get; private set; }
+
         /// <summary>
         /// Atributo Facade que indica la instancia de fachada.
         /// </summary>
         private FacadeJuego _facadeJuego;
-        
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
@@ -38,6 +41,7 @@ namespace Library
             InicializarItems(Jugador1);
             InicializarItems(Jugador2);
         }
+
         /// <summary>
         /// Le agrega al jugador los items con los que contará durante la batalla.
         /// </summary>
@@ -52,6 +56,7 @@ namespace Library
             jugador.AgregarItem(new CuraTotal());
             jugador.AgregarItem(new CuraTotal());
         }
+
         /// <summary>
         /// Da comienzo a una batalla
         /// </summary>
@@ -70,6 +75,7 @@ namespace Library
                 }
             }
         }
+
         /// <summary>
         /// Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar.
         /// </summary>
@@ -80,27 +86,39 @@ namespace Library
             int pokemonRandom = random.Next(0, 6);
             jugador.PokemonActual = jugador.miCatalogo[pokemonRandom];
         }
+
         /// <summary>
         /// Da comienzo al turno del jugador
         /// </summary>
         /// <param name="jugadorActual">El jugador que dará comienzo a su turno.</param>
         /// <param name="oponente">El jugador que no estará en su turno.</param>
+        private List<string> accionesPendientes = new List<string>();
+
         private void TurnoJugador(Entrenador jugadorActual, Entrenador oponente)
         {
             jugadorActual.MiTurno = true;
             jugadorActual.Turnos += 1;
+
             _facadeJuego.ImprimirDatos(jugadorActual);
             _facadeJuego.ImprimirDatos(oponente);
-            _facadeJuego.ElegirAccion();
-            string accion = Console.ReadLine(); //CAMBIAR A BOT
+
+            string accion = ObtenerAccion(jugadorActual);
+
             ValidarAcciones(jugadorActual, accion, oponente);
         }
-        /// <summary>
-        /// Valida la acción que ingresó el jugador como la deseada y realiza una acción válida.
-        /// </summary>
-        /// <param name="jugador">El jugador que está decidiendo la acción a seguir.</param>
-        /// <param name="accion">La acción que ingresó el jugador como la deseada.</param>
-        /// <param name="oponente">El jugador que no está en su turno.</param>
+
+        private string ObtenerAccion(Entrenador jugadorActual)
+        {
+            if (accionesPendientes.Count == 0)
+            {
+                return "1";
+            }
+
+            string accion = accionesPendientes[0];
+            accionesPendientes.RemoveAt(0);
+            return accion;
+        }
+
         private void ValidarAcciones(Entrenador jugador, string accion, Entrenador oponente)
         {
             int usarRevivir = 1;
@@ -118,8 +136,10 @@ namespace Library
             if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
             {
                 _facadeJuego.UsarItemInvalido();
+
                 _facadeJuego.ElegirAccion();
-                accion = Console.ReadLine();//CAMBIAR A BOT
+
+                accion = ObtenerAccion(jugador);
             }
 
             Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, _facadeJuego);
