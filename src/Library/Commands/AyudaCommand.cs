@@ -15,19 +15,16 @@ public class AyudaCommand : ModuleBase<SocketCommandContext>
     [Summary("Muestra todos los comandos disponibles")]
     public async Task ExecuteAsync()
     {
-        string ayuda = 
+        string ayuda =
             "**Comandos disponibles:**\n" +
             "`!Join` - Agrega al usuario a la lista de espera.\n" +
             "`!Leave` - Remueve al usuario de la lista de espera.\n" +
             "`!Waiting` - Muestra la lista de jugadores esperando.\n" +
             "`!battle` - Inicia una batalla entre jugadores.\n" +
-            "`!pokemon` - Busca un Pokémon por nombre.\n" +
-            "`!name` - Busca el nombre de un Pokémon por identificador.\n" +
-            "`!who   - retorna información sobre el usuario que envía el mensaje o sobre otro usuario si se incluye como parámetro.\n" +
-            "`!atacar` - Realiza un ataque durante la batalla.\n" +
-            "`!cambiar` - Cambia el Pokémon durante la batalla.\n" +
-            "`!estado` - Muestra el estado de tu Pokémon.\n" +
-            "`!terminar` - Termina la batalla.\n";
+            "`!acciones - Permite elegir una acción durante la batalla.\n" +
+            " !agregarPokemon - Permite al jugador agregar Pokémon a su equipo.\n" +
+            "`!who   - retorna información sobre el usuario que envía el mensaje o sobre otro usuario si se incluye como parámetro.\n";
+
         
         await ReplyAsync(ayuda);
     }

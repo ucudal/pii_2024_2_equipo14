@@ -206,7 +206,7 @@
             Atributo Facade que indica la instancia de fachada.
             </summary>
         </member>
-        <member name="M:Library.Batalla.#ctor(Library.Entrenador,Library.Entrenador,Library.Facade)">
+        <member name="M:Library.Batalla.#ctor(Library.Entrenador,Library.Entrenador,Library.FacadeJuego)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Batalla"/>.
             </summary>
@@ -231,20 +231,12 @@
             </summary>
             <param name="jugador">El jugador al que se le asigna el Pokémon.</param>
         </member>
-        <member name="M:Library.Batalla.TurnoJugador(Library.Entrenador,Library.Entrenador)">
+        <member name="F:Library.Batalla.accionesPendientes">
             <summary>
             Da comienzo al turno del jugador
             </summary>
             <param name="jugadorActual">El jugador que dará comienzo a su turno.</param>
             <param name="oponente">El jugador que no estará en su turno.</param>
-        </member>
-        <member name="M:Library.Batalla.ValidarAcciones(Library.Entrenador,System.String,Library.Entrenador)">
-            <summary>
-            Valida la acción que ingresó el jugador como la deseada y realiza una acción válida.
-            </summary>
-            <param name="jugador">El jugador que está decidiendo la acción a seguir.</param>
-            <param name="accion">La acción que ingresó el jugador como la deseada.</param>
-            <param name="oponente">El jugador que no está en su turno.</param>
         </member>
         <member name="T:Library.CambiarPokemon">
             <summary>
@@ -357,83 +349,83 @@
             Obtiene o establece el Pokémon actual
             </summary>
         </member>
-        <member name="T:Library.Facade">
+        <member name="T:Library.FacadeJuego">
             <summary>
             Esta es la clase Facade. Se encarga de crear instancias de Facade y gestionar sus responsabilidades.
             </summary>
         </member>
-        <member name="F:Library.Facade.jugador1">
+        <member name="F:Library.FacadeJuego.jugador1">
             <summary>
             Atributo tipo Entrenador que indica el Jugador 1.
             </summary>
         </member>
-        <member name="F:Library.Facade.jugador2">
+        <member name="F:Library.FacadeJuego.jugador2">
             <summary>
             Atributo tipo Entrenador que indica el Jugador 1.
             </summary>
         </member>
-        <member name="M:Library.Facade.#ctor(System.String,System.String)">
+        <member name="M:Library.FacadeJuego.#ctor(System.String,System.String)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Facade"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.FacadeJuego"/>.
             </summary>
             <param name="nombreJugador1">El nombre del Jugador 1.</param>
             <param name="nombreJugador2">El nombre del Jugador 2.</param>
         </member>
-        <member name="M:Library.Facade.ComenzarBatalla">
+        <member name="M:Library.FacadeJuego.ComenzarBatalla">
             <summary>
             Se encarga de crear una instancia de batalla y darle comienzo.
             </summary>
         </member>
-        <member name="M:Library.Facade.InicializarPokemon(Library.Entrenador)">
+        <member name="M:Library.FacadeJuego.InicializarPokemon(Library.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons disponibles para elegir.
             </summary>
             <param name="jugador">El entrenador que elige los Pokémons.</param>
         </member>
-        <member name="M:Library.Facade.ElegirAccion">
+        <member name="M:Library.FacadeJuego.ElegirAccion">
             <summary>
             Se encarga de dar inicio a la acción que elige el entrenador
             </summary>
             <param name="jugador">El entrenador que realiza la acción.</param>
             <param name="oponente">El entrenador que no está en su turno.</param>
         </member>
-        <member name="M:Library.Facade.ElegirPokemon(Library.Entrenador)">
+        <member name="M:Library.FacadeJuego.ElegirPokemon(Library.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons disponibles para cambiar.
             </summary>
             <param name="usuario">El entrenador que debe elegir.</param>
         </member>
-        <member name="M:Library.Facade.ElegirAtaque(Library.Pokemon)">
+        <member name="M:Library.FacadeJuego.ElegirAtaque(Library.Pokemon)">
             <summary>
             Se encarga de mostrar los ataques (todos) del Pokémon.
             </summary>
             <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         </member>
-        <member name="M:Library.Facade.ElegirAtaqueSimple(Library.Pokemon)">
+        <member name="M:Library.FacadeJuego.ElegirAtaqueSimple(Library.Pokemon)">
             <summary>
             Se encarga de mostrar los ataques simples del Pokémon.
             </summary>
             <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         </member>
-        <member name="M:Library.Facade.ElegirItem(Library.Entrenador)">
+        <member name="M:Library.FacadeJuego.ElegirItem(Library.Entrenador)">
             <summary>
             Se encarga de mostrar los items disponibles para elegir para usar.
             </summary>
             <param name="usuario">El entrenador que debe elegir.</param>
         </member>
-        <member name="M:Library.Facade.ImprimirDatos(Library.Entrenador)">
+        <member name="M:Library.FacadeJuego.ImprimirDatos(Library.Entrenador)">
             <summary>
             Se encarga de mostrar los datos del jugador (estado de sus Pokémons).
             </summary>
             <param name="usuario">El entrenador cuyos datos se muestran.</param>
         </member>
-        <member name="M:Library.Facade.ElegirPokemonMuerto(Library.Entrenador)">
+        <member name="M:Library.FacadeJuego.ElegirPokemonMuerto(Library.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons muertos del jugador.
             </summary>
             <param name="usuario">El entrenador cuyos Pokémons muertos se muestran.</param>
         </member>
-        <member name="M:Library.Facade.ElegirPokemonHerido(Library.Entrenador,System.Int32)">
+        <member name="M:Library.FacadeJuego.ElegirPokemonHerido(Library.Entrenador,System.Int32)">
             <summary>
             Se encarga de mostrar los Pokémons heridos del jugador.
             </summary>
@@ -544,7 +536,7 @@
             Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.
             </summary>
         </member>
-        <member name="M:Library.Turno.HacerAccion(Library.Entrenador,System.String,Library.Entrenador,System.Int32,System.Int32,System.Int32,Library.Facade)">
+        <member name="M:Library.Turno.HacerAccion(Library.Entrenador,System.String,Library.Entrenador,System.Int32,System.Int32,System.Int32,Library.FacadeJuego)">
             <summary>
             Se encarga de realizar la acción que el usuario decidió hacer.
             </summary>
@@ -566,15 +558,15 @@
             <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
             <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
         </member>
-        <member name="T:Ucu.Poo.DiscordBot.Commands.AtacarCommand">
+        <member name="T:Ucu.Poo.DiscordBot.Commands.AccionesCommand">
             <summary>
-            Esta clase implementa el comando 'atacar' del bot. Este comando permite al jugador realizar
-            un ataque durante la batalla.
+            Esta clase implementa el comando 'acciones' del bot. Este comando permite al jugador elegir
+            una acción durante la batalla.
             </summary>
         </member>
-        <member name="M:Ucu.Poo.DiscordBot.Commands.AtacarCommand.ExecuteAsync(System.String)">
+        <member name="M:Ucu.Poo.DiscordBot.Commands.AccionesCommand.ExecuteAsync">
             <summary>
-            Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
+            Implementa el comando 'acciones'. Este comando permite al jugador elegir una acción durante la batalla.
             </summary>
         </member>
         <member name="T:Ucu.Poo.DiscordBot.Commands.AyudaCommand">
@@ -594,34 +586,6 @@
             jugador que envía el mensaje con el oponente que se recibe como parámetro,
             si lo hubiera, en una batalla; si no se recibe un oponente, lo une con
             cualquiera que esté esperando para jugar.
-            </summary>
-        </member>
-        <member name="M:Ucu.Poo.DiscordBot.Commands.BattleCommand.ExecuteAsync(System.String)">
-            <summary>
-            Implementa el comando 'battle'. Este comando une al jugador que envía el
-            mensaje a la lista de jugadores esperando para jugar.
-            </summary>
-        </member>
-        <member name="T:Ucu.Poo.DiscordBot.Commands.CambiarCommand">
-            <summary>
-            Esta clase implementa el comando 'cambiar' del bot. Este comando permite cambiar el Pokémon
-            durante la batalla.
-            </summary>
-        </member>
-        <member name="M:Ucu.Poo.DiscordBot.Commands.CambiarCommand.ExecuteAsync(System.String)">
-            <summary>
-            Implementa el comando 'cambiar'. Este comando permite cambiar el Pokémon durante la batalla.
-            </summary>
-        </member>
-        <member name="T:Ucu.Poo.DiscordBot.Commands.EstadoCommand">
-            <summary>
-            Esta clase implementa el comando 'estado' del bot. Este comando muestra el estado
-            del Pokémon durante la batalla.
-            </summary>
-        </member>
-        <member name="M:Ucu.Poo.DiscordBot.Commands.EstadoCommand.ExecuteAsync">
-            <summary>
-            Implementa el comando 'estado'. Este comando muestra el estado del Pokémon durante la batalla.
             </summary>
         </member>
         <member name="T:Ucu.Poo.DiscordBot.Commands.JoinCommand">
