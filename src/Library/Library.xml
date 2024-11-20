@@ -124,419 +124,419 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
-        <member name="T:Library.CuraTotal">
+        <member name="T:Library.Item.CuraTotal">
             <summary>
-            Esta es la clase CuraTotal. Hereda <see cref="T:Library.Item"/> y agrega el método CurarTotalmente.
+            Esta es la clase CuraTotal. Hereda <see cref="T:Library.Item.Item"/> y agrega el método CurarTotalmente.
             </summary>
         </member>
-        <member name="M:Library.CuraTotal.#ctor">
+        <member name="M:Library.Item.CuraTotal.#ctor">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.CuraTotal"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Item.CuraTotal"/>.
             </summary>
         </member>
-        <member name="T:Library.Item">
+        <member name="T:Library.Item.Item">
             <summary>
             Esta es la clase abstracta Item. Los items podrán ser utilizados por los entrenadores en las batallas.
             </summary>
         </member>
-        <member name="P:Library.Item.Nombre">
+        <member name="P:Library.Item.Item.Nombre">
             <summary>
             Obtiene o establece un string que indica el nombre del item.
             </summary>
         </member>
-        <member name="P:Library.Item.Descripcion">
+        <member name="P:Library.Item.Item.Descripcion">
             <summary>
             Obtiene o establece un string que indica la descripción del funcionamiento del item.
             </summary>
         </member>
-        <member name="T:Library.Revivir">
+        <member name="T:Library.Item.Revivir">
             <summary>
-            Esta es la clase Revivir. Hereda <see cref="T:Library.Item"/> y agrega el método RevivirPokemon.
+            Esta es la clase Revivir. Hereda <see cref="T:Library.Item.Item"/> y agrega el método RevivirPokemon.
             </summary>
         </member>
-        <member name="M:Library.Revivir.#ctor">
+        <member name="M:Library.Item.Revivir.#ctor">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Revivir"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Item.Revivir"/>.
             </summary>
         </member>
-        <member name="T:Library.SuperPocion">
+        <member name="T:Library.Item.SuperPocion">
             <summary>
-            Esta es la clase SuperPocion. Hereda <see cref="T:Library.Item"/> y agrega el método SuperPocionar
+            Esta es la clase SuperPocion. Hereda <see cref="T:Library.Item.Item"/> y agrega el método SuperPocionar
             </summary>
         </member>
-        <member name="M:Library.SuperPocion.#ctor">
+        <member name="M:Library.Item.SuperPocion.#ctor">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.SuperPocion"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Item.SuperPocion"/>.
             </summary>
         </member>
-        <member name="T:Library.Atacar">
+        <member name="T:Library.Otros.Atacar">
             <summary>
             Esta es la clase estática Atacar. Define las acciones a seguir cuando el usuario elige atacar durante la batalla.
             </summary>
         </member>
-        <member name="M:Library.Atacar.Encuentro(Library.Entrenador,Library.Entrenador)">
+        <member name="M:Library.Otros.Atacar.Encuentro(Library.Otros.Entrenador,Library.Otros.Entrenador)">
             <summary>
             Determina si un Pokémon ataca a otro y con que ataque de acuerdo a la precisión, efectividad, golpe crítico y efectos.
             </summary>
             <param name="atacante">El entrenador que posee al Pokémon que ataca.</param>
             <param name="victima">El entrenador que posee al Pokémon que es atacado..</param>
         </member>
-        <member name="T:Library.Batalla">
+        <member name="T:Library.Otros.Batalla">
             <summary>
             Esta es la clase estática Batalla. Se encarga de crear instancias de batalla, y gestionar los turnos y acciones de los jugadores.
             </summary>
         </member>
-        <member name="F:Library.Batalla.EnBatalla">
+        <member name="F:Library.Otros.Batalla.EnBatalla">
             <summary>
             Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
             </summary>
         </member>
-        <member name="P:Library.Batalla.Jugador1">
+        <member name="P:Library.Otros.Batalla.Jugador1">
             <summary>
             Obtiene o establece un Entrenador que indica el Jugador 1.
             </summary>
         </member>
-        <member name="P:Library.Batalla.Jugador2">
+        <member name="P:Library.Otros.Batalla.Jugador2">
             <summary>
             Obtiene o establece un Entrenador que indica el Jugador 2.
             </summary>
         </member>
-        <member name="F:Library.Batalla._facadeJuego">
+        <member name="F:Library.Otros.Batalla._facadeJuego">
             <summary>
             Atributo Facade que indica la instancia de fachada.
             </summary>
         </member>
-        <member name="M:Library.Batalla.#ctor(Library.Entrenador,Library.Entrenador,Library.FacadeJuego)">
+        <member name="M:Library.Otros.Batalla.#ctor(Library.Otros.Entrenador,Library.Otros.Entrenador,Library.Otros.FacadeJuego)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Batalla"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Otros.Batalla"/>.
             </summary>
             <param name="jugador1">El usuario que será el Jugador 1.</param>
             <param name="jugador2">El usuario que será el Jugador 2.</param>
             <param name="facadeJuego">La instancia de fachada.</param>
         </member>
-        <member name="M:Library.Batalla.InicializarItems(Library.Entrenador)">
+        <member name="M:Library.Otros.Batalla.InicializarItems(Library.Otros.Entrenador)">
             <summary>
             Le agrega al jugador los items con los que contará durante la batalla.
             </summary>
             <param name="jugador">El jugador al que se le agregan los items.</param>
         </member>
-        <member name="M:Library.Batalla.Comenzar">
+        <member name="M:Library.Otros.Batalla.Comenzar">
             <summary>
             Da comienzo a una batalla
             </summary>
         </member>
-        <member name="M:Library.Batalla.AsignarPokemonInicial(Library.Entrenador)">
+        <member name="M:Library.Otros.Batalla.AsignarPokemonInicial(Library.Otros.Entrenador)">
             <summary>
             Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar.
             </summary>
             <param name="jugador">El jugador al que se le asigna el Pokémon.</param>
         </member>
-        <member name="F:Library.Batalla.accionesPendientes">
+        <member name="F:Library.Otros.Batalla.accionesPendientes">
             <summary>
             Da comienzo al turno del jugador
             </summary>
             <param name="jugadorActual">El jugador que dará comienzo a su turno.</param>
             <param name="oponente">El jugador que no estará en su turno.</param>
         </member>
-        <member name="T:Library.CambiarPokemon">
+        <member name="T:Library.Otros.CambiarPokemon">
             <summary>
             Esta es la clase estática CambiarPokemon. Se encarga de gestionar la acción del mismo nombre durante la batalla.
             </summary>
         </member>
-        <member name="M:Library.CambiarPokemon.CambioDePokemon(Library.Entrenador)">
+        <member name="M:Library.Otros.CambiarPokemon.CambioDePokemon(Library.Otros.Entrenador)">
             <summary>
             Le asigna un nuevo Pokémon actual al jugador que recibe.
             </summary>
             <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
         </member>
-        <member name="T:Library.Efectividad">
+        <member name="T:Library.Otros.Efectividad">
             <summary>
             Esta es la clase estática Efectividad. Se encarga de calcular la efectividad del ataque que recibe.
             </summary>
         </member>
-        <member name="M:Library.Efectividad.CalcularEfectividad(Library.Ataque,Library.Pokemon)">
+        <member name="M:Library.Otros.Efectividad.CalcularEfectividad(Library.Ataque,Library.Otros.Pokemon)">
             <summary>
             Calcula qué tan efectivo es el ataque que recibe según su tipo y el tipo del Pokémon atacado.
             </summary>
             <param name="ataque">El ataque que se está utilizando.</param>
             <param name="pokemon">El Pokémon que está siendo atacado.</param>
         </member>
-        <member name="T:Library.Entrenador">
+        <member name="T:Library.Otros.Entrenador">
             <summary>
             Esta es la clase Entrenador. Se encarga de crear instancias de Entrenador y gestionar sus responsabilidades.
             </summary>
         </member>
-        <member name="P:Library.Entrenador.Nombre">
+        <member name="P:Library.Otros.Entrenador.Nombre">
             <summary>
             Obtiene o establece el nombre del entrenador.
             </summary>
         </member>
-        <member name="F:Library.Entrenador.miCatalogo">
+        <member name="F:Library.Otros.Entrenador.miCatalogo">
             <summary>
             Atributo tipo List que contiene los Pokémons vivos del entrenador.
             </summary>
         </member>
-        <member name="F:Library.Entrenador.misMuertos">
+        <member name="F:Library.Otros.Entrenador.misMuertos">
             <summary>
             Atributo tipo List que contiene los Pokémons muertos del entrenador.
             </summary>
         </member>
-        <member name="F:Library.Entrenador.misItems">
+        <member name="F:Library.Otros.Entrenador.misItems">
             <summary>
             Atributo tipo List que contiene los items del entrenador.
             </summary>
         </member>
-        <member name="P:Library.Entrenador.MiTurno">
+        <member name="P:Library.Otros.Entrenador.MiTurno">
             <summary>
             Obtiene o establece un bool que indica si es o no el turno del entrenador.
             </summary>
         </member>
-        <member name="P:Library.Entrenador.Turnos">
+        <member name="P:Library.Otros.Entrenador.Turnos">
             <summary>
             Obtiene o establece un valor (int) que indica la cantiad de turnos del entrenador.
             </summary>
         </member>
-        <member name="M:Library.Entrenador.#ctor(System.String)">
+        <member name="M:Library.Otros.Entrenador.#ctor(System.String)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Entrenador"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Otros.Entrenador"/>.
             </summary>
             <param name="nombre">El nombre del entrenador.</param>
         </member>
-        <member name="M:Library.Entrenador.AgregarPokemon(Library.Pokemon)">
+        <member name="M:Library.Otros.Entrenador.AgregarPokemon(Library.Otros.Pokemon)">
             <summary>
             Agrega un Pokémon al catálogo del entrenador.
             </summary>
             <param name="pokemon">Pokémon que se agrega.</param>
         </member>
-        <member name="M:Library.Entrenador.QuitarPokemon(Library.Pokemon)">
+        <member name="M:Library.Otros.Entrenador.QuitarPokemon(Library.Otros.Pokemon)">
             <summary>
             Quita un Pokémon del catálogo del entrenador.
             </summary>
             <param name="pokemon">Pokémon que es quitado.</param>
         </member>
-        <member name="M:Library.Entrenador.AgregarItem(Library.Item)">
+        <member name="M:Library.Otros.Entrenador.AgregarItem(Library.Item.Item)">
             <summary>
             Agrega un item al catálogo del entrenador.
             </summary>
             <param name="item">item que se agrega.</param>
         </member>
-        <member name="M:Library.Entrenador.QuitarItem(Library.Item)">
+        <member name="M:Library.Otros.Entrenador.QuitarItem(Library.Item.Item)">
             <summary>
             Quita un item del catálogo del entrenador.
             </summary>
             <param name="item">item que es quitado.</param>
         </member>
-        <member name="M:Library.Entrenador.AgregarMuerto(Library.Pokemon)">
+        <member name="M:Library.Otros.Entrenador.AgregarMuerto(Library.Otros.Pokemon)">
             <summary>
             Agrega a un Pokémon al catálogo de muertos.
             </summary>
             <param name="pokemon">Pokémon que es agregado.</param>
         </member>
-        <member name="M:Library.Entrenador.QuitarMuerto(Library.Pokemon)">
+        <member name="M:Library.Otros.Entrenador.QuitarMuerto(Library.Otros.Pokemon)">
             <summary>
             Quita a un Pokémon del catálogo de muertos.
             </summary>
             <param name="pokemon">Pokémon que es quitado.</param>
         </member>
-        <member name="M:Library.Entrenador.Recuperar(Library.Pokemon)">
+        <member name="M:Library.Otros.Entrenador.Recuperar(Library.Otros.Pokemon)">
             <summary>
             Agrega al catálogo un Pokémon que fue reivivido.
             </summary>
             <param name="pokemon">Pokémon que es agregado.</param>
         </member>
-        <member name="P:Library.Entrenador.PokemonActual">
+        <member name="P:Library.Otros.Entrenador.PokemonActual">
             <summary>
             Obtiene o establece el Pokémon actual
             </summary>
         </member>
-        <member name="T:Library.FacadeJuego">
+        <member name="T:Library.Otros.FacadeJuego">
             <summary>
             Esta es la clase Facade. Se encarga de crear instancias de Facade y gestionar sus responsabilidades.
             </summary>
         </member>
-        <member name="F:Library.FacadeJuego.jugador1">
+        <member name="F:Library.Otros.FacadeJuego.jugador1">
             <summary>
             Atributo tipo Entrenador que indica el Jugador 1.
             </summary>
         </member>
-        <member name="F:Library.FacadeJuego.jugador2">
+        <member name="F:Library.Otros.FacadeJuego.jugador2">
             <summary>
             Atributo tipo Entrenador que indica el Jugador 1.
             </summary>
         </member>
-        <member name="M:Library.FacadeJuego.#ctor(System.String,System.String)">
+        <member name="M:Library.Otros.FacadeJuego.#ctor(System.String,System.String)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.FacadeJuego"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Otros.FacadeJuego"/>.
             </summary>
             <param name="nombreJugador1">El nombre del Jugador 1.</param>
             <param name="nombreJugador2">El nombre del Jugador 2.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ComenzarBatalla">
+        <member name="M:Library.Otros.FacadeJuego.ComenzarBatalla">
             <summary>
             Se encarga de crear una instancia de batalla y darle comienzo.
             </summary>
         </member>
-        <member name="M:Library.FacadeJuego.InicializarPokemon(Library.Entrenador)">
+        <member name="M:Library.Otros.FacadeJuego.InicializarPokemon(Library.Otros.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons disponibles para elegir.
             </summary>
             <param name="jugador">El entrenador que elige los Pokémons.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirAccion">
+        <member name="M:Library.Otros.FacadeJuego.ElegirAccion">
             <summary>
             Se encarga de dar inicio a la acción que elige el entrenador
             </summary>
             <param name="jugador">El entrenador que realiza la acción.</param>
             <param name="oponente">El entrenador que no está en su turno.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirPokemon(Library.Entrenador)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirPokemon(Library.Otros.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons disponibles para cambiar.
             </summary>
             <param name="usuario">El entrenador que debe elegir.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirAtaque(Library.Pokemon)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirAtaque(Library.Otros.Pokemon)">
             <summary>
             Se encarga de mostrar los ataques (todos) del Pokémon.
             </summary>
             <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirAtaqueSimple(Library.Pokemon)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirAtaqueSimple(Library.Otros.Pokemon)">
             <summary>
             Se encarga de mostrar los ataques simples del Pokémon.
             </summary>
             <param name="pokemon">El Pokémon cuyas acciones se muestran.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirItem(Library.Entrenador)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirItem(Library.Otros.Entrenador)">
             <summary>
             Se encarga de mostrar los items disponibles para elegir para usar.
             </summary>
             <param name="usuario">El entrenador que debe elegir.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ImprimirDatos(Library.Entrenador)">
+        <member name="M:Library.Otros.FacadeJuego.ImprimirDatos(Library.Otros.Entrenador)">
             <summary>
             Se encarga de mostrar los datos del jugador (estado de sus Pokémons).
             </summary>
             <param name="usuario">El entrenador cuyos datos se muestran.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirPokemonMuerto(Library.Entrenador)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirPokemonMuerto(Library.Otros.Entrenador)">
             <summary>
             Se encarga de mostrar los Pokémons muertos del jugador.
             </summary>
             <param name="usuario">El entrenador cuyos Pokémons muertos se muestran.</param>
         </member>
-        <member name="M:Library.FacadeJuego.ElegirPokemonHerido(Library.Entrenador,System.Int32)">
+        <member name="M:Library.Otros.FacadeJuego.ElegirPokemonHerido(Library.Otros.Entrenador,System.Int32)">
             <summary>
             Se encarga de mostrar los Pokémons heridos del jugador.
             </summary>
             <param name="usuario">El entrenador cuyos Pokémons heridos se muestran.</param>
         </member>
-        <member name="T:Library.Pokedex">
+        <member name="T:Library.Otros.Pokedex">
             <summary>
             Esta es la clase estática Pokedex. Se encarga de tener todos los Pokémons disponibles para usar.
             </summary>
         </member>
-        <member name="F:Library.Pokedex.listaPokemons">
+        <member name="F:Library.Otros.Pokedex.listaPokemons">
             <summary>
             Atributo estático tipo Lista que contiene todos los Pokémons disponibles.
             </summary>
         </member>
-        <member name="M:Library.Pokedex.BuscarPokemon(System.String)">
+        <member name="M:Library.Otros.Pokedex.BuscarPokemon(System.String)">
             <summary>
             Se encarga de buscar un Pokémon en la Pokédex por su nombre.
             </summary>
             <param name="nombre">El nombre del Pokémon a buscar.</param>
         </member>
-        <member name="T:Library.Pokemon">
+        <member name="T:Library.Otros.Pokemon">
             <summary>
             Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades.
             </summary>
         </member>
-        <member name="M:Library.Pokemon.#ctor(System.String,System.String,Library.Ataque,Library.AtaqueEspecial)">
+        <member name="M:Library.Otros.Pokemon.#ctor(System.String,System.String,Library.Ataque,Library.AtaqueEspecial)">
             <summary>
-            Inicializa una nueva instancia de la clase <see cref="T:Library.Pokemon"/>.
+            Inicializa una nueva instancia de la clase <see cref="T:Library.Otros.Pokemon"/>.
             </summary>
             <param name="nombre">El nombre del Pokémon.</param>
             <param name="tipo">El tipo del Pokémon.</param>
         </member>
-        <member name="P:Library.Pokemon.Nombre">
+        <member name="P:Library.Otros.Pokemon.Nombre">
             <summary>
             Obtiene o establece un string que indica el nombre del Pokémon.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.Tipo">
+        <member name="P:Library.Otros.Pokemon.Tipo">
             <summary>
             Obtiene o establece un Tipo que indica tipo del Pokémon.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.AtaqueEspecial">
+        <member name="P:Library.Otros.Pokemon.AtaqueEspecial">
             <summary>
             Atributo que indica la vida total del Pokémon
             </summary>
         </member>
-        <member name="P:Library.Pokemon.Dormido">
+        <member name="P:Library.Otros.Pokemon.Dormido">
             <summary>
             Obtiene o establece un bool que indica si el Pokémon está dormido.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.Paralizado">
+        <member name="P:Library.Otros.Pokemon.Paralizado">
             <summary>
             Obtiene o establece un bool que indica si el Pokémon está paralizado.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.Envenenado">
+        <member name="P:Library.Otros.Pokemon.Envenenado">
             <summary>
             Obtiene o establece un bool que indica si el Pokémon está envenenado.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.Quemado">
+        <member name="P:Library.Otros.Pokemon.Quemado">
             <summary>
             Obtiene o establece un bool que indica si el Pokémon está quemadoo.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.TurnosDormido">
+        <member name="P:Library.Otros.Pokemon.TurnosDormido">
             <summary>
             Obtiene o establece un int que indica los turnos dormido del Pokémon.
             </summary>
         </member>
-        <member name="F:Library.Pokemon.ataques">
+        <member name="F:Library.Otros.Pokemon.ataques">
             <summary>
             Atributo que indica la lista de ataques del Pokémon.
             </summary>
         </member>
-        <member name="M:Library.Pokemon.GetAtaques">
+        <member name="M:Library.Otros.Pokemon.GetAtaques">
             <summary>
             Se encarga de retornar los ataques del Pokémon
             </summary>
         </member>
-        <member name="P:Library.Pokemon.VidaInicial">
+        <member name="P:Library.Otros.Pokemon.VidaInicial">
             <summary>
             Obtiene un int que indica la vida inicial del Pokémon.
             </summary>
         </member>
-        <member name="P:Library.Pokemon.VidaTotal">
+        <member name="P:Library.Otros.Pokemon.VidaTotal">
             <summary>
             Obtiene un int que indica la vida total del Pokémon.
             </summary>
         </member>
-        <member name="M:Library.Pokemon.Curar(System.Int32)">
+        <member name="M:Library.Otros.Pokemon.Curar(System.Int32)">
             <summary>
             Se encarga de curar al Pokémon.
             </summary>
             <param name="puntos">Los puntos de vida que se le agregan al Pokémon.</param>
         </member>
-        <member name="M:Library.Pokemon.RecibirDano(System.Int32)">
+        <member name="M:Library.Otros.Pokemon.RecibirDano(System.Int32)">
             <summary>
             Se encarga de dañar al Pokémon.
             </summary>
             <param name="dano">Los puntos de vida que se le quitan al Pokémon.</param>
         </member>
-        <member name="T:Library.Turno">
+        <member name="T:Library.Otros.Turno">
             <summary>
             Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.
             </summary>
         </member>
-        <member name="M:Library.Turno.HacerAccion(Library.Entrenador,System.String,Library.Entrenador,System.Int32,System.Int32,System.Int32,Library.FacadeJuego)">
+        <member name="M:Library.Otros.Turno.HacerAccion(Library.Otros.Entrenador,System.String,Library.Otros.Entrenador,System.Int32,System.Int32,System.Int32,Library.Otros.FacadeJuego)">
             <summary>
             Se encarga de realizar la acción que el usuario decidió hacer.
             </summary>
@@ -544,12 +544,12 @@
             <param name="numero">El número que indica la acción.</param>
             <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
         </member>
-        <member name="T:Library.UsarItem">
+        <member name="T:Library.Otros.UsarItem">
             <summary>
             Esta es la clase estática UsarItem. Se encarga de gestionar la acción del mismo nombre durante la batalla.
             </summary>
         </member>
-        <member name="M:Library.UsarItem.UsoDeItem(Library.Entrenador,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Library.Otros.UsarItem.UsoDeItem(Library.Otros.Entrenador,System.Int32,System.Int32,System.Int32)">
             <summary>
             Determina el item a usar y la acción que este realiza del usuario.
             </summary>
@@ -586,6 +586,12 @@
             jugador que envía el mensaje con el oponente que se recibe como parámetro,
             si lo hubiera, en una batalla; si no se recibe un oponente, lo une con
             cualquiera que esté esperando para jugar.
+            </summary>
+        </member>
+        <member name="M:Ucu.Poo.DiscordBot.Commands.BattleCommand.ExecuteAsync(System.String)">
+            <summary>
+            Implementa el comando 'battle'. Este comando une al jugador que envía el
+            mensaje a la lista de jugadores esperando para jugar.
             </summary>
         </member>
         <member name="T:Ucu.Poo.DiscordBot.Commands.JoinCommand">
