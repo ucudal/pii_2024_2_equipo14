@@ -1,4 +1,6 @@
-namespace Library;
+using Library.Otros;
+
+namespace Library.Item;
 /// <summary>
 /// Esta es la clase abstracta Item. Los items podrán ser utilizados por los entrenadores en las batallas.
 /// </summary>

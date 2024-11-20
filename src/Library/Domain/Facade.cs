@@ -12,6 +12,7 @@ namespace Ucu.Poo.DiscordBot.Domain;
 public class Facade
 {
     private static Facade? _instance;
+  //  public static FacadeJuego _juego;
 
     // Este constructor privado impide que otras clases puedan crear instancias
     // de esta.
@@ -44,9 +45,9 @@ public class Facade
     {
         _instance = null;
     }
-    
+
     private WaitingList WaitingList { get; }
-    
+
     private BattlesList BattlesList { get; }
 
     /// <summary>
@@ -60,7 +61,7 @@ public class Facade
         {
             return $"{displayName} agregado a la lista de espera";
         }
-        
+
         return $"{displayName} ya está en la lista de espera";
     }
 
@@ -97,7 +98,7 @@ public class Facade
         {
             result += trainer.DisplayName + "; ";
         }
-        
+
         return result;
     }
 
@@ -113,7 +114,7 @@ public class Facade
         {
             return $"{displayName} no está esperando";
         }
-        
+
         return $"{displayName} está esperando";
     }
 
@@ -125,14 +126,13 @@ public class Facade
     /// <returns>Un mensaje con el resultado.</returns>
     public string StartBattle(string playerDisplayName, string? opponentDisplayName)
     {
-        
         Trainer? opponent;
 
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
             return "No hay nadie esperando";
         }
-        
+    
         if (!OpponentProvided())
         {
             opponent = this.WaitingList.GetAnyoneWaiting();
@@ -140,14 +140,14 @@ public class Facade
         }
 
         opponent = this.WaitingList.FindTrainerByDisplayName(opponentDisplayName!);
-        
+    
         if (!OpponentFound())
         {
             return $"{opponentDisplayName} no está esperando";
         }
-        
+    
         return CreateBattle(playerDisplayName, opponent!.DisplayName);
-        
+    
         // Funciones locales para mejorar la legibilidad
         bool OpponentProvided() => !string.IsNullOrEmpty(opponentDisplayName);
         bool SomebodyIsWaiting() => this.WaitingList.Count != 0;
@@ -159,11 +159,10 @@ public class Facade
         // Remover jugadores de la lista de espera
         this.WaitingList.RemoveTrainer(playerDisplayName);
         this.WaitingList.RemoveTrainer(opponentDisplayName);
-        
-        // Iniciar la batalla usando la clase Facade
-        //Facade facadeJuego = new Facade(playerDisplayName, opponentDisplayName);
-        // facadeJuego.ComenzarBatalla();
-        
+
+        // Iniciar la batalla usando la clase Battle
+        Battle battle = new Battle(playerDisplayName, opponentDisplayName);
+
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
 }

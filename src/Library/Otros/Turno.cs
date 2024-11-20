@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 
 /// <summary>
 /// Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.

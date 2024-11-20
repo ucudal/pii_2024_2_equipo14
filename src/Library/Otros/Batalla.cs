@@ -1,4 +1,6 @@
-namespace Library
+using Library.Item;
+
+namespace Library.Otros
 {
     /// <summary>
     /// Esta es la clase estática Batalla. Se encarga de crear instancias de batalla, y gestionar los turnos y acciones de los jugadores.

@@ -1,3 +1,5 @@
+using Library.Otros;
+
 namespace Library;
 /// <summary>
 /// Esta es la clase Incendio. Hereda <see cref="AtaqueEspecial"/> y agrega el método Quemar.

@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase estática Pokedex. Se encarga de tener todos los Pokémons disponibles para usar.
 /// </summary>

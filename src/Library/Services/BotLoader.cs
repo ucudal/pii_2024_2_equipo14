@@ -1,4 +1,6 @@
 using System.Reflection;
+using Discord.WebSocket;
+using Library;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -9,7 +11,7 @@ namespace Ucu.Poo.DiscordBot.Services;
 /// Esta clase ejecuta el bot de Discord hasta que en la terminal donde se
 /// ejecuta el bot se oprime la tecla 'Q'.
 /// </summary>
-public static class BotLoader
+public  class BotLoader
 {
     public static async Task LoadAsync()
     {
@@ -24,6 +26,7 @@ public static class BotLoader
                 options.AddConsole();
             })
             .AddSingleton<IConfiguration>(configuration)
+            //.AddSingleton<FacadeJuego>()
             .AddScoped<IBot, Bot>()
             .BuildServiceProvider();
 

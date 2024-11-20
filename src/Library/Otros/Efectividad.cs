@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 
 /// <summary>
 /// Esta es la clase estática Efectividad. Se encarga de calcular la efectividad del ataque que recibe.

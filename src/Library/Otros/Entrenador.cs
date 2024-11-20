@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace Library
+namespace Library.Otros
 {
     /// <summary>
     /// Esta es la clase Entrenador. Se encarga de crear instancias de Entrenador y gestionar sus responsabilidades.
@@ -24,7 +24,7 @@ namespace Library
         /// <summary>
         /// Atributo tipo List que contiene los items del entrenador.
         /// </summary>
-        public List<Item> misItems = new List<Item>();
+        public List<Item.Item> misItems = new List<Item.Item>();
         /// <summary>
         /// Obtiene o establece un bool que indica si es o no el turno del entrenador.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Library
         /// Agrega un item al catálogo del entrenador.
         /// </summary>
         /// <param name="item">item que se agrega.</param>
-        public void AgregarItem(Item item)
+        public void AgregarItem(Item.Item item)
         {
             if (Batalla.EnBatalla)
             {
@@ -85,7 +85,7 @@ namespace Library
         /// Quita un item del catálogo del entrenador.
         /// </summary>
         /// <param name="item">item que es quitado.</param>
-        public void QuitarItem(Item item)
+        public void QuitarItem(Item.Item item)
         {
             if (this.misItems.Contains(item))
             {

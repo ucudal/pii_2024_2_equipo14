@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase estática CambiarPokemon. Se encarga de gestionar la acción del mismo nombre durante la batalla.
 /// </summary>

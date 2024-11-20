@@ -1,7 +1,14 @@
 using System;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Discord;
+using Discord.WebSocket;
+using Discord.Commands;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace Library
+namespace Library.Otros
 {
     /// <summary>
     /// Esta es la clase Facade. Se encarga de crear instancias de Facade y gestionar sus responsabilidades.
@@ -195,7 +202,7 @@ namespace Library
             mensaje += $"LISTA DE ÍTEMS DISPONIBLES DE {usuario.Nombre} (Seleccione según el número):";
             for (int i = 0; i < usuario.misItems.Count; i++)
             {
-                Item item = usuario.misItems[i];
+                Item.Item item = usuario.misItems[i];
                 mensaje += $"\t{i} - \"{item.Nombre}\" ({item.Descripcion})";
             }
 

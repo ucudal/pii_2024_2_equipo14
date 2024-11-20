@@ -1,3 +1,5 @@
+using Library.Otros;
+
 namespace Library;
 /// <summary>
 /// Esta es la clase Paralizar. Hereda <see cref="AtaqueEspecial"/> y agrega el método Paralizar.

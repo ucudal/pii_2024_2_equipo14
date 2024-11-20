@@ -1,4 +1,6 @@
-namespace Library;
+using Library.Otros;
+
+namespace Library.Item;
 /// <summary>
 /// Esta es la clase CuraTotal. Hereda <see cref="Item"/> y agrega el método CurarTotalmente.
 /// </summary>

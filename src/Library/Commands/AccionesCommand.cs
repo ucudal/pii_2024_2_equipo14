@@ -1,8 +1,8 @@
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using System.Threading.Tasks;
 using Library;
+using Library.Otros;
 
 namespace Ucu.Poo.DiscordBot.Commands
 {
@@ -12,12 +12,12 @@ namespace Ucu.Poo.DiscordBot.Commands
     /// </summary>
     public class AccionesCommand : ModuleBase<SocketCommandContext>
     {
-        private readonly FacadeJuego _facade;
+        private readonly FacadeJuego _facadejuego;
         private readonly DiscordSocketClient _client; // Necesitarás tener una referencia a tu cliente de Discord
 
         public AccionesCommand(FacadeJuego facade, DiscordSocketClient client)
         {
-            _facade = facade; // Inyectar la instancia de FacadeJuego
+            _facadejuego = facade; // Inyectar la instancia de FacadeJuego
             _client = client; // Inyectar la instancia de DiscordSocketClient
         }
 
@@ -29,19 +29,18 @@ namespace Ucu.Poo.DiscordBot.Commands
         public async Task ExecuteAsync()
         {
             string playerDisplayName = CommandHelper.GetDisplayName(Context);
-            Entrenador entrenador = _facade.ObtenerEntrenador(playerDisplayName);
-            Entrenador entrenadorAtacado = _facade.ObtenerOponente(entrenador);
+            Entrenador entrenador = _facadejuego.ObtenerEntrenador(playerDisplayName);
+            Entrenador entrenadorAtacado = _facadejuego.ObtenerOponente(entrenador);
 
             // Mostrar las acciones disponibles
-            string acciones = _facade.ElegirAccion();
+            string acciones = _facadejuego.ElegirAccion();
             await ReplyAsync(acciones);
 
             // Esperar la selección del jugador
             string seleccionAccion = await GetUserInputAsync();
 
             // Aquí llamamos a la lógica de Turno
-            string resultadoAccion =
-                Turno.HacerAccion(entrenador, seleccionAccion, entrenadorAtacado, 0, 0, 0, _facade);
+            string resultadoAccion = Turno.HacerAccion(entrenador, seleccionAccion, entrenadorAtacado, 0, 0, 0, _facadejuego);
             await ReplyAsync(resultadoAccion);
         }
 
@@ -54,7 +53,7 @@ namespace Ucu.Poo.DiscordBot.Commands
                 return message.Content; // Devolver el contenido del mensaje
             }
 
-            return string.Empty; // Si no hay respuesta, devolver una cadena vacía
+            return string.Empty; 
         }
 
         private async Task<IUserMessage> NextMessageAsync(IUser user)
@@ -69,14 +68,11 @@ namespace Ucu.Poo.DiscordBot.Commands
                     message.Channel.Id == Context.Channel.Id)
                 {
                     tcs.SetResult(userMessage);
-                    // Desuscribirse del evento
                     _client.MessageReceived -= handler;
                 }
             };
 
             _client.MessageReceived += handler;
-
-            // Esperar hasta que se complete la tarea
             return await tcs.Task;
         }
     }

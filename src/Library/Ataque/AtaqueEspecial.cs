@@ -1,3 +1,5 @@
+using Library.Otros;
+
 namespace Library;
 /// <summary>
 /// Esta es la clase abstracta AtaqueEspecial. Hereda <see cref="Ataque"/> y agrega la propiedad Efecto.

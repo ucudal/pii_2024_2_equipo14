@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades.
 /// </summary>

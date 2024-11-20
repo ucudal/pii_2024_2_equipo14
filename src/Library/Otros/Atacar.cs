@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase estática Atacar. Define las acciones a seguir cuando el usuario elige atacar durante la batalla.
 /// </summary>

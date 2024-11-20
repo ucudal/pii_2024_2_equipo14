@@ -1,4 +1,6 @@
-namespace Library;
+using Library.Otros;
+
+namespace Library.Item;
 /// <summary>
 /// Esta es la clase SuperPocion. Hereda <see cref="Item"/> y agrega el método SuperPocionar
 /// </summary>
