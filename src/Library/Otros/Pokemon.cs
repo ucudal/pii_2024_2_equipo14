@@ -46,7 +46,7 @@ public class Pokemon
     /// </summary>
     public bool Envenenado { get; set; }
     /// <summary>
-    /// Obtiene o establece un bool que indica si el Pokémon está quemadoo.
+    /// Obtiene o establece un bool que indica si el Pokémon está quemado.
     /// </summary>
     public bool Quemado { get; set; }
     /// <summary>

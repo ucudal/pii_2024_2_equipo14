@@ -30,7 +30,7 @@ namespace Library
         /// </summary>
         public bool MiTurno { get; set; }
         /// <summary>
-        /// Obtiene o establece un valor (int) que indica la cantiad de turnos del entrenador.
+        /// Obtiene o establece un valor (int) que indica la cantidad de turnos del entrenador.
         /// </summary>
         public int Turnos { get; set; }
         /// <summary>

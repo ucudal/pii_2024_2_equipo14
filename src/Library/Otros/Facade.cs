@@ -29,7 +29,7 @@ namespace Library
         private Entrenador jugador1;
 
         /// <summary>
-        /// Atributo tipo Entrenador que indica el Jugador 1.
+        /// Atributo tipo Entrenador que indica el Jugador 2.
         /// </summary>
         private Entrenador jugador2;
 
@@ -182,7 +182,7 @@ namespace Library
         }
 
         /// <summary>
-        /// Se encarga de mostrar los items disponibles para elegir para usar.
+        /// Se encarga de mostrar los items disponibles para elegir y usar.
         /// </summary>
         /// <param name="usuario">El entrenador que debe elegir.</param>
         public static string ElegirItem(Entrenador usuario)
@@ -203,7 +203,7 @@ namespace Library
         /// Se encarga de mostrar los datos del jugador (estado de sus Pokémons).
         /// </summary>
         /// <param name="usuario">El entrenador cuyos datos se muestran.</param>
-        public string ImprimirDatos(Entrenador usuario) //ponerle string
+        public string ImprimirDatos(Entrenador usuario) 
         {
             string mensaje=$"\n==================================";
             mensaje+=$"DATOS DE POKEMONES DE JUGADOR {usuario.Nombre}:";
