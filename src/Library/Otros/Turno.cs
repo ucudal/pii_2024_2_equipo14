@@ -1,4 +1,5 @@
-namespace Library;
+namespace Library.Otros;
+
 /// <summary>
 /// Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.
 /// </summary>
@@ -10,25 +11,23 @@ public static class Turno
     /// <param name="entrenador">El entrenador que elige acción.</param>
     /// <param name="numero">El número que indica la acción.</param>
     /// <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
-    public static void HacerAccion(Entrenador entrenador, string numero, Entrenador entrenadorAtacado, 
-        int usarRevivir, int usarSuperPocion, int usarCuraTotal, Facade facade)
+    public static string HacerAccion(Entrenador entrenador, string numero, Entrenador entrenadorAtacado, 
+        int usarRevivir, int usarSuperPocion, int usarCuraTotal, FacadeJuego facadeJuego)
     {
+        facadeJuego.ImprimirDatos(entrenador);
+        facadeJuego.ImprimirDatos(entrenadorAtacado);
         Pokemon pokemonActual = entrenador.PokemonActual;
         Pokemon pokemonAtacado = entrenadorAtacado.PokemonActual;
+
         if (pokemonActual.VidaTotal == 0)
         {
             entrenador.QuitarPokemon(pokemonActual);
             entrenador.AgregarMuerto(pokemonActual);
-            Console.WriteLine($"\nTu pokemon {pokemonActual.Nombre} ha muerto");
-            Console.WriteLine($"Puede cambiarlo o usar un item");
-            facade.ElegirAccion();
-            numero = Console.ReadLine();
-            while (numero == "0")
-            {
-                Console.WriteLine("Elija una opción válida");
-                numero = Console.ReadLine();
-            }
+            facadeJuego.PokemonMuerto(pokemonActual);
+            return "Tu Pokémon ha sido derrotado. Elige otra acción."; // Mensaje de retorno
         }
+
+        // Manejo de estados de Pokémon
         foreach (Pokemon pokemon in entrenador.miCatalogo)
         {
             if (pokemon.TurnosDormido == entrenador.Turnos)
@@ -37,26 +36,16 @@ public static class Turno
 
         if (pokemonActual.Dormido && numero == "0")
         {
-            while (numero == "0")
-            {
-                Console.WriteLine("\nNo se puede elegir atacar, su pokemon está dormido. Elija otra opción");
-                facade.ElegirAccion();
-                numero = Console.ReadLine();
-            }
+            return "Tu Pokémon está dormido. Elige otra acción."; // Mensaje de retorno
         }
 
         if (pokemonActual.Paralizado && numero == "0")
         {
             Random poderAtacar = new Random();
             int randomPoderAtacar = poderAtacar.Next(0, 3);
-            if (randomPoderAtacar != 0)
+            if (randomPoderAtacar == 0)
             {
-                while (numero == "0")
-                {
-                    Console.WriteLine("\nNo se puede elegir atacar, su pokemon esta paralizado. Elija otra opción");
-                    facade.ElegirAccion();
-                    numero = Console.ReadLine();
-                }
+                return "Tu Pokémon está paralizado y no puede atacar. Elige otra acción."; // Mensaje de retorno
             }
         }
 
@@ -65,7 +54,6 @@ public static class Turno
             if (pokemon.Envenenado)
             {
                 pokemon.RecibirDano(pokemon.VidaTotal * 5 / 100);
-
             }
 
             if (pokemon.Quemado)
@@ -73,20 +61,21 @@ public static class Turno
                 pokemon.RecibirDano(pokemon.VidaTotal * 10 / 100);
             }
         }
-        if (numero == "0")
-        {
-          Atacar.Encuentro(entrenador,entrenadorAtacado);
-        }
 
-        if (numero == "1")
+        // Ejecutar la acción
+        switch (numero)
         {
-            CambiarPokemon.CambioDePokemon(entrenador);
+            case "0":
+                Atacar.Encuentro(entrenador, entrenadorAtacado);
+                return "Has atacado al Pokémon enemigo."; // Mensaje de retorno
+            case "1":
+                CambiarPokemon.CambioDePokemon(entrenador);
+                return "Has cambiado tu Pokémon."; // Mensaje de retorno
+            case "2":
+                UsarItem.UsoDeItem(entrenador, usarRevivir, usarSuperPocion, usarCuraTotal);
+                return "Has usado un ítem."; // Mensaje de retorno
+            default:
+                return "Acción no válida. Elige otra acción."; // Mensaje de retorno
         }
-
-        if (numero == "2")
-        {
-         UsarItem.UsoDeItem(entrenador,usarRevivir,usarSuperPocion,usarCuraTotal);
-        } 
-        entrenador.MiTurno = false;
     }
 }

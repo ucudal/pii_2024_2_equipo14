@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades.
 /// </summary>
@@ -9,12 +9,14 @@ public class Pokemon
     /// </summary>
     /// <param name="nombre">El nombre del Pokémon.</param>
     /// <param name="tipo">El tipo del Pokémon.</param>
-    public Pokemon(string nombre, Tipo tipo)
+    public Pokemon(string nombre, string tipo, Ataque ataque, AtaqueEspecial ataqueEspecial)
     {
         Nombre = nombre;
         Tipo = tipo;
-        this.ataques.Add(tipo.Ataque);
-        this.ataques.Add(tipo.AtaqueEspecial);
+        Ataque = ataque;
+        AtaqueEspecial = ataqueEspecial;
+        this.ataques.Add(ataque);
+        this.ataques.Add(ataqueEspecial);
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del Pokémon.
@@ -23,10 +25,13 @@ public class Pokemon
     /// <summary>
     /// Obtiene o establece un Tipo que indica tipo del Pokémon.
     /// </summary>
-    public Tipo Tipo { get; protected set; }
+    public string Tipo { get; protected set; }
     /// <summary>
     /// Atributo que indica la vida total del Pokémon
     /// </summary>
+    public AtaqueEspecial AtaqueEspecial { get; set; }
+    public Ataque Ataque { get; set; }
+   
     private int vidaTotal = 80;
     /// <summary>
     /// Obtiene o establece un bool que indica si el Pokémon está dormido.
@@ -51,7 +56,7 @@ public class Pokemon
     /// <summary>
     /// Atributo que indica la lista de ataques del Pokémon.
     /// </summary>
-    public List<Ataque> ataques = new List<Ataque>();
+    private List<Ataque> ataques = new List<Ataque>();
     /// <summary>
     /// Se encarga de retornar los ataques del Pokémon
     /// </summary>
@@ -88,35 +93,5 @@ public class Pokemon
     {
         this.VidaTotal -= dano;
     }
-    /// <summary>
-    /// Retorna la lista de los tipos que son fuertes contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetDebilContra()
-    {
-        return this.Tipo.debilContra;
-    }
-    /// <summary>
-    /// Retorna la lista de los tipos que son débiles contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetResistenteContra()
-    {
-        return this.Tipo.resistenteContra;
-    }
-    /// <summary>
-    /// Retorna la lista de los tipos que no generan daño contra el tipo del Pokémon.
-    /// </summary>
-    public List<string> GetInmuneContra()
-    {
-        return this.Tipo.inmuneContra;
-    }
-
-    /// <summary>
-    /// Retorna el nombre del tipo del Pokémon.
-    /// </summary>
-    public string GetTipo()
-    {
-        return this.Tipo.Nombre;
-    }
-
     
 }

@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase estática CambiarPokemon. Se encarga de gestionar la acción del mismo nombre durante la batalla.
 /// </summary>
@@ -10,8 +10,8 @@ public static class CambiarPokemon
     /// <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
     public static void CambioDePokemon(Entrenador entrenador)
     {
-        Facade.ElegirPokemon(entrenador);
-        string pokemon = Console.ReadLine();
+        FacadeJuego.ElegirPokemon(entrenador);
+        string pokemon = Console.ReadLine(); //CAMBIAR A BOT
         int pokemonElegido = int.Parse(pokemon);
         entrenador.PokemonActual = entrenador.miCatalogo[pokemonElegido];
     }

@@ -21,7 +21,7 @@
         </member>
         <member name="T:Library.Tests.FacadeTests">
             <summary>
-            Esta es la clase FacadeTests. Se encarga de comprobar que las funciones de facade fluyan correctamente.
+            Esta es la clase FacadeTests. Se encarga de comprobar que las funciones de _facadeJuego fluyan correctamente.
             </summary>
         </member>
     </members>

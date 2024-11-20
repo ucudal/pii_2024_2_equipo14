@@ -1,4 +1,6 @@
-namespace Library
+using Library.Item;
+
+namespace Library.Otros
 {
     /// <summary>
     /// Esta es la clase estática Batalla. Se encarga de crear instancias de batalla, y gestionar los turnos y acciones de los jugadores.
@@ -9,35 +11,39 @@ namespace Library
         /// Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
         /// </summary>
         public static bool EnBatalla;
+
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 1.
         /// </summary>
         public Entrenador Jugador1 { get; private set; }
+
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 2.
         /// </summary>
         public Entrenador Jugador2 { get; private set; }
+
         /// <summary>
         /// Atributo Facade que indica la instancia de fachada.
         /// </summary>
-        private Facade facade;
-        
+        private FacadeJuego _facadeJuego;
+
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
         /// <param name="jugador1">El usuario que será el Jugador 1.</param>
         /// <param name="jugador2">El usuario que será el Jugador 2.</param>
-        /// <param name="facade">La instancia de fachada.</param>
-        public Batalla(Entrenador jugador1, Entrenador jugador2, Facade facade)
+        /// <param name="facadeJuego">La instancia de fachada.</param>
+        public Batalla(Entrenador jugador1, Entrenador jugador2, FacadeJuego facadeJuego)
         {
             EnBatalla = true;
             this.Jugador1 = jugador1;
             this.Jugador2 = jugador2;
-            this.facade = facade;
+            this._facadeJuego = facadeJuego;
 
             InicializarItems(Jugador1);
             InicializarItems(Jugador2);
         }
+
         /// <summary>
         /// Le agrega al jugador los items con los que contará durante la batalla.
         /// </summary>
@@ -52,6 +58,7 @@ namespace Library
             jugador.AgregarItem(new CuraTotal());
             jugador.AgregarItem(new CuraTotal());
         }
+
         /// <summary>
         /// Da comienzo a una batalla
         /// </summary>
@@ -70,6 +77,7 @@ namespace Library
                 }
             }
         }
+
         /// <summary>
         /// Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar.
         /// </summary>
@@ -80,29 +88,39 @@ namespace Library
             int pokemonRandom = random.Next(0, 6);
             jugador.PokemonActual = jugador.miCatalogo[pokemonRandom];
         }
+
         /// <summary>
         /// Da comienzo al turno del jugador
         /// </summary>
         /// <param name="jugadorActual">El jugador que dará comienzo a su turno.</param>
         /// <param name="oponente">El jugador que no estará en su turno.</param>
+        private List<string> accionesPendientes = new List<string>();
+
         private void TurnoJugador(Entrenador jugadorActual, Entrenador oponente)
         {
             jugadorActual.MiTurno = true;
             jugadorActual.Turnos += 1;
-            facade.ImprimirDatos(jugadorActual);
-            facade.ImprimirDatos(oponente);
-            Console.WriteLine($"\nTURNO {jugadorActual.Nombre}:");
-            facade.ElegirAccion();
 
-            string accion = Console.ReadLine();
+            _facadeJuego.ImprimirDatos(jugadorActual);
+            _facadeJuego.ImprimirDatos(oponente);
+
+            string accion = ObtenerAccion(jugadorActual);
+
             ValidarAcciones(jugadorActual, accion, oponente);
         }
-        /// <summary>
-        /// Valida la acción que ingresó el jugador como la deseada y realiza una acción válida.
-        /// </summary>
-        /// <param name="jugador">El jugador que está decidiendo la acción a seguir.</param>
-        /// <param name="accion">La acción que ingresó el jugador como la deseada.</param>
-        /// <param name="oponente">El jugador que no está en su turno.</param>
+
+        private string ObtenerAccion(Entrenador jugadorActual)
+        {
+            if (accionesPendientes.Count == 0)
+            {
+                return "1";
+            }
+
+            string accion = accionesPendientes[0];
+            accionesPendientes.RemoveAt(0);
+            return accion;
+        }
+
         private void ValidarAcciones(Entrenador jugador, string accion, Entrenador oponente)
         {
             int usarRevivir = 1;
@@ -119,12 +137,14 @@ namespace Library
 
             if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
             {
-                Console.WriteLine("No puedes usar un ítem. Elige otra acción.");
-                facade.ElegirAccion();
-                accion = Console.ReadLine();
+                _facadeJuego.UsarItemInvalido();
+
+                _facadeJuego.ElegirAccion();
+
+                accion = ObtenerAccion(jugador);
             }
 
-            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, facade);
+            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, _facadeJuego);
 
             if (oponente.miCatalogo.Count == 0 && !oponente.misItems.OfType<Revivir>().Any())
             {

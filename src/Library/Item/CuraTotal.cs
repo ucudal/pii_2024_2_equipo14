@@ -1,4 +1,6 @@
-namespace Library;
+using Library.Otros;
+
+namespace Library.Item;
 /// <summary>
 /// Esta es la clase CuraTotal. Hereda <see cref="Item"/> y agrega el método CurarTotalmente.
 /// </summary>
@@ -12,12 +14,8 @@ public class CuraTotal: Item
         this.Nombre = "Cura Total";
         this.Descripcion = "Cura a un Pokémon de efectos de ataques especiales";
     }
-    /// <summary>
-    /// Cura a un Pokémon de los efectos de ataques especiales.
-    /// </summary>
-    /// <param name="entrenador">El entrenador que posee al Pokémon a curar.</param>
-    /// <param name="pokemon">El Pokémon a curar.</param>
-    public void CurarTotalmente(Entrenador entrenador, Pokemon pokemon)
+    
+    public override void Accion(Entrenador entrenador, Pokemon pokemon)
     {
         if (pokemon.Dormido)
         {
@@ -35,6 +33,6 @@ public class CuraTotal: Item
         {
             pokemon.Quemado = false;
         }
-        entrenador.QuitarItem(this);
+        entrenador.QuitarItem(this);  
     }
 }

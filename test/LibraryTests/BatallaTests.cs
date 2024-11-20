@@ -12,14 +12,14 @@ public class BatallaTests
     private Entrenador jugador1;
     private Entrenador jugador2;
     private Batalla batalla;
-    private Facade facade;
+    private FacadeJuego _facadeJuego;
     
     [SetUp]
     public void SetUp()
     {
         jugador1 = new Entrenador("Jugador1");
         jugador2 = new Entrenador("Jugador2");
-        batalla = new Batalla(jugador1, jugador2,facade);
+        batalla = new Batalla(jugador1, jugador2,_facadeJuego);
     }
 
     [Test]

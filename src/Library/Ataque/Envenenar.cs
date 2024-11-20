@@ -1,19 +1,21 @@
+using Library.Otros;
+
 namespace Library;
 
 /// <summary>
-/// Esta es la clase Off. Hereda <see cref="AtaqueEspecial"/> y agrega el método Envenenar.
+/// Esta es la clase Envenenar. Hereda <see cref="AtaqueEspecial"/> y agrega el método Envenenar.
 /// </summary>
-public class Off : AtaqueEspecial
+public class Envenenar : AtaqueEspecial
 {
     /// <summary>
-    /// Inicializa una nueva instancia de la clase <see cref="Off"/>.
+    /// Inicializa una nueva instancia de la clase <see cref="Envenenar"/>.
     /// </summary>
     /// <param name="nombre">El nombre del ataque.</param>
     /// <param name="Dano">El daño que influye el ataque.</param>
     /// <param name="Precision">La precisión del ataque.</param>
     /// <param name="Tipo">El nombre del tipo de ataque.</param>
     /// <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
-    public Off() : base("Off", 10, 90, "Veneno", "Envenenar")
+    public Envenenar() : base("Envenenar", 10, 90, "Veneno", "Envenenar")
     {
 
     }
@@ -22,7 +24,7 @@ public class Off : AtaqueEspecial
     {
         pokemon.Envenenado = true;
         pokemon.RecibirDano(pokemon.VidaTotal * 5 / 100);
-        int dano = Efectividad.CalcularEfectividad(new Off(), pokemon);
+        int dano = Efectividad.CalcularEfectividad(new Envenenar(), pokemon);
         if (critico == 0)
         {
             pokemon.RecibirDano(dano * 120 / 100);

@@ -1,4 +1,4 @@
-namespace Library;
+namespace Library.Otros;
 /// <summary>
 /// Esta es la clase estática Atacar. Define las acciones a seguir cuando el usuario elige atacar durante la batalla.
 /// </summary>
@@ -17,14 +17,14 @@ public static class Atacar
         if (pokemonAtacado.Dormido || pokemonAtacado.Paralizado || pokemonAtacado.Envenenado ||
                 pokemonAtacado.Quemado) 
         { 
-            Facade.ElegirAtaqueSimple(pokemonActual);
-            string ataque = Console.ReadLine();
+            FacadeJuego.ElegirAtaqueSimple(pokemonActual);
+            string ataque = Console.ReadLine(); //CAMBIAR A BOT
             indiceAtaque = int.Parse(ataque);
         }
         else 
         { 
-            Facade.ElegirAtaque(pokemonActual); 
-            string ataque = Console.ReadLine();
+            FacadeJuego.ElegirAtaque(pokemonActual); 
+            string ataque = Console.ReadLine(); //BOT
             indiceAtaque = int.Parse(ataque);
         } 
         Random golpeCritico = new Random();
@@ -39,7 +39,7 @@ public static class Atacar
             critico = 1;
         }
 
-        if (pokemonActual.ataques[indiceAtaque] is AtaqueEspecial ataqueEspecial)
+        if (pokemonActual.GetAtaques()[indiceAtaque] is AtaqueEspecial ataqueEspecial)
         {
             if (ataqueEspecial.CalcularPrecision() == 0)
             {
@@ -48,7 +48,7 @@ public static class Atacar
         }
         else 
         { 
-            Ataque ataque = pokemonActual.ataques[indiceAtaque];
+            Ataque ataque = pokemonActual.GetAtaques()[indiceAtaque];
             if (ataque.CalcularPrecision() == 0) ;
             {
                 int dano = Efectividad.CalcularEfectividad(ataque, pokemonAtacado);
