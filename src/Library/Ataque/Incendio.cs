@@ -16,7 +16,7 @@ public class Incendio: AtaqueEspecial
     {
         
     }
-    public override void CausarEfecto(Entrenador entrenador,Pokemon pokemon, int critico)
+    public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon, int? critico)
     {
         pokemon.Quemado = true;
         pokemon.RecibirDano(pokemon.VidaTotal*10/100);

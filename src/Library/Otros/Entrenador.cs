@@ -47,14 +47,14 @@ namespace Library
         /// <param name="pokemon">Pokémon que se agrega.</param>
         public void AgregarPokemon(Pokemon pokemon)
         {
-            if (this.miCatalogo.Count < 6 && !this.miCatalogo.Contains(pokemon) && !Batalla.EnBatalla)
+            if (this.miCatalogo.Count < 6 && !this.miCatalogo.Contains(pokemon))
             {
                 
                 miCatalogo.Add(pokemon);
             }
             else
             {
-                Console.WriteLine("No se puede agregar el Pokémon. Verifica que no esté ya en el catálogo o que no hayas alcanzado el límite.");
+                Facade.PokemonInvalido();
             }
         }
         /// <summary>

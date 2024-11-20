@@ -21,14 +21,14 @@ namespace Library.Tests
             // Simular Pokémon en el Pokedex
             Pokedex.listaPokemons = new List<Pokemon>
             {
-                new Pokemon("Pikachu", new Electrico()),
-                new Pokemon("Charmander", new Fuego()),
-                new Pokemon("Bulbasaur", new Planta()),
-                new Pokemon("Squirtle", new Agua()),
-                new Pokemon("Jigglypuff", new Normal()),
-                new Pokemon("Meowth", new Normal()),
-                new Pokemon("Pidgey", new Normal()),
-                new Pokemon("Rattata", new Normal())
+                new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz()),
+                new Pokemon("Charmander", "Fuego", new Ataque("Fogata",45,70, "Fuego"), new Incendio()),
+                new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10,70, "Planta"), new Off()),
+                new Pokemon("Squirtle", "Agua",new Ataque("Tsunami",30,40,"Agua"),new Maniqui()),
+                new Pokemon("Jigglypuff", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Meowth", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Pidgey",  "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui()),
+                new Pokemon("Rattata", "Normal",new Ataque("Patada",30,50,"Normal"),new Maniqui())
             };
         }
 

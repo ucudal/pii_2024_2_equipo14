@@ -18,7 +18,6 @@ public abstract class AtaqueEspecial: Ataque
         this.Nombre = nombre;
         this.Dano = dano;
         this.Precision = precision;
-        this.Tipo = tipo;
         this.Efecto = efecto;
     }
     /// <summary>
@@ -26,7 +25,5 @@ public abstract class AtaqueEspecial: Ataque
     /// </summary>
     public string Efecto { get; protected set; }
 
-    public abstract void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico);
-    
-
+    public abstract void CausarEfecto(Entrenador? entrenador, Pokemon pokemon, int? critico);
 }
