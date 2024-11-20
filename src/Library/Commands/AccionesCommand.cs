@@ -1,7 +1,6 @@
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Library;
 using Library.Otros;
 
 namespace Ucu.Poo.DiscordBot.Commands
@@ -14,13 +13,13 @@ namespace Ucu.Poo.DiscordBot.Commands
     {
         private readonly FacadeJuego _facadejuego;
         private readonly DiscordSocketClient _client; // Necesitarás tener una referencia a tu cliente de Discord
-
+/*
         public AccionesCommand(FacadeJuego facade, DiscordSocketClient client)
         {
             _facadejuego = facade; // Inyectar la instancia de FacadeJuego
             _client = client; // Inyectar la instancia de DiscordSocketClient
         }
-
+*/
         /// <summary>
         /// Implementa el comando 'acciones'. Este comando permite al jugador elegir una acción durante la batalla.
         /// </summary>
