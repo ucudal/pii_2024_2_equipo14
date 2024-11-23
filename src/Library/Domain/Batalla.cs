@@ -20,23 +20,22 @@ namespace Library
         /// <summary>
         /// Atributo Facade que indica la instancia de fachada.
         /// </summary>
-        private FacadeJuego _facadeJuego;
+        private FacadeJuego facade;
         
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
         /// <param name="jugador1">El usuario que será el Jugador 1.</param>
         /// <param name="jugador2">El usuario que será el Jugador 2.</param>
-        /// <param name="facadeJuego">La instancia de fachada.</param>
-        public Batalla(Entrenador jugador1, Entrenador jugador2, FacadeJuego facadeJuego)
+        /// <param name="facade">La instancia de fachada.</param>
+        public Batalla(Entrenador jugador1, Entrenador jugador2)
         {
             EnBatalla = true;
             this.Jugador1 = jugador1;
             this.Jugador2 = jugador2;
-            this._facadeJuego = facadeJuego;
-
-            InicializarItems(Jugador1);
-            InicializarItems(Jugador2);
+            this.InicializarItems(Jugador1);
+            this.InicializarItems(Jugador2);
+            Jugador1.MiTurno = true;
         }
         /// <summary>
         /// Le agrega al jugador los items con los que contará durante la batalla.
@@ -53,24 +52,6 @@ namespace Library
             jugador.AgregarItem(new CuraTotal());
         }
         /// <summary>
-        /// Da comienzo a una batalla
-        /// </summary>
-        public void Comenzar()
-        {
-            if (Jugador1.miCatalogo.Count == 6 && Jugador2.miCatalogo.Count == 6)
-            {
-                AsignarPokemonInicial(Jugador1);
-                AsignarPokemonInicial(Jugador2);
-
-                while (Jugador1.miCatalogo.Count > 0 && Jugador2.miCatalogo.Count > 0 && EnBatalla)
-                {
-                    TurnoJugador(Jugador1, Jugador2);
-                    if (!EnBatalla) break;
-                    TurnoJugador(Jugador2, Jugador1);
-                }
-            }
-        }
-        /// <summary>
         /// Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar.
         /// </summary>
         /// <param name="jugador">El jugador al que se le asigna el Pokémon.</param>
@@ -79,21 +60,6 @@ namespace Library
             Random random = new Random();
             int pokemonRandom = random.Next(0, 6);
             jugador.PokemonActual = jugador.miCatalogo[pokemonRandom];
-        }
-        /// <summary>
-        /// Da comienzo al turno del jugador
-        /// </summary>
-        /// <param name="jugadorActual">El jugador que dará comienzo a su turno.</param>
-        /// <param name="oponente">El jugador que no estará en su turno.</param>
-        private void TurnoJugador(Entrenador jugadorActual, Entrenador oponente)
-        {
-            jugadorActual.MiTurno = true;
-            jugadorActual.Turnos += 1;
-            _facadeJuego.ImprimirDatos(jugadorActual);
-            _facadeJuego.ImprimirDatos(oponente);
-            _facadeJuego.ElegirAccion();
-            string accion = Console.ReadLine(); //CAMBIAR A BOT
-            ValidarAcciones(jugadorActual, accion, oponente);
         }
         /// <summary>
         /// Valida la acción que ingresó el jugador como la deseada y realiza una acción válida.
@@ -117,12 +83,12 @@ namespace Library
 
             if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
             {
-                _facadeJuego.UsarItemInvalido();
-                _facadeJuego.ElegirAccion();
+                facade.UsarItemInvalido();
+                facade.ElegirAccion();
                 accion = Console.ReadLine();//CAMBIAR A BOT
             }
 
-            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, _facadeJuego);
+            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, facade);
 
             if (oponente.miCatalogo.Count == 0 && !oponente.misItems.OfType<Revivir>().Any())
             {

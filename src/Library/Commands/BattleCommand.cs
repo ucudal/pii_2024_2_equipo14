@@ -1,9 +1,8 @@
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace Library;
 
 /// <summary>
 /// Esta clase implementa el comando 'battle' del bot. Este comando une al
@@ -24,7 +23,7 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
         string result;
         if (opponentUser  != null)
         {
-            result = Facade.Instance.StartBattle(displayName, opponentUser .DisplayName);
+            result = Facade.Instance.ComenzarBatalla(displayName, opponentUser.DisplayName);
             await Context.Message.Author.SendMessageAsync(result);
             await opponentUser .SendMessageAsync(result);
         }

@@ -1,7 +1,7 @@
 using Library;
 //Deberia imprimir en el discord en vez de en la Consola 
 //Deberia implementar mas comandos para permitir que el juego funcione correctamente y poder elegir entre atacar,cambiar pokemon, 
-namespace Ucu.Poo.DiscordBot.Domain;
+namespace Library;
 
 /// <summary>
 /// Esta clase recibe las acciones y devuelve los resultados que permiten
@@ -17,8 +17,8 @@ public class Facade
     // de esta.
     private Facade()
     {
-        this.WaitingList = new WaitingList();
-        this.BattlesList = new BattlesList();
+        this.ListaDeEspera = new ListaDeEspera();
+        this.ListaBatallas = new ListaBatallas();
     }
 
     /// <summary>
@@ -45,18 +45,18 @@ public class Facade
         _instance = null;
     }
     
-    private WaitingList WaitingList { get; }
+    private ListaDeEspera ListaDeEspera { get; }
     
-    private BattlesList BattlesList { get; }
+    private ListaBatallas ListaBatallas { get; }
 
     /// <summary>
     /// Agrega un jugador a la lista de espera.
     /// </summary>
     /// <param name="displayName">El nombre del jugador.</param>
     /// <returns>Un mensaje con el resultado.</returns>
-    public string AddTrainerToWaitingList(string displayName)
+    public string AgregarJugadorListaDeEspera(string displayName)
     {
-        if (this.WaitingList.AddTrainer(displayName))
+        if (this.ListaDeEspera.AgregarEntrenador(displayName))
         {
             return $"{displayName} agregado a la lista de espera";
         }
@@ -69,9 +69,9 @@ public class Facade
     /// </summary>
     /// <param name="displayName">El jugador a remover.</param>
     /// <returns>Un mensaje con el resultado.</returns>
-    public string RemoveTrainerFromWaitingList(string displayName)
+    public string QuitarJugadorListaDeEspera(string displayName)
     {
-        if (this.WaitingList.RemoveTrainer(displayName))
+        if (this.ListaDeEspera.QuitarEntrenador(displayName))
         {
             return $"{displayName} removido de la lista de espera";
         }
@@ -85,17 +85,17 @@ public class Facade
     /// Obtiene la lista de jugadores esperando.
     /// </summary>
     /// <returns>Un mensaje con el resultado.</returns>
-    public string GetAllTrainersWaiting()
+    public string GetJugadoresEsperando()
     {
-        if (this.WaitingList.Count == 0)
+        if (this.ListaDeEspera.Count == 0)
         {
             return "No hay nadie esperando";
         }
 
         string result = "Esperan: ";
-        foreach (Trainer trainer in this.WaitingList.GetAllWaiting())
+        foreach (Entrenador entrenador in this.ListaDeEspera.GetEsperando())
         {
-            result += trainer.DisplayName + "; ";
+            result += entrenador.Nombre + "; ";
         }
         
         return result;
@@ -106,9 +106,9 @@ public class Facade
     /// </summary>
     /// <param name="displayName">El jugador.</param>
     /// <returns>Un mensaje con el resultado.</returns>
-    public string TrainerIsWaiting(string displayName)
+    public string JugadorEsperando(string displayName)
     {
-        Trainer? trainer = this.WaitingList.FindTrainerByDisplayName(displayName);
+        Entrenador? trainer = this.ListaDeEspera.EncontrarJugadorPorUsuario(displayName);
         if (trainer == null)
         {
             return $"{displayName} no está esperando";
@@ -123,10 +123,9 @@ public class Facade
     /// <param name="playerDisplayName">El primer jugador.</param>
     /// <param name="opponentDisplayName">El oponente.</param>
     /// <returns>Un mensaje con el resultado.</returns>
-    public string StartBattle(string playerDisplayName, string? opponentDisplayName)
+    public string ComenzarBatalla(string playerDisplayName, string? opponentDisplayName)
     {
-        
-        Trainer? opponent;
+        Entrenador? opponent;
 
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
@@ -135,35 +134,35 @@ public class Facade
         
         if (!OpponentProvided())
         {
-            opponent = this.WaitingList.GetAnyoneWaiting();
-            return CreateBattle(playerDisplayName, opponent!.DisplayName);
+            opponent = this.ListaDeEspera.GetAlguienEsperando(opponentDisplayName);
+            return CrearBatalla(playerDisplayName, opponent!.Nombre);
         }
 
-        opponent = this.WaitingList.FindTrainerByDisplayName(opponentDisplayName!);
+        opponent = this.ListaDeEspera.EncontrarJugadorPorUsuario(opponentDisplayName!);
         
         if (!OpponentFound())
         {
             return $"{opponentDisplayName} no está esperando";
         }
         
-        return CreateBattle(playerDisplayName, opponent!.DisplayName);
-        
-        // Funciones locales para mejorar la legibilidad
+        return CrearBatalla(playerDisplayName, opponent!.Nombre);
+
         bool OpponentProvided() => !string.IsNullOrEmpty(opponentDisplayName);
-        bool SomebodyIsWaiting() => this.WaitingList.Count != 0;
+        bool SomebodyIsWaiting() => this.ListaDeEspera.Count != 0;
         bool OpponentFound() => opponent != null;
     }
 
-    private string CreateBattle(string playerDisplayName, string opponentDisplayName)
+    private string CrearBatalla(string playerDisplayName, string opponentDisplayName)
     {
-        // Remover jugadores de la lista de espera
-        this.WaitingList.RemoveTrainer(playerDisplayName);
-        this.WaitingList.RemoveTrainer(opponentDisplayName);
         
-        // Iniciar la batalla usando la clase Facade
-        //Facade facadeJuego = new Facade(playerDisplayName, opponentDisplayName);
-        // facadeJuego.ComenzarBatalla();
-        
+        this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
+        this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
+        Batalla batalla = this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
+    }
+
+    private string AgregarPokemon(string pokemon)
+    {
+        
     }
 }

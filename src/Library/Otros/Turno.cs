@@ -11,22 +11,22 @@ public static class Turno
     /// <param name="numero">El número que indica la acción.</param>
     /// <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
     public static void HacerAccion(Entrenador entrenador, string numero, Entrenador entrenadorAtacado, 
-        int usarRevivir, int usarSuperPocion, int usarCuraTotal, FacadeJuego facadeJuego)
+        int usarRevivir, int usarSuperPocion, int usarCuraTotal, FacadeJuego facade)
     {
-        facadeJuego.ImprimirDatos(entrenador);
-        facadeJuego.ImprimirDatos(entrenadorAtacado);
+        facade.ImprimirDatos(entrenador);
+        facade.ImprimirDatos(entrenadorAtacado);
         Pokemon pokemonActual = entrenador.PokemonActual;
         Pokemon pokemonAtacado = entrenadorAtacado.PokemonActual;
         if (pokemonActual.VidaTotal == 0)
         {
             entrenador.QuitarPokemon(pokemonActual);
             entrenador.AgregarMuerto(pokemonActual);
-            facadeJuego.PokemonMuerto(pokemonActual);
-            facadeJuego.ElegirAccion();
+            facade.PokemonMuerto(pokemonActual);
+            facade.ElegirAccion();
             numero = Console.ReadLine();  //CAMBIAR A BOT
             while (numero == "0")
             {
-                facadeJuego.AtacarInvalido();
+                facade.AtacarInvalido();
                 numero = Console.ReadLine(); //CAMBIAR  A BOT
             }
         }
@@ -40,8 +40,8 @@ public static class Turno
         {
             while (numero == "0")
             {
-                facadeJuego.AtacarInvalido();
-                facadeJuego.ElegirAccion();
+                facade.AtacarInvalido();
+                facade.ElegirAccion();
                 numero = Console.ReadLine(); //CAMBIAR A BOT
             }
         }
@@ -54,8 +54,8 @@ public static class Turno
             {
                 while (numero == "0")
                 {
-                    facadeJuego.AtacarInvalido(); 
-                    facadeJuego.ElegirAccion();
+                    facade.AtacarInvalido(); 
+                    facade.ElegirAccion();
                     numero = Console.ReadLine(); //CAMBIAR A BOT
                 }
             }

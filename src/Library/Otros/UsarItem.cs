@@ -11,67 +11,18 @@ public static class UsarItem
     /// <param name="usarRevivir">El número que indica si se puede usar Revivir.</param>
     /// <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
     /// <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
-    public static void UsoDeItem(Entrenador entrenador, int usarRevivir, int usarSuperPocion, int usarCuraTotal)
+    public static void UsoDeItem(Entrenador entrenador, Revivir revivir, Pokemon pokemon)
     {
-        FacadeJuego.ElegirItem(entrenador);
-        string item = Console.ReadLine();//CAMBIAR A BOT
-        int itemElegido = int.Parse(item);
-        if (entrenador.misItems[itemElegido] is Revivir && usarRevivir == 1)
-        {
-            while (entrenador.misItems[itemElegido] is Revivir)
-            {
-                FacadeJuego.ItemInvalido();
-                FacadeJuego.ElegirItem(entrenador);
-                item = Console.ReadLine();//CAMBIAR A BOT
-                itemElegido = int.Parse(item);
-            }
-        }
+       revivir.Accion(entrenador,pokemon);
+    }
 
-        if (entrenador.misItems[itemElegido] is SuperPocion && usarSuperPocion == 1)
-        {
-            while (entrenador.misItems[itemElegido] is SuperPocion)
-            {
-                FacadeJuego.ItemInvalido();
-                FacadeJuego.ElegirItem(entrenador);
-                item = Console.ReadLine();//CAMBIAR A BOT
-                itemElegido = int.Parse(item);
+    public static void UsoDeItem(Entrenador entrenador, SuperPocion superPocion, Pokemon pokemon)
+    {
+        superPocion.Accion(entrenador,pokemon);
+    }
 
-            }
-        }
-
-        if (entrenador.misItems[itemElegido] is CuraTotal && usarCuraTotal == 1)
-        {
-            while (entrenador.misItems[itemElegido] is CuraTotal)
-            {
-                FacadeJuego.ItemInvalido();
-                FacadeJuego.ElegirItem(entrenador);
-                item = Console.ReadLine();//CAMBIAR A BOT
-                itemElegido = int.Parse(item);
-            }
-        }
-
-        if (entrenador.misItems[itemElegido] is Revivir revivir)
-        {
-            FacadeJuego.ElegirPokemonMuerto(entrenador);
-            string pokemonMuerto = Console.ReadLine();//CAMBIAR A BOT
-            int pokemonElegido = int.Parse(pokemonMuerto);
-            Pokemon pokemonARevivir = entrenador.misMuertos[pokemonElegido];
-            revivir.Accion(entrenador, pokemonARevivir);
-        }
-        else
-        {
-            FacadeJuego.ElegirPokemonHerido(entrenador, itemElegido);
-            string _pokemon = Console.ReadLine(); //CAMBIAR A BOT
-            int pokemonElegido = int.Parse(_pokemon);
-            Pokemon pokemon = entrenador.miCatalogo[pokemonElegido];
-            if (entrenador.misItems[itemElegido] is CuraTotal curaTotal)
-            {
-                curaTotal.Accion(entrenador, pokemon);
-                if (entrenador.misItems[itemElegido] is SuperPocion superPocion)
-                {
-                    superPocion.Accion(entrenador, pokemon);
-                }
-            }
-        }
+    public static void UsoDeItem(Entrenador entrenador, CuraTotal curaTotal, Pokemon pokemon)
+    {
+        curaTotal.Accion(entrenador,pokemon);
     }
 }

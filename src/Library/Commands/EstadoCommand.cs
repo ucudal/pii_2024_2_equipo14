@@ -1,7 +1,7 @@
 using Discord.Commands;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+
+namespace Library;
 
 /// <summary>
 /// Esta clase implementa el comando 'estado' del bot. Este comando muestra el estado
@@ -17,8 +17,6 @@ public class EstadoCommand : ModuleBase<SocketCommandContext>
     public async Task ExecuteAsync()
     {
         string playerDisplayName = CommandHelper.GetDisplayName(Context);
-      //  string result = Facade.Instance.GetPokemonStatus(playerDisplayName);
-      //  await ReplyAsync(result);
       await ReplyAsync($"{playerDisplayName}, aquí está el estado de tu Pokémon.");
 
     }

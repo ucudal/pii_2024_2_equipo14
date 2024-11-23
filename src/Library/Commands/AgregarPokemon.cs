@@ -1,7 +1,7 @@
 using Discord.Commands;
 using Library;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace Library;
 
 public class AgregarPokemon : ModuleBase<SocketCommandContext>
 {
@@ -13,8 +13,6 @@ public class AgregarPokemon : ModuleBase<SocketCommandContext>
     public async Task ExecuteAsync(string movimiento)
     {
         string playerDisplayName = CommandHelper.GetDisplayName(Context);
-        //  string result = Facade.Instance.PokemonChange(playerDisplayName, movimiento);
-        // await ReplyAsync(result);
         await ReplyAsync($"El {playerDisplayName} cambia de pokemon a {Entrenador.PokemonActual}!");
     }
 }

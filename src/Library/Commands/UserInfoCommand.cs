@@ -1,8 +1,7 @@
 using Discord.Commands;
 using Discord.WebSocket;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace Library;
 
 /// <summary>
 /// Esta clase implementa el comando 'userinfo', alias 'who' o 'whois' del bot.
@@ -39,7 +38,7 @@ public class UserInfoCommand : ModuleBase<SocketCommandContext>
         
         string userName = displayName ?? CommandHelper.GetDisplayName(Context);
         
-        string result = Facade.Instance.TrainerIsWaiting(userName);
+        string result = Facade.Instance.JugadorEsperando(userName);
         
         await ReplyAsync(result);
     }

@@ -1,7 +1,6 @@
 using Discord.Commands;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace Library;
 
 /// <summary>
 /// Esta clase implementa el comando 'cambiar' del bot. Este comando permite cambiar el Pokémon

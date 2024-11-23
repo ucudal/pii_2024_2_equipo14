@@ -1,7 +1,6 @@
 using Discord.Commands;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace Library;
 
 /// <summary>
 /// Esta clase implementa el comando 'join' del bot. Este comando une al jugador
@@ -20,7 +19,7 @@ public class JoinCommand : ModuleBase<SocketCommandContext>
     public async Task ExecuteAsync()
     {
         string displayName = CommandHelper.GetDisplayName(Context);
-        string result = Facade.Instance.AddTrainerToWaitingList(displayName);
+        string result = Facade.Instance.AgregarJugadorListaDeEspera(displayName);
         await ReplyAsync(result);
     }
 }

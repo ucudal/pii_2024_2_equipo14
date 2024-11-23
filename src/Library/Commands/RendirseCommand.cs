@@ -1,7 +1,6 @@
 using Discord.Commands;
-using Ucu.Poo.DiscordBot.Domain;
 
-namespace Ucu.Poo.DiscordBot.Commands;
+namespace LIbrary;
 
 /// <summary>
 /// Esta clase implementa el comando 'terminar' del bot. Este comando termina la batalla
