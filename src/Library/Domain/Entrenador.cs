@@ -47,15 +47,7 @@ namespace Library
         /// <param name="pokemon">Pokémon que se agrega.</param>
         public void AgregarPokemon(Pokemon pokemon)
         {
-            if (this.miCatalogo.Count < 6 && !this.miCatalogo.Contains(pokemon))
-            {
-                
-                miCatalogo.Add(pokemon);
-            }
-            else
-            {
-                FacadeJuego.PokemonInvalido();
-            }
+            miCatalogo.Add(pokemon);
         }
         /// <summary>
         /// Quita un Pokémon del catálogo del entrenador.

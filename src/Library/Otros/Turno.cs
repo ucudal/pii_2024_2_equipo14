@@ -133,7 +133,6 @@ public static class Turno
                 }
             }
         }
-
         return false; 
     }
 }

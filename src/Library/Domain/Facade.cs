@@ -125,19 +125,29 @@ public class Facade
     /// <returns>Un mensaje con el resultado.</returns>
     public string ComenzarBatalla(string playerDisplayName, string? opponentDisplayName)
     {
+        // El símbolo ? luego de Trainer indica que la variable opponent puede
+        // referenciar una instancia de Trainer o ser null.
         Entrenador? opponent;
-
+        
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
             return "No hay nadie esperando";
         }
         
-        if (!OpponentProvided())
+        if (!OpponentProvided() && this.ListaDeEspera.Count > 0) 
         {
             opponent = this.ListaDeEspera.GetAlguienEsperando(opponentDisplayName);
-            return CrearBatalla(playerDisplayName, opponent!.Nombre);
+            
+            // El símbolo ! luego de opponent indica que sabemos que esa
+            // variable no es null. Estamos seguros porque SomebodyIsWaiting
+            // retorna true si y solo si hay usuarios esperando y en tal caso
+            // GetAnyoneWaiting nunca retorna null.
+            return this.CrearBatalla(playerDisplayName, opponent!.Nombre);
         }
 
+        // El símbolo ! luego de opponentDisplayName indica que sabemos que esa
+        // variable no es null. Estamos seguros porque OpponentProvided hubiera
+        // retorna false antes y no habríamos llegado hasta aquí.
         opponent = this.ListaDeEspera.EncontrarJugadorPorUsuario(opponentDisplayName!);
         
         if (!OpponentFound())
@@ -145,11 +155,24 @@ public class Facade
             return $"{opponentDisplayName} no está esperando";
         }
         
-        return CrearBatalla(playerDisplayName, opponent!.Nombre);
+        return this.CrearBatalla(playerDisplayName, opponent!.Nombre);
+        
+        // Funciones locales a continuación para mejorar la legibilidad
 
-        bool OpponentProvided() => !string.IsNullOrEmpty(opponentDisplayName);
-        bool SomebodyIsWaiting() => this.ListaDeEspera.Count != 0;
-        bool OpponentFound() => opponent != null;
+        bool OpponentProvided()
+        {
+            return !string.IsNullOrEmpty(opponentDisplayName);
+        }
+
+        bool SomebodyIsWaiting()
+        {
+            return this.ListaDeEspera.Count != 0;
+        }
+
+        bool OpponentFound()
+        {
+            return opponent != null;
+        }
     }
 
     private string CrearBatalla(string playerDisplayName, string opponentDisplayName)
@@ -161,10 +184,23 @@ public class Facade
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
 
-    private string AgregarPokemon(string pokemon)
+    private string AgregarPokemon(Entrenador entrenador, string pokemon)
     {
-        
+        if (entrenador.miCatalogo.Count == 6 || Batalla.EnBatalla)
+        {
+            return "Ya tienes 6 Pokémon o la batalla está en curso";
+        }
+
+        if (Pokedex.BuscarPokemon(pokemon) == null)
+        {
+            return "Ese Pokémon no está disponible";
+        }
+        else
+        {
+            Pokemon nuevo = Pokedex.BuscarPokemon(pokemon);
+            entrenador.AgregarPokemon(nuevo);
+            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo}";
+        }
     }
-    
-    private 
+  
 }

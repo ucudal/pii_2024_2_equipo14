@@ -26,6 +26,7 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
             result = Facade.Instance.ComenzarBatalla(displayName, opponentUser.DisplayName);
             await Context.Message.Author.SendMessageAsync(result);
             await opponentUser .SendMessageAsync(result);
+            
         }
         else
         {

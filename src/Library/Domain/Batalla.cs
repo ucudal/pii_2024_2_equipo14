@@ -20,7 +20,7 @@ namespace Library
         /// <summary>
         /// Atributo Facade que indica la instancia de fachada.
         /// </summary>
-        private FacadeJuego facade;
+        private Facade facade;
         
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
@@ -30,12 +30,12 @@ namespace Library
         /// <param name="facade">La instancia de fachada.</param>
         public Batalla(Entrenador jugador1, Entrenador jugador2)
         {
-            EnBatalla = true;
             this.Jugador1 = jugador1;
             this.Jugador2 = jugador2;
             this.InicializarItems(Jugador1);
             this.InicializarItems(Jugador2);
             //facade.ElegirPokemones para ambos jugadores
+            EnBatalla = true;
             this.AsignarPokemonInicial(Jugador1);
             this.AsignarPokemonInicial(Jugador2);
             Jugador1.MiTurno = true;

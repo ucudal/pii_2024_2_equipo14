@@ -29,8 +29,8 @@ public class Bot : IBot
             AlwaysDownloadUsers = true,
             GatewayIntents = 
                 GatewayIntents.AllUnprivileged
-                | GatewayIntents.MessageContent/*
-                | GatewayIntents.GuildMembers*/
+                | GatewayIntents.MessageContent
+                //| GatewayIntents.GuildMembers
         };
 
         client = new DiscordSocketClient(config);
