@@ -15,9 +15,7 @@ public class AtacarCommand : ModuleBase<SocketCommandContext>
     [Summary("Permite realizar un ataque durante la batalla")]
     public async Task ExecuteAsync(string movimiento)
     {
-        string playerDisplayName = CommandHelper.GetDisplayName(Context);
-      //  string result = Facade.Instance.PerformAttack(playerDisplayName, movimiento);
-       // await ReplyAsync(result);
-       await ReplyAsync($"{playerDisplayName} ataca con {movimiento}!");
+        string playerDisplayName = CommandHelper.GetDisplayName(Context); 
+        await ReplyAsync($"{playerDisplayName} ataca con {movimiento}!");
     }
 }

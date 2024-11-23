@@ -11,18 +11,8 @@ public static class UsarItem
     /// <param name="usarRevivir">El número que indica si se puede usar Revivir.</param>
     /// <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
     /// <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
-    public static void UsoDeItem(Entrenador entrenador, Revivir revivir, Pokemon pokemon)
+    public static void UsoDeItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
-       revivir.Accion(entrenador,pokemon);
-    }
-
-    public static void UsoDeItem(Entrenador entrenador, SuperPocion superPocion, Pokemon pokemon)
-    {
-        superPocion.Accion(entrenador,pokemon);
-    }
-
-    public static void UsoDeItem(Entrenador entrenador, CuraTotal curaTotal, Pokemon pokemon)
-    {
-        curaTotal.Accion(entrenador,pokemon);
+       item.Accion(entrenador, pokemon);
     }
 }

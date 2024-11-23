@@ -19,6 +19,5 @@ public static class CambiarPokemon
                 entrenador.PokemonActual = pokemon;
             }
         }
-        
     }
 }

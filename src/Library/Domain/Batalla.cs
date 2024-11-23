@@ -35,6 +35,9 @@ namespace Library
             this.Jugador2 = jugador2;
             this.InicializarItems(Jugador1);
             this.InicializarItems(Jugador2);
+            //facade.ElegirPokemones para ambos jugadores
+            this.AsignarPokemonInicial(Jugador1);
+            this.AsignarPokemonInicial(Jugador2);
             Jugador1.MiTurno = true;
         }
         /// <summary>
@@ -60,40 +63,6 @@ namespace Library
             Random random = new Random();
             int pokemonRandom = random.Next(0, 6);
             jugador.PokemonActual = jugador.miCatalogo[pokemonRandom];
-        }
-        /// <summary>
-        /// Valida la acción que ingresó el jugador como la deseada y realiza una acción válida.
-        /// </summary>
-        /// <param name="jugador">El jugador que está decidiendo la acción a seguir.</param>
-        /// <param name="accion">La acción que ingresó el jugador como la deseada.</param>
-        /// <param name="oponente">El jugador que no está en su turno.</param>
-        private void ValidarAcciones(Entrenador jugador, string accion, Entrenador oponente)
-        {
-            int usarRevivir = 1;
-            int usarSuperPocion = 1;
-            int usarCuraTotal = 1;
-
-            foreach (var pokemon in jugador.miCatalogo)
-            {
-                if (pokemon.VidaTotal < pokemon.VidaInicial) usarSuperPocion = 0;
-                if (pokemon.Dormido || pokemon.Paralizado || pokemon.Envenenado || pokemon.Quemado) usarCuraTotal = 0;
-            }
-
-            if (jugador.misMuertos.Count > 0) usarRevivir = 0;
-
-            if (accion == "2" && (usarRevivir == 0 || usarSuperPocion == 0 || usarCuraTotal == 0))
-            {
-                facade.UsarItemInvalido();
-                facade.ElegirAccion();
-                accion = Console.ReadLine();//CAMBIAR A BOT
-            }
-
-            Turno.HacerAccion(jugador, accion, oponente, usarRevivir, usarSuperPocion, usarCuraTotal, facade);
-
-            if (oponente.miCatalogo.Count == 0 && !oponente.misItems.OfType<Revivir>().Any())
-            {
-                EnBatalla = false;
-            }
         }
     }
 }
