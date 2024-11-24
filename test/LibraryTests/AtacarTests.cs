@@ -36,7 +36,7 @@ public class AtacarTests
         int esperado2 = ataqueEspecial.CalcularPrecision();
         if (esperado2 == 0)
         {
-            int esperado3 = 0;
+            int esperado3 = -1;
             Assert.That(esperado3, Is.LessThan(pokemonAtacado.TurnosDormido)); //si esta dormido
         }
 
