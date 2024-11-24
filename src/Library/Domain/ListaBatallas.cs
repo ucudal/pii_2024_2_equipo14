@@ -7,6 +7,11 @@ public class ListaBatallas
 {
     private List<Batalla> batallas = new List<Batalla>();
 
+    public List<Batalla> GetBatallas()
+    {
+        return this.batallas;
+    }
+
     /// <summary>
     /// Crea una nueva batalla entre dos jugadores.
     /// </summary>
@@ -18,6 +23,7 @@ public class ListaBatallas
         Entrenador jugador1 = new Entrenador(j1);
         Entrenador jugador2 = new Entrenador(j2);
         var battle = new Batalla(jugador1, jugador2);
+        this.batallas.Add(battle);
         return battle;
     }
 }

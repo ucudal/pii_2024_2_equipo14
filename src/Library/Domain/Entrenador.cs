@@ -67,12 +67,9 @@ namespace Library
         /// <param name="item">item que se agrega.</param>
         public void AgregarItem(Item item)
         {
-            if (Batalla.EnBatalla)
-            {
-                this.misItems.Add(item);
-            }
+            this.misItems.Add(item);
+            
         }
-
         /// <summary>
         /// Quita un item del catálogo del entrenador.
         /// </summary>

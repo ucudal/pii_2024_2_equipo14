@@ -53,8 +53,8 @@ namespace Library.Tests
         public void TestRealizarAccion_Atacar()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
-            jugador2.AddPokemon(Pokedex.listaPokemons[1]); // Charmander
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
+            jugador2.AddPokemonCommand(Pokedex.listaPokemons[1]); // Charmander
 
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador2.PokemonActual = jugador2.miCatalogo[0];
@@ -75,8 +75,8 @@ namespace Library.Tests
         public void TestRealizarAccion_CambiarPokemon()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
-            jugador1.AddPokemon(Pokedex.listaPokemons[1]); // Charmander
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[1]); // Charmander
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Simular un cambio de Pokémon
@@ -95,7 +95,7 @@ namespace Library.Tests
         public void TestRealizarAccion_UsarItem()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.AgregarItem(new SuperPocion());
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
@@ -118,7 +118,7 @@ namespace Library.Tests
         public void TestMostrarDatosJugador()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Capturar la salida de la consola
@@ -139,7 +139,7 @@ namespace Library.Tests
         public void TestElegirAccion_AccionNoValida()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Simular una acción no válida
@@ -282,7 +282,7 @@ namespace Library.Tests
         public void TestElegirAccion_AtacarConPokemonDormido()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.PokemonActual.Dormido = true; // Hacer que Pikachu esté dormido
 
@@ -303,7 +303,7 @@ namespace Library.Tests
         public void TestElegirAccion_AtacarConPokemonParalizado()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.PokemonActual.Paralizado = true; // Hacer que Pikachu esté paralizado
 
@@ -324,7 +324,7 @@ namespace Library.Tests
         public void TestElegirAccion_UsarItemSinPokemonHerido()
         {
             // Simular la selección de Pokémon
-            jugador1.AddPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.AgregarItem(new SuperPocion()); // Agregar Super Poción
 

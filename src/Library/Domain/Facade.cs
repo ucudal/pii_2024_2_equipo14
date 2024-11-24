@@ -49,6 +49,17 @@ public class Facade
     
     private ListaBatallas ListaBatallas { get; }
 
+    public Batalla EncontrarBatallaPorUsuario(string usuario)
+    {
+        foreach (Batalla batalla in this.ListaBatallas.GetBatallas())
+        {
+            if (batalla.GetNombreJ1() == usuario || batalla.GetNombreJ2() == usuario)
+            {
+                return batalla;
+            }
+        }
+        return null;
+    }
     /// <summary>
     /// Agrega un jugador a la lista de espera.
     /// </summary>
@@ -180,26 +191,36 @@ public class Facade
         
         this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
         this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
-        Batalla batalla = this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
+        this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
 
-    private string AgregarPokemon(Entrenador entrenador, string pokemon)
+    public string MostrarPokedex()
     {
-        if (entrenador.miCatalogo.Count == 6 || Batalla.EnBatalla)
+        return Mensaje.PokedexDisponibles();
+    }
+    public string AgregarPokemon(Entrenador entrenador, string nombre)
+    {
+        if (entrenador.miCatalogo.Count == 6)
         {
-            return "Ya tienes 6 Pokémon o la batalla está en curso";
+            return $"{entrenador.Nombre}, ya tienes 6 Pokémones";
         }
-
-        if (Pokedex.BuscarPokemon(pokemon) == null)
+        Pokemon nuevo = Pokedex.BuscarPokemon(nombre);
+        foreach (Pokemon pokemon in entrenador.miCatalogo)
         {
-            return "Ese Pokémon no está disponible";
+            if (pokemon.Nombre == nombre)
+            {
+                return $"{entrenador.Nombre}, ya tienes ese Pokemon";
+            }
+        }
+        if (nuevo != null)
+        {
+            entrenador.AgregarPokemon(nuevo); 
+            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo}";
         }
         else
         {
-            Pokemon nuevo = Pokedex.BuscarPokemon(pokemon);
-            entrenador.AgregarPokemon(nuevo);
-            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo}";
+            return "Pokémon inválido";
         }
     }
   

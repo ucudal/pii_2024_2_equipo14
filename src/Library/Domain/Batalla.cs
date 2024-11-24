@@ -8,7 +8,7 @@ namespace Library
         /// <summary>
         /// Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
         /// </summary>
-        public static bool EnBatalla;
+        public bool EnBatalla;
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 1.
         /// </summary>
@@ -17,11 +17,16 @@ namespace Library
         /// Obtiene o establece un Entrenador que indica el Jugador 2.
         /// </summary>
         public Entrenador Jugador2 { get; private set; }
-        /// <summary>
-        /// Atributo Facade que indica la instancia de fachada.
-        /// </summary>
-        private Facade facade;
-        
+
+        public string GetNombreJ1()
+        {
+            return this.Jugador1.Nombre;
+        }
+
+        public string GetNombreJ2()
+        {
+            return this.Jugador2.Nombre;
+        }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
@@ -34,11 +39,8 @@ namespace Library
             this.Jugador2 = jugador2;
             this.InicializarItems(Jugador1);
             this.InicializarItems(Jugador2);
-            //facade.ElegirPokemones para ambos jugadores
-            EnBatalla = true;
-            this.AsignarPokemonInicial(Jugador1);
-            this.AsignarPokemonInicial(Jugador2);
-            Jugador1.MiTurno = true;
+            //EnBatalla = true;
+            //Jugador1.MiTurno = true;
         }
         /// <summary>
         /// Le agrega al jugador los items con los que contará durante la batalla.

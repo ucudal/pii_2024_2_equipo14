@@ -21,18 +21,18 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
         SocketGuildUser ? opponentUser  = CommandHelper.GetUser (Context, opponentDisplayName);
 
         string result;
-        if (opponentUser  != null)
+        if (opponentUser != null)
         {
             result = Facade.Instance.ComenzarBatalla(displayName, opponentUser.DisplayName);
-            await Context.Message.Author.SendMessageAsync(result);
-            await opponentUser .SendMessageAsync(result);
-            
+            await ReplyAsync(result);
+            string pokedex = Facade.Instance.MostrarPokedex(); 
+            await ReplyAsync(pokedex);
         }
         else
         {
             result = $"No hay un usuario {opponentDisplayName}.";
+            await ReplyAsync(result);
         }
-
-        await ReplyAsync(result);
+       
     }
 }

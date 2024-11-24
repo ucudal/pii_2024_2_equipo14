@@ -124,7 +124,7 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
-        <member name="M:Library.AddPokemon.ExecuteAsync(System.String)">
+        <member name="M:Library.AddPokemonCommand.ExecuteAsync(System.String)">
             <summary>
             Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
             </summary>
@@ -237,11 +237,6 @@
         <member name="P:Library.Batalla.Jugador2">
             <summary>
             Obtiene o establece un Entrenador que indica el Jugador 2.
-            </summary>
-        </member>
-        <member name="F:Library.Batalla.facade">
-            <summary>
-            Atributo Facade que indica la instancia de fachada.
             </summary>
         </member>
         <member name="M:Library.Batalla.#ctor(Library.Entrenador,Library.Entrenador)">
