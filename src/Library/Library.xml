@@ -129,45 +129,12 @@
             Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
             </summary>
         </member>
-        <member name="T:Library.AtacarCommand">
-            <summary>
-            Esta clase implementa el comando 'atacar' del bot. Este comando permite al jugador realizar
-            un ataque durante la batalla.
-            </summary>
-        </member>
-        <member name="M:Library.AtacarCommand.ExecuteAsync(System.String)">
-            <summary>
-            Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
-            </summary>
-        </member>
         <member name="T:Library.BattleCommand">
             <summary>
             Esta clase implementa el comando 'battle' del bot. Este comando une al
             jugador que envía el mensaje con el oponente que se recibe como parámetro,
             si lo hubiera, en una batalla; si no se recibe un oponente, lo une con
             cualquiera que esté esperando para jugar.
-            </summary>
-        </member>
-        <member name="T:Library.CambiarCommand">
-            <summary>
-            Esta clase implementa el comando 'cambiar' del bot. Este comando permite cambiar el Pokémon
-            durante la batalla.
-            </summary>
-        </member>
-        <member name="M:Library.CambiarCommand.ExecuteAsync(System.String)">
-            <summary>
-            Implementa el comando 'cambiar'. Este comando permite cambiar el Pokémon durante la batalla.
-            </summary>
-        </member>
-        <member name="T:Library.EstadoCommand">
-            <summary>
-            Esta clase implementa el comando 'estado' del bot. Este comando muestra el estado
-            del Pokémon durante la batalla.
-            </summary>
-        </member>
-        <member name="M:Library.EstadoCommand.ExecuteAsync">
-            <summary>
-            Implementa el comando 'estado'. Este comando muestra el estado del Pokémon durante la batalla.
             </summary>
         </member>
         <member name="T:Library.JoinCommand">
@@ -224,7 +191,7 @@
             Esta es la clase estática Batalla. Se encarga de crear instancias de batalla, y gestionar los turnos y acciones de los jugadores.
             </summary>
         </member>
-        <member name="F:Library.Batalla.EnBatalla">
+        <member name="P:Library.Batalla.EnBatalla">
             <summary>
             Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
             </summary>
@@ -665,17 +632,6 @@
             <param name="usarSuperPocion">El número que indica si se puede usar SuperPocion.</param>
             <param name="usarCuraTotal">El número que indica si se puede usar CuraTotal.</param>
         </member>
-        <member name="T:Ucu.Poo.DiscordBot.Commands.AyudaCommand">
-            <summary>
-            Esta clase implementa el comando 'ayuda' del bot. Este comando muestra todos los
-            comandos disponibles.
-            </summary>
-        </member>
-        <member name="M:Ucu.Poo.DiscordBot.Commands.AyudaCommand.ExecuteAsync">
-            <summary>
-            Implementa el comando 'ayuda'. Este comando muestra todos los comandos disponibles.
-            </summary>
-        </member>
         <member name="T:Ucu.Poo.DiscordBot.Services.Bot">
             <summary>
             Esta clase implementa el bot de Discord.
@@ -690,17 +646,6 @@
         <member name="T:Ucu.Poo.DiscordBot.Services.IBot">
             <summary>
             La interfaz del Bot de Discord para usar con inyección de dependencias.
-            </summary>
-        </member>
-        <member name="T:LIbrary.TerminarCommand">
-            <summary>
-            Esta clase implementa el comando 'terminar' del bot. Este comando termina la batalla
-            y muestra el resultado final.
-            </summary>
-        </member>
-        <member name="M:LIbrary.TerminarCommand.ExecuteAsync">
-            <summary>
-            Implementa el comando 'terminar'. Este comando termina la batalla y muestra el resultado.
             </summary>
         </member>
         <member name="T:ClassLibrary.Train">

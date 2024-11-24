@@ -1,5 +1,6 @@
+using Discord;
 using Discord.Commands;
-using Library;
+using Discord.WebSocket;
 
 namespace Library;
 
@@ -14,16 +15,28 @@ public class AddPokemonCommand : ModuleBase<SocketCommandContext>
     {
         string displayName = CommandHelper.GetDisplayName(Context);
         Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(displayName);
+        Entrenador jugador1 = batalla.Jugador1;
+        Entrenador jugador2 = batalla.Jugador2;
+        SocketGuildUser? user = CommandHelper.GetUser(Context, displayName);
         string result;
+        string catalogo = "";
         if (pokemonElegido != null && batalla != null && !batalla.EnBatalla)
         {
             if (batalla.GetNombreJ1() == displayName)
             {
-                result = Facade.Instance.AgregarPokemon(batalla.Jugador1, pokemonElegido);
+                result = Facade.Instance.AgregarPokemon(jugador1, pokemonElegido);
+                if (jugador1.miCatalogo.Count == 6)
+                {
+                    catalogo = Facade.Instance.MostrarInformacion(jugador1);
+                }
             }
             else
             {
-                result = Facade.Instance.AgregarPokemon(batalla.Jugador2, pokemonElegido);
+                result = Facade.Instance.AgregarPokemon(jugador2, pokemonElegido);
+                if (jugador2.miCatalogo.Count == 6)
+                {
+                    catalogo = Facade.Instance.MostrarInformacion(jugador2);
+                }
             }
         }
         else
@@ -31,5 +44,11 @@ public class AddPokemonCommand : ModuleBase<SocketCommandContext>
             result = "No fue posible agregar el Pokémon";
         }
         await ReplyAsync(result);
+        await user.SendMessageAsync(catalogo);
+        if (jugador1.miCatalogo.Count == 6 && jugador2.miCatalogo.Count == 6)
+        {
+            await ReplyAsync(Facade.Instance.InicializarEncuentros(batalla));
+        }
+        
     }
 }

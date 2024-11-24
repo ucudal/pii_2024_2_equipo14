@@ -19,6 +19,7 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
     {
         string displayName = CommandHelper.GetDisplayName(Context);
         SocketGuildUser ? opponentUser  = CommandHelper.GetUser (Context, opponentDisplayName);
+        SocketGuildUser? user = CommandHelper.GetUser(Context, displayName);
 
         string result;
         if (opponentUser != null)
@@ -27,6 +28,8 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
             await ReplyAsync(result);
             string pokedex = Facade.Instance.MostrarPokedex(); 
             await ReplyAsync(pokedex);
+            await opponentUser.SendMessageAsync(pokedex);
+            await user.SendMessageAsync(pokedex);
         }
         else
         {

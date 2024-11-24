@@ -115,5 +115,10 @@ namespace Library
         /// Obtiene o establece el Pokémon actual
         /// </summary>
         public Pokemon PokemonActual { get; set; }
+
+        public string GetPokemonActual()
+        {
+            return this.PokemonActual.Nombre;
+        }
     }
 }

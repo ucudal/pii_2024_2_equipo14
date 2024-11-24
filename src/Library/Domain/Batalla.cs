@@ -5,10 +5,22 @@ namespace Library
     /// </summary>
     public class Batalla
     {
+        private bool enBatalla = false;
         /// <summary>
         /// Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
         /// </summary>
-        public bool EnBatalla;
+        public bool EnBatalla
+        {
+            get { return this.enBatalla; }
+            set
+            {
+                this.enBatalla = value;
+                if (value)
+                {
+                    Jugador1.MiTurno = true;
+                }
+            }
+        }
         /// <summary>
         /// Obtiene o establece un Entrenador que indica el Jugador 1.
         /// </summary>
@@ -27,6 +39,16 @@ namespace Library
         {
             return this.Jugador2.Nombre;
         }
+
+        public string GetPokemonActualJ1()
+        {
+            return this.Jugador1.GetPokemonActual();
+        }
+
+        public string GetPokemonActualJ2()
+        {
+            return this.Jugador2.GetPokemonActual();
+        }
         /// <summary>
         /// Inicializa una nueva instancia de la clase <see cref="Batalla"/>.
         /// </summary>
@@ -39,8 +61,6 @@ namespace Library
             this.Jugador2 = jugador2;
             this.InicializarItems(Jugador1);
             this.InicializarItems(Jugador2);
-            //EnBatalla = true;
-            //Jugador1.MiTurno = true;
         }
         /// <summary>
         /// Le agrega al jugador los items con los que contará durante la batalla.
@@ -60,7 +80,7 @@ namespace Library
         /// Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar.
         /// </summary>
         /// <param name="jugador">El jugador al que se le asigna el Pokémon.</param>
-        private void AsignarPokemonInicial(Entrenador jugador)
+        public void AsignarPokemonInicial(Entrenador jugador)
         {
             Random random = new Random();
             int pokemonRandom = random.Next(0, 6);

@@ -195,6 +195,11 @@ public class Facade
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
 
+    public string MostrarInformacion(Entrenador entrenador)
+    {
+        return Mensaje.InformacionGeneral(entrenador);
+    }
+
     public string MostrarPokedex()
     {
         return Mensaje.PokedexDisponibles();
@@ -215,13 +220,56 @@ public class Facade
         }
         if (nuevo != null)
         {
-            entrenador.AgregarPokemon(nuevo); 
-            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo}";
+            entrenador.AgregarPokemon(nuevo);
+            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo} a su catálogo";
         }
         else
         {
             return "Pokémon inválido";
         }
     }
-  
+
+    public string InicializarEncuentros(Batalla batalla)
+    {
+        batalla.EnBatalla = true;
+        batalla.AsignarPokemonInicial(batalla.Jugador1);
+        batalla.AsignarPokemonInicial(batalla.Jugador2);
+        return Mensaje.PokemonesIniciales(batalla);
+    }
+
+    public bool RevisarAccion(Entrenador entrenador, string accion)
+    { 
+        return Turno.ValidarAccion(entrenador, accion);
+    }
+
+    public bool RevisarAtaque(Pokemon atacante, string ataque, Pokemon atacado)
+    {
+        bool validacion = false;
+        foreach (Ataque attack in atacante.GetAtaques())
+        {
+            if (attack.Nombre == ataque)
+            {
+                validacion = Turno.ValidarAtaque(attack, atacado);
+            }
+        }
+        return validacion;
+    }
+
+    public Ataque PosesionAtaque(Pokemon pokemon, string ataque)
+    {
+        foreach (Ataque attack in pokemon.GetAtaques())
+        {
+            if (attack.Nombre == ataque)
+            {
+                return attack;
+            }
+        }
+        return null;
+    }
+
+    public string Atacar(Entrenador entrenador, Ataque ataque, Entrenador oponente)
+    {
+        Turno.HacerAccion(entrenador,"Atacar",oponente,ataque,null,null,null);
+        return Mensaje.Encuentro(entrenador, ataque, oponente);
+    }
 }

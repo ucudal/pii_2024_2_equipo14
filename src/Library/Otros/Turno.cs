@@ -50,7 +50,6 @@ public static class Turno
             {
                 pokemon.RecibirDano(pokemon.VidaTotal * 10 / 100);
             }
-
         }
         if (accion == "Atacar")
         {
@@ -97,7 +96,6 @@ public static class Turno
         {
             return false;
         }
-
         return true;
     }
 
