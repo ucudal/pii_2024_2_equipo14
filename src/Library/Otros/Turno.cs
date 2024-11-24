@@ -10,62 +10,40 @@ public static class Turno
     /// <param name="entrenador">El entrenador que elige acción.</param>
     /// <param name="numero">El número que indica la acción.</param>
     /// <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
-    public static void HacerAccion(Entrenador entrenador, string numero, Entrenador entrenadorAtacado, 
-        int usarRevivir, int usarSuperPocion, int usarCuraTotal, Facade facade)
+    
+    public static void HacerAccion(Entrenador entrenador, string accion, Entrenador entrenadorAtacado, Ataque? ataque, string? pokemon, Item? item, Pokemon? pokemon2)
+    {
+        entrenador.Turnos += 1;
+        if (accion == "Atacar")
+        {
+            Atacar.Encuentro(entrenador,ataque,entrenadorAtacado);
+        }
+        if (accion == "Cambiar Pokémon")
+        {
+            CambiarPokemon.CambioDePokemon(entrenador, pokemon);
+        }
+
+        if (accion == "Usar Item")
+        {
+            UsarItem.UsoDeItem(entrenador,item,pokemon2);
+        }
+        entrenador.MiTurno = false;
+        entrenadorAtacado.MiTurno = true;
+    }
+
+    public static bool ValidarAccion(Entrenador entrenador, string accion)
     {
         Pokemon pokemonActual = entrenador.PokemonActual;
-        Pokemon pokemonAtacado = entrenadorAtacado.PokemonActual;
-        if (pokemonActual.VidaTotal == 0)
-        {
-            entrenador.QuitarPokemon(pokemonActual);
-            entrenador.AgregarMuerto(pokemonActual);
-            Console.WriteLine($"\nTu pokemon {pokemonActual.Nombre} ha muerto");
-            Console.WriteLine($"Puede cambiarlo o usar un item");
-            facade.ElegirAccion();
-            numero = Console.ReadLine();
-            while (numero == "0")
-            {
-                Console.WriteLine("Elija una opción válida");
-                numero = Console.ReadLine();
-            }
-        }
         foreach (Pokemon pokemon in entrenador.miCatalogo)
         {
-            if (pokemon.TurnosDormido == entrenador.Turnos)
+            if (pokemon.Dormido && pokemon.TurnosDormido == entrenador.Turnos)
+            {
                 pokemon.Dormido = false;
-        }
-
-        if (pokemonActual.Dormido && numero == "0")
-        {
-            while (numero == "0")
-            {
-                Console.WriteLine("\nNo se puede elegir atacar, su pokemon está dormido. Elija otra opción");
-                facade.ElegirAccion();
-                numero = Console.ReadLine();
             }
-        }
 
-        if (pokemonActual.Paralizado && numero == "0")
-        {
-            Random poderAtacar = new Random();
-            int randomPoderAtacar = poderAtacar.Next(0, 3);
-            if (randomPoderAtacar != 0)
-            {
-                while (numero == "0")
-                {
-                    Console.WriteLine("\nNo se puede elegir atacar, su pokemon esta paralizado. Elija otra opción");
-                    facade.ElegirAccion();
-                    numero = Console.ReadLine();
-                }
-            }
-        }
-
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
-        {
             if (pokemon.Envenenado)
             {
                 pokemon.RecibirDano(pokemon.VidaTotal * 5 / 100);
-
             }
 
             if (pokemon.Quemado)
@@ -73,20 +51,86 @@ public static class Turno
                 pokemon.RecibirDano(pokemon.VidaTotal * 10 / 100);
             }
         }
-        if (numero == "0")
+        if (accion == "Atacar")
         {
-          Atacar.Encuentro(entrenador,entrenadorAtacado);
+            Random random = new Random();
+            int poderAtacar = random.Next(0, 3);
+            if (pokemonActual.Dormido || (pokemonActual.Paralizado && poderAtacar != 0) || pokemonActual.VidaTotal == 0)
+            {
+                return false;
+            }
+        }
+        if (accion == "Cambiar Pokémon")
+        {
+            if (entrenador.miCatalogo.Count == 0)
+            {
+                return false;
+            }
         }
 
-        if (numero == "1")
+        if (accion == "Usar Item")
         {
-            CambiarPokemon.CambioDePokemon(entrenador);
+            foreach (Pokemon pokemon in entrenador.miCatalogo)
+            {
+                if (pokemon.VidaTotal < pokemon.VidaInicial || pokemon.Paralizado || pokemon.Dormido || 
+                    pokemon.Envenenado || pokemon.Quemado)
+                {
+                    return true;
+                }
+            }
+
+            if (entrenador.misMuertos.Count > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        return true;
+    }
+
+    public static bool ValidarAtaque(Ataque ataque, Pokemon pokemonAtacado)
+    {
+        if (ataque is AtaqueEspecial && (pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
+                                         pokemonAtacado.Quemado))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static bool ValidarItem(Entrenador entrenador, Item item)
+    {
+        if (item is Revivir)
+        {
+            if (entrenador.misMuertos.Count > 0)
+            {
+                return true;
+            }
         }
 
-        if (numero == "2")
+        if (item is CuraTotal)
         {
-         UsarItem.UsoDeItem(entrenador,usarRevivir,usarSuperPocion,usarCuraTotal);
-        } 
-        entrenador.MiTurno = false;
+            foreach (Pokemon pokemon in entrenador.miCatalogo)
+            {
+                if (pokemon.Paralizado || pokemon.Dormido || 
+                    pokemon.Envenenado || pokemon.Quemado)
+                {
+                    return true;
+                }
+            }
+        }
+
+        if (item is SuperPocion)
+        {
+            foreach (Pokemon pokemon in entrenador.miCatalogo)
+            {
+                if (pokemon.VidaTotal < pokemon.VidaInicial)
+                {
+                    return true;
+                }
+            }
+        }
+        return false; 
     }
 }

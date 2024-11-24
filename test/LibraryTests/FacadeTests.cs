@@ -2,12 +2,12 @@ using NUnit.Framework;
 namespace Library.Tests
 {
     /// <summary>
-    /// Esta es la clase FacadeTests. Se encarga de comprobar que las funciones de facade fluyan correctamente.
+    /// Esta es la clase FacadeTests. Se encarga de comprobar que las funciones de _facadeJuego fluyan correctamente.
     /// </summary>
     [TestFixture]
     public class FacadeTests
     {
-        private Facade facade;
+        private FacadeJuego _facadeJuego;
         private Entrenador jugador1;
         private Entrenador jugador2;
 
@@ -16,7 +16,7 @@ namespace Library.Tests
         {
             jugador1 = new Entrenador("Jugador 1");
             jugador2 = new Entrenador("Jugador 2");
-            facade = new Facade("Jugador 1", "Jugador 2");
+            _facadeJuego = new FacadeJuego("Jugador 1", "Jugador 2");
 
             // Simular Pokémon en el Pokedex
             Pokedex.listaPokemons = new List<Pokemon>
@@ -41,7 +41,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("1\n2\n3\n4\n5\n6")); // Seleccionar 6 Pokémon
-                facade.ComenzarBatalla();
+                _facadeJuego.ComenzarBatalla();
 
                 // Verificar que ambos jugadores tengan Pokémon seleccionados
                 Assert.That(jugador1.miCatalogo.Count == 6);
@@ -53,8 +53,8 @@ namespace Library.Tests
         public void TestRealizarAccion_Atacar()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
-            jugador2.AgregarPokemon(Pokedex.listaPokemons[1]); // Charmander
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
+            jugador2.AddPokemonCommand(Pokedex.listaPokemons[1]); // Charmander
 
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador2.PokemonActual = jugador2.miCatalogo[0];
@@ -64,7 +64,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("0")); // Atacar
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que el Pokémon del oponente haya recibido daño
                 Assert.That(jugador2.PokemonActual.VidaTotal < 80, Is.True); // Suponiendo que la vida inicial es 80
@@ -75,8 +75,8 @@ namespace Library.Tests
         public void TestRealizarAccion_CambiarPokemon()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[1]); // Charmander
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[1]); // Charmander
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Simular un cambio de Pokémon
@@ -84,7 +84,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("1\n1")); // Cambiar a Charmander
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que el Pokémon actual sea Charmander
                 Assert.That(jugador1.PokemonActual.Nombre, Is.EqualTo("Charmander"));
@@ -95,7 +95,7 @@ namespace Library.Tests
         public void TestRealizarAccion_UsarItem()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.AgregarItem(new SuperPocion());
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
@@ -107,7 +107,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("2\n0")); // Usar Super Poción
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que la vida del Pokémon se haya restaurado
                 Assert.That(jugador1.PokemonActual.VidaTotal == 80); // Debería restaurar a 80
@@ -118,14 +118,14 @@ namespace Library.Tests
         public void TestMostrarDatosJugador()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Capturar la salida de la consola
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                facade.ImprimirDatos(jugador1);
+                _facadeJuego.ImprimirDatos(jugador1);
 
                 // Verificar que los datos del jugador se impriman correctamente
                 string output = sw.ToString();
@@ -139,7 +139,7 @@ namespace Library.Tests
         public void TestElegirAccion_AccionNoValida()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
 
             // Simular una acción no válida
@@ -147,7 +147,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("5")); // Acción no válida
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que se imprima el mensaje de acción no válida
                 string output = sw.ToString();
@@ -167,7 +167,7 @@ namespace Library.Tests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                Facade.ElegirPokemon(jugador1);
+                FacadeJuego.ElegirPokemon(jugador1);
 
                 // Verificar que se impriman los Pokémon disponibles
                 string output = sw.ToString();
@@ -209,7 +209,7 @@ namespace Library.Tests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                Facade.ElegirAtaque(jugador1.PokemonActual);
+                FacadeJuego.ElegirAtaque(jugador1.PokemonActual);
 
                 // Verificar que se impriman los ataques disponibles
                 string output = sw.ToString();
@@ -228,7 +228,7 @@ namespace Library.Tests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                Facade.ElegirPokemonMuerto(jugador1);
+                FacadeJuego.ElegirPokemonMuerto(jugador1);
 
                 // Verificar que se impriman los Pokémon muertos
                 string output = sw.ToString();
@@ -250,7 +250,7 @@ namespace Library.Tests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                Facade.ElegirPokemonHerido(jugador1, 0); // Usar Super Poción
+                FacadeJuego.ElegirPokemonHerido(jugador1, 0); // Usar Super Poción
 
                 // Verificar que se impriman los Pokémon heridos
                 string output = sw.ToString();
@@ -270,7 +270,7 @@ namespace Library.Tests
             using (var sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                Facade.ElegirAtaqueSimple(jugador1.PokemonActual);
+                FacadeJuego.ElegirAtaqueSimple(jugador1.PokemonActual);
 
                 // Verificar que se impriman los ataques simples disponibles
                 string output = sw.ToString();
@@ -282,7 +282,7 @@ namespace Library.Tests
         public void TestElegirAccion_AtacarConPokemonDormido()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.PokemonActual.Dormido = true; // Hacer que Pikachu esté dormido
 
@@ -291,7 +291,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("0")); // Intentar atacar
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que se imprima el mensaje de que no se puede atacar
                 string output = sw.ToString();
@@ -303,7 +303,7 @@ namespace Library.Tests
         public void TestElegirAccion_AtacarConPokemonParalizado()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.PokemonActual.Paralizado = true; // Hacer que Pikachu esté paralizado
 
@@ -312,7 +312,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("0")); // Intentar atacar
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que se imprima el mensaje de que no se puede atacar
                 string output = sw.ToString();
@@ -324,7 +324,7 @@ namespace Library.Tests
         public void TestElegirAccion_UsarItemSinPokemonHerido()
         {
             // Simular la selección de Pokémon
-            jugador1.AgregarPokemon(Pokedex.listaPokemons[0]); // Pikachu
+            jugador1.AddPokemonCommand(Pokedex.listaPokemons[0]); // Pikachu
             jugador1.PokemonActual = jugador1.miCatalogo[0];
             jugador1.AgregarItem(new SuperPocion()); // Agregar Super Poción
 
@@ -336,7 +336,7 @@ namespace Library.Tests
             {
                 Console.SetOut(sw);
                 Console.SetIn(new StringReader("2\n0")); // Intentar usar Super Poción
-                facade.RealizarAccion(jugador1, jugador2);
+                _facadeJuego.RealizarAccion(jugador1, jugador2);
 
                 // Verificar que se imprima el mensaje de que no se puede usar el ítem
                 string output = sw.ToString();

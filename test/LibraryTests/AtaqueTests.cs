@@ -1,33 +1,39 @@
 using Library;
 using NUnit.Framework;
 
-namespace LibraryTests;
-/// <summary>
-/// Esta es la clase AtaqueTests. Se encarga de comprobar que se logre instanciar correctamente un Ataque.
-/// </summary>
+namespace LibraryTests; //Este test está mal
+
 [TestFixture]
-[TestOf(typeof(Library.Ataque))]
-public class AtaqueTests
+[TestOf(typeof(Atacar))]
+public class AtacarTests
 {
-    private Ataque ataque;
+    private Entrenador atacante;
+    private Entrenador victima;
+    private  Pokemon pokemonActual; 
+    private Pokemon pokemonAtacado; 
     
     [SetUp]
     public void SetUp()
-    {
-        ataque = new Ataque("Ataque",10,80,"Fuego");
-    }
-
-    [Test]
-    public void TestCrearAtaque()
-    {
-        string esperado = "Ataque";
-        int esperado1 = 10;
-        int esperado2 = 80;
-        string esperado3 = "Fuego";
-        Assert.That(esperado,Is.EqualTo(ataque.Nombre));
-        Assert.That(esperado1,Is.EqualTo(ataque.Dano));
-        Assert.That(esperado2,Is.EqualTo(ataque.Precision));
-        Assert.That(esperado3,Is.EqualTo(ataque.Tipo));
+    { 
+        pokemonActual= new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
+        pokemonAtacado=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
+        atacante = new Entrenador("Atacante");
+        victima = new Entrenador("Victima");
     }
     
+    [Test]
+    public void TestEncuentro()
+    { 
+        Atacar.Encuentro(atacante,victima);
+        int esperado = pokemonAtacado.VidaTotal;
+        Assert.That(esperado, Is.LessThan(pokemonAtacado.VidaInicial));
+
+        bool esperado1 = true;
+        Assert.That(esperado1, Is.EqualTo(pokemonActual.Dormido));
+        Assert.That(pokemonAtacado.VidaTotal, Is.LessThan(pokemonAtacado.VidaInicial));
+
+        bool esperado2 = false;
+        Assert.That(esperado2,Is.EqualTo(victima.miCatalogo.Contains(pokemonAtacado)));
+
+    }
 }

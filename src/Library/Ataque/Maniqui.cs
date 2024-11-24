@@ -16,8 +16,9 @@ public class Maniqui: AtaqueEspecial
     {
         
     }
-    public override void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico)
+    public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon)
     {
         pokemon.Paralizado = true;
     }
+    
 }
