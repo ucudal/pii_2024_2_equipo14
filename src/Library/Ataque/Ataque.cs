@@ -23,9 +23,6 @@ public class Ataque
     /// </summary>
     public string Nombre { get; protected set; }
     /// <summary>
-    /// Obtiene o establece un string que indica el tipo del ataque.
-    /// </summary>
-    /// <summary>
     /// Obtiene o establece un valor (int) que indica el daño del ataque.
     /// </summary>
     public int Dano { get; protected set; }
@@ -33,6 +30,9 @@ public class Ataque
     /// Obtiene o establece un valor (int) que indica la precisión del ataque.
     /// </summary>
     public int Precision { get; protected set; }
+    /// <summary>
+    /// Obtiene o establece un string que indica el tipo del ataque.
+    /// </summary>
     public string Tipo { get; protected set; }
     /// <summary>
     /// Calcula si el ataque es preciso, es decir, si hace o no daño/causa un efecto en la víctima.

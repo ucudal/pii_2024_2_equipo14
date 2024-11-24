@@ -25,15 +25,17 @@
         </member>
         <member name="P:Library.Ataque.Dano">
             <summary>
-            Obtiene o establece un string que indica el tipo del ataque.
-            </summary>
-            <summary>
             Obtiene o establece un valor (int) que indica el daño del ataque.
             </summary>
         </member>
         <member name="P:Library.Ataque.Precision">
             <summary>
             Obtiene o establece un valor (int) que indica la precisión del ataque.
+            </summary>
+        </member>
+        <member name="P:Library.Ataque.Tipo">
+            <summary>
+            Obtiene o establece un string que indica el tipo del ataque.
             </summary>
         </member>
         <member name="M:Library.Ataque.CalcularPrecision">
