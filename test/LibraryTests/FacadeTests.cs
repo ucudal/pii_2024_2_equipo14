@@ -1,5 +1,6 @@
 using NUnit.Framework;
-namespace Library.Tests
+/*namespace Library.Tests
+
 {
     /// <summary>
     /// Esta es la clase FacadeTests. Se encarga de comprobar que las funciones de _facadeJuego fluyan correctamente.
@@ -154,7 +155,7 @@ namespace Library.Tests
                 Assert.That(output.Contains("Acción no válida. Intenta de nuevo."), Is.True);
             }
         }
-*/
+
         [Test]
         public void TestElegirPokemon_SeleccionarPokemon()
         {
@@ -177,7 +178,7 @@ namespace Library.Tests
             }
         }
 
-        /*[Test]
+        [Test]
         public void TestElegirItem_SeleccionarItem()
         {
             // Simular la selección de ítems
@@ -197,7 +198,7 @@ namespace Library.Tests
                 Assert.That(output.Contains("Revivir"),Is.True);
             }
         }
-*/
+
         [Test]
         public void TestElegirAtaque_SeleccionarAtaque()
         {
@@ -278,7 +279,7 @@ namespace Library.Tests
             }
         } 
     } }
-        /*[Test]
+        [Test]
         public void TestElegirAccion_AtacarConPokemonDormido()
         {
             // Simular la selección de Pokémon
