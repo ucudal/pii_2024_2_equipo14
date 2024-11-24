@@ -68,7 +68,7 @@ public static class Turno
             }
         }
 
-        if (accion == "Usar Item")
+        if (accion == "Usar Item" && entrenador.misItems.Count > 0)
         {
             foreach (Pokemon pokemon in entrenador.miCatalogo)
             {
@@ -89,47 +89,30 @@ public static class Turno
         return true;
     }
 
-    public static bool ValidarAtaque(Ataque ataque, Pokemon pokemonAtacado)
+    public static bool ValidarAtaque(Entrenador entrenador, Ataque ataque, Pokemon pokemonAtacado)
     {
-        if (ataque is AtaqueEspecial && (pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
+        if (ataque is AtaqueEspecial && (entrenador.Turnos % 2 == 0 || pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
                                          pokemonAtacado.Quemado))
         {
             return false;
         }
         return true;
     }
-
-    public static bool ValidarItem(Entrenador entrenador, Item item)
+    public static bool ValidarItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
-        if (item is Revivir)
+        if (item is Revivir && entrenador.misMuertos.Contains(pokemon))
         {
-            if (entrenador.misMuertos.Count > 0)
-            {
-                return true;
-            }
+            return true;
         }
 
-        if (item is CuraTotal)
+        if (item is CuraTotal && (pokemon.Paralizado || pokemon.Dormido || pokemon.Envenenado || pokemon.Quemado))
         {
-            foreach (Pokemon pokemon in entrenador.miCatalogo)
-            {
-                if (pokemon.Paralizado || pokemon.Dormido || 
-                    pokemon.Envenenado || pokemon.Quemado)
-                {
-                    return true;
-                }
-            }
+            return true;
         }
 
-        if (item is SuperPocion)
+        if (item is SuperPocion && pokemon.VidaTotal < pokemon.VidaInicial)
         {
-            foreach (Pokemon pokemon in entrenador.miCatalogo)
-            {
-                if (pokemon.VidaTotal < pokemon.VidaInicial)
-                {
-                    return true;
-                }
-            }
+            return true;
         }
         return false; 
     }

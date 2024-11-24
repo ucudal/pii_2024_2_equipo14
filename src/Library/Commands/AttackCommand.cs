@@ -26,7 +26,7 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
         string result;
         if (ataque == null)
         {
-            result = Mensaje.AtaquesDisponibles(jugador.PokemonActual);
+            result = Facade.Instance.MostrarAtaques(jugador.PokemonActual);
         }
         else
         {
@@ -37,15 +37,13 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
             }
             else
             {
-                bool validacion = Facade.Instance.RevisarAccion(jugador, "Atacar");
-                if (validacion == false || jugador.MiTurno == false)
+                if (Facade.Instance.RevisarAccion(jugador, "Atacar") == false || jugador.MiTurno == false)
                 {
                     result = Mensaje.AccionInvalida();
                 }
                 else
                 {
-                    bool validacionAtaque = Facade.Instance.RevisarAtaque(jugador.PokemonActual, ataque, oponente.PokemonActual);
-                    if (validacionAtaque)
+                    if (Facade.Instance.RevisarAtaque(jugador,jugador.PokemonActual, ataque, oponente.PokemonActual))
                     {
                         result = Facade.Instance.Atacar(jugador, ataqueElegido, oponente);
                     }
