@@ -26,4 +26,9 @@ public class ListaBatallas
         this.batallas.Add(battle);
         return battle;
     }
+
+    public void QuitarBatalla(Batalla batalla)
+    {
+        this.batallas.Remove(batalla);
+    }
 }

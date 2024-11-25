@@ -18,32 +18,61 @@ public static class Mensaje
 
     public static string PokemonesDisponibles(Entrenador entrenador)
     {
-        string mensaje = $"\nPOKÉMONES DISPONIBLES PARA CAMBIAR DE: {entrenador.Nombre}";
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine("\n");
+        mensaje.AppendLine($"POKÉMONES DISPONIBLES PARA CAMBIAR DE: {entrenador.Nombre}");
         foreach (Pokemon pokemon in entrenador.miCatalogo)
         {
             if (pokemon != entrenador.PokemonActual)
             {
-                mensaje +=
-                    $"\t¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
+                string info = "";
+                info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
+                if (pokemon == entrenador.PokemonActual)
+                {
+                    info += $" | (Pokémon Actual)";
+                }
+
+                if (pokemon.Dormido)
+                {
+                    info += $" | (Dormido)";
+                }
+
+                if (pokemon.Paralizado)
+                {
+                    info += $" | (Paralizado)";
+                }
+
+                if (pokemon.Envenenado)
+                {
+                    info += $" | (Envenenado)";
+                }
+
+                if (pokemon.Quemado)
+                {
+                    info += $" | (Quemado)";
+                }
+                mensaje.AppendLine(info);
             }
         }
 
-        return mensaje;
+        return mensaje.ToString();
     }
 
     public static string AtaquesDisponibles(Pokemon pokemon)
     {
-        string mensaje = $"\nATAQUES DISPONIBLES DE {pokemon.Nombre}:";
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine("\n");
+        mensaje.AppendLine($"ATAQUES DISPONIBLES DE {pokemon.Nombre}:");
         foreach (Ataque ataque in pokemon.GetAtaques())
         {
-            mensaje += $"\t¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano}";
+            string info = $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano}";
             if (ataque is AtaqueEspecial ataqueEspecial)
             {
-                mensaje += $" | Efecto: {ataqueEspecial.Efecto}";
+                info+= $" | Efecto: {ataqueEspecial.Efecto}";
             }
+            mensaje.AppendLine(info);
         }
-
-        return mensaje;
+        return mensaje.ToString();
     }
 
     public static string ItemsDisponibles(Entrenador entrenador)
@@ -101,10 +130,10 @@ public static class Mensaje
         foreach (Pokemon pokemon in entrenador.miCatalogo)
         {
             string info = "";
-            info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial} ";
+            info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
             if (pokemon == entrenador.PokemonActual)
             {
-                info += $"| (Pokémon Actual)";
+                info += $" | (Pokémon Actual)";
             }
 
             if (pokemon.Dormido)
@@ -173,6 +202,7 @@ public static class Mensaje
     public static string Encuentro(Entrenador entrenador, Ataque ataque, Entrenador oponente)
     {
         StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine("\n");
         mensaje.AppendLine($"ATAQUE DE {entrenador.Nombre}:");
         mensaje.AppendLine($" \t - {entrenador.GetPokemonActual()} ha atacado a {oponente.GetPokemonActual()} de {oponente.Nombre}");
         mensaje.AppendLine($" \t - Ha utilizado el ataque {ataque.Nombre}");
@@ -180,5 +210,29 @@ public static class Mensaje
         mensaje.Append(Mensaje.InformacionGeneral(oponente));
         mensaje.Append(Mensaje.Turno(oponente));
         return mensaje.ToString();
+    }
+
+    public static string UsoItem(Entrenador entrenador, Item item, Pokemon pokemon)
+    {
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine("\n");
+        mensaje.AppendLine($"USO DE ITEM DE {entrenador.Nombre}:");
+        mensaje.AppendLine($" \t - {item.Nombre} fue usado en {pokemon.Nombre}");
+        mensaje.Append(Mensaje.InformacionGeneral(entrenador));
+        return mensaje.ToString();
+    }
+
+    public static string Fin(Batalla batalla, Entrenador ganador, Entrenador perdedor)
+    {
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine("\n");
+        mensaje.AppendLine($"FIN DE LA BATALLA:");
+        mensaje.AppendLine($" \t - {ganador.Nombre} le ha ganado a {perdedor.Nombre}");
+        return mensaje.ToString();
+    }
+
+    public static string CambioPokemon(Entrenador entrenador)
+    {
+        return $"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.PokemonActual}";
     }
 }

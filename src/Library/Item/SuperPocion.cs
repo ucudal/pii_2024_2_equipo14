@@ -9,7 +9,7 @@ public class SuperPocion: Item
     /// </summary>
     public SuperPocion()
     {
-        this.Nombre = "Súper Poción";
+        this.Nombre = "SúperPoción";
         this.Descripcion = "Recupera 70 puntos de vida";
     }
   

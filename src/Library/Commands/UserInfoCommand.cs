@@ -21,7 +21,6 @@ public class UserInfoCommand : ModuleBase<SocketCommandContext>
         Devuelve información sobre el usuario que se indica como parámetro o
         sobre el usuario que envía el mensaje si no se indica otro usuario.
         """)]
-    // ReSharper disable once UnusedMember.Global
     public async Task ExecuteAsync(
         [Remainder][Summary("El usuario del que tener información, opcional")]
         string? displayName = null)
@@ -34,12 +33,21 @@ public class UserInfoCommand : ModuleBase<SocketCommandContext>
             {
                 await ReplyAsync($"No puedo encontrar {displayName} en este servidor");
             }
+
+            Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(displayName);
+            if (batalla != null)
+            {
+                Entrenador j1 = batalla.Jugador1;
+                Entrenador j2 = batalla.Jugador2;
+                if (j1.Nombre == displayName)
+                {
+                    await ReplyAsync(Mensaje.InformacionGeneral(j1));
+                }
+                else
+                {
+                    await ReplyAsync(Mensaje.InformacionGeneral(j2));
+                }
+            }
         }
-        
-        string userName = displayName ?? CommandHelper.GetDisplayName(Context);
-        
-        string result = Facade.Instance.JugadorEsperando(userName);
-        
-        await ReplyAsync(result);
     }
 }

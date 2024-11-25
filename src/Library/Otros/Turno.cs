@@ -13,7 +13,6 @@ public static class Turno
     
     public static void HacerAccion(Entrenador entrenador, string accion, Entrenador entrenadorAtacado, Ataque? ataque, string? pokemon, Item? item, Pokemon? pokemon2)
     {
-        entrenador.Turnos += 1;
         if (accion == "Atacar")
         {
             Atacar.Encuentro(entrenador,ataque,entrenadorAtacado);
@@ -29,6 +28,7 @@ public static class Turno
         }
         entrenador.MiTurno = false;
         entrenadorAtacado.MiTurno = true;
+        entrenador.Turnos += 1;
     }
 
     public static bool ValidarAccion(Entrenador entrenador, string accion)
@@ -51,6 +51,7 @@ public static class Turno
                 pokemon.RecibirDano(pokemon.VidaTotal * 10 / 100);
             }
         }
+        
         if (accion == "Atacar")
         {
             Random random = new Random();
@@ -91,7 +92,7 @@ public static class Turno
 
     public static bool ValidarAtaque(Entrenador entrenador, Ataque ataque, Pokemon pokemonAtacado)
     {
-        if (ataque is AtaqueEspecial && (entrenador.Turnos % 2 == 0 || pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
+        if (ataque is AtaqueEspecial && (entrenador.Turnos % 2 == 1 || pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
                                          pokemonAtacado.Quemado))
         {
             return false;
