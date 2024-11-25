@@ -10,10 +10,8 @@ public static class Turno
     /// <param name="entrenador">El entrenador que elige acción.</param>
     /// <param name="numero">El número que indica la acción.</param>
     /// <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
-    
     public static void HacerAccion(Entrenador entrenador, string accion, Entrenador entrenadorAtacado, Ataque? ataque, string? pokemon, Item? item, Pokemon? pokemon2)
     {
-        entrenador.Turnos += 1;
         if (accion == "Atacar")
         {
             Atacar.Encuentro(entrenador,ataque,entrenadorAtacado);
@@ -29,6 +27,7 @@ public static class Turno
         }
         entrenador.MiTurno = false;
         entrenadorAtacado.MiTurno = true;
+        entrenador.Turnos += 1;
     }
 
     public static bool ValidarAccion(Entrenador entrenador, string accion)
