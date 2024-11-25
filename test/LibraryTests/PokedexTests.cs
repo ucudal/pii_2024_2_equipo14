@@ -13,7 +13,7 @@ public class PokedexTests
     [SetUp]
     public void SetUp()
     {
-        pokemon = new Pokemon("Pikachu", "Eléctrico", new Ataque("Rayo", 40, 70, "Eléctrico"), new Maniqui());
+        pokemon = new Pokemon("Vullaby", "Volador", new Ataque("Viento", 30, 80, "Volador"), new Maniqui());
         ataque = pokemon.Ataque;
         ataqueEspecial = pokemon.AtaqueEspecial;
     }
@@ -21,7 +21,7 @@ public class PokedexTests
     [Test]
     public void TestBuscarPokemon()
     {
-        Pokemon clon = Pokedex.BuscarPokemon("Pikachu");
+        Pokemon clon = Pokedex.BuscarPokemon("Vullaby");
         Ataque ataqueClon = clon.Ataque;
         AtaqueEspecial ataqueEClon = clon.AtaqueEspecial;
         string esperado = pokemon.Nombre;
@@ -46,6 +46,5 @@ public class PokedexTests
         Assert.That(esperado8,Is.EqualTo(ataqueEClon.Precision));
         Assert.That(esperado9,Is.EqualTo(ataqueEClon.Tipo));
         Assert.That(esperado10,Is.EqualTo(ataqueEClon.Efecto));
-        
     }
 }

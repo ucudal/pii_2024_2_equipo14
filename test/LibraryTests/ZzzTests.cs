@@ -14,14 +14,16 @@ public class ZzzTests
     private Pokemon pokemonAtacante;
 
     [SetUp]
-    public void SetUp(){
+    public void SetUp()
+    {
         zzz = new Zzz();
         entrenador = new Entrenador("Jugador");
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Zzz());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
     [Test] 
-    public void TestManiqui() {
+    public void TestInstanciarZzz() 
+    {
 
         string esperado = "Zzz";
         Assert.That(esperado, Is.EqualTo(zzz.Nombre));
@@ -38,7 +40,7 @@ public class ZzzTests
     [Test]
     public void TestCausarEfecto()
     {
-        pokemonAtacante.AtaqueEspecial.CausarEfecto(entrenador, pokemon);
+        zzz.CausarEfecto(entrenador, pokemon);
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(pokemon.Dormido));
     }

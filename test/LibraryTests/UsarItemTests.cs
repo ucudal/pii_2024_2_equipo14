@@ -9,27 +9,57 @@ public class UsarItemTests
 {
 
     private Entrenador entrenador;
-    private Revivir usarRevivir;
-    private SuperPocion usarSuperPocion;
-    private CuraTotal usarCuraTotal;
+    private Item revivir;
+    private Item superPocion;
+    private Item curaTotal;
+    private Pokemon pokemon;
     
     [SetUp]
     public void SetUp()
     {
         entrenador = new Entrenador("Jugador");
-        entrenador.misItems.Add(usarRevivir);
-        entrenador.misItems.Add(usarSuperPocion);
-        entrenador.misItems.Add(usarCuraTotal);
+        pokemon = new Pokemon("Mew", "Psíquico", new Ataque("Hipnosis", 30, 80, "Psíquico"), new Off());
+        revivir = new Revivir();
+        superPocion = new SuperPocion();
+        curaTotal = new CuraTotal();
+        entrenador.AgregarItem(revivir);
+        entrenador.AgregarItem(superPocion);
+        entrenador.AgregarItem(curaTotal);
     }
     
     [Test]
-    public void TestUsoDeItem()
+    public void TestUsoDeRevivir()
     {
-        bool esperadoRevivir = true;
-        bool esperadoSuperPocion = true;
-        bool esperadoCuraTotal = true;
-        Assert.That(esperadoRevivir,Is.EqualTo(entrenador.misItems.Contains(usarRevivir)));
-        Assert.That(esperadoSuperPocion,Is.EqualTo(entrenador.misItems.Contains(usarSuperPocion)));
-        Assert.That(esperadoCuraTotal,Is.EqualTo(entrenador.misItems.Contains(usarCuraTotal)));
+        pokemon.RecibirDano(80);
+        entrenador.AgregarMuerto(pokemon);
+        UsarItem.UsoDeItem(entrenador,revivir,pokemon);
+        bool esperado = false;
+        bool esperado1 = true;
+        int esperado2 = 40;
+        Assert.That(esperado,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
+        Assert.That(esperado1,Is.EqualTo(entrenador.miCatalogo.Contains(pokemon)));
+        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(revivir)));
+        Assert.That(esperado2,Is.EqualTo(pokemon.VidaTotal));
+    }
+
+    [Test]
+    public void TestUsoDeSuperPocion()
+    {
+        pokemon.RecibirDano(80);
+        UsarItem.UsoDeItem(entrenador,superPocion,pokemon);
+        bool esperado = false;
+        int esperado1 = 70;
+        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(superPocion)));
+        Assert.That(esperado1,Is.EqualTo(pokemon.VidaTotal));
+    }
+
+    [Test]
+    public void TestUsoDeCuraTotal()
+    {
+        pokemon.Quemado = true;
+        UsarItem.UsoDeItem(entrenador,curaTotal,pokemon);
+        bool esperado = false;
+        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(curaTotal)));
+        Assert.That(esperado,Is.EqualTo(pokemon.Quemado));
     }
 }

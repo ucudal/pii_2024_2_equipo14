@@ -5,7 +5,7 @@ namespace Library
     /// </summary>
     public class Batalla
     {
-        private bool enBatalla = false;
+        private bool enBatalla;
         /// <summary>
         /// Atributo estático booleano de batalla que indica si está siendo ejecutada alguna batalla.
         /// </summary>

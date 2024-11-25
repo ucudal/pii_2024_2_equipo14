@@ -20,7 +20,8 @@ public class IncendioTests
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
     [Test] 
-    public void TestManiqui() {
+    public void TestInstanciarIncendio() 
+    {
 
         string esperado = "Incendio";
         Assert.That(esperado, Is.EqualTo(incendio.Nombre));
@@ -37,8 +38,10 @@ public class IncendioTests
     [Test]
     public void TestCausarEfecto()
     {
-        pokemonAtacante.AtaqueEspecial.CausarEfecto(entrenador, pokemon);
+        incendio.CausarEfecto(entrenador, pokemon);
         bool esperado = true;
+        int esperado1 = 62;
         Assert.That(esperado,Is.EqualTo(pokemon.Quemado));
+        Assert.That(pokemon.VidaTotal,Is.LessThanOrEqualTo(esperado1));
     }
 }

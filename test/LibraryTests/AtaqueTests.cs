@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace LibraryTests;
 
 [TestFixture]
-[TestOf(typeof(Library.Ataque))]
+[TestOf(typeof(Ataque))]
 public class AtaqueTests
 {
     private Ataque ataque;
@@ -16,9 +16,9 @@ public class AtaqueTests
     }
 
     [Test] 
-    public void TestAtaque() {
-
-
+    public void TestCrearAtaque() 
+    {
+        
         string esperado = "Florecer";
         Assert.That(esperado, Is.EqualTo(ataque.Nombre));
         int esperado2 = 10;
