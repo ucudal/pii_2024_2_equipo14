@@ -24,8 +24,4 @@
   <ItemGroup>
     <ProjectReference Include="../../src/Library/Library.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="no se si va\" />
-    <Folder Include="Otros\" />
-  </ItemGroup>
 </Project>

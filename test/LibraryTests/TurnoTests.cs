@@ -1,4 +1,4 @@
-using Library;
+/*using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
@@ -7,10 +7,14 @@ namespace LibraryTests;
 [TestOf(typeof(Turno))]
 public class TurnoTests
 {
-
+    [SetUp]
+    public void setUp(){
+        
+    }
+    
     [Test]
-    public void METHOD()
+    public void TestValidarAccion()
     {
         
     }
-}
+}*/
