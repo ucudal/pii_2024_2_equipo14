@@ -14,32 +14,34 @@ public class IncendioTests
 
     [SetUp]
     public void SetUp(){
-    incendio = new Incendio();
-    entrenador = new Entrenador("Jugador");
-    pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
-    pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
-}
-[Test] 
-public void TestManiqui() {
+        incendio = new Incendio();
+        entrenador = new Entrenador("Jugador");
+        pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
+        pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
+    }
+    [Test] 
+    public void TestInstanciarIncendio() 
+    {
 
-    string esperado = "Incendio";
-    Assert.That(esperado, Is.EqualTo(incendio.Nombre));
-    int esperado2 = 10;
-    Assert.That(esperado2, Is.EqualTo(incendio.Dano));
-    int esperado3 = 70;
-    Assert.That(esperado3, Is.EqualTo(incendio.Precision));
-    string esperado4 = "Fuego";
-    Assert.That(esperado4, Is.EqualTo(incendio.Tipo));
-    string esperado5 = "Quemar";
-    Assert.That(esperado5,Is.EqualTo(incendio.Efecto));
-}
+        string esperado = "Incendio";
+        Assert.That(esperado, Is.EqualTo(incendio.Nombre));
+        int esperado2 = 10;
+        Assert.That(esperado2, Is.EqualTo(incendio.Dano));
+        int esperado3 = 70;
+        Assert.That(esperado3, Is.EqualTo(incendio.Precision));
+        string esperado4 = "Fuego";
+        Assert.That(esperado4, Is.EqualTo(incendio.Tipo));
+        string esperado5 = "Quemar";
+        Assert.That(esperado5,Is.EqualTo(incendio.Efecto));
+    }
 
-[Test]
-public void TestCausarEfecto()
-{
-    pokemonAtacante.AtaqueEspecial.CausarEfecto(entrenador, pokemon);
-    bool esperado = true;
-    Assert.That(esperado,Is.EqualTo(pokemon.Quemado));
+    [Test]
+    public void TestCausarEfecto()
+    {
+        incendio.CausarEfecto(entrenador, pokemon);
+        bool esperado = true;
+        int esperado1 = 62;
+        Assert.That(esperado,Is.EqualTo(pokemon.Quemado));
+        Assert.That(pokemon.VidaTotal,Is.LessThanOrEqualTo(esperado1));
+    }
 }
-}
-

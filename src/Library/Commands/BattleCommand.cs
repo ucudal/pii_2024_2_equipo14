@@ -22,7 +22,7 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
         SocketGuildUser? user = CommandHelper.GetUser(Context, displayName);
 
         string result;
-        if (opponentUser != null)
+        if (opponentUser != null && Facade.Instance.JugadorEsperando(opponentDisplayName) != $"{opponentDisplayName} no está esperando")
         {
             result = Facade.Instance.ComenzarBatalla(displayName, opponentUser.DisplayName);
             await ReplyAsync(result);

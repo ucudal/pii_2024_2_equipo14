@@ -7,7 +7,6 @@ namespace LibraryTests;
 [TestOf(typeof(Off))]
 public class OffTests
 {
-
     private Off off;
     private Entrenador entrenador;
     private Pokemon pokemon;
@@ -21,8 +20,8 @@ public class OffTests
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
     [Test] 
-    public void TestManiqui() {
-
+    public void TestInstanciarOff() 
+    {
         string esperado = "Off";
         Assert.That(esperado, Is.EqualTo(off.Nombre));
         int esperado2 = 10;
@@ -34,12 +33,13 @@ public class OffTests
         string esperado5 = "Envenenar";
         Assert.That(esperado5,Is.EqualTo(off.Efecto));
     }
-
     [Test]
     public void TestCausarEfecto()
     {
-        pokemonAtacante.AtaqueEspecial.CausarEfecto(entrenador, pokemon);
+        off.CausarEfecto(entrenador, pokemon);
         bool esperado = true;
+        int esperado1 = 66;
         Assert.That(esperado,Is.EqualTo(pokemon.Envenenado));
+        Assert.That(pokemon.VidaTotal,Is.LessThanOrEqualTo(esperado1));
     }
 }

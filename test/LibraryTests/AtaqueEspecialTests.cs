@@ -8,19 +8,15 @@ namespace LibraryTests;
 public class AtaqueEspecialTests
 {
     private AtaqueEspecial ataqueEspecial;
-    private Pokemon pokemon;
-    private Entrenador entrenador;
 
     [SetUp]
     public void SetUp()
     {
         ataqueEspecial = new Incendio();
-        entrenador = new Entrenador("Jugador");
-        pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
     [Test] 
-    public void TestAtaqueEspecial() {
-
+    public void TestCrearAtaqueEspecial() 
+    {
         string esperado = "Incendio";
         Assert.That(esperado, Is.EqualTo(ataqueEspecial.Nombre));
         int esperado2 = 10;
@@ -32,12 +28,4 @@ public class AtaqueEspecialTests
         string esperado5 = "Quemar";
         Assert.That(esperado5,Is.EqualTo(ataqueEspecial.Efecto));
     } 
-    
-    [Test]
-    public void CausarEfecto()
-    {
-        string esperado ="Dormir";
-        Assert.That(esperado,Is.EqualTo(pokemon.AtaqueEspecial.Efecto));
-
-    }
 }

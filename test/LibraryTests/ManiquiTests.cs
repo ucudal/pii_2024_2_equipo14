@@ -20,8 +20,10 @@ public class ManiquiTests
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Maniqui());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
+    
     [Test] 
-    public void TestManiqui() {
+    public void TestInstanciarManiqui() 
+    {
 
         string esperado = "Maniquí";
         Assert.That(esperado, Is.EqualTo(maniqui.Nombre));
@@ -34,11 +36,11 @@ public class ManiquiTests
         string esperado5 = "Paralizar";
         Assert.That(esperado5,Is.EqualTo(maniqui.Efecto));
     }
-
+    
     [Test]
     public void TestCausarEfecto()
     {
-        pokemonAtacante.AtaqueEspecial.CausarEfecto(entrenador, pokemon);
+        maniqui.CausarEfecto(entrenador, pokemon);
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(pokemon.Paralizado));
     }

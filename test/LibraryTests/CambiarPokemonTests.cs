@@ -8,24 +8,25 @@ namespace LibraryTests;
 public class CambiarPokemonTests
 {
     private Pokemon pokemonActual;
-    private Pokemon pokemonCambiado;
+    private Pokemon cambio;
     private Entrenador entrenador;
     
     [SetUp]
     public void SetUp()
     {
         pokemonActual = new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
-       
-        pokemonCambiado=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
+        cambio = new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
         entrenador = new Entrenador("entrenador");
+        entrenador.AgregarPokemon(pokemonActual);
+        entrenador.AgregarPokemon(cambio);
+        entrenador.PokemonActual = pokemonActual;
     }
 
     [Test]
     public void TestCambioDePokemon()
     {
-        entrenador.PokemonActual = pokemonCambiado;
-        string esperado="Bulbasaur";
-        Assert.That(esperado,Is.EqualTo(entrenador.PokemonActual.Nombre));
-       
+       CambiarPokemon.CambioDePokemon(entrenador,"Bulbasaur");
+       Pokemon esperado = cambio;
+       Assert.That(esperado,Is.EqualTo(entrenador.PokemonActual));
     }
 }

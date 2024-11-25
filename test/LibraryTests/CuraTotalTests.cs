@@ -24,7 +24,7 @@ public class CuraTotalTests
     [Test]
     public void TestInstanciarCuraTotal()
     {
-        string esperado = "Cura Total";
+        string esperado = "CuraTotal";
         string esperado1 = "Cura a un Pokémon de efectos de ataques especiales";
         Assert.That(esperado,Is.EqualTo(curaTotal.Nombre));
         Assert.That(esperado1,Is.EqualTo(curaTotal.Descripcion));

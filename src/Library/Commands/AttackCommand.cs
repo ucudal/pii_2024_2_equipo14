@@ -23,10 +23,10 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
             jugador = batalla.Jugador2;
             oponente = batalla.Jugador1;
         }
-        string result;
+        string result = "";
         if (ataque == null)
         {
-            result = Mensaje.AtaquesDisponibles(jugador.PokemonActual);
+            result = Facade.Instance.MostrarAtaques(jugador.PokemonActual);
         }
         else
         {
@@ -37,17 +37,23 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
             }
             else
             {
-                bool validacion = Facade.Instance.RevisarAccion(jugador, "Atacar");
-                if (validacion == false || jugador.MiTurno == false)
+                if (Facade.Instance.RevisarAccion(jugador, "Atacar") == false || jugador.MiTurno == false)
                 {
-                    result = Mensaje.AccionInvalida();
+                    await ReplyAsync(Mensaje.AccionInvalida());
+                    if (Facade.Instance.ChequeoEstado(batalla) == false)
+                    {
+                        await ReplyAsync(Facade.Instance.Finalizar(batalla));
+                    }
                 }
                 else
                 {
-                    bool validacionAtaque = Facade.Instance.RevisarAtaque(jugador.PokemonActual, ataque, oponente.PokemonActual);
-                    if (validacionAtaque)
+                    if (Facade.Instance.RevisarAtaque(jugador,jugador.PokemonActual, ataque, oponente.PokemonActual))
                     {
-                        result = Facade.Instance.Atacar(jugador, ataqueElegido, oponente);
+                        await ReplyAsync(Facade.Instance.Atacar(jugador, ataqueElegido, oponente));
+                        if (Facade.Instance.ChequeoEstado(batalla) == false)
+                        {
+                            await ReplyAsync(Facade.Instance.Finalizar(batalla));
+                        }
                     }
                     else
                     {

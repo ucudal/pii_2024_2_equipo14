@@ -221,7 +221,7 @@ public class Facade
         if (nuevo != null)
         {
             entrenador.AgregarPokemon(nuevo);
-            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de Tipo: {nuevo.Tipo} a su catálogo";
+            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de tipo {nuevo.Tipo} a su catálogo";
         }
         else
         {
@@ -242,17 +242,13 @@ public class Facade
         return Turno.ValidarAccion(entrenador, accion);
     }
 
-    public bool RevisarAtaque(Pokemon atacante, string ataque, Pokemon atacado)
+    public bool RevisarAtaque(Entrenador entrenador,Pokemon atacante, string ataque, Pokemon atacado)
     {
-        bool validacion = false;
         foreach (Ataque attack in atacante.GetAtaques())
         {
-            if (attack.Nombre == ataque)
-            {
-                validacion = Turno.ValidarAtaque(attack, atacado);
-            }
+            return Turno.ValidarAtaque(entrenador, attack, atacado);
         }
-        return validacion;
+        return false;
     }
 
     public Ataque PosesionAtaque(Pokemon pokemon, string ataque)
@@ -267,9 +263,107 @@ public class Facade
         return null;
     }
 
+    public Pokemon PosesionPokemonVivo(Entrenador entrenador, string pokemon)
+    {
+        foreach (Pokemon poke in entrenador.miCatalogo)
+        {
+            if (poke.Nombre == pokemon)
+            {
+                return poke;
+            }
+        }
+
+        return null;
+    }
+    public Pokemon PosesionPokemon(Entrenador entrenador, string pokemon)
+    {
+        foreach (Pokemon poke in entrenador.miCatalogo)
+        {
+            if (poke.Nombre == pokemon)
+            {
+                return poke;
+            }
+        }
+        foreach (Pokemon poke in entrenador.misMuertos)
+        {
+            if (poke.Nombre == pokemon)
+            {
+                return poke;
+            }
+        }
+        return null;
+    }
+
     public string Atacar(Entrenador entrenador, Ataque ataque, Entrenador oponente)
     {
         Turno.HacerAccion(entrenador,"Atacar",oponente,ataque,null,null,null);
         return Mensaje.Encuentro(entrenador, ataque, oponente);
+    }
+    
+    public string UsoDeItem(Entrenador entrenador, Item item, Pokemon pokemon)
+    {
+        Turno.HacerAccion(entrenador,"Usar Item",null,null,null,item,null);
+        return Mensaje.UsoItem(entrenador, item, pokemon);
+    }
+
+    public string MostrarAtaques(Pokemon pokemon)
+    {
+        return Mensaje.AtaquesDisponibles(pokemon);
+    }
+
+    public string MostrarItems(Entrenador entrenador)
+    {
+        return Mensaje.ItemsDisponibles(entrenador);
+    }
+
+    public bool RevisarItem(Entrenador entrenador, Item item, Pokemon pokemon)
+    {
+        return Turno.ValidarItem(entrenador, item, pokemon);
+    }
+
+    public Item PosesionItem(Entrenador entrenador, string item)
+    {
+        foreach (Item it in entrenador.misItems)
+        {
+            if (it.Nombre == item)
+            {
+                return it;
+            }
+        }
+        return null;
+    }
+
+    public string Finalizar(Batalla batalla)
+    {
+        Entrenador j1 = batalla.Jugador1;
+        Entrenador j2 = batalla.Jugador2;
+        this.ListaBatallas.QuitarBatalla(batalla);
+        if (j1.miCatalogo.Count > 0)
+        {
+            return Mensaje.Fin(batalla, j1,j2);
+        }
+        else
+        {
+            return Mensaje.Fin(batalla, j2, j1);
+        }
+    }
+
+    public string CambiarPokemon(Entrenador entrenador, string pokemon)
+    {
+        Turno.HacerAccion(entrenador,"Cambiar Pokémon",null,null,pokemon,null,null);
+        return Mensaje.CambioPokemon(entrenador);
+    }
+
+    public bool ChequeoEstado(Batalla batalla)
+    {
+        Entrenador j1 = batalla.Jugador1;
+        Entrenador j2 = batalla.Jugador2;
+        if ((j1.miCatalogo.Count == 0 && Facade.Instance.PosesionItem(j1, "Revivir") is Revivir)
+            || j2.miCatalogo.Count == 0 && Facade.Instance.PosesionItem(j2, "Revivir") is Revivir)
+        {
+            batalla.EnBatalla = false;
+            return false;
+        }
+        return true;
     }
 }

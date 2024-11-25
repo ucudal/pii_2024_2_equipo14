@@ -68,7 +68,6 @@ public class EntrenadorTests
         Assert.That(esperado,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
     }
     
-    
     [Test]
     public void TestQuitarMuerto()
     {
@@ -76,10 +75,6 @@ public class EntrenadorTests
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
     }
-    
-    
-    
-    
 }
 
     

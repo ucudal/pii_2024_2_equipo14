@@ -1,6 +1,5 @@
 using Library;
 using NUnit.Framework;
-
 namespace LibraryTests;
 
 [TestFixture]
@@ -44,5 +43,16 @@ public class PokemonTests
         pokemon.Curar(10);
         int esperado = 60;
         Assert.That(esperado,Is.EqualTo(pokemon.VidaTotal));
+    }
+
+    [Test]
+    public void TestGetAtaques()
+    {
+        Ataque ataque = pokemon.Ataque;
+        Ataque ataqueEspecial = pokemon.AtaqueEspecial;
+        List<Ataque> resultado = pokemon.GetAtaques();
+        bool esperado = true;
+        Assert.That(esperado,Is.EqualTo(resultado.Contains(ataque)));
+        Assert.That(esperado,Is.EqualTo(resultado.Contains(ataqueEspecial)));
     }
 }

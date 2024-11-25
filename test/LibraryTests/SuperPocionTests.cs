@@ -24,7 +24,7 @@ public class SuperPocionTests
     [Test]
     public void TestInstanciarRevivir()
     {
-        string esperado = "Súper Poción";
+        string esperado = "SúperPoción";
         string esperado1 = "Recupera 70 puntos de vida";
         Assert.That(esperado,Is.EqualTo(superPocion.Nombre));
         Assert.That(esperado1,Is.EqualTo(superPocion.Descripcion));
