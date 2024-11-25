@@ -63,7 +63,7 @@ public static class Turno
         }
         if (accion == "Cambiar Pokémon")
         {
-            if (entrenador.miCatalogo.Count == 0)
+            if (entrenador.miCatalogo.Count < 2 )
             {
                 return false;
             }

@@ -1,39 +1,38 @@
 using Library;
 using NUnit.Framework;
 
-namespace LibraryTests; //Este test está mal
+namespace LibraryTests;
 
 [TestFixture]
-[TestOf(typeof(Atacar))]
-public class AtacarTests
+[TestOf(typeof(Library.Ataque))]
+public class AtaqueTests
 {
-    private Entrenador atacante;
-    private Entrenador victima;
-    private  Pokemon pokemonActual; 
-    private Pokemon pokemonAtacado; 
-    
+    private Ataque ataque;
+
     [SetUp]
     public void SetUp()
-    { 
-        pokemonActual= new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
-        pokemonAtacado=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
-        atacante = new Entrenador("Atacante");
-        victima = new Entrenador("Victima");
+    {
+        ataque = new Ataque("Florecer", 10, 70, "Planta");
     }
-    
+
+    [Test] 
+    public void TestAtaque() {
+
+
+        string esperado = "Florecer";
+        Assert.That(esperado, Is.EqualTo(ataque.Nombre));
+        int esperado2 = 10;
+        Assert.That(esperado2, Is.EqualTo(ataque.Dano));
+        int esperado3 = 70;
+        Assert.That(esperado3, Is.EqualTo(ataque.Precision));
+        string esperado4 = "Planta";
+        Assert.That(esperado4, Is.EqualTo(ataque.Tipo));
+    } 
+
     [Test]
-    public void TestEncuentro()
-    { 
-        Atacar.Encuentro(atacante,victima);
-        int esperado = pokemonAtacado.VidaTotal;
-        Assert.That(esperado, Is.LessThan(pokemonAtacado.VidaInicial));
-
-        bool esperado1 = true;
-        Assert.That(esperado1, Is.EqualTo(pokemonActual.Dormido));
-        Assert.That(pokemonAtacado.VidaTotal, Is.LessThan(pokemonAtacado.VidaInicial));
-
-        bool esperado2 = false;
-        Assert.That(esperado2,Is.EqualTo(victima.miCatalogo.Contains(pokemonAtacado)));
-
+    public void TestCalcularPrecision()
+    {
+        int preciso = ataque.CalcularPrecision();
+        Assert.That(preciso,Is.LessThanOrEqualTo(1));
     }
 }
