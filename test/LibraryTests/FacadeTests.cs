@@ -133,24 +133,29 @@ public class FacadeTests
     public void TestAgregarPokemon()
     {
         Facade instance = Facade.Instance;
-        string resultado1 = instance.AgregarPokemon(j1, "Pikachu");
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        instance.ComenzarBatalla("j1", "j2");
+        Batalla battle = instance.EncontrarBatallaPorUsuario("j1");
+        Entrenador jugador1 = battle.Jugador1;
+        string resultado1 = instance.AgregarPokemon(jugador1, "Pikachu");
         string esperado1 = "j1 ha agregado a ¨Pikachu¨ de tipo Eléctrico a su catálogo";
         Assert.That(esperado1,Is.EqualTo(resultado1));
 
-        string resultado2 = instance.AgregarPokemon(j1, "Pikachu");
+        string resultado2 = instance.AgregarPokemon(jugador1, "Pikachu");
         string esperado2 = "j1, ya tienes ese Pokemon";
         Assert.That(esperado2,Is.EqualTo(resultado2));
 
-        string resultado3 = instance.AgregarPokemon(j1, "Shrek");
+        string resultado3 = instance.AgregarPokemon(jugador1, "Shrek");
         string esperado3 = "Pokémon inválido"; 
         Assert.That(esperado3,Is.EqualTo(resultado3));
 
-        instance.AgregarPokemon(j1, "Bulbasaur");
-        instance.AgregarPokemon(j1, "Squirtle");
-        instance.AgregarPokemon(j1, "Charmander");
-        instance.AgregarPokemon(j1, "Eevee");
-        instance.AgregarPokemon(j1, "Ponyta");
-        string resultado4 = instance.AgregarPokemon(j1,"Mew");
+        instance.AgregarPokemon(jugador1, "Bulbasaur");
+        instance.AgregarPokemon(jugador1, "Squirtle");
+        instance.AgregarPokemon(jugador1, "Charmander");
+        instance.AgregarPokemon(jugador1, "Eevee");
+        instance.AgregarPokemon(jugador1, "Ponyta");
+        string resultado4 = instance.AgregarPokemon(jugador1,"Mew").Substring(0,25);
         string esperado4 = "j1, ya tienes 6 Pokémones";
         Assert.That(esperado4,Is.EqualTo(resultado4));
     }
@@ -158,6 +163,9 @@ public class FacadeTests
     public void TestInicializarEncuentros()
     {
         Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        instance.ComenzarBatalla("j1", "j2");
         instance.AgregarPokemon(j1, "Bulbasaur");
         instance.AgregarPokemon(j1, "Squirtle");
         instance.AgregarPokemon(j1, "Charmander");
@@ -181,9 +189,26 @@ public class FacadeTests
     public void TestRevisarAccion()
     {
         Facade instance = Facade.Instance;
-        instance.AgregarPokemon(j1, "Bulbasaur");
-        j1.PokemonActual = pokemon;
-        bool resultado = instance.RevisarAccion(j1, "Atacar");
+        instance.AgregarJugadorListaDeEspera("jugador1");
+        instance.AgregarJugadorListaDeEspera("jugador2");
+        instance.ComenzarBatalla("jugador1", "jugador2");
+        Batalla batalla = instance.EncontrarBatallaPorUsuario("jugador1");
+        Entrenador jugador1 = batalla.Jugador1;
+        Entrenador jugador2 = batalla.Jugador2;
+        instance.AgregarPokemon(jugador1, "Pikachu");
+        instance.AgregarPokemon(jugador1, "Mew");
+        instance.AgregarPokemon(jugador1, "Bulbasaur");
+        instance.AgregarPokemon(jugador1, "Ponyta");
+        instance.AgregarPokemon(jugador1, "Skarmory");
+        instance.AgregarPokemon(jugador1, "Goomy");
+        instance.AgregarPokemon(jugador2, "Pikachu");
+        instance.AgregarPokemon(jugador2, "Mew");
+        instance.AgregarPokemon(jugador2, "Bulbasaur");
+        instance.AgregarPokemon(jugador2, "Ponyta");
+        instance.AgregarPokemon(jugador2, "Skarmory");
+        instance.AgregarPokemon(jugador2, "Goomy");
+        instance.InicializarEncuentros(batalla);
+        bool resultado = instance.RevisarAccion(jugador1, "Atacar");
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
@@ -230,9 +255,25 @@ public class FacadeTests
     public void TestAtacar()
     {
         Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        instance.ComenzarBatalla("j1", "j2");
+        instance.AgregarPokemon(j1, "Bulbasaur");
+        instance.AgregarPokemon(j1, "Squirtle");
+        instance.AgregarPokemon(j1, "Charmander");
+        instance.AgregarPokemon(j1, "Eevee");
+        instance.AgregarPokemon(j1, "Ponyta");
+        instance.AgregarPokemon(j1, "Pikachu");
+        instance.AgregarPokemon(j2, "Rockruff");
+        instance.AgregarPokemon(j2, "Dratini");
+        instance.AgregarPokemon(j2, "Cranidos");
+        instance.AgregarPokemon(j2, "Skarmory");
+        instance.AgregarPokemon(j2, "Mew");
+        instance.AgregarPokemon(j2, "Goomy");
+        instance.InicializarEncuentros(batalla);
         j1.PokemonActual = pokemon;
         j2.PokemonActual = pokemon2;
-        string resultado = instance.Atacar(j1, pokemon.Ataque, j2).Substring(0,53);
+        string resultado = instance.Atacar(j1, pokemon.GetAtaque(), j2).Substring(0,53);
         string esperado = "\n\r\nATAQUE DE j1:\r\n \t - Pikachu ha atacado a Mew de j2";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
@@ -241,10 +282,29 @@ public class FacadeTests
     public void TestUsoDeItem()
     {
         Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("e1");
+        instance.AgregarJugadorListaDeEspera("e2");
+        instance.ComenzarBatalla("e1", "e2");
+        Batalla batalla = instance.EncontrarBatallaPorUsuario("e1");
+        Entrenador e1 = batalla.Jugador1;
+        Entrenador e2 = batalla.Jugador1;
+        instance.AgregarPokemon(e1, "Bulbasaur");
+        instance.AgregarPokemon(e1, "Squirtle");
+        instance.AgregarPokemon(e1, "Charmander");
+        instance.AgregarPokemon(e1, "Eevee");
+        instance.AgregarPokemon(e1, "Ponyta");
+        instance.AgregarPokemon(e1, "Pikachu");
+        instance.AgregarPokemon(e2, "Rockruff");
+        instance.AgregarPokemon(e2, "Dratini");
+        instance.AgregarPokemon(e2, "Cranidos");
+        instance.AgregarPokemon(e2, "Skarmory");
+        instance.AgregarPokemon(e2, "Mew");
+        instance.AgregarPokemon(e2, "Goomy");
+        string resultado1 = instance.InicializarEncuentros(batalla).Substring(0,16);
         pokemon.RecibirDano(70);
-        j1.AgregarPokemon(pokemon);
-        j1.AgregarItem(new SuperPocion());
-        string resultado = instance.UsoDeItem(j1, j1.GetMisItems()[0], pokemon,j2).Substring(0,60);
+        e1.AgregarPokemon(pokemon);
+        e1.AgregarItem(new SuperPocion());
+        string resultado = instance.UsoDeItem(e1, "SúperPoción", pokemon.Nombre,e2).Substring(0,30);
         string esperado = "\n\r\nUSO DE ITEM DE j1:\r\n \t - SúperPoción fue usado en Pikachu";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
@@ -309,6 +369,22 @@ public class FacadeTests
     public void TestCambiarPokemon()
     {
         Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        instance.ComenzarBatalla("j1", "j2");
+        instance.AgregarPokemon(j1, "Bulbasaur");
+        instance.AgregarPokemon(j1, "Squirtle");
+        instance.AgregarPokemon(j1, "Charmander");
+        instance.AgregarPokemon(j1, "Eevee");
+        instance.AgregarPokemon(j1, "Ponyta");
+        instance.AgregarPokemon(j1, "Pikachu");
+        instance.AgregarPokemon(j2, "Rockruff");
+        instance.AgregarPokemon(j2, "Dratini");
+        instance.AgregarPokemon(j2, "Cranidos");
+        instance.AgregarPokemon(j2, "Skarmory");
+        instance.AgregarPokemon(j2, "Mew");
+        instance.AgregarPokemon(j2, "Goomy");
+        string resultado1 = instance.InicializarEncuentros(batalla).Substring(0,16);
         j1.AgregarPokemon(pokemon);
         j1.AgregarPokemon(pokemon2);
         j1.PokemonActual = pokemon;

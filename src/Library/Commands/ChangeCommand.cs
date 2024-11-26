@@ -24,22 +24,7 @@ public class ChangeCommand : ModuleBase<SocketCommandContext>
         }
         if (pokemon != null)
         {
-            if (Facade.Instance.PosesionPokemonVivo(jugador, pokemon) != null)
-            {
-                if (Facade.Instance.RevisarAccion(jugador, "Cambiar Pokémon"))
-                {
-                    await ReplyAsync(Facade.Instance.CambiarPokemon(jugador, pokemon,jugador2));
-                }
-                else
-                {
-                    await ReplyAsync(Mensaje.AccionInvalida());
-                }
-            }
-            else
-            {
-                await ReplyAsync(Mensaje.PokemonInvalido());
-            }
-            
+            Facade.Instance.CambiarPokemon(jugador, pokemon, jugador2);
         }
         else
         {

@@ -28,6 +28,7 @@ public class TurnoTests
         jugador.AgregarItem(curaTotal);
         jugador.PokemonActual = pokemon;
         oponente.PokemonActual = pokemonOp;
+        jugador.MiTurno = true;
     }
 
     [Test]

@@ -33,6 +33,10 @@ public static class Turno
 
     public static bool ValidarAccion(Entrenador entrenador, string accion)
     {
+        if (entrenador.MiTurno == false)
+        {
+            return false;
+        }
         Pokemon pokemonActual = entrenador.PokemonActual;
         foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
@@ -51,7 +55,6 @@ public static class Turno
                 pokemon.RecibirDano(pokemon.VidaTotal * 10 / 100);
             }
         }
-        
         if (accion == "Atacar")
         {
             Random random = new Random();

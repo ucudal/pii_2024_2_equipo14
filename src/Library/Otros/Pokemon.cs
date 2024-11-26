@@ -93,5 +93,15 @@ public class Pokemon
     {
         this.VidaTotal -= dano;
     }
+
+    public string GetAtaque()
+    {
+        return this.Ataque.Nombre;
+    }
+
+    public string GetAtaqueEspecial()
+    {
+        return this.AtaqueEspecial.Nombre;
+    }
     
 }

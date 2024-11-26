@@ -64,12 +64,18 @@ public static class Mensaje
         mensaje.AppendLine($"ATAQUES DISPONIBLES DE {pokemon.Nombre}:");
         foreach (Ataque ataque in pokemon.GetAtaques())
         {
-            string info = $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano}";
+            string info = "";
             if (ataque is AtaqueEspecial ataqueEspecial && especial) 
             {
+                info += $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
                 info+= $" | Efecto: {ataqueEspecial.Efecto}";
+                mensaje.AppendLine(info);
             }
-            mensaje.AppendLine(info);
+            else if (ataque is not AtaqueEspecial)
+            {
+                info += $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
+                mensaje.AppendLine(info);
+            }
         }
         return mensaje.ToString();
     }

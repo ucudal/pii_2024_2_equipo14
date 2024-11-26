@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Text;
 using Library;
 //Deberia imprimir en el discord en vez de en la Consola 
 //Deberia implementar mas comandos para permitir que el juego funcione correctamente y poder elegir entre atacar,cambiar pokemon, 
@@ -211,7 +212,7 @@ public class Facade
     {
         if (entrenador.GetMiCatalogo().Count == 6)
         {
-            return $"{entrenador.Nombre}, ya tienes 6 Pokémones";
+            return $"{entrenador.Nombre}, ya tienes 6 Pokémones" + Mensaje.InformacionGeneral(entrenador);
         }
         Pokemon nuevo = Pokedex.BuscarPokemon(nombre);
         foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
@@ -224,12 +225,20 @@ public class Facade
         if (nuevo != null)
         {
             entrenador.AgregarPokemon(nuevo);
-            return $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de tipo {nuevo.Tipo} a su catálogo";
+            string mensaje = $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de tipo {nuevo.Tipo} a su catálogo";
+            if (entrenador.GetMiCatalogo().Count == 6)
+            {
+               mensaje +=Mensaje.InformacionGeneral(entrenador);   
+            }
+
+            return mensaje;
         }
         else
         {
             return "Pokémon inválido";
         }
+
+        return Mensaje.AccionInvalida();
     }
 
     public string InicializarEncuentros(Batalla batalla)
@@ -297,16 +306,68 @@ public class Facade
         return null;
     }
 
-    public string Atacar(Entrenador entrenador, Ataque ataque, Entrenador oponente)
+    public string Atacar(Entrenador entrenador, string ataque, Entrenador oponente)
     {
-        Turno.HacerAccion(entrenador,"Atacar",oponente,ataque,null,null,null);
-        return Mensaje.Encuentro(entrenador, ataque, oponente);
+        string mensaje;
+        Ataque ataqueElegido = Facade.Instance.PosesionAtaque(entrenador.PokemonActual, ataque);
+        if (ataqueElegido == null)
+        {
+            mensaje = Mensaje.AtaqueInvalido();
+        }
+        else
+        {
+            if (Facade.Instance.RevisarAccion(entrenador, "Atacar") == false)
+            {
+                mensaje = Mensaje.AccionInvalida();
+            }
+            else
+            {
+                if (Facade.Instance.RevisarAtaque(entrenador, entrenador.PokemonActual, ataque, oponente.PokemonActual))
+                {
+                    Turno.HacerAccion(entrenador, "Atacar", oponente, ataqueElegido, null, null, null);
+                    mensaje = Mensaje.Encuentro(entrenador, ataqueElegido, oponente);
+                }
+                else
+                {
+                    mensaje = Mensaje.AtaqueInvalido();
+                }
+            }
+        }
+
+        Batalla batalla = Instance.EncontrarBatallaPorUsuario(entrenador.Nombre);
+        if (Facade.Instance.ChequeoEstado(batalla) == false)
+        {
+            mensaje += Facade.Instance.Finalizar(batalla);
+        }
+
+        return mensaje;
     }
-    
-    public string UsoDeItem(Entrenador entrenador, Item item, Pokemon pokemon, Entrenador entrenador2)
+
+    public string UsoDeItem(Entrenador entrenador, string item, string pokemon, Entrenador entrenador2)
     {
-        Turno.HacerAccion(entrenador,"Usar Item",entrenador2,null,null,item,pokemon);
-        return Mensaje.UsoItem(entrenador, item, pokemon);
+        Pokemon pokemonElegido = Facade.Instance.PosesionPokemon(entrenador, pokemon);
+        Item itemElegido = Facade.Instance.PosesionItem(entrenador, item);
+        if (pokemonElegido == null)
+        {
+            return Mensaje.PokemonInvalido();
+        }
+        else if (Facade.Instance.RevisarAccion(entrenador, "Usar Item"))
+        {
+            if (Facade.Instance.RevisarItem(entrenador, itemElegido, pokemonElegido))
+            {
+                Turno.HacerAccion(entrenador, "Usar Item", entrenador2, null, null, itemElegido, pokemonElegido);
+                return Mensaje.UsoItem(entrenador, itemElegido, pokemonElegido);
+            }
+            else
+            {
+                
+                return "No se pudo usar ese item con ese Pokémon";
+            }
+        }
+        else
+        {
+            return Mensaje.AccionInvalida();
+        }
     }
 
     public string MostrarAtaques(Pokemon pokemon,bool especial)
@@ -353,16 +414,30 @@ public class Facade
 
     public string CambiarPokemon(Entrenador entrenador, string pokemon, Entrenador entrenador2)
     {
-        Turno.HacerAccion(entrenador,"Cambiar Pokémon",entrenador2,null,pokemon,null,null);
-        return Mensaje.CambioPokemon(entrenador);
+        if (Facade.Instance.PosesionPokemonVivo(entrenador, pokemon) != null)
+        {
+            if (Facade.Instance.RevisarAccion(entrenador, "Cambiar Pokémon"))
+            {
+                Turno.HacerAccion(entrenador,"Cambiar Pokémon",entrenador2,null,pokemon,null,null);
+                return Mensaje.CambioPokemon(entrenador);
+            }
+            else
+            {
+                return Mensaje.AccionInvalida();
+            }
+        }
+        else
+        {
+            return Mensaje.PokemonInvalido();
+        }
     }
 
     public bool ChequeoEstado(Batalla batalla)
     {
         Entrenador j1 = batalla.Jugador1;
         Entrenador j2 = batalla.Jugador2;
-        if ((j1.GetMiCatalogo().Count == 0 && Facade.Instance.PosesionItem(j1, "Revivir") is Revivir)
-            || j2.GetMiCatalogo().Count == 0 && Facade.Instance.PosesionItem(j2, "Revivir") is Revivir)
+        if (j1.GetMiCatalogo().Count == 0
+            || j2.GetMiCatalogo().Count == 0)
         {
             batalla.EnBatalla = false;
             return false;

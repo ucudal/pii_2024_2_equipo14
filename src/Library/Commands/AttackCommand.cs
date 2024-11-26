@@ -39,38 +39,9 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
         }
         else
         {
-            Ataque ataqueElegido = Facade.Instance.PosesionAtaque(jugador.PokemonActual, ataque);
-            if (ataqueElegido == null)
-            {
-                result = Mensaje.AtaqueInvalido();
-            }
-            else
-            {
-                if (Facade.Instance.RevisarAccion(jugador, "Atacar") == false || jugador.MiTurno == false)
-                {
-                    await ReplyAsync(Mensaje.AccionInvalida());
-                    if (Facade.Instance.ChequeoEstado(batalla) == false)
-                    {
-                        await ReplyAsync(Facade.Instance.Finalizar(batalla));
-                    }
-                }
-                else
-                {
-                    if (Facade.Instance.RevisarAtaque(jugador,jugador.PokemonActual, ataque, oponente.PokemonActual))
-                    {
-                        await ReplyAsync(Facade.Instance.Atacar(jugador, ataqueElegido, oponente));
-                        if (Facade.Instance.ChequeoEstado(batalla) == false)
-                        {
-                            await ReplyAsync(Facade.Instance.Finalizar(batalla));
-                        }
-                    }
-                    else
-                    {
-                        result = Mensaje.AtaqueInvalido();
-                    }
-                }
-            } 
+            result = Facade.Instance.Atacar(jugador, ataque, oponente);
         }
+        
         await ReplyAsync(result);
     }
 }

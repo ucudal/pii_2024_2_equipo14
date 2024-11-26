@@ -28,38 +28,13 @@ public class UseItemCommand :  ModuleBase<SocketCommandContext>
         {
             result = Facade.Instance.MostrarItems(jugador);
         }
-        else if (jugador.MiTurno == false)
-        {
-            result = Mensaje.AccionInvalida();
-        }
         else
         {
             char[] delimiters = new[] {' '};
             string[] substrings = itemypokemon.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             string item = substrings[0];
             string pokemon = substrings[1];
-            Pokemon pokemonElegido = Facade.Instance.PosesionPokemon(jugador, pokemon);
-            Item itemElegido = Facade.Instance.PosesionItem(jugador, item);
-            if (pokemonElegido == null)
-            {
-                result = Mensaje.PokemonInvalido();
-            }
-            else if (Facade.Instance.RevisarAccion(jugador, "Usar Item"))
-            {
-                if (Facade.Instance.RevisarItem(jugador, itemElegido, pokemonElegido))
-                {
-                    result = Facade.Instance.UsoDeItem(jugador, itemElegido, pokemonElegido,jugador2);
-                }
-                else
-                {
-                    result = "No se pudo usar ese item con ese Pokémon";
-                }
-            }
-            else
-            {
-                result = Mensaje.AccionInvalida();
-            
-            }
+            result = Facade.Instance.UsoDeItem(jugador, item, pokemon, jugador2);
         }
         await ReplyAsync(result);
     }
