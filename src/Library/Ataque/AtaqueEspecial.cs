@@ -9,24 +9,25 @@ public abstract class AtaqueEspecial: Ataque
     /// Es un constructor que utilizarán las clases que la hereden.
     /// </summary>
     /// <param name="nombre">El nombre del ataque.</param>
-    /// <param name="Dano">El daño que influye el ataque.</param>
-    /// <param name="Precision">La precisión del ataque.</param>
-    /// <param name="Tipo">El nombre del tipo de ataque.</param>
-    /// <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
+    /// <param name="dano">El daño que influye el ataque.</param>
+    /// <param name="precision">La precisión del ataque.</param>
+    /// <param name="tipo">El nombre del tipo de ataque.</param>
+    /// <param name="efecto">El nombre del efecto que realizará el ataque.</param>
     public AtaqueEspecial(string nombre, int dano, int precision, string tipo, string efecto): base(nombre,dano,precision,tipo)
     {
         this.Nombre = nombre;
         this.Dano = dano;
         this.Precision = precision;
-        this.Tipo = tipo;
         this.Efecto = efecto;
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del Efecto
     /// </summary>
     public string Efecto { get; protected set; }
-
-    public abstract void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico);
-    
-
+    /// <summary>
+    /// Método abstracto que los ataques especiales heredarán para causar sus efectos.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
+    public abstract void CausarEfecto(Entrenador? entrenador, Pokemon pokemon);
 }

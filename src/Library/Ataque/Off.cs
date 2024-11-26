@@ -17,9 +17,15 @@ public class Off : AtaqueEspecial
     {
 
     }
-
-    public override void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico)
+    /// <summary>
+    /// Causa el efecto "Envenenar" en el Pokémon ingresado.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
+    public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon)
     {
+        Random golpeCritico = new Random();
+        int critico = golpeCritico.Next(0, 10);
         pokemon.Envenenado = true;
         pokemon.RecibirDano(pokemon.VidaTotal * 5 / 100);
         int dano = Efectividad.CalcularEfectividad(new Off(), pokemon);

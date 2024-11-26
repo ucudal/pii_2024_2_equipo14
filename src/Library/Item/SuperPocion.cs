@@ -9,15 +9,15 @@ public class SuperPocion: Item
     /// </summary>
     public SuperPocion()
     {
-        this.Nombre = "Súper Poción";
+        this.Nombre = "SúperPoción";
         this.Descripcion = "Recupera 70 puntos de vida";
     }
     /// <summary>
-    /// Le suma 70 puntos de vida a un Pokémon o la vida que le falta para volver a tener la vida inicial.
-    /// </summary>
-    /// <param name="entrenador">El entrenador que posee al Pokémon a curar.</param>
-    /// <param name="pokemon">El Pokémon a curar.</param>
-    public void SuperPocionar(Entrenador entrenador, Pokemon pokemon)
+    /// Cura al Pokémon ingresado otorgándole 70 puntos de vida o los que le falten para tener el máximo.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
+    public override void Accion(Entrenador entrenador, Pokemon pokemon)
     {
         if (pokemon.VidaTotal + 70 <= pokemon.VidaInicial) 
             pokemon.Curar(70);

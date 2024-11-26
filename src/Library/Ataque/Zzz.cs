@@ -16,7 +16,12 @@ public class Zzz: AtaqueEspecial
     {
         
     }
-    public override void CausarEfecto(Entrenador entrenador, Pokemon pokemon, int critico)
+    /// <summary>
+    /// Causa el efecto "Dormir" en el Pokémon ingresado.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
+    public override void CausarEfecto(Entrenador entrenador, Pokemon pokemon)
     {
         pokemon.Dormido = true;
         Random turnosDormido = new Random();

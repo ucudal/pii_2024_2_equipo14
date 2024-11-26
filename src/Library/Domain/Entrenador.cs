@@ -16,15 +16,32 @@ namespace Library
         /// <summary>
         /// Atributo tipo List que contiene los Pokémons vivos del entrenador.
         /// </summary>
-        public List<Pokemon> miCatalogo = new List<Pokemon>();
+        private List<Pokemon> miCatalogo = new List<Pokemon>();
+        public List<Pokemon> GetMiCatalogo()
+        {
+            return this.miCatalogo;
+        }
         /// <summary>
         /// Atributo tipo List que contiene los Pokémons muertos del entrenador.
         /// </summary>
-        public List<Pokemon> misMuertos = new List<Pokemon>();
+        private List<Pokemon> misMuertos = new List<Pokemon>();
+
+        public List<Pokemon> GetMisMuertos()
+        {
+            return this.misMuertos;
+        }
         /// <summary>
         /// Atributo tipo List que contiene los items del entrenador.
         /// </summary>
-        public List<Item> misItems = new List<Item>();
+        private List<Item> misItems = new List<Item>();
+        
+        /// <summary>
+        /// Devuelve la lista de items del entrenador.
+        /// </summary>
+        public List<Item> GetMisItems()
+        {
+            return this.misItems;
+        }
         /// <summary>
         /// Obtiene o establece un bool que indica si es o no el turno del entrenador.
         /// </summary>
@@ -47,15 +64,7 @@ namespace Library
         /// <param name="pokemon">Pokémon que se agrega.</param>
         public void AgregarPokemon(Pokemon pokemon)
         {
-            if (this.miCatalogo.Count < 6 && !this.miCatalogo.Contains(pokemon) && !Batalla.EnBatalla)
-            {
-                
-                miCatalogo.Add(pokemon);
-            }
-            else
-            {
-                Console.WriteLine("No se puede agregar el Pokémon. Verifica que no esté ya en el catálogo o que no hayas alcanzado el límite.");
-            }
+            miCatalogo.Add(pokemon);
         }
         /// <summary>
         /// Quita un Pokémon del catálogo del entrenador.
@@ -75,12 +84,9 @@ namespace Library
         /// <param name="item">item que se agrega.</param>
         public void AgregarItem(Item item)
         {
-            if (Batalla.EnBatalla)
-            {
-                this.misItems.Add(item);
-            }
+            this.misItems.Add(item);
+            
         }
-
         /// <summary>
         /// Quita un item del catálogo del entrenador.
         /// </summary>
@@ -126,5 +132,12 @@ namespace Library
         /// Obtiene o establece el Pokémon actual
         /// </summary>
         public Pokemon PokemonActual { get; set; }
+        /// <summary>
+        /// Devuelve el nombre del Pokémon actual del entrenador.
+        /// </summary>
+        public string GetPokemonActual()
+        {
+            return this.PokemonActual.Nombre;
+        }
     }
 }
