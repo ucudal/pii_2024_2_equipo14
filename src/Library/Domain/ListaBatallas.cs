@@ -5,8 +5,15 @@ namespace Library;
 /// </summary>
 public class ListaBatallas
 {
+    /// <summary>
+    /// Genera la lista de batallas vacía.
+    /// </summary>
     private List<Batalla> batallas = new List<Batalla>();
 
+    /// <summary>
+    /// Devuelve las batallas ingresadas
+    /// </summary>
+    /// <returns>La batalla ingresada.</returns>
     public List<Batalla> GetBatallas()
     {
         return this.batallas;
@@ -27,6 +34,10 @@ public class ListaBatallas
         return battle;
     }
 
+    /// <summary>
+    /// Remueve la batalla de la lista de batallas
+    /// </summary>
+    /// <param name="batalla">Batalla a eliminar.</param>
     public void QuitarBatalla(Batalla batalla)
     {
         this.batallas.Remove(batalla);

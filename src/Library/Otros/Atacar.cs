@@ -7,9 +7,8 @@ public static class Atacar
     /// <summary>
     /// Determina si un Pokémon ataca a otro y con que ataque de acuerdo a la precisión, efectividad, golpe crítico y efectos.
     /// </summary>
-    /// <param name="atacante">El entrenador que posee al Pokémon que ataca.</param>
-    /// <param name="ataque">El ataque que afecta al Pokémon ingresado.</param>
-    /// <param name="victima">El entrenador que posee al Pokémon que es atacado.</param>
+    /// <param name="nombre">El nombre del pokemon elegido.</param>
+    /// <param name="tipo">El tipo del pokemon elegido.</param>
     public static void Encuentro(Entrenador atacante, Ataque ataque, Entrenador victima)
     {
         Pokemon pokemonActual = atacante.PokemonActual;

@@ -7,13 +7,24 @@ namespace Library;
 /// </summary>
 public class ListaDeEspera
 {
+    /// <summary>
+    /// Crea una lista vacía para entrenadores en lista de espera.
+    /// </summary>
     private readonly List<Entrenador> entrenadores = new List<Entrenador>();
 
+    /// <summary>
+    /// Devuelve cuantos entrenadores hay en la lista
+    /// </summary>
+    /// /// <returns>Cantidad de entrenadores</returns>
     public int Count
     {
         get { return this.entrenadores.Count; }
     }
 
+    /// <summary>
+    /// Busca el entrenador en la lista.
+    /// </summary>
+    /// <returns>Si está el entrenador.</returns>
     public ReadOnlyCollection<Entrenador> GetEsperando()
     {
         return this.entrenadores.AsReadOnly();
@@ -46,8 +57,7 @@ public class ListaDeEspera
     /// <param name="displayName">El nombre de usuario de Discord en el servidor
     /// del bot a remover.
     /// </param>
-    /// <returns><c>true</c> si se remueve el usuario; <c>false</c> en caso
-    /// contrario.</returns>
+    /// <returns><c>true</c> si se remueve el usuario; <c>false</c> en caso contrario.</returns>
     public bool QuitarEntrenador(string displayName)
     {
         Entrenador? entrenador = this.EncontrarJugadorPorUsuario(displayName);

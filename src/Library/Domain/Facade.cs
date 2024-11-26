@@ -46,13 +46,23 @@ public class Facade
     {
         _instance = null;
     }
-    
-    private ListaDeEspera ListaDeEspera { get; }
-    
-    private ListaBatallas ListaBatallas { get; }
-    
-    
 
+    /// <summary>
+    /// Obtiene la lista de espera.
+    /// </summary>
+    private ListaDeEspera ListaDeEspera { get; }
+
+    /// <summary>
+    /// Obtiene la lista de batallas.
+    /// </summary>
+    private ListaBatallas ListaBatallas { get; }
+
+
+    /// <summary>
+    /// Busca la batalla según el usuario ingresado.
+    /// </summary>
+    /// <param name="usuario">El nombre de usuario a buscar en batalla"</param>
+    /// <returns><c>batalla</c> si se encuentra la batalla <c></c> en caso contrario.</returns>
     public Batalla EncontrarBatallaPorUsuario(string usuario)
     {
         foreach (Batalla batalla in this.ListaBatallas.GetBatallas())
@@ -62,8 +72,10 @@ public class Facade
                 return batalla;
             }
         }
+
         return null;
     }
+
     /// <summary>
     /// Agrega un jugador a la lista de espera.
     /// </summary>
@@ -75,7 +87,7 @@ public class Facade
         {
             return $"{displayName} agregado a la lista de espera";
         }
-        
+
         return $"{displayName} ya está en la lista de espera";
     }
 
@@ -112,7 +124,7 @@ public class Facade
         {
             result += entrenador.Nombre + "; ";
         }
-        
+
         return result;
     }
 
@@ -128,7 +140,7 @@ public class Facade
         {
             return $"{displayName} no está esperando";
         }
-        
+
         return $"{displayName} está esperando";
     }
 
@@ -143,16 +155,16 @@ public class Facade
         // El símbolo ? luego de Trainer indica que la variable opponent puede
         // referenciar una instancia de Trainer o ser null.
         Entrenador? opponent;
-        
+
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
             return "No hay nadie esperando";
         }
-        
-        if (!OpponentProvided() && this.ListaDeEspera.Count > 0) 
+
+        if (!OpponentProvided() && this.ListaDeEspera.Count > 0)
         {
             opponent = this.ListaDeEspera.GetAlguienEsperando(opponentDisplayName);
-            
+
             // El símbolo ! luego de opponent indica que sabemos que esa
             // variable no es null. Estamos seguros porque SomebodyIsWaiting
             // retorna true si y solo si hay usuarios esperando y en tal caso
@@ -164,14 +176,14 @@ public class Facade
         // variable no es null. Estamos seguros porque OpponentProvided hubiera
         // retorna false antes y no habríamos llegado hasta aquí.
         opponent = this.ListaDeEspera.EncontrarJugadorPorUsuario(opponentDisplayName!);
-        
+
         if (!OpponentFound())
         {
             return $"{opponentDisplayName} no está esperando";
         }
-        
+
         return this.CrearBatalla(playerDisplayName, opponent!.Nombre);
-        
+
         // Funciones locales a continuación para mejorar la legibilidad
 
         bool OpponentProvided()
@@ -190,30 +202,53 @@ public class Facade
         }
     }
 
+    /// <summary>
+    /// Crea la batalla
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre de usuario del jugador en Discord</param>
+    /// <param name="opponentDisplayName">El nombre de usuario del oponente en Discord</param>
+    /// <returns>Comienzo de batalla</returns>
     private string CrearBatalla(string playerDisplayName, string opponentDisplayName)
     {
-        
+
         this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
         this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
         this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
         return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
     }
 
+    /// <summary>
+    /// Agrega un jugador a la lista de espera.
+    /// </summary>
+    /// <param name="playerDisplayName">El nombre de usuario del jugador en Discord</param>
+    /// <param name="opponentDisplayName">El nombre de usuario del oponente en Discord</param>
+    /// <returns>Informacion general</returns>
     public string MostrarInformacion(Entrenador entrenador)
     {
         return Mensaje.InformacionGeneral(entrenador);
     }
 
+    /// <summary>
+    /// Muestra los pokemones disponibles para elegir
+    /// </summary>
+    /// <returns>pokedex</returns>
     public string MostrarPokedex()
     {
         return Mensaje.PokedexDisponibles();
     }
+
+    /// <summary>
+    /// Agrega los pokemons al catalogo del entrenador
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="nombre">El nombre del pokemon elegido</param>
     public string AgregarPokemon(Entrenador entrenador, string nombre)
     {
         if (entrenador.GetMiCatalogo().Count == 6)
         {
             return $"{entrenador.Nombre}, ya tienes 6 Pokémones" + Mensaje.InformacionGeneral(entrenador);
         }
+
         Pokemon nuevo = Pokedex.BuscarPokemon(nombre);
         foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
@@ -222,13 +257,14 @@ public class Facade
                 return $"{entrenador.Nombre}, ya tienes ese Pokemon";
             }
         }
+
         if (nuevo != null)
         {
             entrenador.AgregarPokemon(nuevo);
             string mensaje = $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de tipo {nuevo.Tipo} a su catálogo";
             if (entrenador.GetMiCatalogo().Count == 6)
             {
-               mensaje +=Mensaje.InformacionGeneral(entrenador);   
+                mensaje += Mensaje.InformacionGeneral(entrenador);
             }
 
             return mensaje;
@@ -241,6 +277,11 @@ public class Facade
         return Mensaje.AccionInvalida();
     }
 
+    /// <summary>
+    /// Inicia la batalla.
+    /// </summary>
+    /// <param name="batalla">Batalla creada</param>
+    /// <returns>Pokemones iniciales</returns>
     public string InicializarEncuentros(Batalla batalla)
     {
         batalla.EnBatalla = true;
@@ -249,20 +290,41 @@ public class Facade
         return Mensaje.PokemonesIniciales(batalla);
     }
 
+    /// <summary>
+    /// Validar la acción elegida.
+    /// </summary>
+    /// <param name="entrenador">El nombredel entrenador </param>
+    /// <param name="accion">accion a ejecutard</param>
+    /// <returns>si es valida</returns>
     public bool RevisarAccion(Entrenador entrenador, string accion)
-    { 
+    {
         return Turno.ValidarAccion(entrenador, accion);
     }
 
-    public bool RevisarAtaque(Entrenador entrenador,Pokemon atacante, string ataque, Pokemon atacado)
+    /// <summary>
+    /// Valida el ataque elegido.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="atacante">El pokemon atacante</param>
+    /// <param name="ataque">El ataque a realizar</param>
+    /// <param name="atacado">El pokemon atacado</param>
+    /// <returns>booleano valido o no</returns>
+    public bool RevisarAtaque(Entrenador entrenador, Pokemon atacante, string ataque, Pokemon atacado)
     {
         foreach (Ataque attack in atacante.GetAtaques())
         {
             return Turno.ValidarAtaque(entrenador, attack, atacado);
         }
+
         return false;
     }
 
+    /// <summary>
+    /// Valida si el pokemon actual tiene el ataque elegido disponible.
+    /// </summary>
+    /// <param name="pokemon">El nombre del pokemon</param>
+    /// <param name="ataque">El ataque a realizar</param>
+    /// <returns>ataque</returns>
     public Ataque PosesionAtaque(Pokemon pokemon, string ataque)
     {
         foreach (Ataque attack in pokemon.GetAtaques())
@@ -272,9 +334,16 @@ public class Facade
                 return attack;
             }
         }
+
         return null;
     }
 
+    /// <summary>
+    /// Verifica si tenemos el pokemon elegido vivo.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="pokemon">El pokemon a verificar</param>
+    /// <returns>pokemon</returns>
     public Pokemon PosesionPokemonVivo(Entrenador entrenador, string pokemon)
     {
         foreach (Pokemon poke in entrenador.GetMiCatalogo())
@@ -287,6 +356,13 @@ public class Facade
 
         return null;
     }
+
+    /// <summary>
+    /// Devuelve si poseemos ese pokemon en algún catalogo, vivo o muerto.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="pokemon">El pokemon a buscar</param>
+    /// <returns>pokemon</returns>
     public Pokemon PosesionPokemon(Entrenador entrenador, string pokemon)
     {
         foreach (Pokemon poke in entrenador.GetMiCatalogo())
@@ -296,6 +372,7 @@ public class Facade
                 return poke;
             }
         }
+
         foreach (Pokemon poke in entrenador.GetMisMuertos())
         {
             if (poke.Nombre == pokemon)
@@ -303,8 +380,17 @@ public class Facade
                 return poke;
             }
         }
+
         return null;
     }
+
+    /// <summary>
+    /// Realiza el ataque
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="oponente">El oponente</param>
+    /// <param name="ataque">El ataque a realizar</param>
+    /// <returns>ataque válido y batalla.</returns>
 
     public string Atacar(Entrenador entrenador, string ataque, Entrenador oponente)
     {
@@ -343,6 +429,15 @@ public class Facade
         return mensaje;
     }
 
+    /// <summary>
+    /// Valida el uso del item
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="item">El item a usar</param>
+    /// <param name="pokemon">El pokemon a aplicar item.</param>
+    /// <param name="entrenador2">El entrenador atacado</param>
+    /// <returns>si es accion valida o no</returns>
+
     public string UsoDeItem(Entrenador entrenador, string item, string pokemon, Entrenador entrenador2)
     {
         Pokemon pokemonElegido = Facade.Instance.PosesionPokemon(entrenador, pokemon);
@@ -360,7 +455,7 @@ public class Facade
             }
             else
             {
-                
+
                 return "No se pudo usar ese item con ese Pokémon";
             }
         }
@@ -370,21 +465,46 @@ public class Facade
         }
     }
 
-    public string MostrarAtaques(Pokemon pokemon,bool especial)
+    /// <summary>
+    /// Muestra los ataques disponibles.
+    /// </summary>
+    /// <param name="pokemon">El nombre del pokemon</param>
+    /// <param name="especial">Si es ataque especial</param>
+    /// <returns>ataques disponibles</returns>
+
+    public string MostrarAtaques(Pokemon pokemon, bool especial)
     {
-        return Mensaje.AtaquesDisponibles(pokemon,especial);
+        return Mensaje.AtaquesDisponibles(pokemon, especial);
     }
 
+    /// <summary>
+    /// Muestra los items disponibles.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <returns>items disponibles</returns>
     public string MostrarItems(Entrenador entrenador)
     {
         return Mensaje.ItemsDisponibles(entrenador);
     }
 
+    /// <summary>
+    /// Valida el item.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="item">item</param>
+    /// <param name="pokemon">Nombre del pokemon</param>
+    /// <returns>ataques disponibles</returns>
     public bool RevisarItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
         return Turno.ValidarItem(entrenador, item, pokemon);
     }
 
+    /// <summary>
+    /// Valida la posesion del item.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="item">item</param>
+    /// <returns> item o null</returns>
     public Item PosesionItem(Entrenador entrenador, string item)
     {
         foreach (Item it in entrenador.GetMisItems())
@@ -394,9 +514,15 @@ public class Facade
                 return it;
             }
         }
+
         return null;
     }
 
+    /// <summary>
+    /// finaliza la batalla
+    /// </summary>
+    /// <param name="batalla">El nombre de los entrenadores en batalla</param>
+    /// <returns>fin de la batalla</returns>
     public string Finalizar(Batalla batalla)
     {
         Entrenador j1 = batalla.Jugador1;
@@ -404,7 +530,7 @@ public class Facade
         this.ListaBatallas.QuitarBatalla(batalla);
         if (j1.GetMiCatalogo().Count > 0)
         {
-            return Mensaje.Fin(batalla, j1,j2);
+            return Mensaje.Fin(batalla, j1, j2);
         }
         else
         {
@@ -412,13 +538,20 @@ public class Facade
         }
     }
 
+    /// <summary>
+    /// Valida el cambio de pokemon.
+    /// </summary>
+    /// <param name="entrenador">El nombre del entrenador</param>
+    /// <param name="entrenador2">nombre del entrenador 2</param>
+    /// <param name="pokemon">Nombre del pokemon</param>
+    /// <returns>accion valida o no</returns>
     public string CambiarPokemon(Entrenador entrenador, string pokemon, Entrenador entrenador2)
     {
         if (Facade.Instance.PosesionPokemonVivo(entrenador, pokemon) != null)
         {
             if (Facade.Instance.RevisarAccion(entrenador, "Cambiar Pokémon"))
             {
-                Turno.HacerAccion(entrenador,"Cambiar Pokémon",entrenador2,null,pokemon,null,null);
+                Turno.HacerAccion(entrenador, "Cambiar Pokémon", entrenador2, null, pokemon, null, null);
                 return Mensaje.CambioPokemon(entrenador);
             }
             else
@@ -432,7 +565,13 @@ public class Facade
         }
     }
 
-    public bool ChequeoEstado(Batalla batalla)
+
+    /// <summary>
+    /// Chequea que la batalla esté activa
+    /// </summary>
+    /// <param name="batalla">El nombre de los entrenadores en batalla</param>
+    /// <returns>bool </returns>
+public bool ChequeoEstado(Batalla batalla)
     {
         Entrenador j1 = batalla.Jugador1;
         Entrenador j2 = batalla.Jugador2;

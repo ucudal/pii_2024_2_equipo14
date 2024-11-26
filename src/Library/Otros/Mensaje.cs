@@ -1,9 +1,15 @@
 using System.Text;
 
 namespace Library;
-
+/// <summary>
+/// Esta es la clase estática Mensaje. Define los mensajes a retornar según la acción que se ejecute en el código.
+/// </summary>
 public static class Mensaje
 {
+    /// <summary>
+    /// Determina si el pokemon ingresado está en la lista de Pokedex, muestra el nombre y el tipo de cada pokemon elegido.
+    /// </summary>
+    /// /// <returns>Lista de pokemones elegidos</returns>
     public static string PokedexDisponibles()
     {
         StringBuilder mensaje = new StringBuilder();
@@ -14,7 +20,11 @@ public static class Mensaje
         }
         return mensaje.ToString();
     }
-
+    /// <summary>
+    /// Muestra los pokemones disponibles del catalogo del entrenador a la hora de cambiar de pokemonActual. Si el pokemón esta bajo ataque especial, te lo indica.
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador.</param>
+    /// <returns>Pokemones disponibles y efectos</returns>
     public static string PokemonesDisponibles(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -56,7 +66,13 @@ public static class Mensaje
 
         return mensaje.ToString();
     }
-
+ 
+    /// <summary>
+    /// Muestra los ataques disponibles en cada turno dependiendo del pokemon actual. Y si es ataque especial o no.
+    /// </summary>
+    /// <param name="pokemon">Nombre del pokemon.</param>
+    /// <param name="especial">Bool si el ataque es especial o no.</param>
+    /// /// <returns>Ataques disponibles</returns>
     public static string AtaquesDisponibles(Pokemon pokemon, bool especial)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -80,6 +96,11 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra los items disponibles para su uso.
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador.</param>
+    /// <returns>Items disponibles.</returns>
     public static string ItemsDisponibles(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -126,7 +147,12 @@ public static class Mensaje
 
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra la información general de cada entrenador, pokemones disponibles, pokemon actual, podemones bajo efecto especial y lista de pokemones muertos.
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador y sus correspondientes datos.</param>
+    /// <returns>Catalogo del entrenador</returns>
     public static string InformacionGeneral(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -172,7 +198,12 @@ public static class Mensaje
         }
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra el pokemon actual elegido aleatoriamente del catalogo del entrenador.
+    /// </summary>
+    /// <param name="batalla">Nombre de los dos jugadores en batalla.</param>
+    /// <returns>Pokemon aleatorio de cada entrenador.</returns>
     public static string PokemonesIniciales(Batalla batalla)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -183,27 +214,51 @@ public static class Mensaje
         mensaje.AppendLine(Mensaje.Turno(batalla.Jugador1));
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra de quien es el turno en pantalla. 
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador.</param>
+    /// /// <returns>Turno.</returns>
     public static string Turno(Entrenador entrenador)
     {
         return $"\n------------------TURNO DE {entrenador.Nombre}------------------";
     }
 
+    /// <summary>
+    /// Retorna que la acción elegida no es válida.
+    /// </summary>
+    /// <returns>No puedes realizar esa acción.</returns>
     public static string AccionInvalida()
     {
         return "No puedes realizar esa acción";
     }
 
+    /// <summary>
+    /// Retorna que el ataque elegido no es válido.
+    /// </summary>
+    /// /// <returns>No posees ese ataque.</returns>
     public static string AtaqueInvalido()
     {
         return "No posees ese ataque";
     }
 
+    /// <summary>
+    /// Retorna que el pokemon elegido no es válido
+    /// </summary>
+    /// /// <returns>No posees ese Pokémon.</returns>
     public static string PokemonInvalido()
     {
         return "No posees ese Pokémon";
     }
-
+        
+    /// <summary>
+    /// Devuelve mensaje de encuentro, menciona ataque usado, a qué pokemon ha atacado y la información general de cada jugador.
+    /// </summary>
+    /// <param name="entrenador">Nombre del atacante.</param>
+    /// <param name="ataque">Nombre del ataque usado.</param>
+    /// <param name="oponente">Nombre del oponente.</param>
+    /// /// <returns>Ataque.</returns>
     public static string Encuentro(Entrenador entrenador, Ataque ataque, Entrenador oponente)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -217,6 +272,13 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra que entrenador usó el item y en qué pokemon se usó
+    /// </summary>
+    /// <param name="entrenador">Nombre del atacante.</param>
+    /// <param name="item">Item a usar</param>
+    /// <param name="pokemon">Pokemon al que se le añade el item.</param>
+    /// /// <returns>Item usado.</returns>
     public static string UsoItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -226,7 +288,15 @@ public static class Mensaje
         mensaje.Append(Mensaje.InformacionGeneral(entrenador));
         return mensaje.ToString();
     }
-
+    
+    
+    /// <summary>
+    /// Muestra el fin de la batalla, quién fue el ganador y quién fue el perdedor.
+    /// </summary>
+    /// <param name="batalla">Batalla, jugadores involucrados.</param>
+    /// <param name="ganador">Entrenador ganador.</param>
+    /// <param name="perdedor">Entrenador perdedor.</param>
+    /// /// <returns>Ganador y perdedor.</returns>
     public static string Fin(Batalla batalla, Entrenador ganador, Entrenador perdedor)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -236,6 +306,11 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra el entrenador y el cambio de su pokemon actual.
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador.</param>
+    /// /// <returns>Cambio de pokemon actual.</returns>
     public static string CambioPokemon(Entrenador entrenador)
     {
         return $"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.GetPokemonActual()}";
