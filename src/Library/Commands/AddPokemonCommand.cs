@@ -25,7 +25,7 @@ public class AddPokemonCommand : ModuleBase<SocketCommandContext>
             if (batalla.GetNombreJ1() == displayName)
             {
                 result = Facade.Instance.AgregarPokemon(jugador1, pokemonElegido);
-                if (jugador1.miCatalogo.Count == 6)
+                if (jugador1.GetMiCatalogo().Count == 6)
                 {
                     catalogo = Facade.Instance.MostrarInformacion(jugador1);
                 }
@@ -33,7 +33,7 @@ public class AddPokemonCommand : ModuleBase<SocketCommandContext>
             else
             {
                 result = Facade.Instance.AgregarPokemon(jugador2, pokemonElegido);
-                if (jugador2.miCatalogo.Count == 6)
+                if (jugador2.GetMiCatalogo().Count == 6)
                 {
                     catalogo = Facade.Instance.MostrarInformacion(jugador2);
                 }
@@ -45,7 +45,7 @@ public class AddPokemonCommand : ModuleBase<SocketCommandContext>
         }
         await ReplyAsync(result);
         await user.SendMessageAsync(catalogo);
-        if (jugador1.miCatalogo.Count == 6 && jugador2.miCatalogo.Count == 6)
+        if (jugador1.GetMiCatalogo().Count == 6 && jugador2.GetMiCatalogo().Count == 6)
         {
             await ReplyAsync(Facade.Instance.InicializarEncuentros(batalla));
         }

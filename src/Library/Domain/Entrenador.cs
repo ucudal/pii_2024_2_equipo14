@@ -16,15 +16,29 @@ namespace Library
         /// <summary>
         /// Atributo tipo List que contiene los Pokémons vivos del entrenador.
         /// </summary>
-        public List<Pokemon> miCatalogo = new List<Pokemon>();
+        private List<Pokemon> miCatalogo = new List<Pokemon>();
+        public List<Pokemon> GetMiCatalogo()
+        {
+            return this.miCatalogo;
+        }
         /// <summary>
         /// Atributo tipo List que contiene los Pokémons muertos del entrenador.
         /// </summary>
-        public List<Pokemon> misMuertos = new List<Pokemon>();
+        private List<Pokemon> misMuertos = new List<Pokemon>();
+
+        public List<Pokemon> GetMisMuertos()
+        {
+            return this.misMuertos;
+        }
         /// <summary>
         /// Atributo tipo List que contiene los items del entrenador.
         /// </summary>
-        public List<Item> misItems = new List<Item>();
+        private List<Item> misItems = new List<Item>();
+
+        public List<Item> GetMisItems()
+        {
+            return this.misItems;
+        }
         /// <summary>
         /// Obtiene o establece un bool que indica si es o no el turno del entrenador.
         /// </summary>

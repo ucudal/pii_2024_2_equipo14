@@ -12,14 +12,17 @@ public class UseItemCommand :  ModuleBase<SocketCommandContext>
         string displayName = CommandHelper.GetDisplayName(Context);
         Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(displayName);
         Entrenador jugador;
+        Entrenador jugador2;
         string result;
         if (batalla.GetNombreJ1() == displayName)
         {
             jugador = batalla.Jugador1;
+            jugador2 = batalla.Jugador2;
         }
         else
         {
             jugador = batalla.Jugador2;
+            jugador2 = batalla.Jugador1;
         }
         if (itemypokemon == null)
         {
@@ -45,7 +48,7 @@ public class UseItemCommand :  ModuleBase<SocketCommandContext>
             {
                 if (Facade.Instance.RevisarItem(jugador, itemElegido, pokemonElegido))
                 {
-                    result = Facade.Instance.UsoDeItem(jugador, itemElegido, pokemonElegido);
+                    result = Facade.Instance.UsoDeItem(jugador, itemElegido, pokemonElegido,jugador2);
                 }
                 else
                 {

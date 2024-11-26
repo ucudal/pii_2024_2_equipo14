@@ -33,7 +33,7 @@ public class EntrenadorTests
     {
         entrenador.AgregarPokemon(pokemon);
         bool esperado = true;
-        Assert.That(esperado,Is.EqualTo(entrenador.miCatalogo.Contains(pokemon)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMiCatalogo().Contains(pokemon)));
     }
 
     [Test]
@@ -41,7 +41,7 @@ public class EntrenadorTests
     {
         entrenador.QuitarPokemon(pokemon);
         bool esperado = false;
-        Assert.That(esperado,Is.EqualTo(entrenador.miCatalogo.Contains(pokemon)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMiCatalogo().Contains(pokemon)));
     }
     
     [Test]
@@ -49,7 +49,7 @@ public class EntrenadorTests
     {
         entrenador.AgregarItem(item);
         bool esperado = true;
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(item)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(item)));
     }
 
     [Test]
@@ -57,7 +57,7 @@ public class EntrenadorTests
     {
         entrenador.QuitarItem(item);
         bool esperado = false;
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(item)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(item)));
     }
 
     [Test]
@@ -65,7 +65,7 @@ public class EntrenadorTests
     {
         entrenador.AgregarMuerto(pokemon);
         bool esperado = true;
-        Assert.That(esperado,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisMuertos().Contains(pokemon)));
     }
     
     [Test]
@@ -73,7 +73,7 @@ public class EntrenadorTests
     {
         entrenador.QuitarMuerto(pokemon);
         bool esperado = false;
-        Assert.That(esperado,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisMuertos().Contains(pokemon)));
     }
 }
 

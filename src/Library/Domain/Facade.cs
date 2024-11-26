@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Library;
 //Deberia imprimir en el discord en vez de en la Consola 
 //Deberia implementar mas comandos para permitir que el juego funcione correctamente y poder elegir entre atacar,cambiar pokemon, 
@@ -48,6 +49,8 @@ public class Facade
     private ListaDeEspera ListaDeEspera { get; }
     
     private ListaBatallas ListaBatallas { get; }
+    
+    
 
     public Batalla EncontrarBatallaPorUsuario(string usuario)
     {
@@ -206,12 +209,12 @@ public class Facade
     }
     public string AgregarPokemon(Entrenador entrenador, string nombre)
     {
-        if (entrenador.miCatalogo.Count == 6)
+        if (entrenador.GetMiCatalogo().Count == 6)
         {
             return $"{entrenador.Nombre}, ya tienes 6 Pokémones";
         }
         Pokemon nuevo = Pokedex.BuscarPokemon(nombre);
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
+        foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             if (pokemon.Nombre == nombre)
             {
@@ -265,7 +268,7 @@ public class Facade
 
     public Pokemon PosesionPokemonVivo(Entrenador entrenador, string pokemon)
     {
-        foreach (Pokemon poke in entrenador.miCatalogo)
+        foreach (Pokemon poke in entrenador.GetMiCatalogo())
         {
             if (poke.Nombre == pokemon)
             {
@@ -277,14 +280,14 @@ public class Facade
     }
     public Pokemon PosesionPokemon(Entrenador entrenador, string pokemon)
     {
-        foreach (Pokemon poke in entrenador.miCatalogo)
+        foreach (Pokemon poke in entrenador.GetMiCatalogo())
         {
             if (poke.Nombre == pokemon)
             {
                 return poke;
             }
         }
-        foreach (Pokemon poke in entrenador.misMuertos)
+        foreach (Pokemon poke in entrenador.GetMisMuertos())
         {
             if (poke.Nombre == pokemon)
             {
@@ -300,15 +303,15 @@ public class Facade
         return Mensaje.Encuentro(entrenador, ataque, oponente);
     }
     
-    public string UsoDeItem(Entrenador entrenador, Item item, Pokemon pokemon)
+    public string UsoDeItem(Entrenador entrenador, Item item, Pokemon pokemon, Entrenador entrenador2)
     {
-        Turno.HacerAccion(entrenador,"Usar Item",null,null,null,item,null);
+        Turno.HacerAccion(entrenador,"Usar Item",entrenador2,null,null,item,pokemon);
         return Mensaje.UsoItem(entrenador, item, pokemon);
     }
 
-    public string MostrarAtaques(Pokemon pokemon)
+    public string MostrarAtaques(Pokemon pokemon,bool especial)
     {
-        return Mensaje.AtaquesDisponibles(pokemon);
+        return Mensaje.AtaquesDisponibles(pokemon,especial);
     }
 
     public string MostrarItems(Entrenador entrenador)
@@ -323,7 +326,7 @@ public class Facade
 
     public Item PosesionItem(Entrenador entrenador, string item)
     {
-        foreach (Item it in entrenador.misItems)
+        foreach (Item it in entrenador.GetMisItems())
         {
             if (it.Nombre == item)
             {
@@ -338,7 +341,7 @@ public class Facade
         Entrenador j1 = batalla.Jugador1;
         Entrenador j2 = batalla.Jugador2;
         this.ListaBatallas.QuitarBatalla(batalla);
-        if (j1.miCatalogo.Count > 0)
+        if (j1.GetMiCatalogo().Count > 0)
         {
             return Mensaje.Fin(batalla, j1,j2);
         }
@@ -348,9 +351,9 @@ public class Facade
         }
     }
 
-    public string CambiarPokemon(Entrenador entrenador, string pokemon)
+    public string CambiarPokemon(Entrenador entrenador, string pokemon, Entrenador entrenador2)
     {
-        Turno.HacerAccion(entrenador,"Cambiar Pokémon",null,null,pokemon,null,null);
+        Turno.HacerAccion(entrenador,"Cambiar Pokémon",entrenador2,null,pokemon,null,null);
         return Mensaje.CambioPokemon(entrenador);
     }
 
@@ -358,8 +361,8 @@ public class Facade
     {
         Entrenador j1 = batalla.Jugador1;
         Entrenador j2 = batalla.Jugador2;
-        if ((j1.miCatalogo.Count == 0 && Facade.Instance.PosesionItem(j1, "Revivir") is Revivir)
-            || j2.miCatalogo.Count == 0 && Facade.Instance.PosesionItem(j2, "Revivir") is Revivir)
+        if ((j1.GetMiCatalogo().Count == 0 && Facade.Instance.PosesionItem(j1, "Revivir") is Revivir)
+            || j2.GetMiCatalogo().Count == 0 && Facade.Instance.PosesionItem(j2, "Revivir") is Revivir)
         {
             batalla.EnBatalla = false;
             return false;

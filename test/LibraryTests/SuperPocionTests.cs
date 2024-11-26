@@ -38,6 +38,6 @@ public class SuperPocionTests
         int esperado = 70;
         bool esperado1 = false;
         Assert.That(esperado,Is.EqualTo(pokemon.VidaTotal));
-        Assert.That(esperado1,Is.EqualTo(entrenador.misItems.Contains(superPocion)));
+        Assert.That(esperado1,Is.EqualTo(entrenador.GetMisItems().Contains(superPocion)));
     }
 }

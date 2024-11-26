@@ -34,7 +34,7 @@ public static class Turno
     public static bool ValidarAccion(Entrenador entrenador, string accion)
     {
         Pokemon pokemonActual = entrenador.PokemonActual;
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
+        foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             if (pokemon.Dormido && pokemon.TurnosDormido == entrenador.Turnos)
             {
@@ -63,15 +63,15 @@ public static class Turno
         }
         if (accion == "Cambiar Pokémon")
         {
-            if (entrenador.miCatalogo.Count < 2 )
+            if (entrenador.GetMiCatalogo().Count < 2 )
             {
                 return false;
             }
         }
 
-        if (accion == "Usar Item" && entrenador.misItems.Count > 0)
+        if (accion == "Usar Item" && entrenador.GetMisItems().Count > 0)
         {
-            foreach (Pokemon pokemon in entrenador.miCatalogo)
+            foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
             {
                 if (pokemon.VidaTotal < pokemon.VidaInicial || pokemon.Paralizado || pokemon.Dormido || 
                     pokemon.Envenenado || pokemon.Quemado)
@@ -80,7 +80,7 @@ public static class Turno
                 }
             }
 
-            if (entrenador.misMuertos.Count > 0)
+            if (entrenador.GetMisMuertos().Count > 0)
             {
                 return true;
             }
@@ -101,7 +101,7 @@ public static class Turno
     }
     public static bool ValidarItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
-        if (item is Revivir && entrenador.misMuertos.Contains(pokemon))
+        if (item is Revivir && entrenador.GetMisMuertos().Contains(pokemon))
         {
             return true;
         }

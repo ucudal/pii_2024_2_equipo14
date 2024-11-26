@@ -29,8 +29,8 @@ public class BatallaTests
         int esperado3 = 7;
         Assert.That(esperado1,Is.EqualTo(batalla.Jugador1));
         Assert.That(esperado2,Is.EqualTo(batalla.Jugador2));
-        Assert.That(esperado3,Is.EqualTo(jugador1.misItems.Count));
-        Assert.That(esperado3,Is.EqualTo(jugador2.misItems.Count));
+        Assert.That(esperado3,Is.EqualTo(jugador1.GetMisItems().Count));
+        Assert.That(esperado3,Is.EqualTo(jugador2.GetMisItems().Count));
     }
 
     [Test]

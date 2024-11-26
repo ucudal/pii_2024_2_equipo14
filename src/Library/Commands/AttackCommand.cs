@@ -24,9 +24,18 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
             oponente = batalla.Jugador1;
         }
         string result = "";
+        Pokemon pokemon = jugador.PokemonActual;
+        Pokemon pokemon2 = oponente.PokemonActual;
         if (ataque == null)
         {
-            result = Facade.Instance.MostrarAtaques(jugador.PokemonActual);
+            if (Facade.Instance.RevisarAtaque(jugador, pokemon, pokemon.AtaqueEspecial.Nombre, pokemon2))
+            {
+                result = Facade.Instance.MostrarAtaques(jugador.PokemonActual,true);
+            }
+            else
+            {
+                result = Facade.Instance.MostrarAtaques(jugador.PokemonActual, false);
+            }
         }
         else
         {

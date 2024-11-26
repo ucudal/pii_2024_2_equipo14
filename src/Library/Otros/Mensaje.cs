@@ -1,4 +1,3 @@
-
 using System.Text;
 
 namespace Library;
@@ -21,7 +20,7 @@ public static class Mensaje
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
         mensaje.AppendLine($"POKÉMONES DISPONIBLES PARA CAMBIAR DE: {entrenador.Nombre}");
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
+        foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             if (pokemon != entrenador.PokemonActual)
             {
@@ -58,7 +57,7 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
-    public static string AtaquesDisponibles(Pokemon pokemon)
+    public static string AtaquesDisponibles(Pokemon pokemon, bool especial)
     {
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
@@ -66,7 +65,7 @@ public static class Mensaje
         foreach (Ataque ataque in pokemon.GetAtaques())
         {
             string info = $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano}";
-            if (ataque is AtaqueEspecial ataqueEspecial)
+            if (ataque is AtaqueEspecial ataqueEspecial && especial) 
             {
                 info+= $" | Efecto: {ataqueEspecial.Efecto}";
             }
@@ -79,11 +78,11 @@ public static class Mensaje
     {
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
-        mensaje.AppendLine($"ITEMS DE {entrenador.Nombre}:");
+        mensaje.AppendLine($"ITEMS DISPONIBLES DE {entrenador.Nombre}:");
         int revivir = 0;
         int curaTotal = 0;
         int superPocion = 0;
-        foreach (Item item in entrenador.misItems)
+        foreach (Item item in entrenador.GetMisItems())
         {
             if (item is Revivir)
             {
@@ -127,7 +126,7 @@ public static class Mensaje
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
         mensaje.AppendLine($"CATÁLOGO DE {entrenador.Nombre}:");
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
+        foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             string info = "";
             info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
@@ -158,9 +157,9 @@ public static class Mensaje
             mensaje.AppendLine(info);
         }
         
-        if (entrenador.misMuertos.Count > 0)
+        if (entrenador.GetMisMuertos().Count > 0)
         {
-            foreach (Pokemon muerto in entrenador.misMuertos)
+            foreach (Pokemon muerto in entrenador.GetMisMuertos())
             { 
                 mensaje.AppendLine($" \t - ¨{muerto.Nombre}¨ | Tipo: {muerto.Tipo} | Vida: {muerto.VidaTotal}/{muerto.VidaInicial}\n");
             }
@@ -233,6 +232,6 @@ public static class Mensaje
 
     public static string CambioPokemon(Entrenador entrenador)
     {
-        return $"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.PokemonActual}";
+        return $"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.GetPokemonActual()}";
     }
 }

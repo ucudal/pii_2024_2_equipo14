@@ -84,7 +84,7 @@ namespace Library
         {
             Random random = new Random();
             int pokemonRandom = random.Next(0, 6);
-            jugador.PokemonActual = jugador.miCatalogo[pokemonRandom];
+            jugador.PokemonActual = jugador.GetMiCatalogo()[pokemonRandom];
         }
     }
 }

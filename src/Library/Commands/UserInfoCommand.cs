@@ -25,6 +25,7 @@ public class UserInfoCommand : ModuleBase<SocketCommandContext>
         [Remainder][Summary("El usuario del que tener información, opcional")]
         string? displayName = null)
     {
+        string userName = CommandHelper.GetDisplayName(Context);
         if (displayName != null)
         {
             SocketGuildUser? user = CommandHelper.GetUser(Context, displayName);
@@ -47,6 +48,31 @@ public class UserInfoCommand : ModuleBase<SocketCommandContext>
                 {
                     await ReplyAsync(Mensaje.InformacionGeneral(j2));
                 }
+            }
+            else 
+            {
+                await ReplyAsync(Facade.Instance.JugadorEsperando(displayName));
+            }
+        }
+        else
+        {
+            Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(userName);
+            if (batalla != null)
+            {
+                Entrenador j1 = batalla.Jugador1;
+                Entrenador j2 = batalla.Jugador2;
+                if (j1.Nombre == userName)
+                {
+                    await ReplyAsync(Mensaje.InformacionGeneral(j1));
+                }
+                else
+                {
+                    await ReplyAsync(Mensaje.InformacionGeneral(j2));
+                }
+            }
+            else
+            {
+                await ReplyAsync(Facade.Instance.JugadorEsperando(userName));
             }
         }
     }

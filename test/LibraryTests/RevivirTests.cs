@@ -40,8 +40,8 @@ public class RevivirTests
         bool esperado1 = false;
         bool esperado2 = true;
         Assert.That(esperado,Is.EqualTo(pokemon.VidaTotal));
-        Assert.That(esperado1,Is.EqualTo(entrenador.misMuertos.Contains(pokemon)));
-        Assert.That(esperado2,Is.EqualTo(entrenador.miCatalogo.Contains(pokemon)));
-        Assert.That(esperado1,Is.EqualTo(entrenador.misItems.Contains(revivir)));
+        Assert.That(esperado1,Is.EqualTo(entrenador.GetMisMuertos().Contains(pokemon)));
+        Assert.That(esperado2,Is.EqualTo(entrenador.GetMiCatalogo().Contains(pokemon)));
+        Assert.That(esperado1,Is.EqualTo(entrenador.GetMisItems().Contains(revivir)));
     }
 }

@@ -11,7 +11,7 @@ public static class CambiarPokemon
     /// <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
     public static void CambioDePokemon(Entrenador entrenador, string pokemonElegido)
     {
-        foreach (Pokemon pokemon in entrenador.miCatalogo)
+        foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             if (pokemon.Nombre == pokemonElegido)
             {

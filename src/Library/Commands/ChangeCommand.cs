@@ -11,13 +11,16 @@ public class ChangeCommand : ModuleBase<SocketCommandContext>
         string displayName = CommandHelper.GetDisplayName(Context);
         Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(displayName);
         Entrenador jugador;
+        Entrenador jugador2;
         if (batalla.GetNombreJ1() == displayName)
         {
             jugador = batalla.Jugador1;
+            jugador2 = batalla.Jugador2;
         }
         else
         {
             jugador = batalla.Jugador2;
+            jugador2 = batalla.Jugador1;
         }
         if (pokemon != null)
         {
@@ -25,7 +28,7 @@ public class ChangeCommand : ModuleBase<SocketCommandContext>
             {
                 if (Facade.Instance.RevisarAccion(jugador, "Cambiar Pokémon"))
                 {
-                    await ReplyAsync(Facade.Instance.CambiarPokemon(jugador, pokemon));
+                    await ReplyAsync(Facade.Instance.CambiarPokemon(jugador, pokemon,jugador2));
                 }
                 else
                 {

@@ -37,7 +37,7 @@ public class CuraTotalTests
         curaTotal.Accion(entrenador, pokemon);
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(pokemon.Dormido));
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(curaTotal)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(curaTotal)));
     }
     
     [Test]
@@ -47,7 +47,7 @@ public class CuraTotalTests
         curaTotal.Accion(entrenador, pokemon);
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(pokemon.Paralizado));
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(curaTotal)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(curaTotal)));
     }
     
     [Test]
@@ -57,7 +57,7 @@ public class CuraTotalTests
         curaTotal.Accion(entrenador, pokemon);
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(pokemon.Envenenado));
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(curaTotal)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(curaTotal)));
     }
     
     [Test]
@@ -67,6 +67,6 @@ public class CuraTotalTests
         curaTotal.Accion(entrenador, pokemon);
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(pokemon.Quemado));
-        Assert.That(esperado,Is.EqualTo(entrenador.misItems.Contains(curaTotal)));
+        Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(curaTotal)));
     }
 }
