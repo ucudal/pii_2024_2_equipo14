@@ -30,21 +30,31 @@ namespace Library
         /// </summary>
         public Entrenador Jugador2 { get; private set; }
 
+        /// <summary>
+        /// Devuelve el nombre del Jugador 1.
+        /// </summary>
         public string GetNombreJ1()
         {
             return this.Jugador1.Nombre;
         }
 
+        /// <summary>
+        /// Devuelve el nombre del Jugador 2.
+        /// </summary>
         public string GetNombreJ2()
         {
             return this.Jugador2.Nombre;
         }
-
+        /// <summary>
+        /// Devuelve el nombre del Pokémon actual del Jugador 1.
+        /// </summary>
         public string GetPokemonActualJ1()
         {
             return this.Jugador1.GetPokemonActual();
         }
-
+        /// <summary>
+        /// Devuelve el nombre del Pokémon actual del Jugador 2.
+        /// </summary>
         public string GetPokemonActualJ2()
         {
             return this.Jugador2.GetPokemonActual();

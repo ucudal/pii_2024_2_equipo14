@@ -12,6 +12,11 @@ public class Revivir: Item
         this.Nombre = "Revivir";
         this.Descripcion = "Revive a un Pokémon con el 50% de su vida total";
     }
+    /// <summary>
+    /// Revive a un Pokémon con el 50% de su vida inicial.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
     public override void Accion(Entrenador entrenador, Pokemon pokemon)
     {
         pokemon.Curar(pokemon.VidaInicial/2);

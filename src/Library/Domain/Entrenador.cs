@@ -34,7 +34,10 @@ namespace Library
         /// Atributo tipo List que contiene los items del entrenador.
         /// </summary>
         private List<Item> misItems = new List<Item>();
-
+        
+        /// <summary>
+        /// Devuelve la lista de items del entrenador.
+        /// </summary>
         public List<Item> GetMisItems()
         {
             return this.misItems;
@@ -129,7 +132,9 @@ namespace Library
         /// Obtiene o establece el Pokémon actual
         /// </summary>
         public Pokemon PokemonActual { get; set; }
-
+        /// <summary>
+        /// Devuelve el nombre del Pokémon actual del entrenador.
+        /// </summary>
         public string GetPokemonActual()
         {
             return this.PokemonActual.Nombre;

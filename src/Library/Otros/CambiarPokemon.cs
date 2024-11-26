@@ -9,6 +9,7 @@ public static class CambiarPokemon
     /// Le asigna un nuevo Pokémon actual al jugador que recibe.
     /// </summary>
     /// <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
+    /// <param name="pokemonElegido">El Pokémon que será el nuevo Pokémon actual.</param>
     public static void CambioDePokemon(Entrenador entrenador, string pokemonElegido)
     {
         foreach (Pokemon pokemon in entrenador.GetMiCatalogo())

@@ -16,6 +16,11 @@ public class Incendio: AtaqueEspecial
     {
         
     }
+    /// <summary>
+    /// Causa el efecto "Quemar" en el Pokémon ingresado.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
     public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon)
     {
         Random golpeCritico = new Random();

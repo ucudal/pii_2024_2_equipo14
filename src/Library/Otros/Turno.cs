@@ -8,8 +8,12 @@ public static class Turno
     /// Se encarga de realizar la acción que el usuario decidió hacer.
     /// </summary>
     /// <param name="entrenador">El entrenador que elige acción.</param>
-    /// <param name="numero">El número que indica la acción.</param>
+    /// <param name="accion">La acción a realizar.</param>
     /// <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
+    /// <param name="ataque">El ataque a realizar.</param>
+    /// <param name="pokemon">El Pokémon a cambiar.</param>
+    /// <param name="item">El item a utilizar.</param>
+    /// /// <param name="pokemon2">El Pokémon en el que se va usar el item.</param>
     
     public static void HacerAccion(Entrenador entrenador, string accion, Entrenador entrenadorAtacado, Ataque? ataque, string? pokemon, Item? item, Pokemon? pokemon2)
     {
@@ -30,6 +34,11 @@ public static class Turno
         entrenadorAtacado.MiTurno = true;
         entrenador.Turnos += 1;
     }
+    /// <summary>
+    /// Se encarga de validar la acción que quiere realizar el entrenador.
+    /// </summary>
+    /// <param name="entrenador">El entrenador que elige acción.</param>
+    /// <param name="accion">La acción a realizar.</param>
 
     public static bool ValidarAccion(Entrenador entrenador, string accion)
     {
@@ -92,7 +101,12 @@ public static class Turno
         }
         return true;
     }
-
+    /// <summary>
+    /// Se encarga de validar el ataque que quiere realizar el entrenador.
+    /// </summary>
+    /// <param name="entrenador">El entrenador que elige acción.</param>
+    /// <param name="ataque">El ataque a utilizar.</param>
+    /// <param name="pokemonAtacado">El Pokémon que recibiría ese ataque.</param>
     public static bool ValidarAtaque(Entrenador entrenador, Ataque ataque, Pokemon pokemonAtacado)
     {
         if (ataque is AtaqueEspecial && (entrenador.Turnos % 2 == 1 || pokemonAtacado.Paralizado || pokemonAtacado.Dormido || pokemonAtacado.Envenenado || 
@@ -102,6 +116,12 @@ public static class Turno
         }
         return true;
     }
+    /// <summary>
+    /// Se encarga de validar el item que quiere utilizar el entrenador.
+    /// </summary>
+    /// <param name="entrenador">El entrenador que elige acción.</param>
+    /// <param name="item">El item a utilizar.</param>
+    /// <param name="pokemon">El pokemon que se vería afectado por el item</param>
     public static bool ValidarItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
         if (item is Revivir && entrenador.GetMisMuertos().Contains(pokemon))

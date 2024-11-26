@@ -12,6 +12,11 @@ public class CuraTotal: Item
         this.Nombre = "CuraTotal";
         this.Descripcion = "Cura a un Pokémon de efectos de ataques especiales";
     }
+    /// <summary>
+    /// Cura al Pokémon ingresado de efectos de ataques especiales.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
     public override void Accion(Entrenador entrenador, Pokemon pokemon)
     {
         if (pokemon.Dormido)

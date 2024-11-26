@@ -17,7 +17,11 @@ public class Off : AtaqueEspecial
     {
 
     }
-
+    /// <summary>
+    /// Causa el efecto "Envenenar" en el Pokémon ingresado.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
     public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon)
     {
         Random golpeCritico = new Random();

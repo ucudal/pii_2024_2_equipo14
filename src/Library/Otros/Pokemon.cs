@@ -23,15 +23,20 @@ public class Pokemon
     /// </summary>
     public string Nombre { get; protected set; }
     /// <summary>
-    /// Obtiene o establece un Tipo que indica tipo del Pokémon.
+    /// Obtiene o establece un string que indica tipo del Pokémon.
     /// </summary>
     public string Tipo { get; protected set; }
     /// <summary>
+    /// Obtiene el Ataque Especial del Pokémon.
+    /// </summary>
+    public AtaqueEspecial AtaqueEspecial { get;}
+    /// <summary>
+    /// Obtiene el Ataque del Pokémon.
+    /// </summary>
+    public Ataque Ataque { get; }
+    /// <summary>
     /// Atributo que indica la vida total del Pokémon
     /// </summary>
-    public AtaqueEspecial AtaqueEspecial { get; set; }
-    public Ataque Ataque { get; set; }
-   
     private int vidaTotal = 80;
     /// <summary>
     /// Obtiene o establece un bool que indica si el Pokémon está dormido.
@@ -93,12 +98,17 @@ public class Pokemon
     {
         this.VidaTotal -= dano;
     }
-
+       
+    /// <summary>
+    /// Devuelve el nombre del Ataque del Pokémon.
+    /// </summary>
     public string GetAtaque()
     {
         return this.Ataque.Nombre;
     }
-
+    /// <summary>
+    /// Devuelve el nombre del Ataque Especial del Pokémon.
+    /// </summary>
     public string GetAtaqueEspecial()
     {
         return this.AtaqueEspecial.Nombre;
