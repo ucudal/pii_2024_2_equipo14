@@ -1,4 +1,5 @@
 using System.Text;
+using Microsoft.Extensions.Primitives;
 
 namespace Library;
 
@@ -224,6 +225,15 @@ public static class Mensaje
         mensaje.AppendLine($"USO DE ITEM DE {entrenador.Nombre}:");
         mensaje.AppendLine($" \t - {item.Nombre} fue usado en {pokemon.Nombre}");
         mensaje.Append(Mensaje.InformacionGeneral(entrenador));
+        Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(entrenador.Nombre);
+        if (batalla.GetNombreJ1() == entrenador.Nombre)
+        {
+            mensaje.Append(Mensaje.Turno(batalla.Jugador2));
+        }
+        else
+        {
+            mensaje.Append(Mensaje.Turno(batalla.Jugador1));
+        }
         return mensaje.ToString();
     }
 
@@ -238,6 +248,18 @@ public static class Mensaje
 
     public static string CambioPokemon(Entrenador entrenador)
     {
-        return $"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.GetPokemonActual()}";
+        StringBuilder mensaje = new StringBuilder();
+        mensaje.AppendLine($"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.GetPokemonActual()}");
+        Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(entrenador.Nombre);
+        if (batalla.GetNombreJ1() == entrenador.Nombre)
+        {
+            mensaje.Append(Mensaje.Turno(batalla.Jugador2));
+        }
+        else
+        {
+            mensaje.Append(Mensaje.Turno(batalla.Jugador1));
+        }
+
+        return mensaje.ToString();
     }
 }

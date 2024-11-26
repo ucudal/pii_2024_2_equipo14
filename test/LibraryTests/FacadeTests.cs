@@ -285,9 +285,9 @@ public class FacadeTests
         instance.AgregarJugadorListaDeEspera("e1");
         instance.AgregarJugadorListaDeEspera("e2");
         instance.ComenzarBatalla("e1", "e2");
-        Batalla batalla = instance.EncontrarBatallaPorUsuario("e1");
-        Entrenador e1 = batalla.Jugador1;
-        Entrenador e2 = batalla.Jugador1;
+        Batalla batalla1 = instance.EncontrarBatallaPorUsuario("e1");
+        Entrenador e1 = batalla1.Jugador1;
+        Entrenador e2 = batalla1.Jugador2;
         instance.AgregarPokemon(e1, "Bulbasaur");
         instance.AgregarPokemon(e1, "Squirtle");
         instance.AgregarPokemon(e1, "Charmander");
@@ -300,12 +300,13 @@ public class FacadeTests
         instance.AgregarPokemon(e2, "Skarmory");
         instance.AgregarPokemon(e2, "Mew");
         instance.AgregarPokemon(e2, "Goomy");
-        string resultado1 = instance.InicializarEncuentros(batalla).Substring(0,16);
-        pokemon.RecibirDano(70);
-        e1.AgregarPokemon(pokemon);
+        instance.InicializarEncuentros(batalla1);
+        e1.PokemonActual = e1.GetMiCatalogo()[0];
+        Pokemon pokemonafectado = e1.PokemonActual;
+        pokemonafectado.RecibirDano(70);
         e1.AgregarItem(new SuperPocion());
-        string resultado = instance.UsoDeItem(e1, "SúperPoción", pokemon.Nombre,e2).Substring(0,30);
-        string esperado = "\n\r\nUSO DE ITEM DE j1:\r\n \t - SúperPoción fue usado en Pikachu";
+        string resultado = instance.UsoDeItem(e1, "SúperPoción", pokemonafectado.Nombre, e2).Substring(0,65);
+        string esperado = $"\n\r\nUSO DE ITEM DE e1:\r\n \t - SúperPoción fue usado en {pokemonafectado.Nombre}\r\n\n";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
    
@@ -390,7 +391,7 @@ public class FacadeTests
         j1.PokemonActual = pokemon;
         string resultado = instance.CambiarPokemon(j1, "Mew", j2);
         string esperado = "j1 ha cambiado su Pokémon actual a Mew";
-        Assert.That(esperado,Is.EqualTo(resultado));
+        Assert.That(esperado,Is.EqualTo(resultado.Substring(0,38)));
     }
 
     [Test]

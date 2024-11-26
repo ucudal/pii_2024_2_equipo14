@@ -14,9 +14,9 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.Ataque"/>.
             </summary>
             <param name="nombre">El nombre del ataque.</param>
-            <param name="Dano">El daño que influye el ataque.</param>
-            <param name="Precision">La precisión del ataque.</param>
-            <param name="Tipo">El nombre del tipo de ataque.</param>
+            <param name="dano">El daño que influye el ataque.</param>
+            <param name="precision">La precisión del ataque.</param>
+            <param name="tipo">El nombre del tipo de ataque.</param>
         </member>
         <member name="P:Library.Ataque.Nombre">
             <summary>
@@ -25,15 +25,17 @@
         </member>
         <member name="P:Library.Ataque.Dano">
             <summary>
-            Obtiene o establece un string que indica el tipo del ataque.
-            </summary>
-            <summary>
             Obtiene o establece un valor (int) que indica el daño del ataque.
             </summary>
         </member>
         <member name="P:Library.Ataque.Precision">
             <summary>
             Obtiene o establece un valor (int) que indica la precisión del ataque.
+            </summary>
+        </member>
+        <member name="P:Library.Ataque.Tipo">
+            <summary>
+            Obtiene o establece un string que indica el tipo del ataque.
             </summary>
         </member>
         <member name="M:Library.Ataque.CalcularPrecision">
@@ -54,16 +56,17 @@
             Es un constructor que utilizarán las clases que la hereden.
             </summary>
             <param name="nombre">El nombre del ataque.</param>
-            <param name="Dano">El daño que influye el ataque.</param>
-            <param name="Precision">La precisión del ataque.</param>
-            <param name="Tipo">El nombre del tipo de ataque.</param>
-            <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
+            <param name="dano">El daño que influye el ataque.</param>
+            <param name="precision">La precisión del ataque.</param>
+            <param name="tipo">El nombre del tipo de ataque.</param>
+            <param name="efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
         <member name="P:Library.AtaqueEspecial.Efecto">
             <summary>
             Obtiene o establece un string que indica el nombre del Efecto
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.AtaqueEspecial.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Incendio">
             <summary>
             Esta es la clase Incendio. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Quemar.
@@ -79,6 +82,7 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Incendio.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Maniqui">
             <summary>
             Esta es la clase Maniqui. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Paralizar.
@@ -94,6 +98,7 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Maniqui.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Off">
             <summary>
             Esta es la clase Off. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Envenenar.
@@ -109,6 +114,7 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Off.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Zzz">
             <summary>
             Esta es la clase Zzz. Hereda <see cref="T:Library.AtaqueEspecial"/> y agrega el método Dormir.
@@ -124,6 +130,7 @@
             <param name="Tipo">El nombre del tipo de ataque.</param>
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Zzz.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
         <member name="M:Library.AddPokemonCommand.ExecuteAsync(System.String)">
             <summary>
             Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
@@ -206,6 +213,26 @@
             Obtiene o establece un Entrenador que indica el Jugador 2.
             </summary>
         </member>
+        <member name="M:Library.Batalla.GetNombreJ1">
+            <summary>
+            Devuelve el nombre del Jugador 1.
+            </summary>
+        </member>
+        <member name="M:Library.Batalla.GetNombreJ2">
+            <summary>
+            Devuelve el nombre del Jugador 2.
+            </summary>
+        </member>
+        <member name="M:Library.Batalla.GetPokemonActualJ1">
+            <summary>
+            Devuelve el nombre del Pokémon actual del Jugador 1.
+            </summary>
+        </member>
+        <member name="M:Library.Batalla.GetPokemonActualJ2">
+            <summary>
+            Devuelve el nombre del Pokémon actual del Jugador 2.
+            </summary>
+        </member>
         <member name="M:Library.Batalla.#ctor(Library.Entrenador,Library.Entrenador)">
             <summary>
             Inicializa una nueva instancia de la clase <see cref="T:Library.Batalla"/>.
@@ -249,6 +276,11 @@
         <member name="F:Library.Entrenador.misItems">
             <summary>
             Atributo tipo List que contiene los items del entrenador.
+            </summary>
+        </member>
+        <member name="M:Library.Entrenador.GetMisItems">
+            <summary>
+            Devuelve la lista de items del entrenador.
             </summary>
         </member>
         <member name="P:Library.Entrenador.MiTurno">
@@ -312,6 +344,11 @@
         <member name="P:Library.Entrenador.PokemonActual">
             <summary>
             Obtiene o establece el Pokémon actual
+            </summary>
+        </member>
+        <member name="M:Library.Entrenador.GetPokemonActual">
+            <summary>
+            Devuelve el nombre del Pokémon actual del entrenador.
             </summary>
         </member>
         <member name="T:Library.Facade">
@@ -435,6 +472,7 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.CuraTotal"/>.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.CuraTotal.Accion(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Item">
             <summary>
             Esta es la clase abstracta Item. Los items podrán ser utilizados por los entrenadores en las batallas.
@@ -450,6 +488,7 @@
             Obtiene o establece un string que indica la descripción del funcionamiento del item.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Item.Accion(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Revivir">
             <summary>
             Esta es la clase Revivir. Hereda <see cref="T:Library.Item"/> y agrega el método RevivirPokemon.
@@ -460,6 +499,7 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.Revivir"/>.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Revivir.Accion(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.SuperPocion">
             <summary>
             Esta es la clase SuperPocion. Hereda <see cref="T:Library.Item"/> y agrega el método SuperPocionar
@@ -470,6 +510,7 @@
             Inicializa una nueva instancia de la clase <see cref="T:Library.SuperPocion"/>.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.SuperPocion.Accion(Library.Entrenador,Library.Pokemon)" -->
         <member name="T:Library.Atacar">
             <summary>
             Esta es la clase estática Atacar. Define las acciones a seguir cuando el usuario elige atacar durante la batalla.
@@ -480,7 +521,8 @@
             Determina si un Pokémon ataca a otro y con que ataque de acuerdo a la precisión, efectividad, golpe crítico y efectos.
             </summary>
             <param name="atacante">El entrenador que posee al Pokémon que ataca.</param>
-            <param name="victima">El entrenador que posee al Pokémon que es atacado..</param>
+            <param name="ataque">El ataque que afecta al Pokémon ingresado.</param>
+            <param name="victima">El entrenador que posee al Pokémon que es atacado.</param>
         </member>
         <member name="T:Library.CambiarPokemon">
             <summary>
@@ -492,6 +534,7 @@
             Le asigna un nuevo Pokémon actual al jugador que recibe.
             </summary>
             <param name="entrenador">El jugador al que se le cambia el Pokémon actual.</param>
+            <param name="pokemonElegido">El Pokémon que será el nuevo Pokémon actual.</param>
         </member>
         <member name="T:Library.Efectividad">
             <summary>
@@ -540,10 +583,20 @@
         </member>
         <member name="P:Library.Pokemon.Tipo">
             <summary>
-            Obtiene o establece un Tipo que indica tipo del Pokémon.
+            Obtiene o establece un string que indica tipo del Pokémon.
             </summary>
         </member>
         <member name="P:Library.Pokemon.AtaqueEspecial">
+            <summary>
+            Obtiene el Ataque Especial del Pokémon.
+            </summary>
+        </member>
+        <member name="P:Library.Pokemon.Ataque">
+            <summary>
+            Obtiene el Ataque del Pokémon.
+            </summary>
+        </member>
+        <member name="F:Library.Pokemon.vidaTotal">
             <summary>
             Atributo que indica la vida total del Pokémon
             </summary>
@@ -605,6 +658,16 @@
             </summary>
             <param name="dano">Los puntos de vida que se le quitan al Pokémon.</param>
         </member>
+        <member name="M:Library.Pokemon.GetAtaque">
+            <summary>
+            Devuelve el nombre del Ataque del Pokémon.
+            </summary>
+        </member>
+        <member name="M:Library.Pokemon.GetAtaqueEspecial">
+            <summary>
+            Devuelve el nombre del Ataque Especial del Pokémon.
+            </summary>
+        </member>
         <member name="T:Library.Turno">
             <summary>
             Esta es la clase estática Turno. Se encarga de realizar la acción que decide el usuario.
@@ -615,8 +678,35 @@
             Se encarga de realizar la acción que el usuario decidió hacer.
             </summary>
             <param name="entrenador">El entrenador que elige acción.</param>
-            <param name="numero">El número que indica la acción.</param>
+            <param name="accion">La acción a realizar.</param>
             <param name="entrenadorAtacado">El entrenador que no está en su turno.</param>
+            <param name="ataque">El ataque a realizar.</param>
+            <param name="pokemon">El Pokémon a cambiar.</param>
+            <param name="item">El item a utilizar.</param>
+            /// <param name="pokemon2">El Pokémon en el que se va usar el item.</param>
+        </member>
+        <member name="M:Library.Turno.ValidarAccion(Library.Entrenador,System.String)">
+            <summary>
+            Se encarga de validar la acción que quiere realizar el entrenador.
+            </summary>
+            <param name="entrenador">El entrenador que elige acción.</param>
+            <param name="accion">La acción a realizar.</param>
+        </member>
+        <member name="M:Library.Turno.ValidarAtaque(Library.Entrenador,Library.Ataque,Library.Pokemon)">
+            <summary>
+            Se encarga de validar el ataque que quiere realizar el entrenador.
+            </summary>
+            <param name="entrenador">El entrenador que elige acción.</param>
+            <param name="ataque">El ataque a utilizar.</param>
+            <param name="pokemonAtacado">El Pokémon que recibiría ese ataque.</param>
+        </member>
+        <member name="M:Library.Turno.ValidarItem(Library.Entrenador,Library.Item,Library.Pokemon)">
+            <summary>
+            Se encarga de validar el item que quiere utilizar el entrenador.
+            </summary>
+            <param name="entrenador">El entrenador que elige acción.</param>
+            <param name="item">El item a utilizar.</param>
+            <param name="pokemon">El pokemon que se vería afectado por el item</param>
         </member>
         <member name="T:Library.UsarItem">
             <summary>

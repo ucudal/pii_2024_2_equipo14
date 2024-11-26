@@ -93,10 +93,9 @@ public class UserStoriesTests
     [Test]
     public void TestUserStory5()
     {
-        Pokemon actual = jugador1.PokemonActual;
-        string resultado = facade.Atacar(jugador1, actual.Ataque.Nombre, jugador2);
+        string resultado = facade.CambiarPokemon(jugador1,"Charmander",jugador2).Substring(45,50);
         string esperado = "\r\n\n------------------TURNO DE j2------------------";
-        Assert.That(esperado,Is.EqualTo(resultado.Substring(resultado.Length-50,50)));
+        Assert.That(esperado,Is.EqualTo(resultado));
     }
 
     [Test]
@@ -154,10 +153,10 @@ public class UserStoriesTests
         string resultado3 = facade.CambiarPokemon(jugador1, "Mew", jugador2);
         int resultado1 = jugador1.Turnos;
         bool resultado2 = jugador1.MiTurno;
-        string esperado3 = "j1 ha cambiado su Pokémon actual a Mew";
+        string esperado3 = "j1 ha cambiado su Pokémon actual a Mew\r\n\n";
         Assert.That(esperado1,Is.EqualTo(resultado1));
         Assert.That(esperado2,Is.EqualTo(resultado2));
-        Assert.That(esperado3,Is.EqualTo(resultado3));
+        Assert.That(esperado3,Is.EqualTo(resultado3.Substring(0,41)));
     }
 
     [Test]
