@@ -10,7 +10,7 @@ public class DefensaTest
     private Pokemon pokemon;
     private Item item;
     /// <summary>
-    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// En este SetUp instanciamos objetos que necesitaremos para testear el método AgregarRestriccion.
     /// </summary>
     [SetUp]
     public void SetUp()
