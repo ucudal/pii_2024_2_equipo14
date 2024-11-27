@@ -49,4 +49,7 @@ ya que es lo principal de como interactua el usuario con las restricciones y sin
 Creo que otra cosa que me llevo a no poder completar la tarea es no poder apoyarme en la IA para poder seguir con esto ya que la uso para cuando me tranco
 con lo que estoy haciendo para que me genere una respuesta y poder ver de que forma podria hacerlo para usarla como base y ahorrar tiempo buscando 
 por otros medios.
+Otra cosa que me falto seria hacer los mensajes que esos si los podria haber hecho pero al concentrarme con la parte de como resolver lo del metodo para agregar las restricciones 
+no los llegue a hacer, los mensajes son faciles de hacer seria poner los metodos vacios con un return que contenga el mensaje ya que la logica se trataria en la clase AcuerdoDeBatalla y 
+en el metodo InicializarAcuerdoDeBatalla
 */
