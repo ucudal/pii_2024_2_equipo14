@@ -1,8 +1,27 @@
 var classLibrary_1_1Facade =
 [
-    [ "Facade", "classLibrary_1_1Facade.html#a9a8fd545809dda76d54a526b44c786be", null ],
-    [ "ComenzarBatalla", "classLibrary_1_1Facade.html#ae0cdcedb7478fa457921c5301fb4d509", null ],
-    [ "ElegirAccion", "classLibrary_1_1Facade.html#a4ac8988e3bb5916f39c1832c5f48c99c", null ],
-    [ "ImprimirDatos", "classLibrary_1_1Facade.html#a87bd270127fe3072afd1b9dd02c6509d", null ],
-    [ "RealizarAccion", "classLibrary_1_1Facade.html#aa25e2fc8b63ddbd47c9f5a3452d60551", null ]
+    [ "AgregarJugadorListaDeEspera", "classLibrary_1_1Facade.html#a4985231e2866150aa077a82a06888aba", null ],
+    [ "AgregarPokemon", "classLibrary_1_1Facade.html#a7dddc497b73b57067a9a1b9166fe96f3", null ],
+    [ "Atacar", "classLibrary_1_1Facade.html#a3f677996d74c9736c75f387f24ff0c40", null ],
+    [ "CambiarPokemon", "classLibrary_1_1Facade.html#ae4e6453eeeb18de1d5c2d2076670702e", null ],
+    [ "ChequeoEstado", "classLibrary_1_1Facade.html#a11fe67fcb57af0088a75bf3f2914007f", null ],
+    [ "ComenzarBatalla", "classLibrary_1_1Facade.html#a4bb90c18774bb0b8fda02555fd960477", null ],
+    [ "EncontrarBatallaPorUsuario", "classLibrary_1_1Facade.html#ae2cfaea4c9c3f6e400276ce3eb675fc5", null ],
+    [ "Finalizar", "classLibrary_1_1Facade.html#a24fab4dd3ed3780b706e70b1af76ebf3", null ],
+    [ "GetJugadoresEsperando", "classLibrary_1_1Facade.html#aa33d8d5dbb25cd237f95572c23ef2955", null ],
+    [ "InicializarEncuentros", "classLibrary_1_1Facade.html#a3008efadef2294d6a934065297931263", null ],
+    [ "JugadorEsperando", "classLibrary_1_1Facade.html#aaf1f1c84cbcbef8dbe5011b6b9cb4db7", null ],
+    [ "MostrarAtaques", "classLibrary_1_1Facade.html#a81c87df927032c1116b17acc9d37ce13", null ],
+    [ "MostrarInformacion", "classLibrary_1_1Facade.html#a5ef9e8570450b04b4d8bab96c1c829fe", null ],
+    [ "MostrarItems", "classLibrary_1_1Facade.html#a034a659563053960e3c7ed2309c4fa85", null ],
+    [ "MostrarPokedex", "classLibrary_1_1Facade.html#a08127586d8eda96eaff0fc1d8a0c1a2e", null ],
+    [ "PosesionAtaque", "classLibrary_1_1Facade.html#a2268e6f487a139bb4bf647a4fd9811f5", null ],
+    [ "PosesionItem", "classLibrary_1_1Facade.html#ad0792e45552d83122996b91482a857ea", null ],
+    [ "PosesionPokemon", "classLibrary_1_1Facade.html#ad356fea7d644f6847f0104827672d855", null ],
+    [ "PosesionPokemonVivo", "classLibrary_1_1Facade.html#a58dd7c31d79cba054bf2a3f4a4e27262", null ],
+    [ "QuitarJugadorListaDeEspera", "classLibrary_1_1Facade.html#a53e991aa864cf41a3624d88987126845", null ],
+    [ "RevisarAccion", "classLibrary_1_1Facade.html#a9108097f7e9e0a3b88aa48153e6ed29b", null ],
+    [ "RevisarAtaque", "classLibrary_1_1Facade.html#aacbee802851686b12a32f0790f5b417b", null ],
+    [ "RevisarItem", "classLibrary_1_1Facade.html#aee1b35ff604b85e77ac9cdea4f6f857c", null ],
+    [ "UsoDeItem", "classLibrary_1_1Facade.html#a7ac5d079e9977a2966f5337b6d69507b", null ]
 ];

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['planta_0',['Planta',['../classLibrary_1_1Planta.html',1,'Library']]],
-  ['pokemon_1',['Pokemon',['../classLibrary_1_1Pokemon.html',1,'Library']]],
-  ['program_2',['Program',['../classLibrary_1_1Program.html',1,'Library']]],
-  ['psiquico_3',['Psiquico',['../classLibrary_1_1Psiquico.html',1,'Library']]]
+  ['superpocion_0',['SuperPocion',['../classLibrary_1_1SuperPocion.html',1,'Library']]],
+  ['superpociontests_1',['SuperPocionTests',['../classLibraryTests_1_1SuperPocionTests.html',1,'LibraryTests']]]
 ];

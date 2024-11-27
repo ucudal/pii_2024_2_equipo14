@@ -1,0 +1,14 @@
+digraph "Library.Facade.Reset"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Facade.Reset",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Inicializa este singleton. Es necesario solo en los tests."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LibraryTests.FacadeTests.\lSetUp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#ad59c0fcbe0a80854279e17a69b488bd2",tooltip="En este SetUp instanciamos objetos que necesitaremos para testear esta clase."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LibraryTests.UserStories\lTests.SetUp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#ad72f3487f7ce4e7128da2f9156ea2d44",tooltip="En este OneTimeSetUp instanciamos objetos que necesitaremos para testear."];
+}

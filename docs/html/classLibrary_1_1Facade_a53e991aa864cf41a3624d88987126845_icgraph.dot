@@ -1,0 +1,16 @@
+digraph "Library.Facade.QuitarJugadorListaDeEspera"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Facade.QuitarJugador\lListaDeEspera",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Remueve un jugador de la lista de espera."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Library.LeaveCommand.Execute\lAsync",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1LeaveCommand.html#ab2f0edafab0db068595f4a0f564f7371",tooltip="Implementa el comando 'leave' del bot. Este comando remueve el jugador que envía el mensaje de la lis..."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LibraryTests.FacadeTests.\lTestComenzarBatalla",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#a385ec7d276c82e08ca229bd2eb3552fc",tooltip="Este test comprueba que se pueda comenzar una batalla."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LibraryTests.FacadeTests.\lTestQuitarJugadorListaDeEspera",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#ae5529728a2c6e3992d31d63c43ca6605",tooltip="Este test comprueba que se pueda quitar correctamente un jugador de la lista de espera."];
+}

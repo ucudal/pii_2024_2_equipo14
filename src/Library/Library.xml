@@ -131,9 +131,19 @@
             <param name="Efecto">El nombre del efecto que realizará el ataque.</param>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Library.Zzz.CausarEfecto(Library.Entrenador,Library.Pokemon)" -->
+        <member name="T:Library.AddPokemonCommand">
+            <summary>
+            Esta es la clase AddPokemonCommand. Se encarga de gestionar el agrego de Pokémon con los parámetros recibidos por el usuario.
+            </summary>
+        </member>
         <member name="M:Library.AddPokemonCommand.ExecuteAsync(System.String)">
             <summary>
             Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
+            </summary>
+        </member>
+        <member name="T:Library.AttackCommand">
+            <summary>
+            Esta es la clase AttackCommand. Se encarga de gestionar un ataque con los parámetros recibidos por el usuario.
             </summary>
         </member>
         <member name="T:Library.BattleCommand">
@@ -142,6 +152,21 @@
             jugador que envía el mensaje con el oponente que se recibe como parámetro,
             si lo hubiera, en una batalla; si no se recibe un oponente, lo une con
             cualquiera que esté esperando para jugar.
+            </summary>
+        </member>
+        <member name="T:Library.ChangeCommand">
+            <summary>
+            Esta es la clase ChangeCommand. Se encarga de gestionar el cambio de Pokémon actual con los parámetros recibidos por el usuario.
+            </summary>
+        </member>
+        <member name="T:Library.CommandHelper">
+            <summary>
+            Esta es la clase CommandHelper. Se encarga de devolver información del usuario.
+            </summary>
+        </member>
+        <member name="T:Library.InfoCommand">
+            <summary>
+            Esta es la clase InfoCommand. Devuelve al usuario los comandos disponibles.
             </summary>
         </member>
         <member name="T:Library.JoinCommand">
@@ -166,6 +191,11 @@
             <summary>
             Implementa el comando 'leave' del bot. Este comando remueve el jugador
             que envía el mensaje de la lista de jugadores esperando para jugar.
+            </summary>
+        </member>
+        <member name="T:Library.UseItemCommand">
+            <summary>
+            Esta es la clase UseItemCommand. Se encarga de gestionar el uso de item con los parámetros recibidos por el usuario.
             </summary>
         </member>
         <member name="T:Library.UserInfoCommand">

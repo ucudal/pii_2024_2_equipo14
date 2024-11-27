@@ -1,0 +1,25 @@
+digraph "Library.AddPokemonCommand.ExecuteAsync"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="Library.AddPokemonCommand.\lExecuteAsync",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla..."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Library.Facade.AgregarPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Facade.html#a7dddc497b73b57067a9a1b9166fe96f3",tooltip="Agrega los Pokémones al catalogo del entrenador."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Library.Entrenador.Agregar\lPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Entrenador.html#a1c36ee3384dbf4e27738cac2b4714c8f",tooltip="Agrega un Pokémon al catálogo del entrenador."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="Library.Facade.Encontrar\lBatallaPorUsuario",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Facade.html#ae2cfaea4c9c3f6e400276ce3eb675fc5",tooltip="Busca la batalla según el usuario ingresado."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="Library.Batalla.GetNombreJ1",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Batalla.html#a4d4a0cc3fbfc645f44aa27e263c99dd1",tooltip="Devuelve el nombre del Jugador 1."];
+  Node4 -> Node6 [id="edge5_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="Library.Batalla.GetNombreJ2",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Batalla.html#a816710977f997be976bc3e95179b85b8",tooltip="Devuelve el nombre del Jugador 2."];
+  Node1 -> Node5 [id="edge6_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node7 [id="edge7_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="Library.Facade.Inicializar\lEncuentros",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Facade.html#a3008efadef2294d6a934065297931263",tooltip="Asigna los Pokémones iniciales y pone en marcha la batalla."];
+  Node7 -> Node8 [id="edge8_Node000007_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="Library.Batalla.AsignarPokemon\lInicial",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Batalla.html#a0467206ec28232b6f2d29a4b653bd2a0",tooltip="Le asigna al jugador un Pokémon aleatorio de su catálogo para atacar."];
+}

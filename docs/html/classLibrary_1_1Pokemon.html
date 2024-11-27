@@ -98,7 +98,6 @@ $(function(){initNavTree('classLibrary_1_1Pokemon.html',''); initResizable(true)
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="classLibrary_1_1Pokemon-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Library.Pokemon Class Reference</div></div>
@@ -115,9 +114,9 @@ Collaboration diagram for Library.Pokemon:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ada39ae8079299fb5cf8f3afc22804b6d" id="r_ada39ae8079299fb5cf8f3afc22804b6d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada39ae8079299fb5cf8f3afc22804b6d">Pokemon</a> (string nombre, <a class="el" href="classLibrary_1_1Tipo.html">Tipo</a> tipo)</td></tr>
-<tr class="memdesc:ada39ae8079299fb5cf8f3afc22804b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la clase <a class="el" href="classLibrary_1_1Pokemon.html" title="Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades...">Pokemon</a>.  <br /></td></tr>
-<tr class="separator:ada39ae8079299fb5cf8f3afc22804b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aacb4caa6a237389143c116696e356c" id="r_a6aacb4caa6a237389143c116696e356c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6aacb4caa6a237389143c116696e356c">Pokemon</a> (string nombre, string tipo, <a class="el" href="classLibrary_1_1Ataque.html">Ataque</a> ataque, <a class="el" href="classLibrary_1_1AtaqueEspecial.html">AtaqueEspecial</a> ataqueEspecial)</td></tr>
+<tr class="memdesc:a6aacb4caa6a237389143c116696e356c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa una nueva instancia de la clase <a class="el" href="classLibrary_1_1Pokemon.html" title="Esta es la clase Pokémon. Se encarga de crear instancias de Pokémon y gestionar sus responsabilidades...">Pokemon</a>.  <br /></td></tr>
+<tr class="separator:a6aacb4caa6a237389143c116696e356c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24f31934e6b98ff90d5740ba90240cdd" id="r_a24f31934e6b98ff90d5740ba90240cdd"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classLibrary_1_1Ataque.html">Ataque</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24f31934e6b98ff90d5740ba90240cdd">GetAtaques</a> ()</td></tr>
 <tr class="memdesc:a24f31934e6b98ff90d5740ba90240cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se encarga de retornar los ataques del Pokémon.  <br /></td></tr>
 <tr class="separator:a24f31934e6b98ff90d5740ba90240cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,33 +126,27 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a03784149d4b8082db0019420686ac838" id="r_a03784149d4b8082db0019420686ac838"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03784149d4b8082db0019420686ac838">RecibirDano</a> (int dano)</td></tr>
 <tr class="memdesc:a03784149d4b8082db0019420686ac838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Se encarga de dañar al Pokémon.  <br /></td></tr>
 <tr class="separator:a03784149d4b8082db0019420686ac838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab72286d3c3e475d1e64faba0b2cbdc50" id="r_ab72286d3c3e475d1e64faba0b2cbdc50"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab72286d3c3e475d1e64faba0b2cbdc50">GetDebilContra</a> ()</td></tr>
-<tr class="memdesc:ab72286d3c3e475d1e64faba0b2cbdc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna la lista de los tipos que son fuertes contra el tipo del Pokémon.  <br /></td></tr>
-<tr class="separator:ab72286d3c3e475d1e64faba0b2cbdc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af26c1e8d898c2bb1085a3493af118e58" id="r_af26c1e8d898c2bb1085a3493af118e58"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af26c1e8d898c2bb1085a3493af118e58">GetResistenteContra</a> ()</td></tr>
-<tr class="memdesc:af26c1e8d898c2bb1085a3493af118e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna la lista de los tipos que son débiles contra el tipo del Pokémon.  <br /></td></tr>
-<tr class="separator:af26c1e8d898c2bb1085a3493af118e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05c9f5a32af2c33f0acaa1ab44bb851e" id="r_a05c9f5a32af2c33f0acaa1ab44bb851e"><td class="memItemLeft" align="right" valign="top">List&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05c9f5a32af2c33f0acaa1ab44bb851e">GetInmuneContra</a> ()</td></tr>
-<tr class="memdesc:a05c9f5a32af2c33f0acaa1ab44bb851e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna la lista de los tipos que no generan daño contra el tipo del Pokémon.  <br /></td></tr>
-<tr class="separator:a05c9f5a32af2c33f0acaa1ab44bb851e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d5492f6d43525392d2756bdf4471752" id="r_a6d5492f6d43525392d2756bdf4471752"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d5492f6d43525392d2756bdf4471752">GetTipo</a> ()</td></tr>
-<tr class="memdesc:a6d5492f6d43525392d2756bdf4471752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna el nombre del tipo del Pokémon.  <br /></td></tr>
-<tr class="separator:a6d5492f6d43525392d2756bdf4471752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:add71b229171060169b9eb049e17a3298" id="r_add71b229171060169b9eb049e17a3298"><td class="memItemLeft" align="right" valign="top">List&lt; <a class="el" href="classLibrary_1_1Ataque.html">Ataque</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add71b229171060169b9eb049e17a3298">ataques</a> = new List&lt;<a class="el" href="classLibrary_1_1Ataque.html">Ataque</a>&gt;()</td></tr>
-<tr class="memdesc:add71b229171060169b9eb049e17a3298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atributo que indica la lista de ataques del Pokémon.  <br /></td></tr>
-<tr class="separator:add71b229171060169b9eb049e17a3298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae493cfadce2084879aa097df86db70d" id="r_aae493cfadce2084879aa097df86db70d"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae493cfadce2084879aa097df86db70d">GetAtaque</a> ()</td></tr>
+<tr class="memdesc:aae493cfadce2084879aa097df86db70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el nombre del <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> del Pokémon.  <br /></td></tr>
+<tr class="separator:aae493cfadce2084879aa097df86db70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f48743d4561bc89f80d311930b01a10" id="r_a3f48743d4561bc89f80d311930b01a10"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f48743d4561bc89f80d311930b01a10">GetAtaqueEspecial</a> ()</td></tr>
+<tr class="memdesc:a3f48743d4561bc89f80d311930b01a10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devuelve el nombre del <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> Especial del Pokémon.  <br /></td></tr>
+<tr class="separator:a3f48743d4561bc89f80d311930b01a10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a00c426a1254382d5e08db41affef65db" id="r_a00c426a1254382d5e08db41affef65db"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00c426a1254382d5e08db41affef65db">Nombre</a><code> [get, protected set]</code></td></tr>
 <tr class="memdesc:a00c426a1254382d5e08db41affef65db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene o establece un string que indica el nombre del Pokémon.  <br /></td></tr>
 <tr class="separator:a00c426a1254382d5e08db41affef65db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6030b068a691ce171b3d26e2ecada19a" id="r_a6030b068a691ce171b3d26e2ecada19a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLibrary_1_1Tipo.html">Tipo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6030b068a691ce171b3d26e2ecada19a">Tipo</a><code> [get, protected set]</code></td></tr>
-<tr class="memdesc:a6030b068a691ce171b3d26e2ecada19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene o establece un <a class="el" href="classLibrary_1_1Tipo.html" title="Esta es la clase abstracta Tipo. Se encarga de determinar las propiedades que tendrán los tipos que l...">Tipo</a> que indica tipo del Pokémon.  <br /></td></tr>
-<tr class="separator:a6030b068a691ce171b3d26e2ecada19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc4c1d2f1483875da479258d02b3f62c" id="r_adc4c1d2f1483875da479258d02b3f62c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc4c1d2f1483875da479258d02b3f62c">Tipo</a><code> [get, protected set]</code></td></tr>
+<tr class="memdesc:adc4c1d2f1483875da479258d02b3f62c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene o establece un string que indica tipo del Pokémon.  <br /></td></tr>
+<tr class="separator:adc4c1d2f1483875da479258d02b3f62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0dc0199e78ec32da1d73903d7b7b40" id="r_a2e0dc0199e78ec32da1d73903d7b7b40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLibrary_1_1AtaqueEspecial.html">AtaqueEspecial</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e0dc0199e78ec32da1d73903d7b7b40">AtaqueEspecial</a><code> [get]</code></td></tr>
+<tr class="memdesc:a2e0dc0199e78ec32da1d73903d7b7b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> Especial del Pokémon.  <br /></td></tr>
+<tr class="separator:a2e0dc0199e78ec32da1d73903d7b7b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36a893715a5abf2eb8ac8b8bad528c24" id="r_a36a893715a5abf2eb8ac8b8bad528c24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLibrary_1_1Ataque.html">Ataque</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36a893715a5abf2eb8ac8b8bad528c24">Ataque</a><code> [get]</code></td></tr>
+<tr class="memdesc:a36a893715a5abf2eb8ac8b8bad528c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene el <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> del Pokémon.  <br /></td></tr>
+<tr class="separator:a36a893715a5abf2eb8ac8b8bad528c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca7dbaaa0f792396c66433fdafaff05b" id="r_aca7dbaaa0f792396c66433fdafaff05b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca7dbaaa0f792396c66433fdafaff05b">Dormido</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:aca7dbaaa0f792396c66433fdafaff05b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtiene o establece un bool que indica si el Pokémon está dormido.  <br /></td></tr>
 <tr class="separator:aca7dbaaa0f792396c66433fdafaff05b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,8 +174,8 @@ Properties</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00005">5</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ada39ae8079299fb5cf8f3afc22804b6d" name="ada39ae8079299fb5cf8f3afc22804b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada39ae8079299fb5cf8f3afc22804b6d">&#9670;&#160;</a></span>Pokemon()</h2>
+<a id="a6aacb4caa6a237389143c116696e356c" name="a6aacb4caa6a237389143c116696e356c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6aacb4caa6a237389143c116696e356c">&#9670;&#160;</a></span>Pokemon()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -195,7 +188,17 @@ Properties</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classLibrary_1_1Tipo.html">Tipo</a></td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>&#160;)</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>tipo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLibrary_1_1Ataque.html">Ataque</a></td>          <td class="paramname"><span class="paramname"><em>ataque</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLibrary_1_1AtaqueEspecial.html">AtaqueEspecial</a></td>          <td class="paramname"><span class="paramname"><em>ataqueEspecial</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -237,12 +240,59 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00079">79</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00089">89</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><!-- SVG 1 --></div>
 </div>
+
+</div>
+</div>
+<a id="aae493cfadce2084879aa097df86db70d" name="aae493cfadce2084879aa097df86db70d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae493cfadce2084879aa097df86db70d">&#9670;&#160;</a></span>GetAtaque()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Library.Pokemon.GetAtaque </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el nombre del <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> del Pokémon. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00105">105</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 2 --></div>
+</div>
+
+</div>
+</div>
+<a id="a3f48743d4561bc89f80d311930b01a10" name="a3f48743d4561bc89f80d311930b01a10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f48743d4561bc89f80d311930b01a10">&#9670;&#160;</a></span>GetAtaqueEspecial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string Library.Pokemon.GetAtaqueEspecial </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Devuelve el nombre del <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> Especial del Pokémon. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00112">112</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -263,91 +313,12 @@ Here is the caller graph for this function:</div>
 
 <p>Se encarga de retornar los ataques del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00058">58</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00068">68</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 3 --></div>
 </div>
-</div>
-<a id="ab72286d3c3e475d1e64faba0b2cbdc50" name="ab72286d3c3e475d1e64faba0b2cbdc50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab72286d3c3e475d1e64faba0b2cbdc50">&#9670;&#160;</a></span>GetDebilContra()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt; string &gt; Library.Pokemon.GetDebilContra </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna la lista de los tipos que son fuertes contra el tipo del Pokémon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00094">94</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
-
-</div>
-</div>
-<a id="a05c9f5a32af2c33f0acaa1ab44bb851e" name="a05c9f5a32af2c33f0acaa1ab44bb851e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05c9f5a32af2c33f0acaa1ab44bb851e">&#9670;&#160;</a></span>GetInmuneContra()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt; string &gt; Library.Pokemon.GetInmuneContra </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna la lista de los tipos que no generan daño contra el tipo del Pokémon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00108">108</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
-
-</div>
-</div>
-<a id="af26c1e8d898c2bb1085a3493af118e58" name="af26c1e8d898c2bb1085a3493af118e58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af26c1e8d898c2bb1085a3493af118e58">&#9670;&#160;</a></span>GetResistenteContra()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt; string &gt; Library.Pokemon.GetResistenteContra </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna la lista de los tipos que son débiles contra el tipo del Pokémon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00101">101</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
-
-</div>
-</div>
-<a id="a6d5492f6d43525392d2756bdf4471752" name="a6d5492f6d43525392d2756bdf4471752"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d5492f6d43525392d2756bdf4471752">&#9670;&#160;</a></span>GetTipo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">string Library.Pokemon.GetTipo </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna el nombre del tipo del Pokémon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00116">116</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -374,35 +345,68 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00087">87</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00097">97</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 2 --></div>
+<div class="center"><!-- SVG 4 --></div>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="add71b229171060169b9eb049e17a3298" name="add71b229171060169b9eb049e17a3298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add71b229171060169b9eb049e17a3298">&#9670;&#160;</a></span>ataques</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;<a class="el" href="classLibrary_1_1Ataque.html">Ataque</a>&gt; Library.Pokemon.ataques = new List&lt;<a class="el" href="classLibrary_1_1Ataque.html">Ataque</a>&gt;()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Atributo que indica la lista de ataques del Pokémon. </p>
-
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00054">54</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a id="a36a893715a5abf2eb8ac8b8bad528c24" name="a36a893715a5abf2eb8ac8b8bad528c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36a893715a5abf2eb8ac8b8bad528c24">&#9670;&#160;</a></span>Ataque</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLibrary_1_1Ataque.html">Ataque</a> Library.Pokemon.Ataque</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtiene el <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> del Pokémon. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00036">36</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+
+</div>
+</div>
+<a id="a2e0dc0199e78ec32da1d73903d7b7b40" name="a2e0dc0199e78ec32da1d73903d7b7b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0dc0199e78ec32da1d73903d7b7b40">&#9670;&#160;</a></span>AtaqueEspecial</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLibrary_1_1AtaqueEspecial.html">AtaqueEspecial</a> Library.Pokemon.AtaqueEspecial</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obtiene el <a class="el" href="classLibrary_1_1Ataque.html" title="Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...">Ataque</a> Especial del Pokémon. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00032">32</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+
+</div>
+</div>
 <a id="aca7dbaaa0f792396c66433fdafaff05b" name="aca7dbaaa0f792396c66433fdafaff05b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca7dbaaa0f792396c66433fdafaff05b">&#9670;&#160;</a></span>Dormido</h2>
 
@@ -425,7 +429,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un bool que indica si el Pokémon está dormido. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00034">34</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00044">44</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -451,7 +455,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un bool que indica si el Pokémon está envenenado. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00042">42</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00052">52</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -477,7 +481,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un string que indica el nombre del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00022">22</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00024">24</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -503,7 +507,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un bool que indica si el Pokémon está paralizado. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00038">38</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00048">48</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -529,12 +533,12 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un bool que indica si el Pokémon está quemadoo. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00046">46</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00056">56</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
-<a id="a6030b068a691ce171b3d26e2ecada19a" name="a6030b068a691ce171b3d26e2ecada19a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6030b068a691ce171b3d26e2ecada19a">&#9670;&#160;</a></span>Tipo</h2>
+<a id="adc4c1d2f1483875da479258d02b3f62c" name="adc4c1d2f1483875da479258d02b3f62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc4c1d2f1483875da479258d02b3f62c">&#9670;&#160;</a></span>Tipo</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -543,7 +547,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLibrary_1_1Tipo.html">Tipo</a> Library.Pokemon.Tipo</td>
+          <td class="memname">string Library.Pokemon.Tipo</td>
         </tr>
       </table>
   </td>
@@ -553,9 +557,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Obtiene o establece un <a class="el" href="classLibrary_1_1Tipo.html" title="Esta es la clase abstracta Tipo. Se encarga de determinar las propiedades que tendrán los tipos que l...">Tipo</a> que indica tipo del Pokémon. </p>
+<p>Obtiene o establece un string que indica tipo del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00026">26</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00028">28</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -581,7 +585,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene o establece un int que indica los turnos dormido del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00050">50</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00060">60</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -607,7 +611,7 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene un int que indica la vida inicial del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00065">65</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00075">75</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
@@ -633,12 +637,12 @@ Here is the caller graph for this function:</div>
 
 <p>Obtiene un int que indica la vida total del Pokémon. </p>
 
-<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00070">70</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pokemon_8cs_source.html#l00080">80</a> of file <a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>C:/Users/Estudiante UCU/programación 2/PII_Pokemon/src/Library/Otros/<a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a></li>
+<li>C:/Users/Isabela/Desktop/INGENIERÍA/Programación II/Repositorios/pii_2024_2_equipo14/src/Library/Otros/<a class="el" href="Pokemon_8cs_source.html">Pokemon.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

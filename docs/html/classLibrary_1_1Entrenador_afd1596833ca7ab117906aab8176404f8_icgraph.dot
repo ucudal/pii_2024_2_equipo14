@@ -8,5 +8,5 @@ digraph "Library.Entrenador.Recuperar"
   rankdir="RL";
   Node1 [id="Node000001",label="Library.Entrenador.Recuperar",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Agrega al catálogo un Pokémon que fue reivivido."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Library.Revivir.RevivirPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#a1d63143fefc6502b34a1db40d516a345",tooltip="Revive a un Pokémon muerto."];
+  Node2 [id="Node000002",label="Library.Revivir.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#aaf9186cce4a92cd501fc502ce80fa943",tooltip="Revive a un Pokémon con el 50% de su vida inicial."];
 }

@@ -25,8 +25,13 @@
 var NAVTREE =
 [
   [ "PII_Pokemon", "index.html", [
-    [ "<em>PROYECTO FINAL PROGRAMACIÓN II: Batalla Pokemon, ChatBot</em>", "md_C_1_2Users_2Estudiante_01UCU_2programaci_xC3_xB3n_012_2PII__Pokemon_2README.html", [
-      [ "Segunda Entrega:", "md_C_1_2Users_2Estudiante_01UCU_2programaci_xC3_xB3n_012_2PII__Pokemon_2README.html#autotoc_md1", null ]
+    [ "Qué hay configurado en esta plantilla", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html", [
+      [ "Convenciones", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md1", null ],
+      [ "Dónde encontrar información sobre los errores/avisos al compilar", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md2", null ],
+      [ "Cómo deshabilitar temporalmente los avisos al compilar", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md3", [
+        [ "Roslyn Analyzer", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md4", null ],
+        [ "StyleCop Analyzer", "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md5", null ]
+      ] ]
     ] ],
     [ "Packages", "namespaces.html", [
       [ "Package List", "namespaces.html", "namespaces_dup" ]
@@ -36,9 +41,8 @@ var NAVTREE =
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
         [ "Properties", "functions_prop.html", null ]
       ] ]
     ] ],
@@ -50,8 +54,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"Agua_8cs_source.html",
-"classLibrary_1_1Zzz.html"
+"AddPokemonCommand_8cs_source.html",
+"classLibraryTests_1_1PokemonTests.html",
+"classLibrary_1_1LeaveCommand.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
