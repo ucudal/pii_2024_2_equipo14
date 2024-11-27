@@ -4,3 +4,4 @@ Agregué métodos en la clase Mensaje y en la clase Facade. Agregué a ambas un 
 
 ![icegif-102](https://github.com/user-attachments/assets/835e5659-9fb5-44bd-8775-20dd7c717354)
 
+![more-transparent-gifs-i-made-from-the-pokémon-anime-for-an-v0-gpgs9aohta9a1](https://github.com/user-attachments/assets/4f93fa64-bff9-4d7e-b42e-bd86fd7cebde)
