@@ -14,7 +14,7 @@ Estamos muy conformes con los resultados, creemos que reutilizamos la mayor cant
 ## *Tercera Entrega:*
 
 Desde nuestro punto de vista, esta entrega fue la más dificil a comparación de las dos anteriores. La implementación del chatbot llevó a varios cambios en nuestro código, principalmente en la fachada, eso llevó a atrasarnos un poco y que sea más a contrarreloj, pero estamos conformes con los resultados. Nos pareció divertido poder hacer nuestro propio bot de discord porque era algo totalmente nuevo pero nos gustó mucho. En la entrega pasada tuvimos problemas con la coherencia y convenciones de código que tuvimos que corregir para esta entrega así que nos llevó más tiempo del esperado. 
-Nos pareció un trabajo difícil pero nos gustó mucho el resultado y nos parece que aprendimos bastante al hacerlo. Nos hubiera gustado que haya más compromiso de parte del grupo, ya qué muchas veces se sobrecarga a personas de tareas para hacer en vez de dividir bien todo porque falta compromiso. De igual forma estamos conformes con el resultado porque le dedicamos mucho tiempo, paciencia y ganas a este proyecto.
+Nos pareció un trabajo difícil pero nos gustó mucho el resultado y nos parece que aprendimos bastante al hacerlo. Nos hubiera gustado que haya más compromiso de parte del grupo, ya qué muchas veces se sobrecarga a personas de tareas para hacer en vez de dividir bien todo porque falta compromiso. De igual forma estamos conformes con el resultado porque algunas integrantes le dedicamos mucho tiempo, paciencia y ganas a este proyecto.
 
 
 ![200e8d139737079 6234b0487404d](https://github.com/user-attachments/assets/3304b914-9e23-4f7d-8d02-d2c1f75d9c3d)
