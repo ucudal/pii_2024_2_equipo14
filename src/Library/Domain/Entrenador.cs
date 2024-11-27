@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Runtime.InteropServices;
 
 namespace Library
@@ -138,6 +139,68 @@ namespace Library
         public string GetPokemonActual()
         {
             return this.PokemonActual.Nombre;
+        }
+
+        public bool ReglasAceptadas { get; set; }
+        public string ReglasPropuestas { get; private set; }
+
+        public void ProponerReglas(List<string>? tipo, List<string>? tipoR, List<string>? pokemon,
+            List<string>? pokemonR, List<string>? item, List<string> itemR)
+        {
+            string reglas = "";
+            if (tipo == null && pokemon == null && item == null && tipoR == null && pokemonR == null && itemR == null)
+            {
+                reglas = "";
+            }
+            if (tipo != null)
+            {
+                reglas += $"TIPOS PERMITIDOS: ";
+                foreach (string t in tipo)
+                {
+                    reglas += t;
+                }
+            }
+            if (tipoR != null)
+            {
+                reglas += $"TIPOS PROHIBIDOS: ";
+                foreach (string tr in tipoR)
+                {
+                    reglas += tr;
+                }
+            }
+            if (pokemon != null)
+            {
+                reglas += $"POkÉMON PERMITIDOS: ";
+                foreach (string poke in pokemon)
+                {
+                    reglas += poke;
+                }
+            }
+            if (pokemonR != null)
+            {
+                reglas += $"POKÉMON PROHIBIDOS: ";
+                foreach (string pokeR in pokemonR)
+                {
+                    reglas += pokeR;
+                }
+            }
+            if (item != null)
+            {
+                reglas += $"ITEMS PERMITIDOS: ";
+                foreach (string it in item)
+                {
+                    reglas += it;
+                }
+            }
+            if (itemR != null)
+            {
+                reglas += $"ITEMS PROHIBIDOS: ";
+                foreach (string itR in itemR)
+                {
+                    reglas += itR;
+                }
+            }
+            this.ReglasPropuestas = reglas;
         }
     }
 }

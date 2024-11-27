@@ -1,5 +1,6 @@
 using Library;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 
 namespace LibraryTests;
 /// <summary>
@@ -457,5 +458,35 @@ public class FacadeTests
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-    
+
+    /// <summary>
+    /// TEST DE DEFENSA (PUSE QUE SEA EL JUGADOR1 PORQUE ES EL QUE COMIENZA LA BATALLA, POR LO TANTO PUEDE ESTABLECER REGLAS)
+    /// </summary>
+    [Test]
+    public void TestComenzarBatallaConReglas()
+    {
+        Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        Entrenador jugador1 = instance.GetJugadorListaDeEspera("j1"); //nuevo método
+        Entrenador jugador2 = instance.GetJugadorListaDeEspera("j2"); //nuevo método
+        jugador1.ProponerReglas(new List<string> { "Agua" },new List<string>(),new List<string>(), new List<string>(),new List<string>(),new List<string>{"SuperPoción"});
+        instance.AceptarReglas(jugador2);
+        string resultado = instance.ComenzarBatalla("j1", "j2");
+        Assert.That(resultado.Contains("TIPOS PERMITIDOS: Agua"));
+        Assert.That(resultado.Contains("ITEMS PROHIBIDOS: SuperPoción"));
+    }
+
+    [Test]
+    public void TestComenzarBatallaConReglasDenegadas()
+    {
+        Facade instance = Facade.Instance;
+        instance.AgregarJugadorListaDeEspera("j1");
+        instance.AgregarJugadorListaDeEspera("j2");
+        Entrenador jugador1 = instance.GetJugadorListaDeEspera("j1"); //nuevo método
+        Entrenador jugador2 = instance.GetJugadorListaDeEspera("j2"); //nuevo método
+        jugador1.ProponerReglas(new List<string> { "Agua" },new List<string>(),new List<string>(), new List<string>(),new List<string>(),new List<string>{"SuperPoción"});
+        string resultado = instance.ComenzarBatalla("j1", "j2");
+        Assert.That(resultado, Is.EqualTo("No se ha podido crear la batalla"));
+    }
 }

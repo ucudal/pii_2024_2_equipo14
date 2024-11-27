@@ -199,6 +199,11 @@
             Este test comprueba que se quite correctamente un muerto del catálogo.
             </summary>
         </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestProponerReglas">
+            <summary>
+            TEST DE DEFENSA
+            </summary>
+        </member>
         <member name="T:LibraryTests.FacadeTests">
             <summary>
             Esta es la clase FacadeTests. Se encarga de comprobar sus funcionalidades.
@@ -327,6 +332,11 @@
         <member name="M:LibraryTests.FacadeTests.TestChequeoEstado">
             <summary>
             Este test comprueba que se pueda obtener el estado de una batalla (si hay alguno con Pokémons vivos).
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestComenzarBatallaConReglas">
+            <summary>
+            TEST DE DEFENSA (PUSE QUE SEA EL JUGADOR1 PORQUE ES EL QUE COMIENZA LA BATALLA, POR LO TANTO PUEDE ESTABLECER REGLAS)
             </summary>
         </member>
         <member name="T:LibraryTests.IncendioTests">

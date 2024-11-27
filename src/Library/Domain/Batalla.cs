@@ -96,5 +96,15 @@ namespace Library
             int pokemonRandom = random.Next(0, 6);
             jugador.PokemonActual = jugador.GetMiCatalogo()[pokemonRandom];
         }
+
+        public string Reglas { get; private set; }
+
+        public void SetReglas(string? reglas1)
+        {
+            if (reglas1 != null)
+            {
+                Reglas = reglas1;
+            }
+        }
     }
 }

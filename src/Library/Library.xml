@@ -451,7 +451,7 @@
             <param name="opponentDisplayName">El oponente.</param>
             <returns>Un mensaje con el resultado.</returns>
         </member>
-        <member name="M:Library.Facade.CrearBatalla(System.String,System.String)">
+        <member name="M:Library.Facade.CrearBatalla(System.String,System.String,System.Boolean)">
             <summary>
             Crea la batalla
             </summary>

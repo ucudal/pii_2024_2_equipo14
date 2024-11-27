@@ -91,6 +91,17 @@ public class EntrenadorTests
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMisMuertos().Contains(pokemon)));
     }
+
+    /// <summary>
+    /// TEST DE DEFENSA
+    /// </summary>
+    [Test]
+    public void TestProponerReglas()
+    { 
+       entrenador.ProponerReglas(new List<string> { "Agua" },new List<string>(),new List<string>(), new List<string>(),new List<string>(),new List<string>{"SuperPoción"});
+       Assert.That(entrenador.ReglasPropuestas.Contains("TIPOS PERMITIDOS: Agua"));
+       Assert.That(entrenador.ReglasPropuestas.Contains("ITEMS PROHIBIDOS: SuperPoción"));
+    }
 }
 
     

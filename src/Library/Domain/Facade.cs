@@ -41,7 +41,6 @@ public class Facade
     {
         _instance = null;
     }
-
     /// <summary>
     /// Obtiene la lista de espera.
     /// </summary>
@@ -102,7 +101,8 @@ public class Facade
             return $"{displayName} no está en la lista de espera";
         }
     }
-
+    
+    
     /// <summary>
     /// Obtiene la lista de jugadores esperando.
     /// </summary>
@@ -139,6 +139,17 @@ public class Facade
         return $"{displayName} está esperando";
     }
 
+    public Entrenador GetJugadorListaDeEspera(string displayName)
+    {
+        Entrenador? trainer = this.ListaDeEspera.EncontrarJugadorPorUsuario(displayName);
+        if (trainer == null)
+        {
+            return null;
+        }
+
+        return trainer;
+    }
+    
     /// <summary>
     /// Crea una batalla entre dos jugadores.
     /// </summary>
@@ -150,23 +161,16 @@ public class Facade
         // El símbolo ? luego de Trainer indica que la variable opponent puede
         // referenciar una instancia de Trainer o ser null.
         Entrenador? opponent;
+        opponent = this.ListaDeEspera.GetAlguienEsperando(opponentDisplayName);
 
         if (!OpponentProvided() && !SomebodyIsWaiting())
         {
             return "No hay nadie esperando";
         }
-
-        if (!OpponentProvided() && this.ListaDeEspera.Count > 0)
+        if (this.ListaDeEspera.Count > 0 && opponent.ReglasAceptadas)
         {
-            opponent = this.ListaDeEspera.GetAlguienEsperando(opponentDisplayName);
-
-            // El símbolo ! luego de opponent indica que sabemos que esa
-            // variable no es null. Estamos seguros porque SomebodyIsWaiting
-            // retorna true si y solo si hay usuarios esperando y en tal caso
-            // GetAnyoneWaiting nunca retorna null.
-            return this.CrearBatalla(playerDisplayName, opponent!.Nombre);
+            return this.CrearBatalla(playerDisplayName, opponent!.Nombre,true);   
         }
-
         // El símbolo ! luego de opponentDisplayName indica que sabemos que esa
         // variable no es null. Estamos seguros porque OpponentProvided hubiera
         // retorna false antes y no habríamos llegado hasta aquí.
@@ -176,9 +180,8 @@ public class Facade
         {
             return $"{opponentDisplayName} no está esperando";
         }
-
-        return this.CrearBatalla(playerDisplayName, opponent!.Nombre);
-
+        return this.CrearBatalla(playerDisplayName, opponent!.Nombre,false);   
+        
         // Funciones locales a continuación para mejorar la legibilidad
 
         bool OpponentProvided()
@@ -196,17 +199,40 @@ public class Facade
             return opponent != null;
         }
     }
+    public void AceptarReglas(Entrenador jugador2)
+    {
+        jugador2.ReglasAceptadas = true;
+    }
 
     /// <summary>
     /// Crea la batalla
     /// </summary>
-    private string CrearBatalla(string playerDisplayName, string opponentDisplayName)
+    private string CrearBatalla(string playerDisplayName, string opponentDisplayName, bool esperado)
     {
-
-        this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
-        this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
-        this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
-        return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}";
+        Entrenador jugador1 = Facade.Instance.GetJugadorListaDeEspera(playerDisplayName);
+        Entrenador jugador2 = Facade.Instance.GetJugadorListaDeEspera(opponentDisplayName);
+        if (jugador1.ReglasPropuestas == "" && esperado)
+        {
+            this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
+            Batalla batalla = this.EncontrarBatallaPorUsuario(playerDisplayName);
+            batalla.SetReglas(null);
+            this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
+            this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
+            return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}" + batalla.Reglas;   
+        }
+        else if (esperado)
+        {
+            this.ListaBatallas.AgregarBatalla(playerDisplayName, opponentDisplayName);
+            Batalla batalla = this.EncontrarBatallaPorUsuario(playerDisplayName);
+            batalla.SetReglas(jugador1.ReglasPropuestas);
+            this.ListaDeEspera.QuitarEntrenador(playerDisplayName);
+            this.ListaDeEspera.QuitarEntrenador(opponentDisplayName);
+            return $"Comienza la batalla entre {playerDisplayName} y {opponentDisplayName}" + batalla.Reglas;
+        }
+        else
+        {
+            return "No se ha podido crear la batalla";
+        }
     }
 
     /// <summary>
