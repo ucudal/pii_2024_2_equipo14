@@ -8,7 +8,9 @@ digraph "Library.Pokemon.Curar"
   rankdir="RL";
   Node1 [id="Node000001",label="Library.Pokemon.Curar",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Se encarga de curar al Pokémon."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Library.Revivir.RevivirPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#a1d63143fefc6502b34a1db40d516a345",tooltip="Revive a un Pokémon muerto."];
+  Node2 [id="Node000002",label="Library.Revivir.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#aaf9186cce4a92cd501fc502ce80fa943",tooltip="Revive a un Pokémon con el 50% de su vida inicial."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Library.SuperPocion.Super\lPocionar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1SuperPocion.html#a942a92ffd5500f769189ae454af7ca17",tooltip="Le suma 70 puntos de vida a un Pokémon o la vida que le falta para volver a tener la vida inicial."];
+  Node3 [id="Node000003",label="Library.SuperPocion.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1SuperPocion.html#a3254b3843a548c1b7824b3d670ce6d57",tooltip="Cura al Pokémon ingresado otorgándole 70 puntos de vida o los que le falten para tener el máximo."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LibraryTests.PokemonTests.\lTestCurar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1PokemonTests.html#aff2fd5461a0647a976f863ffb2ac5db2",tooltip="Este test comprueba que se cure determinados puntos de vida correctamente."];
 }

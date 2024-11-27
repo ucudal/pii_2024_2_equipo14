@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PII_Pokemon: C:/Users/Estudiante UCU/programación 2/PII_Pokemon/test/LibraryTests/AtaqueTests.cs Source File</title>
+<title>PII_Pokemon: C:/Users/Isabela/Desktop/INGENIERÍA/Programación II/Repositorios/pii_2024_2_equipo14/test/LibraryTests/AtaqueTests.cs Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,44 +102,56 @@ $(function(){initNavTree('AtaqueTests_8cs_source.html',''); initResizable(true);
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="keyword">using </span><a class="code hl_namespace" href="namespaceLibrary.html">Library</a>;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">using </span>NUnit.Framework;</div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="}">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="namespaceLibraryTests.html">    4</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLibraryTests.html">LibraryTests</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLibraryTests.html">LibraryTests</a>;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>[TestFixture]</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>[TestOf(typeof(<a class="code hl_namespace" href="namespaceLibrary.html">Library</a>.<a class="code hl_class" href="classLibrary_1_1Ataque.html">Ataque</a>))]</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>[TestOf(typeof(<a class="code hl_class" href="classLibrary_1_1Ataque.html">Ataque</a>))]</div>
 <div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classLibraryTests_1_1AtaqueTests.html">   10</a></span><span class="keyword">public</span> <span class="keyword">class </span><a class="code hl_class" href="classLibraryTests_1_1AtaqueTests.html">AtaqueTests</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">private</span> <a class="code hl_class" href="classLibrary_1_1Ataque.html">Ataque</a> ataque;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    [SetUp]</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span> <span class="keywordtype">void</span> SetUp()</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        ataque = <span class="keyword">new</span> <a class="code hl_class" href="classLibrary_1_1Ataque.html">Ataque</a>(<span class="stringliteral">&quot;Ataque&quot;</span>,10,80,<span class="stringliteral">&quot;Fuego&quot;</span>);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    [Test]</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">public</span> <span class="keywordtype">void</span> TestCrearAtaque()</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">string</span> esperado = <span class="stringliteral">&quot;Ataque&quot;</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordtype">int</span> esperado1 = 10;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keywordtype">int</span> esperado2 = 80;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordtype">string</span> esperado3 = <span class="stringliteral">&quot;Fuego&quot;</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        Assert.That(esperado,Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#ae0913f960576ab9c1115fdce9ac1b232">Nombre</a>));</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        Assert.That(esperado1,Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#a61ecc9fee89d0cd506d5fd2f6e6426d4">Dano</a>));</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        Assert.That(esperado2,Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0">Precision</a>));</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        Assert.That(esperado3,Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#a57d73c7dfc2352f3fb97247405010e78">Tipo</a>));</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    }</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    [<a class="code hl_function" href="classLibraryTests_1_1AtaqueTests.html#a362ed8b9b0cab08b456a30a4d514359b">SetUp</a>]</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classLibraryTests_1_1AtaqueTests.html#a362ed8b9b0cab08b456a30a4d514359b">   17</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLibraryTests_1_1AtaqueTests.html#a362ed8b9b0cab08b456a30a4d514359b">SetUp</a>()</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        ataque = <span class="keyword">new</span> <a class="code hl_class" href="classLibrary_1_1Ataque.html">Ataque</a>(<span class="stringliteral">&quot;Florecer&quot;</span>, 10, 70, <span class="stringliteral">&quot;Planta&quot;</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
 </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    [Test] </div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classLibraryTests_1_1AtaqueTests.html#a1032cbbb2fdbc9b17bc8c7073f446bde">   25</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLibraryTests_1_1AtaqueTests.html#a1032cbbb2fdbc9b17bc8c7073f446bde">TestCrearAtaque</a>() </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">string</span> esperado = <span class="stringliteral">&quot;Florecer&quot;</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        Assert.That(esperado, Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#ae0913f960576ab9c1115fdce9ac1b232">Nombre</a>));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">int</span> esperado2 = 10;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        Assert.That(esperado2, Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#a61ecc9fee89d0cd506d5fd2f6e6426d4">Dano</a>));</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">int</span> esperado3 = 70;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        Assert.That(esperado3, Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0">Precision</a>));</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">string</span> esperado4 = <span class="stringliteral">&quot;Planta&quot;</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        Assert.That(esperado4, Is.EqualTo(ataque.<a class="code hl_property" href="classLibrary_1_1Ataque.html#a57d73c7dfc2352f3fb97247405010e78">Tipo</a>));</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    } </div>
 </div>
-<div class="ttc" id="aclassLibraryTests_1_1AtaqueTests_html"><div class="ttname"><a href="classLibraryTests_1_1AtaqueTests.html">LibraryTests.AtaqueTests</a></div><div class="ttdoc">Esta es la clase AtaqueTests. Se encarga de comprobar que se logre instanciar correctamente un Ataque...</div><div class="ttdef"><b>Definition</b> <a href="#l00010">AtaqueTests.cs:11</a></div></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    [Test]</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classLibraryTests_1_1AtaqueTests.html#af574e2e20f06c0af589c3fe41c3f63c8">   41</a></span>    <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLibraryTests_1_1AtaqueTests.html#af574e2e20f06c0af589c3fe41c3f63c8">TestCalcularPrecision</a>()</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">int</span> preciso = ataque.<a class="code hl_function" href="classLibrary_1_1Ataque.html#adf80f1e641d5c92541a8fe470a98968d">CalcularPrecision</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        Assert.That(preciso,Is.LessThanOrEqualTo(1));</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
+</div>
+<div class="ttc" id="aclassLibraryTests_1_1AtaqueTests_html"><div class="ttname"><a href="classLibraryTests_1_1AtaqueTests.html">LibraryTests.AtaqueTests</a></div><div class="ttdoc">Esta es la clase AtaqueTests. Se encarga de comprobar sus funcionalidades.</div><div class="ttdef"><b>Definition</b> <a href="#l00010">AtaqueTests.cs:11</a></div></div>
+<div class="ttc" id="aclassLibraryTests_1_1AtaqueTests_html_a1032cbbb2fdbc9b17bc8c7073f446bde"><div class="ttname"><a href="classLibraryTests_1_1AtaqueTests.html#a1032cbbb2fdbc9b17bc8c7073f446bde">LibraryTests.AtaqueTests.TestCrearAtaque</a></div><div class="ttdeci">void TestCrearAtaque()</div><div class="ttdoc">Este test comprueba que se cree correctamente un Ataque.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">AtaqueTests.cs:25</a></div></div>
+<div class="ttc" id="aclassLibraryTests_1_1AtaqueTests_html_a362ed8b9b0cab08b456a30a4d514359b"><div class="ttname"><a href="classLibraryTests_1_1AtaqueTests.html#a362ed8b9b0cab08b456a30a4d514359b">LibraryTests.AtaqueTests.SetUp</a></div><div class="ttdeci">void SetUp()</div><div class="ttdoc">En este SetUp instanciamos objetos que necesitaremos para testear esta clase.</div><div class="ttdef"><b>Definition</b> <a href="#l00017">AtaqueTests.cs:17</a></div></div>
+<div class="ttc" id="aclassLibraryTests_1_1AtaqueTests_html_af574e2e20f06c0af589c3fe41c3f63c8"><div class="ttname"><a href="classLibraryTests_1_1AtaqueTests.html#af574e2e20f06c0af589c3fe41c3f63c8">LibraryTests.AtaqueTests.TestCalcularPrecision</a></div><div class="ttdeci">void TestCalcularPrecision()</div><div class="ttdoc">Este test comprueba que se calcule correctamente la precisión de manera aleatoria.</div><div class="ttdef"><b>Definition</b> <a href="#l00041">AtaqueTests.cs:41</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Ataque_html"><div class="ttname"><a href="classLibrary_1_1Ataque.html">Library.Ataque</a></div><div class="ttdoc">Esta es la clase Ataque. Se encarga de crear instancias de ataques que usarán los Pokémons en la bata...</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00005">Ataque.cs:6</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1Ataque_html_a57d73c7dfc2352f3fb97247405010e78"><div class="ttname"><a href="classLibrary_1_1Ataque.html#a57d73c7dfc2352f3fb97247405010e78">Library.Ataque.Tipo</a></div><div class="ttdeci">string Tipo</div><div class="ttdoc">Obtiene o establece un string que indica el tipo del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00028">Ataque.cs:28</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1Ataque_html_a61ecc9fee89d0cd506d5fd2f6e6426d4"><div class="ttname"><a href="classLibrary_1_1Ataque.html#a61ecc9fee89d0cd506d5fd2f6e6426d4">Library.Ataque.Dano</a></div><div class="ttdeci">int Dano</div><div class="ttdoc">Obtiene o establece un valor (int) que indica el daño del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00032">Ataque.cs:32</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Ataque_html_a57d73c7dfc2352f3fb97247405010e78"><div class="ttname"><a href="classLibrary_1_1Ataque.html#a57d73c7dfc2352f3fb97247405010e78">Library.Ataque.Tipo</a></div><div class="ttdeci">string Tipo</div><div class="ttdoc">Obtiene o establece un string que indica el tipo del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00036">Ataque.cs:36</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Ataque_html_a61ecc9fee89d0cd506d5fd2f6e6426d4"><div class="ttname"><a href="classLibrary_1_1Ataque.html#a61ecc9fee89d0cd506d5fd2f6e6426d4">Library.Ataque.Dano</a></div><div class="ttdeci">int Dano</div><div class="ttdoc">Obtiene o establece un valor (int) que indica el daño del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00028">Ataque.cs:28</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Ataque_html_adf80f1e641d5c92541a8fe470a98968d"><div class="ttname"><a href="classLibrary_1_1Ataque.html#adf80f1e641d5c92541a8fe470a98968d">Library.Ataque.CalcularPrecision</a></div><div class="ttdeci">int CalcularPrecision()</div><div class="ttdoc">Calcula si el ataque es preciso, es decir, si hace o no daño/causa un efecto en la víctima.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00043">Ataque.cs:43</a></div></div>
 <div class="ttc" id="aclassLibrary_1_1Ataque_html_ae0913f960576ab9c1115fdce9ac1b232"><div class="ttname"><a href="classLibrary_1_1Ataque.html#ae0913f960576ab9c1115fdce9ac1b232">Library.Ataque.Nombre</a></div><div class="ttdeci">string Nombre</div><div class="ttdoc">Obtiene o establece un string que indica el nombre del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00024">Ataque.cs:24</a></div></div>
-<div class="ttc" id="aclassLibrary_1_1Ataque_html_af2433f9a50515da671a3ce9f8df0f5b0"><div class="ttname"><a href="classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0">Library.Ataque.Precision</a></div><div class="ttdeci">int Precision</div><div class="ttdoc">Obtiene o establece un valor (int) que indica la precisión del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00036">Ataque.cs:36</a></div></div>
-<div class="ttc" id="anamespaceLibraryTests_html"><div class="ttname"><a href="namespaceLibraryTests.html">LibraryTests</a></div><div class="ttdef"><b>Definition</b> <a href="#l00004">AtaqueTests.cs:4</a></div></div>
+<div class="ttc" id="aclassLibrary_1_1Ataque_html_af2433f9a50515da671a3ce9f8df0f5b0"><div class="ttname"><a href="classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0">Library.Ataque.Precision</a></div><div class="ttdeci">int Precision</div><div class="ttdoc">Obtiene o establece un valor (int) que indica la precisión del ataque.</div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00032">Ataque.cs:32</a></div></div>
+<div class="ttc" id="anamespaceLibraryTests_html"><div class="ttname"><a href="namespaceLibraryTests.html">LibraryTests</a></div><div class="ttdef"><b>Definition</b> <a href="AtacarTests_8cs_source.html#l00004">AtacarTests.cs:4</a></div></div>
 <div class="ttc" id="anamespaceLibrary_html"><div class="ttname"><a href="namespaceLibrary.html">Library</a></div><div class="ttdef"><b>Definition</b> <a href="Ataque_8cs_source.html#l00001">Ataque.cs:1</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

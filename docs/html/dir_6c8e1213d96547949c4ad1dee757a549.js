@@ -1,7 +1,26 @@
 var dir_6c8e1213d96547949c4ad1dee757a549 =
 [
+    [ "obj", "dir_0567e4b2e116c46e2bf644a8aa059564.html", "dir_0567e4b2e116c46e2bf644a8aa059564" ],
+    [ "AtacarTests.cs", "AtacarTests_8cs_source.html", null ],
+    [ "AtaqueEspecialTests.cs", "AtaqueEspecialTests_8cs_source.html", null ],
     [ "AtaqueTests.cs", "AtaqueTests_8cs_source.html", null ],
     [ "BatallaTests.cs", "BatallaTests_8cs_source.html", null ],
+    [ "CambiarPokemonTests.cs", "CambiarPokemonTests_8cs_source.html", null ],
+    [ "CuraTotalTests.cs", "CuraTotalTests_8cs_source.html", null ],
+    [ "EfectividadTests.cs", "EfectividadTests_8cs_source.html", null ],
     [ "EntrenadorTests.cs", "EntrenadorTests_8cs_source.html", null ],
-    [ "FacadeTests.cs", "FacadeTests_8cs_source.html", null ]
+    [ "FacadeTests.cs", "FacadeTests_8cs_source.html", null ],
+    [ "IncendioTests.cs", "IncendioTests_8cs_source.html", null ],
+    [ "ListaBatallasTests.cs", "ListaBatallasTests_8cs_source.html", null ],
+    [ "ListaDeEsperaTests.cs", "ListaDeEsperaTests_8cs_source.html", null ],
+    [ "ManiquiTests.cs", "ManiquiTests_8cs_source.html", null ],
+    [ "OffTests.cs", "OffTests_8cs_source.html", null ],
+    [ "PokedexTests.cs", "PokedexTests_8cs_source.html", null ],
+    [ "PokemonTests.cs", "PokemonTests_8cs_source.html", null ],
+    [ "RevivirTests.cs", "RevivirTests_8cs_source.html", null ],
+    [ "SuperPocionTests.cs", "SuperPocionTests_8cs_source.html", null ],
+    [ "TurnoTests.cs", "TurnoTests_8cs_source.html", null ],
+    [ "UsarItemTests.cs", "UsarItemTests_8cs_source.html", null ],
+    [ "UserStoriesTests.cs", "UserStoriesTests_8cs_source.html", null ],
+    [ "ZzzTests.cs", "ZzzTests_8cs_source.html", null ]
 ];

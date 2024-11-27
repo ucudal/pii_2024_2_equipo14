@@ -1,0 +1,22 @@
+digraph "Library.Facade.Finalizar"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Facade.Finalizar",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Finaliza la batalla."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Library.Facade.Atacar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Facade.html#a3f677996d74c9736c75f387f24ff0c40",tooltip="Valida y realiza el ataque."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LibraryTests.FacadeTests.\lTestAtacar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#af22f93966c93bc6fe2965ce061b62d68",tooltip="Este test comprueba que se pueda atacar correctamente durante la batalla."];
+  Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LibraryTests.UserStories\lTests.TestUserStory3",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#a883c55f00a8c9bbfdae8dde41e5abd5b",tooltip="Este test comprueba la historia de usuario 3."];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="LibraryTests.UserStories\lTests.TestUserStory4",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#a29d230cc97f8e77e6587b51d04d34aa5",tooltip="Este test comprueba la historia de usuario 4."];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="LibraryTests.UserStories\lTests.TestUserStory6",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#aac9f6eeb44dbeb33c33a2a4c2dd34da4",tooltip="Este test comprueba la historia de usuario 6."];
+  Node1 -> Node7 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="LibraryTests.FacadeTests.\lTestFinalizar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#ae9d79d8fc2d766b3f84301b4eec15d3e",tooltip="Este test permite comprobar que se finaliza efectivamente la batalla con este método."];
+}

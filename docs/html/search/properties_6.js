@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['paralizado_0',['Paralizado',['../classLibrary_1_1Pokemon.html#ab576226abf23232b4f449b9f7541aa8a',1,'Library::Pokemon']]],
-  ['pokemonactual_1',['PokemonActual',['../classLibrary_1_1Entrenador.html#a47e16530e438a2142aaad4e8869e772c',1,'Library::Entrenador']]],
-  ['precision_2',['Precision',['../classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0',1,'Library::Ataque']]]
+  ['nombre_0',['Nombre',['../classLibrary_1_1Ataque.html#ae0913f960576ab9c1115fdce9ac1b232',1,'Library.Ataque.Nombre'],['../classLibrary_1_1Entrenador.html#a1e87b8db99045a4068cac118cb42fb85',1,'Library.Entrenador.Nombre'],['../classLibrary_1_1Item.html#abccdf7b85d993e95aca4d98782755113',1,'Library.Item.Nombre'],['../classLibrary_1_1Pokemon.html#a00c426a1254382d5e08db41affef65db',1,'Library.Pokemon.Nombre']]]
 ];

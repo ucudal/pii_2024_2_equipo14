@@ -1,6 +1,25 @@
 var namespaceLibraryTests =
 [
-    [ "AtaqueTests", "classLibraryTests_1_1AtaqueTests.html", null ],
-    [ "BatallaTests", "classLibraryTests_1_1BatallaTests.html", null ],
-    [ "EntrenadorTests", "classLibraryTests_1_1EntrenadorTests.html", null ]
+    [ "AtacarTests", "classLibraryTests_1_1AtacarTests.html", "classLibraryTests_1_1AtacarTests" ],
+    [ "AtaqueEspecialTests", "classLibraryTests_1_1AtaqueEspecialTests.html", "classLibraryTests_1_1AtaqueEspecialTests" ],
+    [ "AtaqueTests", "classLibraryTests_1_1AtaqueTests.html", "classLibraryTests_1_1AtaqueTests" ],
+    [ "BatallaTests", "classLibraryTests_1_1BatallaTests.html", "classLibraryTests_1_1BatallaTests" ],
+    [ "CambiarPokemonTests", "classLibraryTests_1_1CambiarPokemonTests.html", "classLibraryTests_1_1CambiarPokemonTests" ],
+    [ "CuraTotalTests", "classLibraryTests_1_1CuraTotalTests.html", "classLibraryTests_1_1CuraTotalTests" ],
+    [ "EfectividadTests", "classLibraryTests_1_1EfectividadTests.html", "classLibraryTests_1_1EfectividadTests" ],
+    [ "EntrenadorTests", "classLibraryTests_1_1EntrenadorTests.html", "classLibraryTests_1_1EntrenadorTests" ],
+    [ "FacadeTests", "classLibraryTests_1_1FacadeTests.html", "classLibraryTests_1_1FacadeTests" ],
+    [ "IncendioTests", "classLibraryTests_1_1IncendioTests.html", "classLibraryTests_1_1IncendioTests" ],
+    [ "ListaBatallasTests", "classLibraryTests_1_1ListaBatallasTests.html", "classLibraryTests_1_1ListaBatallasTests" ],
+    [ "ListaDeEsperaTests", "classLibraryTests_1_1ListaDeEsperaTests.html", "classLibraryTests_1_1ListaDeEsperaTests" ],
+    [ "ManiquiTests", "classLibraryTests_1_1ManiquiTests.html", "classLibraryTests_1_1ManiquiTests" ],
+    [ "OffTests", "classLibraryTests_1_1OffTests.html", "classLibraryTests_1_1OffTests" ],
+    [ "PokedexTests", "classLibraryTests_1_1PokedexTests.html", "classLibraryTests_1_1PokedexTests" ],
+    [ "PokemonTests", "classLibraryTests_1_1PokemonTests.html", "classLibraryTests_1_1PokemonTests" ],
+    [ "RevivirTests", "classLibraryTests_1_1RevivirTests.html", "classLibraryTests_1_1RevivirTests" ],
+    [ "SuperPocionTests", "classLibraryTests_1_1SuperPocionTests.html", "classLibraryTests_1_1SuperPocionTests" ],
+    [ "TurnoTests", "classLibraryTests_1_1TurnoTests.html", "classLibraryTests_1_1TurnoTests" ],
+    [ "UsarItemTests", "classLibraryTests_1_1UsarItemTests.html", "classLibraryTests_1_1UsarItemTests" ],
+    [ "UserStoriesTests", "classLibraryTests_1_1UserStoriesTests.html", "classLibraryTests_1_1UserStoriesTests" ],
+    [ "ZzzTests", "classLibraryTests_1_1ZzzTests.html", "classLibraryTests_1_1ZzzTests" ]
 ];

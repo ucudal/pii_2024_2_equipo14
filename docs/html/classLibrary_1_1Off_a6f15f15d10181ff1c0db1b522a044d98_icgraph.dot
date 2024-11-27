@@ -1,0 +1,12 @@
+digraph "Library.Off.CausarEfecto"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Off.CausarEfecto",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Causa el efecto \"Envenenar\" en el Pokémon ingresado."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LibraryTests.OffTests.Test\lCausarEfecto",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1OffTests.html#a5f027c08b13c0e452a74bf9893822b17",tooltip="Este test comprueba que este ataque ocasione el efecto \"Envenenar\" correctamente."];
+}

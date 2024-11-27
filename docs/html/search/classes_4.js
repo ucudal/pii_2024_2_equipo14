@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['electrico_0',['Electrico',['../classLibrary_1_1Electrico.html',1,'Library']]],
-  ['entrenador_1',['Entrenador',['../classLibrary_1_1Entrenador.html',1,'Library']]],
-  ['entrenadortests_2',['EntrenadorTests',['../classLibraryTests_1_1EntrenadorTests.html',1,'LibraryTests']]]
+  ['facade_0',['Facade',['../classLibrary_1_1Facade.html',1,'Library']]],
+  ['facadetests_1',['FacadeTests',['../classLibraryTests_1_1FacadeTests.html',1,'LibraryTests']]]
 ];

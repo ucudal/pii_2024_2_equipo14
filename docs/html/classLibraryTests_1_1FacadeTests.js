@@ -1,0 +1,28 @@
+var classLibraryTests_1_1FacadeTests =
+[
+    [ "SetUp", "classLibraryTests_1_1FacadeTests.html#ad59c0fcbe0a80854279e17a69b488bd2", null ],
+    [ "TestAgregarJugadorListaDeEspera", "classLibraryTests_1_1FacadeTests.html#ab4c46fd2691bef1b80c211e797ad5e2c", null ],
+    [ "TestAgregarPokemon", "classLibraryTests_1_1FacadeTests.html#ae7d0bc19b8da0b9b12971d1837cc31ec", null ],
+    [ "TestAtacar", "classLibraryTests_1_1FacadeTests.html#af22f93966c93bc6fe2965ce061b62d68", null ],
+    [ "TestCambiarPokemon", "classLibraryTests_1_1FacadeTests.html#a736ba7faf0f3e0c395cbb026e3f8be11", null ],
+    [ "TestChequeoEstado", "classLibraryTests_1_1FacadeTests.html#a6574af3081bd3ced3b41a99743af8ebb", null ],
+    [ "TestComenzarBatalla", "classLibraryTests_1_1FacadeTests.html#a385ec7d276c82e08ca229bd2eb3552fc", null ],
+    [ "TestEncontrarBatallaPorUsuario", "classLibraryTests_1_1FacadeTests.html#ae1eaae8f94aa3c79bbf3611d395e5203", null ],
+    [ "TestFinalizar", "classLibraryTests_1_1FacadeTests.html#ae9d79d8fc2d766b3f84301b4eec15d3e", null ],
+    [ "TestGetJugadoresEsperando", "classLibraryTests_1_1FacadeTests.html#a3012749c9fa1722e949ea6cc563f0cfa", null ],
+    [ "TestInicializarEncuentros", "classLibraryTests_1_1FacadeTests.html#abe4d462c04fb3e1c90ab9095252c8eb0", null ],
+    [ "TestJugadorEsperando", "classLibraryTests_1_1FacadeTests.html#acacd054d2530244b3252278df1889b2e", null ],
+    [ "TestMostrarAtaques", "classLibraryTests_1_1FacadeTests.html#ae0ef44138ff92b1d1bad878ffac20423", null ],
+    [ "TestMostrarInformacion", "classLibraryTests_1_1FacadeTests.html#a4faa8c5bdb81f1c91eb890363362af7f", null ],
+    [ "TestMostrarItems", "classLibraryTests_1_1FacadeTests.html#a303390ebe37700aee9164dbbe46307f1", null ],
+    [ "TestMostrarPokedex", "classLibraryTests_1_1FacadeTests.html#ae68e2fb36daef8a4189346a270327320", null ],
+    [ "TestPosesionAtaque", "classLibraryTests_1_1FacadeTests.html#adf5ae47e1dc4ca5a1bd4d984d7d72f2d", null ],
+    [ "TestPosesionItem", "classLibraryTests_1_1FacadeTests.html#a35c505593779d47ea2a673b211ed8d8b", null ],
+    [ "TestPosesionPokemon", "classLibraryTests_1_1FacadeTests.html#a75cfd98f1411474b93c16436c6f8fc09", null ],
+    [ "TestPosesionPokemonVivo", "classLibraryTests_1_1FacadeTests.html#a84e072ede6311907fa4bf787d3c84904", null ],
+    [ "TestQuitarJugadorListaDeEspera", "classLibraryTests_1_1FacadeTests.html#ae5529728a2c6e3992d31d63c43ca6605", null ],
+    [ "TestRevisarAccion", "classLibraryTests_1_1FacadeTests.html#a057c64e69aab56c0080df6a41185ccf2", null ],
+    [ "TestRevisarAtaque", "classLibraryTests_1_1FacadeTests.html#a2ccc9a55f8bad03867f86c4548cc6fbf", null ],
+    [ "TestRevisarItem", "classLibraryTests_1_1FacadeTests.html#a3632e26e3f560229224f833e51ff1e47", null ],
+    [ "TestUsoDeItem", "classLibraryTests_1_1FacadeTests.html#ae4c1e2218823ca49f29c0154a189cbfe", null ]
+];

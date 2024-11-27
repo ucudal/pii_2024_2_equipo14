@@ -1,0 +1,18 @@
+digraph "LibraryTests.RevivirTests.TestRealizarAccion"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="LibraryTests.RevivirTests.\lTestRealizarAccion",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Este test comprueba que este item reviva al Pokémon deseado."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Library.Item.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Item.html#aa0bc4b0b6ee0b043aac27c48acb9a0fc",tooltip="Método abstracto que los items heredarán para realizar sus acciones."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Library.Entrenador.Agregar\lMuerto",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Entrenador.html#a7ecff07e5f659054981f31e8bb19d1ef",tooltip="Agrega a un Pokémon al catálogo de muertos."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="Library.Entrenador.GetMis\lItems",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Entrenador.html#a6ab02b9dc377df32c7ccd5367bc2a8d8",tooltip="Devuelve la lista de items del entrenador."];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="Library.Pokemon.RecibirDano",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Pokemon.html#a03784149d4b8082db0019420686ac838",tooltip="Se encarga de dañar al Pokémon."];
+}

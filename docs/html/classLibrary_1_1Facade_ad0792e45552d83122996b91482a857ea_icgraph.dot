@@ -1,0 +1,18 @@
+digraph "Library.Facade.PosesionItem"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Facade.PosesionItem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Valida la posesion del item."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LibraryTests.FacadeTests.\lTestPosesionItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#a35c505593779d47ea2a673b211ed8d8b",tooltip="Este test comprueba que se pueda revisar correctamente si un jugador posee a un item en su catálogo."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Library.Facade.UsoDeItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Facade.html#a7ac5d079e9977a2966f5337b6d69507b",tooltip="Valida el uso del item."];
+  Node3 -> Node4 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LibraryTests.UserStories\lTests.TestUserStory8",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#a7a9e941044e99000f4679d42d02c80fb",tooltip="Este test comprueba la historia de usuario 8."];
+  Node3 -> Node5 [id="edge4_Node000003_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="LibraryTests.FacadeTests.\lTestUsoDeItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#ae4c1e2218823ca49f29c0154a189cbfe",tooltip="Este test comprueba que se pueda usar un item correctamente durante la batalla."];
+}

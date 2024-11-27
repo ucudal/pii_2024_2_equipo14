@@ -1,0 +1,16 @@
+digraph "Library.Facade.CambiarPokemon"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Library.Facade.CambiarPokemon",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Valida el cambio de pokemon."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="LibraryTests.FacadeTests.\lTestCambiarPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1FacadeTests.html#a736ba7faf0f3e0c395cbb026e3f8be11",tooltip="Este test comprueba que se pueda cambiar un Pokémon correctamente durante la batalla."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="LibraryTests.UserStories\lTests.TestUserStory5",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#a5e44dd67db565a27c001db09a005aa26",tooltip="Este test comprueba la historia de usuario 5."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="LibraryTests.UserStories\lTests.TestUserStory7",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1UserStoriesTests.html#a35a6fc61e1853f1ebec52d7fe39eff9b",tooltip="Este test comprueba la historia de usuario 7."];
+}

@@ -8,9 +8,11 @@ digraph "Library.Entrenador.QuitarItem"
   rankdir="RL";
   Node1 [id="Node000001",label="Library.Entrenador.QuitarItem",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Quita un item del catálogo del entrenador."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="Library.CuraTotal.CurarTotalmente",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1CuraTotal.html#a3395c901e208f7d82ff280b9030fc007",tooltip="Cura a un Pokémon de los efectos de ataques especiales."];
+  Node2 [id="Node000002",label="Library.CuraTotal.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1CuraTotal.html#ae9ccec468d60669e8414ec16c259c858",tooltip="Cura al Pokémon ingresado de efectos de ataques especiales."];
   Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="Library.Revivir.RevivirPokemon",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#a1d63143fefc6502b34a1db40d516a345",tooltip="Revive a un Pokémon muerto."];
+  Node3 [id="Node000003",label="Library.Revivir.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1Revivir.html#aaf9186cce4a92cd501fc502ce80fa943",tooltip="Revive a un Pokémon con el 50% de su vida inicial."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="Library.SuperPocion.Super\lPocionar",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1SuperPocion.html#a942a92ffd5500f769189ae454af7ca17",tooltip="Le suma 70 puntos de vida a un Pokémon o la vida que le falta para volver a tener la vida inicial."];
+  Node4 [id="Node000004",label="Library.SuperPocion.Accion",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibrary_1_1SuperPocion.html#a3254b3843a548c1b7824b3d670ce6d57",tooltip="Cura al Pokémon ingresado otorgándole 70 puntos de vida o los que le falten para tener el máximo."];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="LibraryTests.EntrenadorTests.\lTestQuitarItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classLibraryTests_1_1EntrenadorTests.html#a59eee40f2908c6e9ad7f74097cbb353c",tooltip="Este test comprueba que se quite correctamente un item del catálogo."];
 }
