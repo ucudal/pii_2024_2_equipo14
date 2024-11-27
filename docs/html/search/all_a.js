@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['leavecommand_0',['LeaveCommand',['../classLibrary_1_1LeaveCommand.html',1,'Library']]],
-  ['library_1',['Library',['../namespaceLibrary.html',1,'']]],
-  ['librarytests_2',['LibraryTests',['../namespaceLibraryTests.html',1,'']]],
-  ['listabatallas_3',['ListaBatallas',['../classLibrary_1_1ListaBatallas.html',1,'Library']]],
-  ['listabatallastests_4',['ListaBatallasTests',['../classLibraryTests_1_1ListaBatallasTests.html',1,'LibraryTests']]],
-  ['listadeespera_5',['ListaDeEspera',['../classLibrary_1_1ListaDeEspera.html',1,'Library']]],
-  ['listadeesperatests_6',['ListaDeEsperaTests',['../classLibraryTests_1_1ListaDeEsperaTests.html',1,'LibraryTests']]],
-  ['los_20avisos_20al_20compilar_7',['Cómo deshabilitar temporalmente los avisos al compilar',['../md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md3',1,'']]],
-  ['los_20errores_20avisos_20al_20compilar_8',['Dónde encontrar información sobre los errores/avisos al compilar',['../md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md2',1,'']]]
+  ['maniqui_0',['Maniqui',['../classLibrary_1_1Maniqui.html',1,'Library.Maniqui'],['../classLibrary_1_1Maniqui.html#a856df57a0778967cc67be0c10b7364ff',1,'Library.Maniqui.Maniqui()']]],
+  ['maniquitests_1',['ManiquiTests',['../classLibraryTests_1_1ManiquiTests.html',1,'LibraryTests']]],
+  ['miturno_2',['MiTurno',['../classLibrary_1_1Entrenador.html#a625629319ab606f518d42922ab7cad62',1,'Library::Entrenador']]],
+  ['modulebase_3',['ModuleBase',['../classModuleBase.html',1,'']]],
+  ['mostrarataques_4',['MostrarAtaques',['../classLibrary_1_1Facade.html#a81c87df927032c1116b17acc9d37ce13',1,'Library::Facade']]],
+  ['mostrarinformacion_5',['MostrarInformacion',['../classLibrary_1_1Facade.html#a5ef9e8570450b04b4d8bab96c1c829fe',1,'Library::Facade']]],
+  ['mostraritems_6',['MostrarItems',['../classLibrary_1_1Facade.html#a034a659563053960e3c7ed2309c4fa85',1,'Library::Facade']]],
+  ['mostrarpokedex_7',['MostrarPokedex',['../classLibrary_1_1Facade.html#a08127586d8eda96eaff0fc1d8a0c1a2e',1,'Library::Facade']]]
 ];

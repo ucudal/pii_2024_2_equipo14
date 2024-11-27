@@ -151,8 +151,6 @@ var NAVTREEINDEX2 =
 "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md1":[0,0],
 "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md2":[0,1],
 "md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md3":[0,2],
-"md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md4":[0,2,0],
-"md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html#autotoc_md5":[0,2,1],
 "namespaceLibrary.html":[1,0,0],
 "namespaceLibraryTests.html":[1,0,1],
 "namespaceUcu.html":[1,0,2],

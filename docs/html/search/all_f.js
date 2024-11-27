@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['qué_20hay_20configurado_20en_20esta_20plantilla_0',['Qué hay configurado en esta plantilla',['../md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html',1,'']]],
-  ['quemado_1',['Quemado',['../classLibrary_1_1Pokemon.html#a37e8731ab965beadaa36762fb800e5e1',1,'Library::Pokemon']]],
-  ['quitarbatalla_2',['QuitarBatalla',['../classLibrary_1_1ListaBatallas.html#af0361c6e5305a925a44397d2f87afcb7',1,'Library::ListaBatallas']]],
-  ['quitarentrenador_3',['QuitarEntrenador',['../classLibrary_1_1ListaDeEspera.html#a5137f48eb688c6e62b4e53831ccf04a2',1,'Library::ListaDeEspera']]],
-  ['quitaritem_4',['QuitarItem',['../classLibrary_1_1Entrenador.html#aaf91b2a3c57e8e2f0f3128e74e1b561a',1,'Library::Entrenador']]],
-  ['quitarjugadorlistadeespera_5',['QuitarJugadorListaDeEspera',['../classLibrary_1_1Facade.html#a53e991aa864cf41a3624d88987126845',1,'Library::Facade']]],
-  ['quitarmuerto_6',['QuitarMuerto',['../classLibrary_1_1Entrenador.html#ad4d7b3ee3a6e9c7dd7d666170e17e92e',1,'Library::Entrenador']]],
-  ['quitarpokemon_7',['QuitarPokemon',['../classLibrary_1_1Entrenador.html#a80b9c998bfc645ca372ea8f6be052205',1,'Library::Entrenador']]]
+  ['recibirdano_0',['RecibirDano',['../classLibrary_1_1Pokemon.html#a03784149d4b8082db0019420686ac838',1,'Library::Pokemon']]],
+  ['recuperar_1',['Recuperar',['../classLibrary_1_1Entrenador.html#afd1596833ca7ab117906aab8176404f8',1,'Library::Entrenador']]],
+  ['reset_2',['Reset',['../classLibrary_1_1Facade.html#ad810f7cbb0ae88bf819eaf913aaad531',1,'Library::Facade']]],
+  ['revisaraccion_3',['RevisarAccion',['../classLibrary_1_1Facade.html#a9108097f7e9e0a3b88aa48153e6ed29b',1,'Library::Facade']]],
+  ['revisarataque_4',['RevisarAtaque',['../classLibrary_1_1Facade.html#aacbee802851686b12a32f0790f5b417b',1,'Library::Facade']]],
+  ['revisaritem_5',['RevisarItem',['../classLibrary_1_1Facade.html#aee1b35ff604b85e77ac9cdea4f6f857c',1,'Library::Facade']]],
+  ['revivir_6',['Revivir',['../classLibrary_1_1Revivir.html',1,'Library.Revivir'],['../classLibrary_1_1Revivir.html#aad1c523d4b30d3ecc88c85a60aa6ca48',1,'Library.Revivir.Revivir()']]],
+  ['revivirtests_7',['RevivirTests',['../classLibraryTests_1_1RevivirTests.html',1,'LibraryTests']]]
 ];

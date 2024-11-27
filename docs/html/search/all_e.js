@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['paralizado_0',['Paralizado',['../classLibrary_1_1Pokemon.html#ab576226abf23232b4f449b9f7541aa8a',1,'Library::Pokemon']]],
-  ['plantilla_1',['Qué hay configurado en esta plantilla',['../md_C_1_2Users_2Isabela_2Desktop_2INGENIER_xC3_x8DA_2Programaci_xC3_xB3n_01II_2Repositorios_2pii__2024__2__equipo14_2README.html',1,'']]],
-  ['pokedextests_2',['PokedexTests',['../classLibraryTests_1_1PokedexTests.html',1,'LibraryTests']]],
-  ['pokemon_3',['Pokemon',['../classLibrary_1_1Pokemon.html',1,'Library.Pokemon'],['../classLibrary_1_1Pokemon.html#a6aacb4caa6a237389143c116696e356c',1,'Library.Pokemon.Pokemon()']]],
-  ['pokemonactual_4',['PokemonActual',['../classLibrary_1_1Entrenador.html#a47e16530e438a2142aaad4e8869e772c',1,'Library::Entrenador']]],
-  ['pokemontests_5',['PokemonTests',['../classLibraryTests_1_1PokemonTests.html',1,'LibraryTests']]],
-  ['posesionataque_6',['PosesionAtaque',['../classLibrary_1_1Facade.html#a2268e6f487a139bb4bf647a4fd9811f5',1,'Library::Facade']]],
-  ['posesionitem_7',['PosesionItem',['../classLibrary_1_1Facade.html#ad0792e45552d83122996b91482a857ea',1,'Library::Facade']]],
-  ['posesionpokemon_8',['PosesionPokemon',['../classLibrary_1_1Facade.html#ad356fea7d644f6847f0104827672d855',1,'Library::Facade']]],
-  ['posesionpokemonvivo_9',['PosesionPokemonVivo',['../classLibrary_1_1Facade.html#a58dd7c31d79cba054bf2a3f4a4e27262',1,'Library::Facade']]],
-  ['precision_10',['Precision',['../classLibrary_1_1Ataque.html#af2433f9a50515da671a3ce9f8df0f5b0',1,'Library::Ataque']]]
+  ['quemado_0',['Quemado',['../classLibrary_1_1Pokemon.html#a37e8731ab965beadaa36762fb800e5e1',1,'Library::Pokemon']]],
+  ['quitarbatalla_1',['QuitarBatalla',['../classLibrary_1_1ListaBatallas.html#af0361c6e5305a925a44397d2f87afcb7',1,'Library::ListaBatallas']]],
+  ['quitarentrenador_2',['QuitarEntrenador',['../classLibrary_1_1ListaDeEspera.html#a5137f48eb688c6e62b4e53831ccf04a2',1,'Library::ListaDeEspera']]],
+  ['quitaritem_3',['QuitarItem',['../classLibrary_1_1Entrenador.html#aaf91b2a3c57e8e2f0f3128e74e1b561a',1,'Library::Entrenador']]],
+  ['quitarjugadorlistadeespera_4',['QuitarJugadorListaDeEspera',['../classLibrary_1_1Facade.html#a53e991aa864cf41a3624d88987126845',1,'Library::Facade']]],
+  ['quitarmuerto_5',['QuitarMuerto',['../classLibrary_1_1Entrenador.html#ad4d7b3ee3a6e9c7dd7d666170e17e92e',1,'Library::Entrenador']]],
+  ['quitarpokemon_6',['QuitarPokemon',['../classLibrary_1_1Entrenador.html#a80b9c998bfc645ca372ea8f6be052205',1,'Library::Entrenador']]]
 ];

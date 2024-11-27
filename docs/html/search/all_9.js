@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['joincommand_0',['JoinCommand',['../classLibrary_1_1JoinCommand.html',1,'Library']]],
-  ['jugador1_1',['Jugador1',['../classLibrary_1_1Batalla.html#a74ca7c7b2a6b132cd54667c488c8003c',1,'Library::Batalla']]],
-  ['jugador2_2',['Jugador2',['../classLibrary_1_1Batalla.html#a15e5f169da6e9c9a411b98ac16dcba55',1,'Library::Batalla']]],
-  ['jugadoresperando_3',['JugadorEsperando',['../classLibrary_1_1Facade.html#aaf1f1c84cbcbef8dbe5011b6b9cb4db7',1,'Library::Facade']]]
+  ['leavecommand_0',['LeaveCommand',['../classLibrary_1_1LeaveCommand.html',1,'Library']]],
+  ['library_1',['Library',['../namespaceLibrary.html',1,'']]],
+  ['librarytests_2',['LibraryTests',['../namespaceLibraryTests.html',1,'']]],
+  ['listabatallas_3',['ListaBatallas',['../classLibrary_1_1ListaBatallas.html',1,'Library']]],
+  ['listabatallastests_4',['ListaBatallasTests',['../classLibraryTests_1_1ListaBatallasTests.html',1,'LibraryTests']]],
+  ['listadeespera_5',['ListaDeEspera',['../classLibrary_1_1ListaDeEspera.html',1,'Library']]],
+  ['listadeesperatests_6',['ListaDeEsperaTests',['../classLibraryTests_1_1ListaDeEsperaTests.html',1,'LibraryTests']]]
 ];
