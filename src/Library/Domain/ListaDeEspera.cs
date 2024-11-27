@@ -80,12 +80,9 @@ public class ListaDeEspera
     }
 
     /// <summary>
-    /// Retorna un jugador cualquiera esperando para jugar. En esta
-    /// implementación provista no es cualquiera, sino el primero. En la
-    /// implementación definitiva, debería ser uno aleatorio.
-    /// 
+    /// Retorna un jugador cualquiera esperando para jugar.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Entrenador</returns>
     public Entrenador? GetAlguienEsperando(string displayName)
     {
         if (this.entrenadores.Count == 0)

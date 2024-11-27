@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase OffTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Off))]
 public class OffTests
@@ -11,7 +13,9 @@ public class OffTests
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Pokemon pokemonAtacante;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp(){
         off = new Off();
@@ -19,6 +23,9 @@ public class OffTests
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Off());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
+    /// <summary>
+    /// Este test comprueba que se instancie correctamente un Off.
+    /// </summary>
     [Test] 
     public void TestInstanciarOff() 
     {
@@ -33,6 +40,9 @@ public class OffTests
         string esperado5 = "Envenenar";
         Assert.That(esperado5,Is.EqualTo(off.Efecto));
     }
+    /// <summary>
+    /// Este test comprueba que este ataque ocasione el efecto "Envenenar" correctamente.
+    /// </summary>
     [Test]
     public void TestCausarEfecto()
     {

@@ -2,18 +2,25 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase AtaqueEspecialTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(AtaqueEspecial))]
 public class AtaqueEspecialTests
 {
     private AtaqueEspecial ataqueEspecial;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
         ataqueEspecial = new Incendio();
     }
+    /// <summary>
+    /// Este test comprueba que se cree correctamente un Ataque Especial.
+    /// </summary>
     [Test] 
     public void TestCrearAtaqueEspecial() 
     {

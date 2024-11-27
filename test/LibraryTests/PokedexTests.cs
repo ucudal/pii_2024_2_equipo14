@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase PokedexTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Pokedex))]
 public class PokedexTests
@@ -10,6 +12,9 @@ public class PokedexTests
     private Pokemon pokemon;
     private Ataque ataque;
     private AtaqueEspecial ataqueEspecial;
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -17,7 +22,9 @@ public class PokedexTests
         ataque = pokemon.Ataque;
         ataqueEspecial = pokemon.AtaqueEspecial;
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda buscar a un Pokémon por su nombre y obtener un objeto copia de él si fue encontrado
+    /// </summary>
     [Test]
     public void TestBuscarPokemon()
     {

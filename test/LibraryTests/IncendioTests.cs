@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase IncendioTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Incendio))]
 public class IncendioTests
@@ -11,7 +13,9 @@ public class IncendioTests
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Pokemon pokemonAtacante;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp(){
         incendio = new Incendio();
@@ -19,6 +23,9 @@ public class IncendioTests
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Incendio());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
+    /// <summary>
+    /// Este test comprueba que se instancie correctamente un Incendio.
+    /// </summary>
     [Test] 
     public void TestInstanciarIncendio() 
     {
@@ -34,7 +41,9 @@ public class IncendioTests
         string esperado5 = "Quemar";
         Assert.That(esperado5,Is.EqualTo(incendio.Efecto));
     }
-
+    /// <summary>
+    /// Este test comprueba que este ataque ocasione el efecto "Quemar" correctamente.
+    /// </summary>
     [Test]
     public void TestCausarEfecto()
     {

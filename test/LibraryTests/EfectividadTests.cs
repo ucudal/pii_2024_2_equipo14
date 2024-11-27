@@ -1,8 +1,9 @@
 using Library;
 using NUnit.Framework;
-
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase EfectividadTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Efectividad))]
 public class EfectividadTests
@@ -12,7 +13,9 @@ public class EfectividadTests
     private Ataque ataque3;
     private Ataque ataque4;
     private Pokemon pokemon;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -22,7 +25,9 @@ public class EfectividadTests
         ataque4 = new Ataque("Ataque", 10, 80, "Planta");
         pokemon = new Pokemon("Pikachu", "Eléctrico", new Ataque("Rayo", 40, 20, "Eléctrico"), new Zzz());
     }
-
+    /// <summary>
+    /// Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es débil contra el ataque.
+    /// </summary>
     [Test]
     public void TestCalcularDebilidad()
     {
@@ -30,7 +35,9 @@ public class EfectividadTests
         int resultado = Efectividad.CalcularEfectividad(ataque1, pokemon);
         Assert.That(esperado, Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es resistente contra el ataque.
+    /// </summary>
     [Test]
     public void TestCalcularResistencia()
     {
@@ -38,7 +45,9 @@ public class EfectividadTests
         int resultado = Efectividad.CalcularEfectividad(ataque2, pokemon);
         Assert.That(esperado, Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es inmune contra el ataque.
+    /// </summary>
     [Test]
     public void TestCalcularInmunidad()
     {
@@ -46,7 +55,9 @@ public class EfectividadTests
         int resultado = Efectividad.CalcularEfectividad(ataque3, pokemon);
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon no cumple ninguna de las condiciones anteriores.
+    /// </summary>
     [Test]
     public void TestCalcularNormal()
     {

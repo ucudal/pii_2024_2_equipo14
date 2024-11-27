@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace LibraryTests;
 /// <summary>
-/// Esta es la clase EntrenadorTests. Se encarga de comprobar que se logre instanciar correctamente un Entrenador.
+/// Esta es la clase EntrenadorTests. Se encarga de comprobar sus funcionalidades.
 /// </summary>
 [TestFixture]
 [TestOf(typeof(Entrenador))]
@@ -12,7 +12,9 @@ public class EntrenadorTests
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Item item;
-    
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -20,14 +22,18 @@ public class EntrenadorTests
         pokemon = new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
         item = new CuraTotal();
     }
-
+    /// <summary>
+    /// Este test comprueba que se cree correctamente un Entrenador.
+    /// </summary>
     [Test]
     public void TestCrearEntrenador()
     {
         string esperado = "Entrenador";
         Assert.That(esperado, Is.EqualTo(entrenador.Nombre));
     }
-
+    /// <summary>
+    /// Este test comprueba que se agregue correctamente un Pokémon al catálogo.
+    /// </summary>
     [Test]
     public void TestAgregarPokemon()
     {
@@ -35,7 +41,9 @@ public class EntrenadorTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMiCatalogo().Contains(pokemon)));
     }
-
+    /// <summary>
+    /// Este test comprueba que se quite correctamente un Pokémon del catálogo.
+    /// </summary>
     [Test]
     public void TestQuitarPokemon()
     {
@@ -43,7 +51,9 @@ public class EntrenadorTests
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMiCatalogo().Contains(pokemon)));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se agregue correctamente un item al catálogo.
+    /// </summary>
     [Test]
     public void TestAgregarItem()
     {
@@ -51,7 +61,9 @@ public class EntrenadorTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(item)));
     }
-
+    /// <summary>
+    /// Este test comprueba que se quite correctamente un item del catálogo.
+    /// </summary>
     [Test]
     public void TestQuitarItem()
     {
@@ -59,7 +71,9 @@ public class EntrenadorTests
         bool esperado = false;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMisItems().Contains(item)));
     }
-
+    /// <summary>
+    /// Este test comprueba que se agregue correctamente un muerto al catálogo.
+    /// </summary>
     [Test]
     public void TestAgregarMuerto()
     {
@@ -67,7 +81,9 @@ public class EntrenadorTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(entrenador.GetMisMuertos().Contains(pokemon)));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se quite correctamente un muerto del catálogo.
+    /// </summary>
     [Test]
     public void TestQuitarMuerto()
     {

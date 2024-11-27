@@ -369,6 +369,23 @@
             Inicializa este singleton. Es necesario solo en los tests.
             </summary>
         </member>
+        <member name="P:Library.Facade.ListaDeEspera">
+            <summary>
+            Obtiene la lista de espera.
+            </summary>
+        </member>
+        <member name="P:Library.Facade.ListaBatallas">
+            <summary>
+            Obtiene la lista de batallas.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.EncontrarBatallaPorUsuario(System.String)">
+            <summary>
+            Busca la batalla según el usuario ingresado.
+            </summary>
+            <param name="usuario">El nombre de usuario a buscar en batalla"</param>
+            <returns><c>batalla</c> si se encuentra la batalla <c></c> en caso contrario.</returns>
+        </member>
         <member name="M:Library.Facade.AgregarJugadorListaDeEspera(System.String)">
             <summary>
             Agrega un jugador a la lista de espera.
@@ -404,6 +421,101 @@
             <param name="opponentDisplayName">El oponente.</param>
             <returns>Un mensaje con el resultado.</returns>
         </member>
+        <member name="M:Library.Facade.CrearBatalla(System.String,System.String)">
+            <summary>
+            Crea la batalla
+            </summary>
+        </member>
+        <member name="M:Library.Facade.MostrarInformacion(Library.Entrenador)">
+            <summary>
+            Muestra la información de un entrenador.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.MostrarPokedex">
+            <summary>
+            Muestra los pokemones disponibles para elegir.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.AgregarPokemon(Library.Entrenador,System.String)">
+            <summary>
+            Agrega los Pokémones al catalogo del entrenador
+            </summary>
+        </member>
+        <member name="M:Library.Facade.InicializarEncuentros(Library.Batalla)">
+            <summary>
+            Asigna los Pokémones iniciales y pone en marcha la batalla.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.RevisarAccion(Library.Entrenador,System.String)">
+            <summary>
+            Validar la acción elegida.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.RevisarAtaque(Library.Entrenador,Library.Pokemon,System.String,Library.Pokemon)">
+            <summary>
+            Valida el ataque elegido.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.PosesionAtaque(Library.Pokemon,System.String)">
+            <summary>
+            Valida si el pokemon actual tiene el ataque elegido disponible.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.PosesionPokemonVivo(Library.Entrenador,System.String)">
+            <summary>
+            Verifica si tenemos el pokemon elegido vivo.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.PosesionPokemon(Library.Entrenador,System.String)">
+            <summary>
+            Devuelve si poseemos ese pokemon en algún catalogo, vivo o muerto.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.Atacar(Library.Entrenador,System.String,Library.Entrenador)">
+            <summary>
+            Valida y realiza el ataque
+            </summary>
+        </member>
+        <member name="M:Library.Facade.UsoDeItem(Library.Entrenador,System.String,System.String,Library.Entrenador)">
+            <summary>
+            Valida el uso del item
+            </summary>
+        </member>
+        <member name="M:Library.Facade.MostrarAtaques(Library.Pokemon,System.Boolean)">
+            <summary>
+            Muestra los ataques disponibles.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.MostrarItems(Library.Entrenador)">
+            <summary>
+            Muestra los items disponibles.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.RevisarItem(Library.Entrenador,Library.Item,Library.Pokemon)">
+            <summary>
+            Valida el item.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.PosesionItem(Library.Entrenador,System.String)">
+            <summary>
+            Valida la posesion del item.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.Finalizar(Library.Batalla)">
+            <summary>
+            Finaliza la batalla
+            </summary>
+        </member>
+        <member name="M:Library.Facade.CambiarPokemon(Library.Entrenador,System.String,Library.Entrenador)">
+            <summary>
+            Valida el cambio de pokemon.
+            </summary>
+        </member>
+        <member name="M:Library.Facade.ChequeoEstado(Library.Batalla)">
+            <summary>
+            Chequea que los jugadores tengan todavía Pokémones.
+            </summary>
+        </member>
         <member name="T:Library.ListaBatallas">
             <summary>
             Esta clase representa la lista de batallas en curso.
@@ -416,6 +528,12 @@
             <param name="j1">El primer jugador.</param>
             <param name="j2">El oponente.</param>
             <returns>La batalla creada.</returns>
+        </member>
+        <member name="M:Library.ListaBatallas.QuitarBatalla(Library.Batalla)">
+            <summary>
+            Quita una batalla de la lista de batallas.
+            </summary>
+            <param name="batalla">batalla a eliminar.</param>
         </member>
         <member name="T:Library.ListaDeEspera">
             <summary>
@@ -455,12 +573,9 @@
         </member>
         <member name="M:Library.ListaDeEspera.GetAlguienEsperando(System.String)">
             <summary>
-            Retorna un jugador cualquiera esperando para jugar. En esta
-            implementación provista no es cualquiera, sino el primero. En la
-            implementación definitiva, debería ser uno aleatorio.
-            
+            Retorna un jugador cualquiera esperando para jugar.
             </summary>
-            <returns></returns>
+            <returns>Entrenador</returns>
         </member>
         <member name="T:Library.CuraTotal">
             <summary>
@@ -547,6 +662,78 @@
             </summary>
             <param name="ataque">El ataque que se está utilizando.</param>
             <param name="pokemon">El Pokémon que está siendo atacado.</param>
+        </member>
+        <member name="T:Library.Mensaje">
+            <summary>
+            Esta es la clase estática Mensaje. Define los mensajes a retornar según la acción que se ejecute en el código.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.PokedexDisponibles">
+            <summary>
+            Devuelve la lista de la Pokédex
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.PokemonesDisponibles(Library.Entrenador)">
+            <summary>
+            Muestra los pokemones disponibles del catalogo del entrenador a la hora de cambiar de Pokémon actual.
+            </summary>
+            <param name="entrenador">Nombre del entrenador.</param>
+        </member>
+        <member name="M:Library.Mensaje.AtaquesDisponibles(Library.Pokemon,System.Boolean)">
+            <summary>
+            Muestra los ataques disponibles para el turno.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.ItemsDisponibles(Library.Entrenador)">
+            <summary>
+            Muestra los items disponibles para su uso.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Library.Mensaje.InformacionGeneral(Library.Entrenador)" -->
+        <member name="M:Library.Mensaje.PokemonesIniciales(Library.Batalla)">
+            <summary>
+            Muestra los Pokémones actuales elegidos aleatoriamente para cada entrenador en una batalla.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.Turno(Library.Entrenador)">
+            <summary>
+            Muestra de quien es el turno. 
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.AccionInvalida">
+            <summary>
+            Retorna que la acción elegida no es válida.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.AtaqueInvalido">
+            <summary>
+            Retorna que el ataque elegido no es válido.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.PokemonInvalido">
+            <summary>
+            Retorna que el pokemon elegido no es válido
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.Encuentro(Library.Entrenador,Library.Ataque,Library.Entrenador)">
+            <summary>
+            Devuelve mensaje de encuentro, menciona ataque usado, a qué pokemon ha atacado y la información general de cada jugador.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.UsoItem(Library.Entrenador,Library.Item,Library.Pokemon)">
+            <summary>
+            Muestra el uso de item de un entrenador.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.Fin(Library.Batalla,Library.Entrenador,Library.Entrenador)">
+            <summary>
+            Muestra el fin de la batalla, quién fue el ganador y quién fue el perdedor.
+            </summary>
+        </member>
+        <member name="M:Library.Mensaje.CambioPokemon(Library.Entrenador)">
+            <summary>
+            Muestra el cambio de Pokémon actual de un entrenador..
+            </summary>
         </member>
         <member name="T:Library.Pokedex">
             <summary>

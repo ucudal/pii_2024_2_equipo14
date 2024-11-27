@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace LibraryTests;
 /// <summary>
-/// Esta es la clase BatallaTests. Se encarga de comprobar que se logre instanciar correctamente una Batalla.
+/// Esta es la clase BatallaTests. Se encarga de comprobar sus funcionalidades.
 /// </summary>
 [TestFixture]
 [TestOf(typeof(Batalla))]
@@ -12,7 +12,9 @@ public class BatallaTests
     private Batalla batalla;
     private Entrenador jugador1;
     private Entrenador jugador2;
-    
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -20,7 +22,9 @@ public class BatallaTests
         jugador2 = new Entrenador("Jugador2");
         batalla = new Batalla(jugador1,jugador2);
     }
-
+    /// <summary>
+    /// Este test comprueba que se cree correctamente una Batalla.
+    /// </summary>
     [Test]
     public void TestCrearBatalla()
     {
@@ -32,7 +36,9 @@ public class BatallaTests
         Assert.That(esperado3,Is.EqualTo(jugador1.GetMisItems().Count));
         Assert.That(esperado3,Is.EqualTo(jugador2.GetMisItems().Count));
     }
-
+    /// <summary>
+    /// Este test comprueba que se asigne correctamente un Pokémon actual a cada jugador.
+    /// </summary>
     [Test]
     public void TestAsignarInicial()
     {

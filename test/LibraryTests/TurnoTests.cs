@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase TurnoTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Turno))]
 public class TurnoTests
@@ -13,7 +15,9 @@ public class TurnoTests
     private Pokemon cambio;
     private Pokemon pokemonOp;
     private Item curaTotal;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -30,7 +34,9 @@ public class TurnoTests
         oponente.PokemonActual = pokemonOp;
         jugador.MiTurno = true;
     }
-
+    /// <summary>
+    /// Este test comprueba que se valide correctamente la acción "Atacar".
+    /// </summary>
     [Test]
     public void TestValidarAtacar()
     {
@@ -38,7 +44,9 @@ public class TurnoTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se valide correctamente una ataque.
+    /// </summary>
     [Test]
     public void TestValidarAtaque()
     {
@@ -46,7 +54,9 @@ public class TurnoTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se realice correctamente la acción "Atacar".
+    /// </summary>
     [Test]
     public void TestHacerAtacar()
     {
@@ -58,7 +68,9 @@ public class TurnoTests
         Assert.That(esperado1,Is.EqualTo(jugador.MiTurno));
         Assert.That(esperado2,Is.EqualTo(oponente.MiTurno));
     }
-
+    /// <summary>
+    /// Este test comprueba que se valide correctamente la acción "Usar Item".
+    /// </summary>
     [Test]
     public void TestValidarUsarItem()
     {
@@ -67,7 +79,9 @@ public class TurnoTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se valide correctamente un item.
+    /// </summary>
     [Test]
     public void TestValidarItem()
     {
@@ -76,7 +90,9 @@ public class TurnoTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se realice correctamente la acción "Usar Item".
+    /// </summary>
     [Test]
     public void TestHacerUsoItem()
     {
@@ -88,7 +104,9 @@ public class TurnoTests
         Assert.That(esperado, Is.EqualTo(jugador.MiTurno));
         Assert.That(esperado1, Is.EqualTo(oponente.MiTurno));
     }
-
+    /// <summary>
+    /// Este test comprueba que se valide correctamente la acción "Cambiar Pokémon".
+    /// </summary>
     [Test]
     public void TestValidarCambiarPokemon()
     {
@@ -96,7 +114,9 @@ public class TurnoTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se realice correctamente la acción "Cambiar Pokémon".
+    /// </summary>
     [Test]
     public void TestHacerCambioPokemon()
     {

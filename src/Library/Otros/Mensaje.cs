@@ -1,10 +1,14 @@
 using System.Text;
-using Microsoft.Extensions.Primitives;
 
 namespace Library;
-
+/// <summary>
+/// Esta es la clase estática Mensaje. Define los mensajes a retornar según la acción que se ejecute en el código.
+/// </summary>
 public static class Mensaje
 {
+    /// <summary>
+    /// Devuelve la lista de la Pokédex
+    /// </summary>
     public static string PokedexDisponibles()
     {
         StringBuilder mensaje = new StringBuilder();
@@ -15,7 +19,10 @@ public static class Mensaje
         }
         return mensaje.ToString();
     }
-
+    /// <summary>
+    /// Muestra los pokemones disponibles del catalogo del entrenador a la hora de cambiar de Pokémon actual.
+    /// </summary>
+    /// <param name="entrenador">Nombre del entrenador.</param>
     public static string PokemonesDisponibles(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -57,7 +64,10 @@ public static class Mensaje
 
         return mensaje.ToString();
     }
-
+ 
+    /// <summary>
+    /// Muestra los ataques disponibles para el turno.
+    /// </summary>
     public static string AtaquesDisponibles(Pokemon pokemon, bool especial)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -81,6 +91,9 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra los items disponibles para su uso.
+    /// </summary>
     public static string ItemsDisponibles(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -127,7 +140,10 @@ public static class Mensaje
 
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra la información general de cada entrenador, todos sus Pokémones disponibles.
+    /// <summary>
     public static string InformacionGeneral(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -173,7 +189,10 @@ public static class Mensaje
         }
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra los Pokémones actuales elegidos aleatoriamente para cada entrenador en una batalla.
+    /// </summary>
     public static string PokemonesIniciales(Batalla batalla)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -184,27 +203,42 @@ public static class Mensaje
         mensaje.AppendLine(Mensaje.Turno(batalla.Jugador1));
         return mensaje.ToString();
     }
-
+    
+    /// <summary>
+    /// Muestra de quien es el turno. 
+    /// </summary>
     public static string Turno(Entrenador entrenador)
     {
         return $"\n------------------TURNO DE {entrenador.Nombre}------------------";
     }
 
+    /// <summary>
+    /// Retorna que la acción elegida no es válida.
+    /// </summary>
     public static string AccionInvalida()
     {
         return "No puedes realizar esa acción";
     }
 
+    /// <summary>
+    /// Retorna que el ataque elegido no es válido.
+    /// </summary>
     public static string AtaqueInvalido()
     {
         return "No posees ese ataque";
     }
 
+    /// <summary>
+    /// Retorna que el pokemon elegido no es válido
+    /// </summary>
     public static string PokemonInvalido()
     {
         return "No posees ese Pokémon";
     }
-
+        
+    /// <summary>
+    /// Devuelve mensaje de encuentro, menciona ataque usado, a qué pokemon ha atacado y la información general de cada jugador.
+    /// </summary>
     public static string Encuentro(Entrenador entrenador, Ataque ataque, Entrenador oponente)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -218,6 +252,9 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra el uso de item de un entrenador.
+    /// </summary>
     public static string UsoItem(Entrenador entrenador, Item item, Pokemon pokemon)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -234,9 +271,14 @@ public static class Mensaje
         {
             mensaje.Append(Mensaje.Turno(batalla.Jugador1));
         }
+        
         return mensaje.ToString();
     }
-
+    
+    
+    /// <summary>
+    /// Muestra el fin de la batalla, quién fue el ganador y quién fue el perdedor.
+    /// </summary>
     public static string Fin(Batalla batalla, Entrenador ganador, Entrenador perdedor)
     {
         StringBuilder mensaje = new StringBuilder();
@@ -246,11 +288,15 @@ public static class Mensaje
         return mensaje.ToString();
     }
 
+    /// <summary>
+    /// Muestra el cambio de Pokémon actual de un entrenador..
+    /// </summary>
     public static string CambioPokemon(Entrenador entrenador)
     {
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine($"{entrenador.Nombre} ha cambiado su Pokémon actual a {entrenador.GetPokemonActual()}");
         Batalla batalla = Facade.Instance.EncontrarBatallaPorUsuario(entrenador.Nombre);
+
         if (batalla.GetNombreJ1() == entrenador.Nombre)
         {
             mensaje.Append(Mensaje.Turno(batalla.Jugador2));

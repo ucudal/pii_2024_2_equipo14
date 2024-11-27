@@ -26,7 +26,10 @@ public class ListaBatallas
         this.batallas.Add(battle);
         return battle;
     }
-
+    /// <summary>
+    /// Quita una batalla de la lista de batallas.
+    /// </summary>
+    /// <param name="batalla">batalla a eliminar.</param>
     public void QuitarBatalla(Batalla batalla)
     {
         this.batallas.Remove(batalla);

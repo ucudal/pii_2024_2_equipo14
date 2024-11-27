@@ -2,16 +2,19 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase RevivirTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Revivir))]
 public class RevivirTests
 {
-
     private Item revivir;
     private Pokemon pokemon;
     private Entrenador entrenador;
-    
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -20,7 +23,9 @@ public class RevivirTests
         entrenador = new Entrenador("Entrenador");
         entrenador.AgregarItem(revivir);
     }
-    
+    /// <summary>
+    /// Este test comprueba que se instancie correctamente un Revivir.
+    /// </summary>
     [Test]
     public void TestInstanciarRevivir()
     {
@@ -29,7 +34,9 @@ public class RevivirTests
         Assert.That(esperado,Is.EqualTo(revivir.Nombre));
         Assert.That(esperado1,Is.EqualTo(revivir.Descripcion));
     }
-
+    /// <summary>
+    /// Este test comprueba que este item reviva al Pokémon deseado.
+    /// </summary>
     [Test]
     public void TestRealizarAccion()
     {

@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase ZzzTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Zzz))]
 public class ZzzTests
@@ -12,7 +14,9 @@ public class ZzzTests
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Pokemon pokemonAtacante;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -21,6 +25,9 @@ public class ZzzTests
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Zzz());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
+    /// <summary>
+    /// Este test comprueba que se instancie correctamente un Zzz.
+    /// </summary>
     [Test] 
     public void TestInstanciarZzz() 
     {
@@ -36,7 +43,9 @@ public class ZzzTests
         string esperado5 = "Dormir";
         Assert.That(esperado5,Is.EqualTo(zzz.Efecto));
     }
-
+    /// <summary>
+    /// Este test comprueba que este ataque ocasione el efecto "Dormir" correctamente.
+    /// </summary>
     [Test]
     public void TestCausarEfecto()
     {

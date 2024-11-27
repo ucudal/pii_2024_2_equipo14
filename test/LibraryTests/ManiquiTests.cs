@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase ManiquiTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Maniqui))]
 public class ManiquiTests
@@ -11,7 +13,9 @@ public class ManiquiTests
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Pokemon pokemonAtacante;
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -20,7 +24,9 @@ public class ManiquiTests
         pokemonAtacante=new Pokemon("Bulbasaur", "Planta", new Ataque("Florecer", 10, 70, "Planta"), new Maniqui());
         pokemon=new Pokemon("Pikachu", "Eléctrico",new Ataque("Rayo",40,20, "Eléctrico"),new Zzz());
     }
-    
+    /// <summary>
+    /// Este test comprueba que se instancie correctamente un Maniqui.
+    /// </summary>
     [Test] 
     public void TestInstanciarManiqui() 
     {
@@ -36,7 +42,9 @@ public class ManiquiTests
         string esperado5 = "Paralizar";
         Assert.That(esperado5,Is.EqualTo(maniqui.Efecto));
     }
-    
+    /// <summary>
+    /// Este test comprueba que este ataque ocasione el efecto "Paralizar" correctamente.
+    /// </summary>
     [Test]
     public void TestCausarEfecto()
     {

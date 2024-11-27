@@ -2,12 +2,12 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests; 
-
+/// <summary>
+/// Esta es la clase AtacarTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Atacar))]
-/// <summary>
-/// Esta es la clase estática Atacar. Define las acciones a seguir cuando el usuario elige atacar durante la batalla.
-/// </summary>
+
 public class AtacarTests
 {
     private Entrenador atacante;
@@ -17,6 +17,9 @@ public class AtacarTests
     private  Pokemon pokemonActual; 
     private Pokemon pokemonAtacado; 
     
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     { 
@@ -29,7 +32,9 @@ public class AtacarTests
         atacante.PokemonActual = pokemonActual;
         victima.PokemonActual = pokemonAtacado;
     }
-
+    /// <summary>
+    /// Este test comprueba que se efectúe correctamente un ataque.
+    /// </summary>
     [Test]
     public void TestEncuentro()
     {

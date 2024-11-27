@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase FacadeTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(Facade))]
 public class FacadeTests
@@ -14,7 +16,9 @@ public class FacadeTests
     private Pokemon pokemon;
     private Pokemon pokemon2;
     private Batalla batalla;
-    
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     { 
@@ -25,7 +29,9 @@ public class FacadeTests
         pokemon2 = new Pokemon("Mew", "Psíquico", new Ataque("Hipnosis", 30, 80, "Psíquico"), new Off());
         batalla = new Batalla(j1, j2);
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda encontrar una batalla de la lista de batallas por el nombre de un jugador.
+    /// </summary>
     [Test]
     public void TestEncontrarBatallaPorUsuario()
     {
@@ -36,7 +42,9 @@ public class FacadeTests
         Batalla resultado = instance.EncontrarBatallaPorUsuario("j1");
         Assert.That(resultado,Is.Not.Null);
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda agregar correctamente un jugador a la lista de espera.
+    /// </summary>
     [Test]
     public void TestAgregarJugadorListaDeEspera()
     {
@@ -49,7 +57,9 @@ public class FacadeTests
         string esperado2 = "j1 ya está en la lista de espera";
         Assert.That(esperado2,Is.EqualTo(resultado2));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda quitar correctamente un jugador de la lista de espera.
+    /// </summary>
     [Test]
     public void TestQuitarJugadorListaDeEspera()
     {
@@ -63,7 +73,9 @@ public class FacadeTests
         string esperado2 = "j1 no está en la lista de espera";
         Assert.That(esperado2, Is.EqualTo(resultado2));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda obtener los nombres de los jugadores en la lista de espera.
+    /// </summary>
     [Test]
     public void TestGetJugadoresEsperando()
     {
@@ -77,7 +89,9 @@ public class FacadeTests
         string esperado2 = "Esperan: j1; ";
         Assert.That(esperado2,Is.EqualTo(resultado2));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda obtener si un jugador está en la lista de espera.
+    /// </summary>
     [Test]
     public void TestJugadorEsperando()
     {
@@ -91,6 +105,9 @@ public class FacadeTests
         string esperado2 = "j1 está esperando";
         Assert.That(esperado2,Is.EqualTo(resultado2));
     }
+    /// <summary>
+    /// Este test comprueba que se pueda comenzar una batalla.
+    /// </summary>
     [Test]
     public void TestComenzarBatalla()
     {
@@ -110,7 +127,9 @@ public class FacadeTests
         string esperado3 = "No hay nadie esperando";
         Assert.That(esperado3,Is.EqualTo(resultado3));
     }
-   
+    /// <summary>
+    /// Este test comprueba que se pueda obtener la información de un jugador.
+    /// </summary>
     [Test]
     public void TestMostrarInformacion()
     {
@@ -119,7 +138,9 @@ public class FacadeTests
         string esperado = "\n\r\nCATÁLOGO DE j1:\r\n";
         Assert.That(esperado, Is.EqualTo(resultado));
     }
-   
+    /// <summary>
+    /// Este test comprueba que se pueda obtener la lista de la Pokédex.
+    /// </summary>
     [Test]
     public void TestMostrarPokedex()
     {
@@ -128,7 +149,9 @@ public class FacadeTests
         string esperado = "\nPOKÉDEX (Elige 6):\r\n \t - Bulbasaur | Tipo: Planta\r\n";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda agregar un Pokémon durante la batalla.
+    /// </summary>
     [Test]
     public void TestAgregarPokemon()
     {
@@ -159,6 +182,9 @@ public class FacadeTests
         string esperado4 = "j1, ya tienes 6 Pokémones";
         Assert.That(esperado4,Is.EqualTo(resultado4));
     }
+    /// <summary>
+    /// Este test comprueba que se pueda inicializar la batalla y asignar Pokémones actuales a los jugadores.
+    /// </summary>
     [Test]
     public void TestInicializarEncuentros()
     {
@@ -184,7 +210,9 @@ public class FacadeTests
         Assert.That(esperado1,Is.EqualTo(resultado1));
         Assert.That(esperado2,Is.EqualTo(batalla.EnBatalla));
     }
-     
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido realizar una acción.
+    /// </summary>
     [Test]
     public void TestRevisarAccion()
     {
@@ -212,7 +240,9 @@ public class FacadeTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-      
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido usar un ataque.
+    /// </summary>
     [Test]
     public void TestRevisarAtaque()
     {
@@ -221,7 +251,9 @@ public class FacadeTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-      
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador posee un ataque.
+    /// </summary>
     [Test]
     public void TestPosesionAtaque()
     {
@@ -230,7 +262,9 @@ public class FacadeTests
         Ataque esperado = pokemon.Ataque;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador posee a un Pokémon de su catálogo.
+    /// </summary>
     [Test]
     public void TestPosesionPokemonVivo()
     {
@@ -240,7 +274,9 @@ public class FacadeTests
         Pokemon esperado = j1.GetMiCatalogo()[0];
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador posee un Pokémon vivo o muerto.
+    /// </summary>
     [Test]
     public void TestPosesionPokemon()
     {
@@ -250,7 +286,9 @@ public class FacadeTests
         Pokemon esperado = j1.GetMiCatalogo()[0];
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda atacar correctamente durante la batalla.
+    /// </summary>
     [Test]
     public void TestAtacar()
     {
@@ -277,7 +315,9 @@ public class FacadeTests
         string esperado = "\n\r\nATAQUE DE j1:\r\n \t - Pikachu ha atacado a Mew de j2";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-    
+    /// <summary>
+    /// Este test comprueba que se pueda usar un item correctamente durante la batalla.
+    /// </summary>
     [Test]
     public void TestUsoDeItem()
     {
@@ -309,7 +349,9 @@ public class FacadeTests
         string esperado = $"\n\r\nUSO DE ITEM DE e1:\r\n \t - SúperPoción fue usado en {pokemonafectado.Nombre}\r\n\n";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-   
+    /// <summary>
+    /// Este test comprueba que se pueda obtener los ataques disponibles para el turno.
+    /// </summary>
     [Test]
     public void TestMostrarAtaques()
     {
@@ -319,6 +361,9 @@ public class FacadeTests
         Assert.That(esperado,Is.EqualTo(resultado));
     }
     
+    /// <summary>
+    /// Este test comprueba que se pueda obtener los items disponibles para usar.
+    /// </summary>
     [Test]
     public void TestMostrarItems()
     {
@@ -328,7 +373,9 @@ public class FacadeTests
         string esperado = "\n\r\nITEMS DISPONIBLES DE j1:\r\n \t - ¨Revivir¨";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido usar un item.
+    /// </summary>
     [Test]
     public void TestRevisarItem()
     {
@@ -340,7 +387,9 @@ public class FacadeTests
         bool esperado = true;
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda revisar correctamente si un jugador posee a un item en su catálogo.
+    /// </summary>
     [Test]
     public void TestPosesionItem()
     {
@@ -350,7 +399,9 @@ public class FacadeTests
         Item esperado = j1.GetMisItems()[0];
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-   
+    /// <summary>
+    /// Este test permite comprobar que se finaliza efectivamente la batalla con este método.
+    /// </summary>
     [Test]
     public void TestFinalizar()
     {
@@ -365,7 +416,9 @@ public class FacadeTests
         string esperado = $"\n\r\nFIN DE LA BATALLA:\r\n \t - j1 le ha ganado a j2\r\n";
         Assert.That(esperado,Is.EqualTo(resultado));
     }
-   
+    /// <summary>
+    /// Este test comprueba que se pueda cambiar un Pokémon correctamente durante la batalla.
+    /// </summary>
     [Test]
     public void TestCambiarPokemon()
     {
@@ -393,7 +446,9 @@ public class FacadeTests
         string esperado = "j1 ha cambiado su Pokémon actual a Mew";
         Assert.That(esperado,Is.EqualTo(resultado.Substring(0,38)));
     }
-
+    /// <summary>
+    /// Este test comprueba que se pueda obtener el estado de una batalla (si hay alguno con Pokémons vivos).
+    /// </summary>
     [Test]
     public void TestChequeoEstado()
     {

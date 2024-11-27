@@ -4,14 +4,689 @@
         <name>LibraryTests</name>
     </assembly>
     <members>
+        <member name="T:LibraryTests.AtacarTests">
+            <summary>
+            Esta es la clase AtacarTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtacarTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtacarTests.TestEncuentro">
+            <summary>
+            Este test comprueba que se efectúe correctamente un ataque.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.AtaqueEspecialTests">
+            <summary>
+            Esta es la clase AtaqueEspecialTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtaqueEspecialTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtaqueEspecialTests.TestCrearAtaqueEspecial">
+            <summary>
+            Este test comprueba que se cree correctamente un Ataque Especial.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.AtaqueTests">
+            <summary>
+            Esta es la clase AtaqueTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtaqueTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtaqueTests.TestCrearAtaque">
+            <summary>
+            Este test comprueba que se cree correctamente un Ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.AtaqueTests.TestCalcularPrecision">
+            <summary>
+            Este test comprueba que se calcule correctamente la precisión de manera aleatoria.
+            </summary>
+        </member>
         <member name="T:LibraryTests.BatallaTests">
             <summary>
-            Esta es la clase BatallaTests. Se encarga de comprobar que se logre instanciar correctamente una Batalla.
+            Esta es la clase BatallaTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BatallaTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BatallaTests.TestCrearBatalla">
+            <summary>
+            Este test comprueba que se cree correctamente una Batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.BatallaTests.TestAsignarInicial">
+            <summary>
+            Este test comprueba que se asigne correctamente un Pokémon actual a cada jugador.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.CambiarPokemonTests">
+            <summary>
+            Esta es la clase CambiarPokemonTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CambiarPokemonTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CambiarPokemonTests.TestCambioDePokemon">
+            <summary>
+            Este test comprueba que se cambie a un nuevo Pokémon actual de los del catálogo del entrenador.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.CuraTotalTests">
+            <summary>
+            Esta es la clase CuraTotalTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.TestInstanciarCuraTotal">
+            <summary>
+            Este test comprueba que se instancie correctamente una CuraTotal.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.TestRealizarAccion1">
+            <summary>
+            Este test comprueba que este item cure del efecto dormido al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.TestRealizarAccion2">
+            <summary>
+            Este test comprueba que este item cure del efecto paralizado al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.TestRealizarAccion3">
+            <summary>
+            Este test comprueba que este item cure del efecto envenenado al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.CuraTotalTests.TestRealizarAccion4">
+            <summary>
+            Este test comprueba que este item cure del efecto quemado al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.EfectividadTests">
+            <summary>
+            Esta es la clase EfectividadTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EfectividadTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EfectividadTests.TestCalcularDebilidad">
+            <summary>
+            Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es débil contra el ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EfectividadTests.TestCalcularResistencia">
+            <summary>
+            Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es resistente contra el ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EfectividadTests.TestCalcularInmunidad">
+            <summary>
+            Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon es inmune contra el ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EfectividadTests.TestCalcularNormal">
+            <summary>
+            Este test comprueba que se calcule correctamente la efectividad cuando el Pokémon no cumple ninguna de las condiciones anteriores.
             </summary>
         </member>
         <member name="T:LibraryTests.EntrenadorTests">
             <summary>
-            Esta es la clase EntrenadorTests. Se encarga de comprobar que se logre instanciar correctamente un Entrenador.
+            Esta es la clase EntrenadorTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestCrearEntrenador">
+            <summary>
+            Este test comprueba que se cree correctamente un Entrenador.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestAgregarPokemon">
+            <summary>
+            Este test comprueba que se agregue correctamente un Pokémon al catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestQuitarPokemon">
+            <summary>
+            Este test comprueba que se quite correctamente un Pokémon del catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestAgregarItem">
+            <summary>
+            Este test comprueba que se agregue correctamente un item al catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestQuitarItem">
+            <summary>
+            Este test comprueba que se quite correctamente un item del catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestAgregarMuerto">
+            <summary>
+            Este test comprueba que se agregue correctamente un muerto al catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.EntrenadorTests.TestQuitarMuerto">
+            <summary>
+            Este test comprueba que se quite correctamente un muerto del catálogo.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.FacadeTests">
+            <summary>
+            Esta es la clase FacadeTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestEncontrarBatallaPorUsuario">
+            <summary>
+            Este test comprueba que se pueda encontrar una batalla de la lista de batallas por el nombre de un jugador.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestAgregarJugadorListaDeEspera">
+            <summary>
+            Este test comprueba que se pueda agregar correctamente un jugador a la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestQuitarJugadorListaDeEspera">
+            <summary>
+            Este test comprueba que se pueda quitar correctamente un jugador de la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestGetJugadoresEsperando">
+            <summary>
+            Este test comprueba que se pueda obtener los nombres de los jugadores en la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestJugadorEsperando">
+            <summary>
+            Este test comprueba que se pueda obtener si un jugador está en la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestComenzarBatalla">
+            <summary>
+            Este test comprueba que se pueda comenzar una batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestMostrarInformacion">
+            <summary>
+            Este test comprueba que se pueda obtener la información de un jugador.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestMostrarPokedex">
+            <summary>
+            Este test comprueba que se pueda obtener la lista de la Pokédex.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestAgregarPokemon">
+            <summary>
+            Este test comprueba que se pueda agregar un Pokémon durante la batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestInicializarEncuentros">
+            <summary>
+            Este test comprueba que se pueda inicializar la batalla y asignar Pokémones actuales a los jugadores.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestRevisarAccion">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido realizar una acción.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestRevisarAtaque">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido usar un ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestPosesionAtaque">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador posee un ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestPosesionPokemonVivo">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador posee a un Pokémon de su catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestPosesionPokemon">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador posee un Pokémon vivo o muerto.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestAtacar">
+            <summary>
+            Este test comprueba que se pueda atacar correctamente durante la batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestUsoDeItem">
+            <summary>
+            Este test comprueba que se pueda usar un item correctamente durante la batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestMostrarAtaques">
+            <summary>
+            Este test comprueba que se pueda obtener los ataques disponibles para el turno.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestMostrarItems">
+            <summary>
+            Este test comprueba que se pueda obtener los items disponibles para usar.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestRevisarItem">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador tiene permitido usar un item.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestPosesionItem">
+            <summary>
+            Este test comprueba que se pueda revisar correctamente si un jugador posee a un item en su catálogo.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestFinalizar">
+            <summary>
+            Este test permite comprobar que se finaliza efectivamente la batalla con este método.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestCambiarPokemon">
+            <summary>
+            Este test comprueba que se pueda cambiar un Pokémon correctamente durante la batalla.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.FacadeTests.TestChequeoEstado">
+            <summary>
+            Este test comprueba que se pueda obtener el estado de una batalla (si hay alguno con Pokémons vivos).
+            </summary>
+        </member>
+        <member name="T:LibraryTests.IncendioTests">
+            <summary>
+            Esta es la clase IncendioTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.IncendioTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.IncendioTests.TestInstanciarIncendio">
+            <summary>
+            Este test comprueba que se instancie correctamente un Incendio.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.IncendioTests.TestCausarEfecto">
+            <summary>
+            Este test comprueba que este ataque ocasione el efecto "Quemar" correctamente.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.ListaBatallasTests">
+            <summary>
+            Esta es la clase ListaBatallasTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaBatallasTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaBatallasTests.TestAgregarBatalla">
+            <summary>
+            Este test comprueba que se agregue correctamente una batalla a la lista.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaBatallasTests.TestQuitarBatalla">
+            <summary>
+            Este test comprueba que se quita correctamente una batalla de la lista.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.ListaDeEsperaTests">
+            <summary>
+            Esta es la clase ListaDeEsperaTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.TestGetEsperando">
+            <summary>
+            Este test comprueba que se obtenga correctamente los jugadores en la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.TestAgregarEntrenador">
+            <summary>
+            Este test comprueba que se agregue correctamente un entrenador a la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.TestQuitarEntrenador">
+            <summary>
+            Este test comprueba que se quite correctamente un entrenador de la lista de espera.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.TestEncontrarJugadorPorUsuario">
+            <summary>
+            Este test comprueba que se pueda encontrar a un jugador en la lista de espera por su nombre.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ListaDeEsperaTests.TestGetAlguienEspeando">
+            <summary>
+            Este test comprueba que se pueda obtener a un jugador en la lista de espera por su nombre.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.ManiquiTests">
+            <summary>
+            Esta es la clase ManiquiTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ManiquiTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ManiquiTests.TestInstanciarManiqui">
+            <summary>
+            Este test comprueba que se instancie correctamente un Maniqui.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ManiquiTests.TestCausarEfecto">
+            <summary>
+            Este test comprueba que este ataque ocasione el efecto "Paralizar" correctamente.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.OffTests">
+            <summary>
+            Esta es la clase OffTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.OffTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.OffTests.TestInstanciarOff">
+            <summary>
+            Este test comprueba que se instancie correctamente un Off.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.OffTests.TestCausarEfecto">
+            <summary>
+            Este test comprueba que este ataque ocasione el efecto "Envenenar" correctamente.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.PokedexTests">
+            <summary>
+            Esta es la clase PokedexTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokedexTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokedexTests.TestBuscarPokemon">
+            <summary>
+            Este test comprueba que se pueda buscar a un Pokémon por su nombre y obtener un objeto copia de él si fue encontrado
+            </summary>
+        </member>
+        <member name="T:LibraryTests.PokemonTests">
+            <summary>
+            Esta es la clase PokemonTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokemonTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokemonTests.TestCrearPokemon">
+            <summary>
+            Este test comprueba que se cree correctamente un Pokémon.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokemonTests.TestRecibirDano">
+            <summary>
+            Este test comprueba que se reciba daño correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokemonTests.TestCurar">
+            <summary>
+            Este test comprueba que se cure determinados puntos de vida correctamente.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.PokemonTests.TestGetAtaques">
+            <summary>
+            Este test comprueba que se obtenga correctamente los ataques del Pokémon.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.RevivirTests">
+            <summary>
+            Esta es la clase RevivirTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RevivirTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RevivirTests.TestInstanciarRevivir">
+            <summary>
+            Este test comprueba que se instancie correctamente un Revivir.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.RevivirTests.TestRealizarAccion">
+            <summary>
+            Este test comprueba que este item reviva al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.SuperPocionTests">
+            <summary>
+            Esta es la clase SuperPocionTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.SuperPocionTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.SuperPocionTests.TestInstanciarSuperPocion">
+            <summary>
+            Este test comprueba que se instancie correctamente una SuperPocion.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.SuperPocionTests.TestRealizarAccion">
+            <summary>
+            Este test comprueba que este item cure 70 puntos o los que falten para tener el máximo al Pokémon deseado.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.TurnoTests">
+            <summary>
+            Esta es la clase TurnoTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestValidarAtacar">
+            <summary>
+            Este test comprueba que se valide correctamente la acción "Atacar".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestValidarAtaque">
+            <summary>
+            Este test comprueba que se valide correctamente una ataque.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestHacerAtacar">
+            <summary>
+            Este test comprueba que se realice correctamente la acción "Atacar".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestValidarUsarItem">
+            <summary>
+            Este test comprueba que se valide correctamente la acción "Usar Item".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestValidarItem">
+            <summary>
+            Este test comprueba que se valide correctamente un item.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestHacerUsoItem">
+            <summary>
+            Este test comprueba que se realice correctamente la acción "Usar Item".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestValidarCambiarPokemon">
+            <summary>
+            Este test comprueba que se valide correctamente la acción "Cambiar Pokémon".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.TurnoTests.TestHacerCambioPokemon">
+            <summary>
+            Este test comprueba que se realice correctamente la acción "Cambiar Pokémon".
+            </summary>
+        </member>
+        <member name="T:LibraryTests.UsarItemTests">
+            <summary>
+            Esta es la clase UsarItemTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UsarItemTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UsarItemTests.TestUsoDeRevivir">
+            <summary>
+            Este test comprueba que se reviva a un Pokémon muerto con "Revivir".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UsarItemTests.TestUsoDeSuperPocion">
+            <summary>
+            Este test comprueba que se cure a un Pokémon con 70 puntos o los que necesite para el máximo con "SúperPoción".
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UsarItemTests.TestUsoDeCuraTotal">
+            <summary>
+            Este test comprueba que se cure de un efecto especial a un Pokémon con "CuraTotal".
+            </summary>
+        </member>
+        <member name="T:LibraryTests.UserStoriesTests">
+            <summary>
+            Esta es la clase UserStoriesTests. Se encarga de comprobar las historias de usuario.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.SetUp">
+            <summary>
+            En este OneTimeSetUp instanciamos objetos que necesitaremos para testear.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory1">
+            <summary>
+            Este test comprueba la historia de usuario 1.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory2">
+            <summary>
+            Este test comprueba la historia de usuario 2.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory3">
+            <summary>
+            Este test comprueba la historia de usuario 3.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory4">
+            <summary>
+            Este test comprueba la historia de usuario 4.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory5">
+            <summary>
+            Este test comprueba la historia de usuario 5.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory6">
+            <summary>
+            Este test comprueba la historia de usuario 6.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory7">
+            <summary>
+            Este test comprueba la historia de usuario 7.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory8">
+            <summary>
+            Este test comprueba la historia de usuario 8.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory9">
+            <summary>
+            Este test comprueba la historia de usuario 9.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory10">
+            <summary>
+            Este test comprueba la historia de usuario 10.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.UserStoriesTests.TestUserStory11">
+            <summary>
+            Este test comprueba la historia de usuario 11.
+            </summary>
+        </member>
+        <member name="T:LibraryTests.ZzzTests">
+            <summary>
+            Esta es la clase ZzzTests. Se encarga de comprobar sus funcionalidades.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ZzzTests.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ZzzTests.TestInstanciarZzz">
+            <summary>
+            Este test comprueba que se instancie correctamente un Zzz.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.ZzzTests.TestCausarEfecto">
+            <summary>
+            Este test comprueba que este ataque ocasione el efecto "Dormir" correctamente.
             </summary>
         </member>
     </members>

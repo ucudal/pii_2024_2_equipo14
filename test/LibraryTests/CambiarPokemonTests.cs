@@ -2,7 +2,9 @@ using Library;
 using NUnit.Framework;
 
 namespace LibraryTests;
-
+/// <summary>
+/// Esta es la clase CambiarPokemonTests. Se encarga de comprobar sus funcionalidades.
+/// </summary>
 [TestFixture]
 [TestOf(typeof(CambiarPokemon))]
 public class CambiarPokemonTests
@@ -10,7 +12,9 @@ public class CambiarPokemonTests
     private Pokemon pokemonActual;
     private Pokemon cambio;
     private Entrenador entrenador;
-    
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
@@ -21,7 +25,9 @@ public class CambiarPokemonTests
         entrenador.AgregarPokemon(cambio);
         entrenador.PokemonActual = pokemonActual;
     }
-
+    /// <summary>
+    /// Este test comprueba que se cambie a un nuevo Pokémon actual de los del catálogo del entrenador.
+    /// </summary>
     [Test]
     public void TestCambioDePokemon()
     {
