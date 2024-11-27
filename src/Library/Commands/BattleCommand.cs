@@ -23,7 +23,8 @@ public class BattleCommand : ModuleBase<SocketCommandContext>
 
         string result;
         if (opponentUser != null && Facade.Instance.JugadorEsperando(opponentDisplayName) != $"{opponentDisplayName} no está esperando")
-        {
+        {// agregar llamada al metodo de acuerdo de restricciones de la clase Facade antes de que empiece la batalla
+            // y en caso de que no se llegue a un acuerdo no haya batalla en este metodo tendria que estar para que el jugador pueda añadir las restricciones
             result = Facade.Instance.ComenzarBatalla(displayName, opponentUser.DisplayName);
             await ReplyAsync(result);
             string pokedex = Facade.Instance.MostrarPokedex(); 

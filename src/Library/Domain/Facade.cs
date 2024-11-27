@@ -221,8 +221,8 @@ public class Facade
             {
                 return $"{entrenador.Nombre}, ya tienes ese Pokemon";
             }
-        }
-        if (nuevo != null)
+        }                 // o agregar un foreach nombre en list<AcuerdoDeBatalla> 
+        if (nuevo != null)// aca tendria que agregar que recorra la lista de restricciones y si no esta en la lista AcuerdoDeBatalla que se agregue 
         {
             entrenador.AgregarPokemon(nuevo);
             string mensaje = $"{entrenador.Nombre} ha agregado a ¨{nuevo.Nombre}¨ de tipo {nuevo.Tipo} a su catálogo";
@@ -249,7 +249,7 @@ public class Facade
         return Mensaje.PokemonesIniciales(batalla);
     }
 
-    public bool RevisarAccion(Entrenador entrenador, string accion)
+    public bool RevisarAccion(Entrenador entrenador, string accion) // agregarle las restricciones 
     { 
         return Turno.ValidarAccion(entrenador, accion);
     }
