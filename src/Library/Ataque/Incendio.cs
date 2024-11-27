@@ -16,8 +16,15 @@ public class Incendio: AtaqueEspecial
     {
         
     }
-    public override void CausarEfecto(Entrenador entrenador,Pokemon pokemon, int critico)
+    /// <summary>
+    /// Causa el efecto "Quemar" en el Pokémon ingresado.
+    /// <param name="entrenador">El entrenador afectado.</param>
+    /// <param name="pokemon">El Pokémon afectado.</param>
+    /// <summary>
+    public override void CausarEfecto(Entrenador? entrenador, Pokemon pokemon)
     {
+        Random golpeCritico = new Random();
+        int critico = golpeCritico.Next(0, 10);
         pokemon.Quemado = true;
         pokemon.RecibirDano(pokemon.VidaTotal*10/100);
         int dano = Efectividad.CalcularEfectividad(new Incendio(), pokemon);

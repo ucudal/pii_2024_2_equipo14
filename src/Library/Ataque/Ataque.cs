@@ -8,24 +8,20 @@ public class Ataque
     /// Inicializa una nueva instancia de la clase <see cref="Ataque"/>.
     /// </summary>
     /// <param name="nombre">El nombre del ataque.</param>
-    /// <param name="Dano">El daño que influye el ataque.</param>
-    /// <param name="Precision">La precisión del ataque.</param>
-    /// <param name="Tipo">El nombre del tipo de ataque.</param>
-    public Ataque(string nombre, int Dano, int Precision, string Tipo)
+    /// <param name="dano">El daño que influye el ataque.</param>
+    /// <param name="precision">La precisión del ataque.</param>
+    /// <param name="tipo">El nombre del tipo de ataque.</param>
+    public Ataque(string nombre, int dano, int precision,string tipo)
     {
         this.Nombre = nombre;
-        this.Dano = Dano;
-        this.Precision = Precision;
-        this.Tipo = Tipo;
+        this.Dano = dano;
+        this.Precision = precision;
+        this.Tipo = tipo;
     }
     /// <summary>
     /// Obtiene o establece un string que indica el nombre del ataque.
     /// </summary>
     public string Nombre { get; protected set; }
-    /// <summary>
-    /// Obtiene o establece un string que indica el tipo del ataque.
-    /// </summary>
-    public string Tipo { get; protected set; }
     /// <summary>
     /// Obtiene o establece un valor (int) que indica el daño del ataque.
     /// </summary>
@@ -34,6 +30,10 @@ public class Ataque
     /// Obtiene o establece un valor (int) que indica la precisión del ataque.
     /// </summary>
     public int Precision { get; protected set; }
+    /// <summary>
+    /// Obtiene o establece un string que indica el tipo del ataque.
+    /// </summary>
+    public string Tipo { get; }
     /// <summary>
     /// Calcula si el ataque es preciso, es decir, si hace o no daño/causa un efecto en la víctima.
     /// </summary>
