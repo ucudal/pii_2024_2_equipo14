@@ -2,7 +2,9 @@ using Discord.Commands;
 using Discord.WebSocket;
 
 namespace Library;
-
+/// <summary>
+/// Esta es la clase CommandHelper. Se encarga de devolver información del usuario.
+/// </summary>
 public static class CommandHelper
 {
     public static string GetDisplayName(

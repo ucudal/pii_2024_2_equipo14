@@ -2,7 +2,9 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase UseItemCommand. Se encarga de gestionar el uso de item con los parámetros recibidos por el usuario.
+/// </summary>
 public class UseItemCommand :  ModuleBase<SocketCommandContext>
 {
     [Command("useitem")]

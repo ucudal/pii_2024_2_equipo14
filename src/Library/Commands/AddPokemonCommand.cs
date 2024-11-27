@@ -3,7 +3,9 @@ using Discord.Commands;
 using Discord.WebSocket;
 
 namespace Library;
-
+/// <summary>
+/// Esta es la clase AddPokemonCommand. Se encarga de gestionar el agrego de Pokémon con los parámetros recibidos por el usuario.
+/// </summary>
 public class AddPokemonCommand : ModuleBase<SocketCommandContext>
 {
     /// <summary>

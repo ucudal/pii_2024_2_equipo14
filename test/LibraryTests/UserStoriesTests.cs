@@ -1,7 +1,6 @@
-using System.ComponentModel.Design.Serialization;
+
 using Library;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
 
 namespace LibraryTests;
 /// <summary>
@@ -231,32 +230,32 @@ public class UserStoriesTests
     {
         Facade facade3 = Facade.Instance;
         facade3.AgregarJugadorListaDeEspera("u1");
-        facade233.AgregarJugadorListaDeEspera("e2");
-        facade2.ComenzarBatalla("e1", "e2");
-        Batalla battle2 = facade.EncontrarBatallaPorUsuario("e1");
-        Entrenador e1 = battle2.Jugador1;
-        Entrenador e2 = battle2.Jugador2;m 
-        facade.AgregarPokemon(e1, "Pikachu");
-        facade.AgregarPokemon(e1, "Bulbasaur");
-        facade.AgregarPokemon(e1, "Mew");
-        facade.AgregarPokemon(e1, "Ponyta");
-        facade.AgregarPokemon(e1, "Squirtle");
-        facade.AgregarPokemon(e1, "Charmander");
-        facade.AgregarPokemon(e2, "Dratini");
-        facade.AgregarPokemon(e2, "Pikachu");
-        facade.AgregarPokemon(e2, "Goomy");
-        facade.AgregarPokemon(e2, "Cranidos");
-        facade.AgregarPokemon(e2, "Vullaby");
-        facade.AgregarPokemon(e2, "Vanillite");
-        battle2.EnBatalla = true;
-        e1.PokemonActual = e1.GetMiCatalogo().First(p => p.Nombre == "Pikachu");
-        e2.PokemonActual = e2.GetMiCatalogo().First(p => p.Nombre == "Dratini");
-        int esperado1 = e1.Turnos + 1;
-        bool esperado2 = !e1.MiTurno;
-        jugador1.PokemonActual.RecibirDano(70);
-        string resultado3 = facade.UsoDeItem(e1, "SúperPoción", "Pikachu", e2);
-        int resultado1 = e1.Turnos;
-        bool resultado2 = e1.MiTurno;
+        facade3.AgregarJugadorListaDeEspera("u2");
+        facade3.ComenzarBatalla("u1", "u2");
+        Batalla battle3 = facade3.EncontrarBatallaPorUsuario("u1");
+        Entrenador u1 = battle3.Jugador1;
+        Entrenador u2 = battle3.Jugador2;
+        facade3.AgregarPokemon(u1, "Pikachu");
+        facade3.AgregarPokemon(u1, "Bulbasaur");
+        facade3.AgregarPokemon(u1, "Mew");
+        facade3.AgregarPokemon(u1, "Ponyta");
+        facade3.AgregarPokemon(u1, "Squirtle");
+        facade3.AgregarPokemon(u1, "Charmander");
+        facade3.AgregarPokemon(u2, "Dratini");
+        facade3.AgregarPokemon(u2, "Pikachu");
+        facade3.AgregarPokemon(u2, "Goomy");
+        facade3.AgregarPokemon(u2, "Cranidos");
+        facade3.AgregarPokemon(u2, "Vullaby");
+        facade3.AgregarPokemon(u2, "Vanillite");
+        battle3.EnBatalla = true;
+        u1.PokemonActual = u1.GetMiCatalogo().First(p => p.Nombre == "Pikachu");
+        u2.PokemonActual = u2.GetMiCatalogo().First(p => p.Nombre == "Dratini");
+        int esperado1 = u1.Turnos + 1;
+        bool esperado2 = !u1.MiTurno;
+        u1.PokemonActual.RecibirDano(70);
+        string resultado3 = facade3.UsoDeItem(u1, "SúperPoción", "Pikachu", u2);
+        int resultado1 = u1.Turnos;
+        bool resultado2 = u1.MiTurno;
         string esperado3 = "SúperPoción fue usado en Pikachu";
         Assert.That(esperado1,Is.EqualTo(resultado1));
         Assert.That(esperado2,Is.EqualTo(resultado2));

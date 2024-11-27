@@ -3,6 +3,9 @@ using Discord.Commands;
 using Discord.WebSocket;
 
 namespace Library;
+/// <summary>
+/// Esta es la clase AttackCommand. Se encarga de gestionar un ataque con los parámetros recibidos por el usuario.
+/// </summary>
 public class AttackCommand :  ModuleBase<SocketCommandContext>
 {
     [Command("attack")]

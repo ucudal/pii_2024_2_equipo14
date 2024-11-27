@@ -1,7 +1,9 @@
 using System.ComponentModel.Design;
 using Discord.Commands;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase ChangeCommand. Se encarga de gestionar el cambio de Pokémon actual con los parámetros recibidos por el usuario.
+/// </summary>
 public class ChangeCommand : ModuleBase<SocketCommandContext>
 {
     [Command("change")]

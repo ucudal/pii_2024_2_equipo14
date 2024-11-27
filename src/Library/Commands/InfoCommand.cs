@@ -1,7 +1,9 @@
 using System.Text;
 using Discord.Commands;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase InfoCommand. Devuelve al usuario los comandos disponibles.
+/// </summary>
 public class InfoCommand: ModuleBase<SocketCommandContext>
 {
     [Command("info")]
