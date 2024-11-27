@@ -1,1 +1,1 @@
-Me hubiese podido gustar poner un Console.ReadLine() o algo para poder poner "Aceptar?" o algo y mostrar las reglas. De hecho lo intenté pero no me sirvió para los Tests entonces opté por hacerlo de esa manera a través de la Facade.
+Me hubiese gustado poner un Console.ReadLine() o algo para poder poner "Aceptar?" o algo y mostrar las reglas para que se viera en pantalla. De hecho lo intenté pero no me sirvió para los Tests entonces opté por hacerlo de esa manera a través de la Facade. 
