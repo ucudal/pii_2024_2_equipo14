@@ -31,13 +31,13 @@ public class AttackCommand :  ModuleBase<SocketCommandContext>
         Pokemon pokemon2 = oponente.PokemonActual;
         if (ataque == null)
         {
-            if (Facade.Instance.RevisarAtaque(jugador, pokemon, pokemon.AtaqueEspecial.Nombre, pokemon2))
+            if (jugador.Turnos % 2 == 0 || pokemon2.Envenenado || pokemon2.Dormido || pokemon2.Paralizado || pokemon2.Quemado)
             {
-                result = Facade.Instance.MostrarAtaques(jugador.PokemonActual,true);
+                    result = Facade.Instance.MostrarAtaques(jugador.PokemonActual,false);
             }
             else
             {
-                result = Facade.Instance.MostrarAtaques(jugador.PokemonActual, false);
+                result = Facade.Instance.MostrarAtaques(jugador.PokemonActual, true);   
             }
         }
         else

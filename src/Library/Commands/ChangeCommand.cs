@@ -26,7 +26,7 @@ public class ChangeCommand : ModuleBase<SocketCommandContext>
         }
         if (pokemon != null)
         {
-            Facade.Instance.CambiarPokemon(jugador, pokemon, jugador2);
+            await ReplyAsync(Facade.Instance.CambiarPokemon(jugador, pokemon, jugador2));
         }
         else
         {
