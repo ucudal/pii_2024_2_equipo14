@@ -33,7 +33,7 @@ namespace Library
         /// <summary>
         /// Atributo tipo List que contiene los items del entrenador.
         /// </summary>
-        private List<Item> misItems = new List<Item>();
+        public List<Item> misItems = new List<Item>();
         
         /// <summary>
         /// Devuelve la lista de items del entrenador.

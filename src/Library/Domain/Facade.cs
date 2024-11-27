@@ -521,4 +521,27 @@ public bool ChequeoEstado(Batalla batalla)
         }
         return true;
     }
+
+
+    public bool AgregarRestriccion(Entrenador? entrenador, string? nombre, string? tipo, string? item)
+    {
+        if (nombre != null)
+        {
+            Mensaje.AgregarRestriccion(null, nombre, null, null);
+        }
+
+        if (tipo != null)
+        {
+            Mensaje.AgregarRestriccion(null, null, tipo, null);
+        }
+
+        if (item != null)
+        {
+            Mensaje.AgregarRestriccion(null, null, null, item);
+
+        }
+
+        return true;
+    }
+
 }

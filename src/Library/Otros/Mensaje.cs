@@ -1,6 +1,7 @@
 using System.Text;
 
 namespace Library;
+
 /// <summary>
 /// Esta es la clase estática Mensaje. Define los mensajes a retornar según la acción que se ejecute en el código.
 /// </summary>
@@ -12,13 +13,15 @@ public static class Mensaje
     public static string PokedexDisponibles()
     {
         StringBuilder mensaje = new StringBuilder();
-        mensaje.AppendLine("\nPOKÉDEX (Elige 6):"); 
+        mensaje.AppendLine("\nPOKÉDEX (Elige 6):");
         foreach (Pokemon pokemon in Pokedex.listaPokemons)
         {
-            mensaje.AppendLine($" \t - {pokemon.Nombre} | Tipo: {pokemon.Tipo}") ;
+            mensaje.AppendLine($" \t - {pokemon.Nombre} | Tipo: {pokemon.Tipo}");
         }
+
         return mensaje.ToString();
     }
+
     /// <summary>
     /// Muestra los pokemones disponibles del catalogo del entrenador a la hora de cambiar de Pokémon actual.
     /// </summary>
@@ -33,7 +36,8 @@ public static class Mensaje
             if (pokemon != entrenador.PokemonActual)
             {
                 string info = "";
-                info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
+                info +=
+                    $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
                 if (pokemon == entrenador.PokemonActual)
                 {
                     info += $" | (Pokémon Actual)";
@@ -58,13 +62,14 @@ public static class Mensaje
                 {
                     info += $" | (Quemado)";
                 }
+
                 mensaje.AppendLine(info);
             }
         }
 
         return mensaje.ToString();
     }
- 
+
     /// <summary>
     /// Muestra los ataques disponibles para el turno.
     /// </summary>
@@ -76,18 +81,21 @@ public static class Mensaje
         foreach (Ataque ataque in pokemon.GetAtaques())
         {
             string info = "";
-            if (ataque is AtaqueEspecial ataqueEspecial && especial) 
+            if (ataque is AtaqueEspecial ataqueEspecial && especial)
             {
-                info += $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
-                info+= $" | Efecto: {ataqueEspecial.Efecto}";
+                info +=
+                    $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
+                info += $" | Efecto: {ataqueEspecial.Efecto}";
                 mensaje.AppendLine(info);
             }
             else if (ataque is not AtaqueEspecial)
             {
-                info += $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
+                info +=
+                    $" \t - ¨{ataque.Nombre}¨ | Tipo: {ataque.Tipo} | Daño: {ataque.Dano} | Precisión: {ataque.Precision}";
                 mensaje.AppendLine(info);
             }
         }
+
         return mensaje.ToString();
     }
 
@@ -140,7 +148,7 @@ public static class Mensaje
 
         return mensaje.ToString();
     }
-    
+
     /// <summary>
     /// Muestra la información general de cada entrenador, todos sus Pokémones disponibles.
     /// <summary>
@@ -152,7 +160,8 @@ public static class Mensaje
         foreach (Pokemon pokemon in entrenador.GetMiCatalogo())
         {
             string info = "";
-            info += $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
+            info +=
+                $" \t - ¨{pokemon.Nombre}¨ | Tipo: {pokemon.Tipo} | Vida: {pokemon.VidaTotal}/{pokemon.VidaInicial}";
             if (pokemon == entrenador.PokemonActual)
             {
                 info += $" | (Pokémon Actual)";
@@ -177,19 +186,22 @@ public static class Mensaje
             {
                 info += $" | (Quemado)";
             }
+
             mensaje.AppendLine(info);
         }
-        
+
         if (entrenador.GetMisMuertos().Count > 0)
         {
             foreach (Pokemon muerto in entrenador.GetMisMuertos())
-            { 
-                mensaje.AppendLine($" \t - ¨{muerto.Nombre}¨ | Tipo: {muerto.Tipo} | Vida: {muerto.VidaTotal}/{muerto.VidaInicial}\n");
+            {
+                mensaje.AppendLine(
+                    $" \t - ¨{muerto.Nombre}¨ | Tipo: {muerto.Tipo} | Vida: {muerto.VidaTotal}/{muerto.VidaInicial}\n");
             }
         }
+
         return mensaje.ToString();
     }
-    
+
     /// <summary>
     /// Muestra los Pokémones actuales elegidos aleatoriamente para cada entrenador en una batalla.
     /// </summary>
@@ -198,12 +210,14 @@ public static class Mensaje
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
         mensaje.AppendLine("COMIENZO:");
-        mensaje.AppendLine($" \t - Se ha elegido aleatoriamente a ¨{batalla.GetPokemonActualJ1()}¨ como Pokémon inicial de {batalla.GetNombreJ1()}");
-        mensaje.AppendLine($" \t - Se ha elegido aleatoriamente a ¨{batalla.GetPokemonActualJ2()}¨ como Pokémon inicial de {batalla.GetNombreJ2()}");
+        mensaje.AppendLine(
+            $" \t - Se ha elegido aleatoriamente a ¨{batalla.GetPokemonActualJ1()}¨ como Pokémon inicial de {batalla.GetNombreJ1()}");
+        mensaje.AppendLine(
+            $" \t - Se ha elegido aleatoriamente a ¨{batalla.GetPokemonActualJ2()}¨ como Pokémon inicial de {batalla.GetNombreJ2()}");
         mensaje.AppendLine(Mensaje.Turno(batalla.Jugador1));
         return mensaje.ToString();
     }
-    
+
     /// <summary>
     /// Muestra de quien es el turno. 
     /// </summary>
@@ -235,7 +249,7 @@ public static class Mensaje
     {
         return "No posees ese Pokémon";
     }
-        
+
     /// <summary>
     /// Devuelve mensaje de encuentro, menciona ataque usado, a qué pokemon ha atacado y la información general de cada jugador.
     /// </summary>
@@ -244,7 +258,8 @@ public static class Mensaje
         StringBuilder mensaje = new StringBuilder();
         mensaje.AppendLine("\n");
         mensaje.AppendLine($"ATAQUE DE {entrenador.Nombre}:");
-        mensaje.AppendLine($" \t - {entrenador.GetPokemonActual()} ha atacado a {oponente.GetPokemonActual()} de {oponente.Nombre}");
+        mensaje.AppendLine(
+            $" \t - {entrenador.GetPokemonActual()} ha atacado a {oponente.GetPokemonActual()} de {oponente.Nombre}");
         mensaje.AppendLine($" \t - Ha utilizado el ataque {ataque.Nombre}");
         mensaje.Append(Mensaje.InformacionGeneral(entrenador));
         mensaje.Append(Mensaje.InformacionGeneral(oponente));
@@ -271,11 +286,11 @@ public static class Mensaje
         {
             mensaje.Append(Mensaje.Turno(batalla.Jugador1));
         }
-        
+
         return mensaje.ToString();
     }
-    
-    
+
+
     /// <summary>
     /// Muestra el fin de la batalla, quién fue el ganador y quién fue el perdedor.
     /// </summary>
@@ -307,5 +322,58 @@ public static class Mensaje
         }
 
         return mensaje.ToString();
+    }
+
+    public static string AgregarRestriccion(Entrenador? entrenador, string? nombre, string? tipo, string? itemRemover)
+    {
+        if (nombre != null)
+        {
+            foreach (Pokemon pokemon in Pokedex.listaPokemons)
+            {
+                if (pokemon.Nombre == nombre)
+                {
+                    Pokedex.listaPokemons.Remove(pokemon);
+                }
+
+                return $"No se puede elegir el pokemon {nombre}";
+            }
+
+        }
+
+        if (tipo != null)
+        {
+            foreach (Pokemon pokemon in Pokedex.listaPokemons)
+            {
+                if (pokemon.Tipo == tipo)
+                {
+                    Pokedex.listaPokemons.Remove(pokemon);
+                }
+
+                return $"No se puede elegir pokemones de tipo {tipo}";
+            }
+        }
+
+        if (itemRemover != null)
+        {
+            if (itemRemover == "CuraTotal")
+            {
+                entrenador.misItems.Remove(new CuraTotal());
+            }
+
+            if (itemRemover == "Revivir")
+            {
+                entrenador.misItems.Remove(new Revivir());
+            }
+
+            if (itemRemover == "SuperPocion")
+            {
+                entrenador.misItems.Remove(new SuperPocion());
+            }
+
+            return $"No se puede usar el item {itemRemover}";
+
+        }
+
+        return  null;
     }
 }
