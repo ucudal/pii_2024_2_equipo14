@@ -3,8 +3,16 @@ using Discord.Commands;
 using Discord.WebSocket;
 
 namespace Library;
+/// <summary>
+/// Esta es la clase AttackCommand. Es el comando del bot para atacar al pokemon del oponente.
+/// </summary>
 public class AttackCommand :  ModuleBase<SocketCommandContext>
 {
+    /// <summary>
+    /// Verifica si es posible atacar al pokemon, muestra los ataques disponibles y valida si está la batalla activa.
+    /// </summary>
+    /// <param name="ataque">El ataque elegido</param>
+    /// <returns> Ataque</returns>
     [Command("attack")]
     [Summary("Realiza el ataque que el jugador indique al Pokémon actual del oponente")]
     public async Task ExecuteAsync([Remainder] string? ataque = null)

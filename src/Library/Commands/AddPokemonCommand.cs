@@ -3,14 +3,22 @@ using Discord.Commands;
 using Discord.WebSocket;
 
 namespace Library;
-
+/// <summary>
+/// Esta es la clase AddPokemonCommand. Es el comando del bot para agregar el pokemon elegido al catalogo del entrenador.
+/// </summary>
 public class AddPokemonCommand : ModuleBase<SocketCommandContext>
 {
+   
     /// <summary>
-    /// Implementa el comando 'atacar'. Este comando permite al jugador realizar un ataque durante la batalla.
+    /// Verifica si es posible agregar al pokemon elegido para la batalla
     /// </summary>
+    /// <param name="pokemonElegido">El nombre del pokemon elegido en el comando de Discord</param>
+    /// <returns><c>AgregarPokemon</c> si se agrega correctamente <c>No fue posible agregar el Pokémon</c>
+    /// en caso contrario.</returns>
+    
     [Command("addpokemon")]
     [Summary("Agrega el Pokémon elegido al catálogo del jugador")]
+    
     public async Task ExecuteAsync([Remainder] string? pokemonElegido = null)
     {
         string displayName = CommandHelper.GetDisplayName(Context);

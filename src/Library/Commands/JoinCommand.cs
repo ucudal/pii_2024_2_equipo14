@@ -1,7 +1,6 @@
 using Discord.Commands;
 
 namespace Library;
-
 /// <summary>
 /// Esta clase implementa el comando 'join' del bot. Este comando une al jugador
 /// que envía el mensaje a la lista de jugadores esperando para jugar.

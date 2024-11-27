@@ -13,6 +13,11 @@ namespace Library;
 // ReSharper disable once UnusedType.Global
 public class BattleCommand : ModuleBase<SocketCommandContext>
 {
+    /// <summary>
+    /// Verifica si es posible crear la batalla y une al jugador con el oponente para crear esta misma.
+    /// </summary>
+    /// <param name="opponentDisplayName">El nombre del jugador oponente</param>
+    /// <returns>batalla creada.</returns>
     [Command("battle")]
     [Summary("Une al jugador que envía el mensaje con el oponente que se recibe como parámetro, si lo hubiera.")]
     public async Task ExecuteAsync([Remainder] string? opponentDisplayName = null)

@@ -1,9 +1,17 @@
 using System.ComponentModel.Design;
 using Discord.Commands;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase ChangeCommand. Es el comando del bot para cambiar el pokemon actual por otro pokemon elegido de su catálogo.
+/// </summary>
 public class ChangeCommand : ModuleBase<SocketCommandContext>
 {
+    
+    /// <summary>
+    /// Verifica si se puede realizar el cambio de pokemon corectamente.
+    /// </summary>
+    /// <param name="opponentDisplayName">El nombre del jugador oponente</param>
+    /// <returns>nuevo pokemon actual.</returns>
     [Command("change")]
     [Summary("Cambia su Pokémon actual al Pokémon elegido")]
     public async Task ExecuteAsync([Remainder] string? pokemon = null)

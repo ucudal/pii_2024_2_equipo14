@@ -2,9 +2,15 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase UseItemCommand. Es el comando del bot muestra los items que se pueden utilizar en cada turno.
+/// </summary>
 public class UseItemCommand :  ModuleBase<SocketCommandContext>
 {
+    /// <summary>
+    /// Muestra los items disponibles.
+    /// </summary>
+    /// <returns>items</returns>
     [Command("useitem")]
     [Summary("Utiliza el Item elegido por el jugador en el Pokémon elegido")]
     public async Task ExecuteAsync([Remainder] string? itemypokemon = null)

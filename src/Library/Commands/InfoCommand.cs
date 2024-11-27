@@ -1,9 +1,16 @@
 using System.Text;
 using Discord.Commands;
 namespace Library;
-
+/// <summary>
+/// Esta es la clase InfoCommand. Es el comando del bot que muestra una lista de todos los comandos disponibles para utilizar
+/// y lo que hace cada uno.
+/// </summary>
 public class InfoCommand: ModuleBase<SocketCommandContext>
 {
+    /// <summary>
+    /// Muestra una lista de comandos disponibles para utilizar.
+    /// </summary>
+    /// <returns>Lista de comandos disponibles.</returns>
     [Command("info")]
     [Summary("Muestra todos los comandos disponibles")]
     public async Task ExecuteAsync()
