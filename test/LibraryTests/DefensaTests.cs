@@ -9,20 +9,25 @@ public class DefensaTest
     private Entrenador entrenador;
     private Pokemon pokemon;
     private Item item;
-   
-
+    /// <summary>
+    /// En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+    /// </summary>
     [SetUp]
     public void SetUp()
     {
         entrenador = new Entrenador("Defensa");
         pokemon = new Pokemon("Pikachu", "Eléctrico", new Ataque("Rayo", 40, 20, "Eléctrico"), new Zzz());
-        item = new Revivir();
+        entrenador.AgregarItem(new Revivir());
     }
 
+    
+    /// <summary>
+    /// Este test verifica que se realice la restriccion de nombre, se fija si en la lista de pokedex sigue estando
+    /// así a la hora de mostrar los pokemones disponibles directamente no lo muestra, no se puede elegir.
+    /// </summary>
     [Test]
     public void TestAgregarRestriccionNombre()
     {
-        //restriccion de nombre, fijarse si en la lista de pokedex sigue estando ese pokemon
         bool esperado = false;
         Facade.Instance.AgregarRestriccion(null,pokemon.Nombre,null,null);
         bool esperado1 = Pokedex.listaPokemons.Contains(pokemon);
@@ -30,21 +35,30 @@ public class DefensaTest
         
     }
 
+    
+    
+    /// <summary>
+    /// Este test verifica que se realice la restriccion del tipo del pokemon, se fija si se retorna el mensaje de Mensaje
+    /// para ver si se realizó correctamente el método
+    /// </summary>
     [Test]
     public void TestAgregarRestriccionTipo()
     {
-        //restriccion de tipo, fijarse si retorna que no se pueden elegir tipo fuego
         string esperado=Mensaje.AgregarRestriccion(null, null, "Fuego", null);
         string esperado1 = $"No se puede elegir pokemones de tipo Fuego";
         Assert.That(esperado, Is.EqualTo(esperado1));
     }
-
+    
+    
+    /// <summary>
+    /// Este test verifica que se realice la restriccion del item, se fija si luego de hacer la restricción el item sigue disponible en el catalogo de
+    /// items del entrenador, así nunca le va a salir en pantalla y de esa forma no va a poder utilizarlo.
+    /// </summary>
     [Test]
     public void TestAgregarRestriccionItem()
     {
         Mensaje.AgregarRestriccion(entrenador,null,null,"Revivir");
-        bool esperado = entrenador.misItems.Contains(item);
         bool esperado1 = false;
-        Assert.That(esperado1,Is.EqualTo(esperado));
+        Assert.That(esperado1,Is.EqualTo(entrenador.misItems.Contains(item)));
     }
 }

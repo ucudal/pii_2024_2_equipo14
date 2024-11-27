@@ -124,6 +124,29 @@
             Este test comprueba que este item cure del efecto quemado al Pokémon deseado.
             </summary>
         </member>
+        <member name="M:LibraryTests.DefensaTest.SetUp">
+            <summary>
+            En este SetUp instanciamos objetos que necesitaremos para testear esta clase.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.DefensaTest.TestAgregarRestriccionNombre">
+            <summary>
+            Este test verifica que se realice la restriccion de nombre, se fija si en la lista de pokedex sigue estando
+            así a la hora de mostrar los pokemones disponibles directamente no lo muestra, no se puede elegir.
+            </summary>
+        </member>
+        <member name="M:LibraryTests.DefensaTest.TestAgregarRestriccionTipo">
+            <summary>
+            Este test verifica que se realice la restriccion del tipo del pokemon, se fija si se retorna el mensaje de Mensaje
+            para ver si se realizó correctamente el método
+            </summary>
+        </member>
+        <member name="M:LibraryTests.DefensaTest.TestAgregarRestriccionItem">
+            <summary>
+            Este test verifica que se realice la restriccion del item, se fija si luego de hacer la restricción el item sigue disponible en el catalogo de
+            items del entrenador, así nunca le va a salir en pantalla y de esa forma no va a poder utilizarlo.
+            </summary>
+        </member>
         <member name="T:LibraryTests.EfectividadTests">
             <summary>
             Esta es la clase EfectividadTests. Se encarga de comprobar sus funcionalidades.
